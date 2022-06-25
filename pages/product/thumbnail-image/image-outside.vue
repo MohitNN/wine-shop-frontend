@@ -134,52 +134,6 @@
                             :disabled="counter > getDetail.stock"
                           >Buy Now</button>
                       </div>
-                      <div class="border-product">
-                        <h6 class="product-title">product details</h6>
-                        <p>{{getDetail.description.substring(0,200)+"...."}}</p>
-                      </div>
-                      <div class="border-product">
-                        <h6 class="product-title">share it</h6>
-                        <div class="product-icon">
-                          <ul class="product-social">
-                            <li>
-                              <a href="#">
-                                <i class="fa fa-facebook"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i class="fa fa-google-plus"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i class="fa fa-twitter"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i class="fa fa-instagram"></i>
-                              </a>
-                            </li>
-                            <li>
-                              <a href="#">
-                                <i class="fa fa-rss"></i>
-                              </a>
-                            </li>
-                          </ul>
-                          <form class="d-inline-block">
-                            <button class="wishlist-btn" @click="addToWishlist(product)">
-                              <i class="fa fa-heart"></i>
-                              <span class="title-font">Add To WishList</span>
-                            </button>
-                          </form>
-                        </div>
-                      </div>
-                      <div class="border-product pb-0">
-                        <h6 class="product-title">Time Reminder</h6>
-                        <Timer date="December 20, 2020" />
-                      </div>
                     </div>
                         </div>
                         <div class="col order-up">

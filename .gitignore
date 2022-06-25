@@ -13,3 +13,8 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+.nuxt/App.js
+.nuxt/index.js
+.nuxt/router.js
+.nuxt/index.js
+.nuxt/routes.json

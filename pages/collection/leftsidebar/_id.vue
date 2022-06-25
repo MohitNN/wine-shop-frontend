@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <Breadcrumbs title="collection" />
     <section class="section-b-space ratio_asos">
       <div class="collection-wrapper">

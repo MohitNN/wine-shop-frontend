@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <!-- <Header /> -->
     <Breadcrumbs title="collection" />
     <div class="container-fluid">
       <div class="row">

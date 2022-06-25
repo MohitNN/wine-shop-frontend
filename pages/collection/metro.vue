@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <!-- <Header /> -->
     <Breadcrumbs title="collection" />
     <section class="section-b-space">
       <div class="collection-wrapper">
