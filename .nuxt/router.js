@@ -33,6 +33,9 @@ const _6a7e2df1 = () => interopDefault(import('..\\pages\\page\\typography.vue' 
 const _d65e5fa0 = () => interopDefault(import('..\\pages\\product\\bundle-product.vue' /* webpackChunkName: "pages/product/bundle-product" */))
 const _98064d00 = () => interopDefault(import('..\\pages\\product\\four-image.vue' /* webpackChunkName: "pages/product/four-image" */))
 const _3338ba8c = () => interopDefault(import('..\\pages\\shop\\watch\\index.vue' /* webpackChunkName: "pages/shop/watch/index" */))
+const _5437d563 = () => interopDefault(import('..\\pages\\admin\\products\\add-product.vue' /* webpackChunkName: "pages/admin/products/add-product" */))
+const _2eb5890e = () => interopDefault(import('..\\pages\\admin\\products\\category.vue' /* webpackChunkName: "pages/admin/products/category" */))
+const _226a1b7b = () => interopDefault(import('..\\pages\\admin\\products\\sub-category.vue' /* webpackChunkName: "pages/admin/products/sub-category" */))
 const _726480a2 = () => interopDefault(import('..\\pages\\blog\\widgets\\blog-list.vue' /* webpackChunkName: "pages/blog/widgets/blog-list" */))
 const _3022144a = () => interopDefault(import('..\\pages\\blog\\widgets\\blog-sidebar.vue' /* webpackChunkName: "pages/blog/widgets/blog-sidebar" */))
 const _4851913b = () => interopDefault(import('..\\pages\\page\\account\\cart.vue' /* webpackChunkName: "pages/page/account/cart" */))
@@ -215,6 +218,18 @@ export const routerOptions = {
     path: "/shop/watch",
     component: _3338ba8c,
     name: "shop-watch"
+  }, {
+    path: "/admin/products/add-product",
+    component: _5437d563,
+    name: "admin-products-add-product"
+  }, {
+    path: "/admin/products/category",
+    component: _2eb5890e,
+    name: "admin-products-category"
+  }, {
+    path: "/admin/products/sub-category",
+    component: _226a1b7b,
+    name: "admin-products-sub-category"
   }, {
     path: "/blog/widgets/blog-list",
     component: _726480a2,

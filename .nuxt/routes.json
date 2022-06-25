@@ -203,6 +203,27 @@
     "_name": "_3338ba8c"
   },
   {
+    "name": "admin-products-add-product",
+    "path": "/admin/products/add-product",
+    "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\products\\\\add-product.vue",
+    "chunkName": "pages/admin/products/add-product",
+    "_name": "_5437d563"
+  },
+  {
+    "name": "admin-products-category",
+    "path": "/admin/products/category",
+    "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\products\\\\category.vue",
+    "chunkName": "pages/admin/products/category",
+    "_name": "_2eb5890e"
+  },
+  {
+    "name": "admin-products-sub-category",
+    "path": "/admin/products/sub-category",
+    "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\products\\\\sub-category.vue",
+    "chunkName": "pages/admin/products/sub-category",
+    "_name": "_226a1b7b"
+  },
+  {
     "name": "blog-widgets-blog-list",
     "path": "/blog/widgets/blog-list",
     "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\blog\\\\widgets\\\\blog-list.vue",
