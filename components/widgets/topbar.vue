@@ -33,6 +33,8 @@
 <script>
 import firebase from 'firebase'
 import UserAuth from '../../pages/page/account/auth/auth'
+import { mapState, mapGetters, mapActions } from 'vuex'
+
 export default {
   data() {
     return {
@@ -45,10 +47,14 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      logOutAPi:"admin_adminauth/LogOutApi"
+    }),
     logout: function () {
-      firebase.auth().signOut().then(() => {
-        UserAuth.Logout()
-        this.$router.replace('/page/account/login-firebase')
+      this.logOutAPi().then((resp) => {
+          
+      }).catch((error) => {
+
       })
     }
   }

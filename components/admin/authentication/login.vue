@@ -65,17 +65,10 @@ export default {
     }),
     handleSubmit() {
       this.submitted = true;
-      // if (this.email == "" && this.password == "") {
-      //   (this.email = "test@admin.com"), (this.password = "test@123456");
-      // } else {
-      //   let data = {
-      //     username: this.username,
-      //     password: this.password
-      //   };
-      // }
       this.login({email:this.username , password:this.password}).then((resp) => {
          if(resp.data.status) {
           this.$toast.success("Login Succesfull");
+          this.$router.push('/admin/dashboard');
          }
       }).catch((error) => {
            this.$toast.error("Something Want Wrong");

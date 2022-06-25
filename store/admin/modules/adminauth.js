@@ -20,6 +20,13 @@ const actions = {
     }
     return resp;
   },
+  async LogOutApi({ commit , dispatch}, data) {
+    const resp = await Api.post("/api/logout");
+    if(resp.data.status) {
+              
+    }
+    return resp;
+  },
   setCurrentUser({ commit }, data) {
     if (data) {
       commit("SET_USER",data.data);
