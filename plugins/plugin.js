@@ -19,7 +19,25 @@ Vue.use(VueLazyLoad)
 Vue.use(ProductZoomer)
 Vue.use(VueScrollTo)
 Vue.use(VueFeather);
-
+import Toast from "vue-toastification";
+import "vue-toastification/dist/index.css";
+Vue.use(Toast, {
+  position: "top-right",
+  timeout: 2000,
+  closeOnClick: true,
+  pauseOnFocusLoss: true,
+  pauseOnHover: false,
+  draggable: false,
+  draggablePercent: 0.6,
+  showCloseButtonOnHover: false,
+  hideProgressBar: true,
+  closeButton: "button",
+  icon: true,
+  rtl: false,
+  transition: "Vue-Toastification__bounce",
+  maxToasts: 20,
+  newestOnTop: true
+});
 const config = {
   apiKey: "AIzaSyCY13OKHivdCZiGHpxs7iYGJbWhsfTNDmU",
   authDomain: "vuebeer-e4df5.firebaseapp.com",

@@ -11,6 +11,7 @@ import admin_employee from './admin/modules/employee.js'
 import admin_menu from './admin/modules/menu.js'
 import admin_order from './admin/modules/order.js'
 import admin_product from './admin/modules/product.js'
+import admin_adminauth from './admin/modules/adminauth'
 import admin_digitalProducts from './admin/modules/digital-products.js';
 import admin_coupon from './admin/modules/coupon.js';
 import admin_pages from './admin/modules/pages.js'
@@ -45,7 +46,8 @@ const createStore = () => {
       admin_localization,
       admin_invoice,
       authentication,
-      admin_reports
+      admin_reports,
+      admin_adminauth
     }
   })
 }
