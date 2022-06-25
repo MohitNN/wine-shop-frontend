@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Header />
-    <nuxt id="body-content" />
-    <Footer />
+    <Header v-if="!getrouter" />
+      <nuxt id="body-content" />
+    <Footer v-if="!getrouter" />
     <layoutSetting />
     <div class="tap-top top-cls" v-scroll-to="'#body-content'">
       <div>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import layoutSetting from "../components/widgets/layout-setting";
+import layoutSetting from "@/components/widgets/layout-setting";
 import Header from "@/components/header/header1";
 import Footer from "@/components/footer/footer4";
 export default {
@@ -26,6 +26,13 @@ export default {
     layoutSetting,
     Header,
     Footer,
+  },
+  computed:{
+    getrouter(){
+      const string = this.$route.name;
+      const substring = "admin";
+      return string.includes(substring);
+    }
   },
   mounted() {
     this.$nextTick(() => {

@@ -19,12 +19,27 @@ let store = {};
   // Enforce store modules
   store.modules = store.modules || {}
 
+  resolveStoreModules(require('..\\store\\admin\\index.js'), 'admin/index.js')
   resolveStoreModules(require('..\\store\\modules\\blog.js'), 'modules/blog.js')
   resolveStoreModules(require('..\\store\\modules\\cart.js'), 'modules/cart.js')
   resolveStoreModules(require('..\\store\\modules\\filter.js'), 'modules/filter.js')
   resolveStoreModules(require('..\\store\\modules\\layout.js'), 'modules/layout.js')
   resolveStoreModules(require('..\\store\\modules\\menu.js'), 'modules/menu.js')
   resolveStoreModules(require('..\\store\\modules\\products.js'), 'modules/products.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\authentication.js'), 'admin/modules/authentication.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\coupon.js'), 'admin/modules/coupon.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\digital-products.js'), 'admin/modules/digital-products.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\employee.js'), 'admin/modules/employee.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\invoice.js'), 'admin/modules/invoice.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\localization.js'), 'admin/modules/localization.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\media.js'), 'admin/modules/media.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\menu.js'), 'admin/modules/menu.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\order.js'), 'admin/modules/order.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\pages.js'), 'admin/modules/pages.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\product.js'), 'admin/modules/product.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\reports.js'), 'admin/modules/reports.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\user.js'), 'admin/modules/user.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\vendor.js'), 'admin/modules/vendor.js')
 
   // If the environment supports hot reloading...
 
@@ -32,12 +47,27 @@ let store = {};
     // Whenever any Vuex module is updated...
     module.hot.accept([
       '..\\store\\index.js',
+      '..\\store\\admin\\index.js',
       '..\\store\\modules\\blog.js',
       '..\\store\\modules\\cart.js',
       '..\\store\\modules\\filter.js',
       '..\\store\\modules\\layout.js',
       '..\\store\\modules\\menu.js',
       '..\\store\\modules\\products.js',
+      '..\\store\\admin\\modules\\authentication.js',
+      '..\\store\\admin\\modules\\coupon.js',
+      '..\\store\\admin\\modules\\digital-products.js',
+      '..\\store\\admin\\modules\\employee.js',
+      '..\\store\\admin\\modules\\invoice.js',
+      '..\\store\\admin\\modules\\localization.js',
+      '..\\store\\admin\\modules\\media.js',
+      '..\\store\\admin\\modules\\menu.js',
+      '..\\store\\admin\\modules\\order.js',
+      '..\\store\\admin\\modules\\pages.js',
+      '..\\store\\admin\\modules\\product.js',
+      '..\\store\\admin\\modules\\reports.js',
+      '..\\store\\admin\\modules\\user.js',
+      '..\\store\\admin\\modules\\vendor.js',
     ], () => {
       // Update `root.modules` with the latest definitions.
       updateModules()

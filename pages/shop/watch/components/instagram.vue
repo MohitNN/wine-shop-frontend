@@ -63,9 +63,9 @@ export default {
     }
   },
   mounted() {
-    axios
-      .get('https://api.instagram.com/v1/users/self/media/recent/?access_token=8295761913.aa0cb6f.2914e9f04dd343b8a57d9dc9baca91cc&count=15')
-      .then((response) => { this.instagram = response.data.data })
+    // axios
+    //   .get('https://api.instagram.com/v1/users/self/media/recent/?access_token=8295761913.aa0cb6f.2914e9f04dd343b8a57d9dc9baca91cc&count=15')
+    //   .then((response) => { this.instagram = response.data.data })
   }
 }
 </script>

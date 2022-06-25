@@ -14,6 +14,8 @@ import '..\\assets\\scss\\app.scss'
 
 import '..\\node_modules\\swiper\\css\\swiper.css'
 
+import '..\\assets\\admin\\scss\\admin.scss'
+
 import _6f6c098b from '..\\layouts\\default.vue'
 
 const layouts = { "_default": sanitizeComponent(_6f6c098b) }

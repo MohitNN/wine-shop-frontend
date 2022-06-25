@@ -11,10 +11,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@feathers-nuxt/cli": "^1.1.9",
     "@inotom/vue-go-top": "^1.1.0",
     "@nuxtjs/axios": "^5.5.4",
     "axios": "^0.21.1",
     "bootstrap-vue": "^2.21.2",
+    "feather-icons": "^4.28.0",
     "firebase": "^8.6.8",
     "js-cookie": "^2.2.1",
     "npx": "^10.2.2",
@@ -24,6 +26,7 @@
     "vee-validate": "^3.1.0",
     "vue": "^2.6.11",
     "vue-awesome-swiper": "4.1.1",
+    "vue-feather": "^1.1.1",
     "vue-gallery": "^2.0.1",
     "vue-i18n": "^8.15.0",
     "vue-image-lightbox": "^6.4.0",
