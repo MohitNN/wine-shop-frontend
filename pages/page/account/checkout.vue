@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <Breadcrumbs title="Checkout" />
     <section class="section-b-space">
       <div class="container">

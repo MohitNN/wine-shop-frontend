@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div>
     <section class="instagram ratio_square">
       <div class="container">
@@ -68,4 +68,4 @@ export default {
       .then((response) => { this.instagram = response.data.data })
   }
 }
-</script>
+</script> -->

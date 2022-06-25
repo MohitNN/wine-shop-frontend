@@ -1,30 +1,6 @@
 <template>
   <div>
     <footer>
-      <div class="white-layout">
-        <div class="container">
-          <section class="small-section">
-            <div class="row">
-              <div class="col-xl-6 offset-xl-3">
-                <div class="subscribe">
-                  <h4>newsletter</h4>
-                  <form class="form-inline subscribe-form classic-form">
-                    <div class="form-group">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="exampleFormControlInput"
-                        placeholder="Enter your email"
-                      />
-                    </div>
-                    <button type="submit" class="btn btn-solid">subscribe</button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
       <section class="section-b-space darken-layout">
         <div class="container">
           <div class="row footer-theme partition-f">

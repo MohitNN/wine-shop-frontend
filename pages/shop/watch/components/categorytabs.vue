@@ -26,6 +26,7 @@
                               <img
                                 :src="getImgUrl(product.images[0].src)"
                                 class="img-fluid bg-img"
+                                style="width: 230px !important;"
                                 alt
                               />
                             </nuxt-link>

@@ -5,7 +5,7 @@
         <div class="container">
           <div class="title4">
             <h2 class="title-inner4">
-              {{ title }}
+              {{ title }} 
             </h2>
             <div class="line">
               <span></span>
