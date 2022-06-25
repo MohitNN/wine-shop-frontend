@@ -2,6 +2,7 @@
 import admin_employee from './modules/employee.js'
 import admin_menu from './modules/menu.js'
 import admin_order from './modules/order.js'
+import admin_adminauth from './modules/adminauth.js'
 import admin_product from './modules/product.js'
 import admin_digitalProducts from './modules/digital-products.js';
 import admin_coupon from './modules/coupon.js';
@@ -43,7 +44,8 @@ export default new Vuex.Store({
         admin_vendor,
         admin_localization,
         admin_invoice,
-        admin_authentication,
-        admin_reports
+        admin_adminauth,
+        admin_reports,
+        admin_admin_auth,
     }
 })

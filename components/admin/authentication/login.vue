@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="form-button">
-      <button class="btn btn-primary" type="submit" @click="login">
+      <button class="btn btn-primary" type="submit" >
         Login
       </button>
     </div>
@@ -44,36 +44,43 @@
 
 <script>
 
-
+import { mapState, mapGetters, mapActions } from 'vuex'
 export default {
   components: {},
   data() {
     return {
       type: "password",
-      username: "test@admin.com",
-      password: "test@123456",
+      username: "admin@gmail.com",
+      password: "admin123",
       submitted: false
     };
   },
   created() {
-    // reset login status for JWT
-    // this.$store.dispatch("authentication/logout");
+  },
+  mounted() {
   },
   methods: {
+    ...mapActions({
+      login:"admin_adminauth/login"
+    }),
     handleSubmit() {
       this.submitted = true;
+      // if (this.email == "" && this.password == "") {
+      //   (this.email = "test@admin.com"), (this.password = "test@123456");
+      // } else {
+      //   let data = {
+      //     username: this.username,
+      //     password: this.password
+      //   };
+      // }
+      this.login({email:this.username , password:this.password}).then((resp) => {
+         if(resp.data.status) {
+          this.$toast.success("Login Succesfull");
+         }
+      }).catch((error) => {
+           this.$toast.error("Something Want Wrong");
+      })
     },
-    login() {
-      this.submitted = true;
-      if (this.email == "" && this.password == "") {
-        (this.email = "test@admin.com"), (this.password = "test@123456");
-      } else {
-        let data = {
-          username: this.username,
-          password: this.password
-        };
-      }
-    }
   }
 };
 </script>
