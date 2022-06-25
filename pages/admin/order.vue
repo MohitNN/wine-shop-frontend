@@ -54,7 +54,7 @@
                   <template #cell(images)="field" class="d-flex">
                     <img
                       height="50px"
-                      src=""
+                      :src="getImgUrl(field.item.images)"
                       width="50px"
                     />
                   </template>
@@ -181,9 +181,9 @@ export default {
     this.totalRows = 12;
   },
   methods: {
-    // getImgUrl(path) {
-    //   return require("@/assets/admin/images/dashboard/product/" + path);
-    // },
+    getImgUrl(path) {
+      return require("@/assets/admin/images/dashboard/product/" + path);
+    },
     onFiltered(filteredItems) {
       // Trigger pagination to update the number of buttons/pages due to filtering
       this.totalRows = filteredItems.length;

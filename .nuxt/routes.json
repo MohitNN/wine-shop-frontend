@@ -1,5 +1,12 @@
 [
   {
+    "name": "admin-addpage",
+    "path": "/admin/addpage",
+    "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\addpage.vue",
+    "chunkName": "pages/admin/addpage",
+    "_name": "_0dbe3198"
+  },
+  {
     "name": "admin-dashboard",
     "path": "/admin/dashboard",
     "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\dashboard.vue",

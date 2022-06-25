@@ -2,7 +2,7 @@
     "data": [{
             "orderId": "#51240",
             "Product": "Headphones",
-            "images": "3d-design.jpg",
+            "images": "3.jpg",
             "paymentStatus": "COD",
             "paymentMethod": "Bank Transfer",
             "orderStatus": "Delivered",
@@ -25,7 +25,7 @@
         {
             "orderId": "#51241",
             "Product": "Headphones",
-            "images": "3d-design",
+            "images": "3.jpg",
             "paymentStatus": "COD",
             "paymentMethod": "Ewallets",
             "orderStatus": "Delivered",
@@ -48,7 +48,7 @@
         {
             "orderId": "#51242",
             "Product": "Headphones",
-            "images": "css.jpg",
+            "images": "1.jpg",
             "paymentStatus": "COD",
             "paymentMethod": "Cash",
             "orderStatus": "Delivered",
@@ -71,7 +71,7 @@
         {
             "orderId": "#51243",
             "Product": "Headphones",
-            "images": "ebooks.png",
+            "images": "1.jpg",
             "paymentStatus": "COD",
             "paymentMethod": "Direct Deposit",
             "orderStatus": "Delivered",
@@ -94,7 +94,7 @@
         }, {
             "orderId": "#51244",
             "Product": "Headphones",
-            "images": "graphic-design.png",
+            "images": "1.jpg",
             "paymentStatus": "COD",
             "paymentMethod": "Bank Transfer",
             "orderStatus": "Delivered",
@@ -117,7 +117,7 @@
         {
             "orderId": "#51245",
             "Product": "T-shirt",
-            "images": "html.png",
+            "images": "1.jpg",
             "paymentStatus": "Paid",
             "paymentMethod": "Mastercard",
             "orderStatus": "Delivered",
@@ -141,7 +141,7 @@
         {
             "orderId": "#51246",
             "Product": "T-shirt",
-            "images": "lecture-video-recorder.jpg",
+            "images": "1.jpg",
             "paymentStatus": "Paid",
             "paymentMethod": "Mastercard",
             "orderStatus": "Delivered",
@@ -164,7 +164,7 @@
         {
             "orderId": "#51247",
             "Product": "T-shirt",
-            "images": "logo.jpg",
+            "images": "1.jpg",
             "paymentStatus": "Paid",
             "paymentMethod": "Mastercard",
             "orderStatus": "Delivered",
@@ -187,7 +187,7 @@
         {
             "orderId": "#51248",
             "Product": "T-shirt",
-            "images": "main.jpg",
+            "images": "1.jpg",
             "paymentStatus": "Paid",
             "paymentMethod": "Mastercard",
             "orderStatus": "Delivered",
@@ -210,7 +210,7 @@
         {
             "orderId": "#51248",
             "Product": "T-shirt",
-            "images": "main.jpg",
+            "images": "1.jpg",
             "paymentStatus": "Paid",
             "paymentMethod": "Mastercard",
             "orderStatus": "Delivered",
@@ -233,7 +233,7 @@
         {
             "orderId": "#51249",
             "Product": "T-shirt",
-            "images": "main.jpg",
+            "images": "1.jpg",
             "paymentStatus": "Paid",
             "paymentMethod": "Mastercard",
             "orderStatus": "Delivered",
