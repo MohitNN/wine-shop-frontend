@@ -19,7 +19,7 @@ import Footer from "@/components/footer/footer4";
 export default {
   head() {
     return {
-      title: "MultiKart Ecommerce | Vuejs Shopping Theme",
+      title: "Black Wine Shop",
     };
   },
   components: {
@@ -29,7 +29,7 @@ export default {
   },
   computed:{
     getrouter(){
-      const string = this.$route.name;
+      const string = this.$route.fullPath;      
       const substring = "admin";
       return string.includes(substring);
     }

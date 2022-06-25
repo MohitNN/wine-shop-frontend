@@ -13,4 +13,12 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+<<<<<<< HEAD
 .nuxt
+=======
+.nuxt/App.js
+.nuxt/index.js
+.nuxt/router.js
+.nuxt/index.js
+.nuxt/routes.json
+>>>>>>> 07e424b04417ca7d747d1a6450c1bb1eef3cc8ba

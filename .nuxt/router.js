@@ -4,6 +4,7 @@ import { normalizeURL, decode } from 'ufo'
 import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
+const _12af3f4f = () => interopDefault(import('..\\pages\\admin\\addpage.vue' /* webpackChunkName: "pages/admin/addpage" */))
 const _620c8f73 = () => interopDefault(import('..\\pages\\admin\\dashboard.vue' /* webpackChunkName: "pages/admin/dashboard" */))
 const _5f74138c = () => interopDefault(import('..\\pages\\admin\\login\\index.vue' /* webpackChunkName: "pages/admin/login/index" */))
 const _7e117aad = () => interopDefault(import('..\\pages\\admin\\order.vue' /* webpackChunkName: "pages/admin/order" */))
@@ -99,6 +100,10 @@ export const routerOptions = {
   scrollBehavior,
 
   routes: [{
+    path: "/admin/addpage",
+    component: _12af3f4f,
+    name: "admin-addpage"
+  }, {
     path: "/admin/dashboard",
     component: _620c8f73,
     name: "admin-dashboard"

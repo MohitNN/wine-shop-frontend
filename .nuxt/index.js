@@ -83,7 +83,7 @@ async function createApp(ssrContext, config = {}) {
   // here we inject the router and store to all child components,
   // making them available everywhere as `this.$router` and `this.$store`.
   const app = {
-    head: {"title":"Multikart Ecommerce | Vuejs shopping theme","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My awe-inspiring Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Fmultikart\u002Ffavicon.png"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Lato:300,400,700,900"}],"script":[{"src":"https:\u002F\u002Fcheckout.stripe.com\u002Fcheckout.js"}],"style":[]},
+    head: {"title":"Black Wine Shop","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"My awe-inspiring Nuxt.js project"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Fmultikart\u002Ffavicon.png"},{"rel":"stylesheet","href":"https:\u002F\u002Ffonts.googleapis.com\u002Fcss?family=Lato:300,400,700,900"}],"script":[{"src":"https:\u002F\u002Fcheckout.stripe.com\u002Fcheckout.js"}],"style":[]},
 
     store,
     router,
