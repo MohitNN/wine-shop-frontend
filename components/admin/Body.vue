@@ -13,18 +13,9 @@
           />
         </div>
         <div class="page-body">
-          <transition name="fadeIn" enter-active-class="animated fadeIn">
-            <!-- <router-view class="view"></router-view> -->
-            <!-- <slot name="content"></slot> -->
-          </transition>
+          <slot name="content"></slot>
         </div>
-         <ul class="custom-theme">
-           <li v-if="layouttype==='rtl'" class="btn-rtl" @click="layoutType('rtl')">RTL</li>
-           <li v-if="layouttype==='ltr'" class="btn-rtl" @click="layoutType('ltr')">LTR</li>
-           <li class="btn-dark-setting" v-if="layoutmode==='dark'" @click="layoutMode('dark')">Dark</li>
-           <li class="btn-dark-setting" v-if="layoutmode==='light'" @click="layoutMode('light')">Light</li>
-         </ul>
-        <Footer />
+       <Footer />
       </div>
       </body>
     </div>

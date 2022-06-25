@@ -29,7 +29,7 @@ export default {
   },
   computed:{
     getrouter(){
-      const string = this.$route.name;
+      const string = this.$route.fullPath;      
       const substring = "admin";
       return string.includes(substring);
     }

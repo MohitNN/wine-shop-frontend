@@ -51,15 +51,15 @@ const actions = {
     }
 }
 const mutations = {
-    getOrders(state, payload) {
-        state.orders = payload.data
+    getOrders(state) {
+        state.orders = orderData.data
     },
     getTransactions(state, payload) {
         state.transactions = payload.data;
     },
     // OrderList
-    getOrderList(state, payload) {
-        state.orderList = payload;
+    getOrderList(state) {
+        state.orderList = orderData;
     }
 }
 
