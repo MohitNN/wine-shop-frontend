@@ -1,5 +1,5 @@
 import axios from "axios";
-import products from '../../../data/admin/data/product.json'
+import products from '@/data/admin/data/product'
 import config from '../../../config.json'
 
 const ax = axios.create({
@@ -101,20 +101,20 @@ const actions = {
     },
 }
 const mutations = {
-    loadingStatus: (state, payload) => {
-        state.loadingStatus = payload;
+    loadingStatus: (state) => {
+        state.loadingStatus = products;
     },
-    getProducts: (state, payload) => {
-        state.products = payload.data;
+    getProducts: (state) => {
+        state.products = products.data;
     },
-    getSubCategoryProduct: (state, payload) => {
-        state.subCategoryProduct = payload.data;
+    getSubCategoryProduct: (state) => {
+        state.subCategoryProduct = products.data;
     },
-    getProductList: (state, payload) => {
-        state.productList = payload.data;
+    getProductList: (state) => {
+        state.productList = products.data;
     },
-    changeCurrency: (state, payload) => {
-        state.currency = payload
+    changeCurrency: (state) => {
+        state.currency = products
     },
 }
 export default {

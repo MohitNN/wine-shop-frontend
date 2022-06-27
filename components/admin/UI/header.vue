@@ -46,95 +46,6 @@
               </div>
             </form>
           </li>
-          <li>
-            <a class="text-dark" href="#!" @click="toggle_fullscreen()"
-              ><i data-feather="maximize-2"
-                ><feather type="maximize-2"></feather></i
-            ></a>
-          </li>
-          <li class="onhover-dropdown">
-            <a class="txt-dark"> <h6>Hello</h6></a>
-            <ul class="language-dropdown onhover-show-div p-20">
-              <li
-                v-for="(l, index) in localeOptions"
-                :key="index"
-                @click="changeLocale(l)"
-              >
-                <a><i class="flag-icon flag-icon-is">1</i> {{ l.name }}</a>
-              </li>
-            </ul>
-          </li>
-          <li class="onhover-dropdown">
-            <i data-feather="bell"><feather type="bell"></feather></i
-            ><span class="badge badge-primary pull-right notification-badge"
-              >3</span
-            ><span class="dot"></span>
-            <ul class="notification-dropdown onhover-show-div p-0">
-              <li>
-                Notification
-                <span class="badge badge-primary pull-right">3</span>
-              </li>
-              <li>
-                <div class="media">
-                  <div class="media-body">
-                    <h6 class="mt-0">
-                      <span
-                        ><i class="shopping-color" data-feather="shopping-bag"
-                          ><feather type="shopping-bag"></feather></i></span
-                      >Your order ready for Ship..!
-                    </h6>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet, consectetuer.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="media">
-                  <div class="media-body">
-                    <h6 class="mt-0 txt-success">
-                      <span
-                        ><i
-                          class="download-color font-success"
-                          data-feather="download"
-                          ><feather type="download"></feather></i></span
-                      >Download Complete
-                    </h6>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet, consectetuer.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="media">
-                  <div class="media-body">
-                    <h6 class="mt-0 txt-danger">
-                      <span
-                        ><i
-                          class="alert-color font-danger"
-                          data-feather="alert-circle"
-                          ><feather type="alert-circle"></feather></i></span
-                      >250 MB trash files
-                    </h6>
-                    <p class="mb-0">
-                      Lorem ipsum dolor sit amet, consectetuer.
-                    </p>
-                  </div>
-                </div>
-              </li>
-              <li class="txt-dark"><a href="#">All</a> notification</li>
-            </ul>
-          </li>
-          <li>
-            <a @click="openChatSidebar"
-              ><i class="right_side_toggle" data-feather="message-square">
-                <feather type="message-square"></feather
-              ></i>
-              <span class="dot"></span
-            ></a>
-            <chatBox></chatBox>
-          </li>
           <li class="onhover-dropdown">
             <div class="media align-items-center">
               <img
@@ -164,15 +75,6 @@
             >
               <li>
                 <a><feather type="user"></feather>Edit Profile</a>
-              </li>
-              <li>
-                <a><feather type="mail"></feather>Inbox</a>
-              </li>
-              <li>
-                <a><feather type="lock"></feather>Lock Screen</a>
-              </li>
-              <li>
-                <a><feather type="settings"></feather>Settings</a>
               </li>
               <li>
                 <a @click="logout"
