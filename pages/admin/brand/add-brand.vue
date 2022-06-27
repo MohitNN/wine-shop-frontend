@@ -19,8 +19,11 @@
                                         </div>
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Logo :</label>
-                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="file" required="" />
-                                            <div class="valid-feedback">Looks good!</div>
+                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="file" required=""  @change="fileselected" />
+                                        </div>
+                                        <div class="form-group mb-3 row">
+                                            <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0"></label>
+                                            <img v-if="image" :src="image" width="100px" height="100px" />
                                         </div>
                                         <div class="form-group d-flex">
                                             <label class="col-xl-3 col-sm-4">Detail :</label>
@@ -53,5 +56,22 @@ export default {
     components: {
         layout
     },
+    data() {
+        return{
+            image: '',
+        }
+    },
+    methods: {
+        fileselected(e) {
+            const file = e.target.files.item(0);
+            const reader = new FileReader();
+            reader.addEventListener('load', this.imageloaded);
+            reader.readAsDataURL(file);
+
+        },
+        imageloaded(e) {
+            this.image = e.target.result;
+        }
+    }
 };
 </script>
