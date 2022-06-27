@@ -4,7 +4,9 @@ export default async ({ store, redirect }) => {
     if(isAuthenticated) {
          isAdmin  = store.state.admin_adminauth.user.user.role
     }
-    if (isAuthenticated  && isAdmin ) {
+    if (isAuthenticated  && isAdmin == "admin" ) {
       return redirect('/admin/dashboard')
+    } else if(isAuthenticated  && isAdmin == "user") {
+      return redirect('/');
     } 
   }

@@ -5,7 +5,7 @@ export default async ({ store, redirect }) => {
          isAdmin  = store.state.admin_adminauth.user.user.role
     }
   console.log(isAuthenticated,isAdmin)
-  if (!isAuthenticated && !isAdmin ) {
+  if (isAuthenticated && isAdmin != "admin" ) {
     return redirect('/admin/login')
   }
 }

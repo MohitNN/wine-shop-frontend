@@ -5,13 +5,22 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Add Category</h5>
+                        <h5>Add Sub Category</h5>
                     </div>
                     <div class="card-body">
                         <div class="row product-adding">
                             <div class="col-xl-7">
                                 <form class="needs-validation add-product-form" novalidate="">
                                     <div class="form">
+                                        <div class="form-group row">
+                                            <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select Category :</label>
+                                            <select class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
+                                                <option>Small</option>
+                                                <option>Medium</option>
+                                                <option>Large</option>
+                                                <option>Extra Large</option>
+                                            </select>
+                                        </div>
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
                                             <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" />
@@ -46,7 +55,7 @@ export default {
         layout
     },
     data() {
-        return{
+        return {
             image: '',
         }
     },
