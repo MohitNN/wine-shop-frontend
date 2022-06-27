@@ -165,13 +165,12 @@ export default {
                     "badgeType": "primary",
                     "active": false
                 },
-                 {
+                {
                     "title": "Brand",
                     "type": "sub",
                     "icon": "box",
                     "active": false,
-                    "children": [
-                        {
+                    "children": [{
                             "path": "/admin/brand",
                             "title": "Brand List",
                             "type": "link"
@@ -184,24 +183,102 @@ export default {
                     ]
                 },
                 {
+                    "title": "Category",
+                    "icon": "box",
+                    "type": "sub",
+                    "active": false,
+                    "children": [{
+                            "title": "Category",
+                            "type": "sub",
+                            "active": false,
+                            "children": [{
+                                    "path": "/admin/category",
+                                    "title": "Category List",
+                                    "type": "link"
+                                },
+                                {
+                                    "path": "/admin/category/add-category",
+                                    "title": "Create Category",
+                                    "type": "link"
+                                },
+
+                            ]
+                        },
+                        {
+                            "title": "Sub Category",
+                            "type": "sub",
+                            "active": false,
+                            "children": [{
+                                    "path": "/admin/sub_category",
+                                    "title": "Sub Category List",
+                                    "type": "link"
+                                },
+                                {
+                                    "path": "/admin/sub_category/add-sub-category",
+                                    "title": "Sub Create Category",
+                                    "type": "link"
+                                },
+
+                            ]
+                        }
+                    ]
+                },
+                {
                     "title": "Product",
                     "type": "sub",
                     "icon": "box",
                     "active": false,
                     "children": [{
-                            "path": "/admin/products/category",
-                            "title": "Add",
+                            "path": "/admin/products/",
+                            "title": "List Product",
                             "type": "link"
                         },
-                        // { "path": "/admin/products/sub-category", "title": "Sub Category", "type": "link" },
                         {
                             "path": "/admin/products/add-product",
-                            "title": "List",
+                            "title": "Create Product",
+                            "type": "link"
+                        },
+                    ]
+                },
+                {
+                    "title": "Order",
+                    "type": "sub",
+                    "icon": "image",
+                    "active": false,
+                    "children": [{
+                        "path": "/admin/order",
+                        "title": "Order List",
+                        "type": "link"
+                    }, ]
+                },
+                {
+                    "title": "Coupons",
+                    "type": "sub",
+                    "icon": "tag",
+                    "active": false,
+                    "children": [{
+                            "path": "/admin/coupnes",
+                            "title": "Coupons List",
+                            "type": "link"
+                        },
+                        {
+                            "path": "/admin/coupnes/create-coupon",
+                            "title": "Create Coupons",
                             "type": "link"
                         }
                     ]
                 },
-
+                {
+                    "title": "User",
+                    "type": "sub",
+                    "icon": "users",
+                    "active": false,
+                    "children": [{
+                        "path": "/admin/user",
+                        "title": "User List",
+                        "type": "link"
+                    }, ]
+                },
             ]
         };
     },
