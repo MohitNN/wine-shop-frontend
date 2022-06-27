@@ -5,13 +5,12 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Add Sub Category</h5>
+                        <h5>Create Coupan</h5>
                     </div>
                     <div class="card-body">
                         <div class="row product-adding">
                             <div class="col-xl-7">
                                 <form class="needs-validation" novalidate="">
-                                    <h4>General</h4>
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group row">

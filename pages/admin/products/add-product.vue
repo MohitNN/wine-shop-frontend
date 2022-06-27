@@ -60,7 +60,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Brand Name :</label>
+                                            <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select Brand :</label>
                                             <select class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
                                                 <option>Small</option>
                                                 <option>Medium</option>
@@ -69,7 +69,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-xl-3 col-sm-4">Add Description :</label>
+                                            <label class="col-xl-3 col-sm-4">Description :</label>
                                             <div class=" col-xl-8 col-sm-7 editor-vue">
                                                 <vue-editor v-model="content"></vue-editor>
                                             </div>
@@ -102,7 +102,7 @@
                                         </div>
                                         <div class="form-group row dd d-block">
                                             <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Status :</label>
-                                            <input  id="validationCustom02" type="checkbox" required="" />On Sell
+                                            <input  id="validationCustom02" type="checkbox" required="" /> On Sell
                                         </div>
                                     </div>
                                     <div class="offset-xl-3 offset-sm-4">
