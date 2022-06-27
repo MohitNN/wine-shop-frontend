@@ -18,7 +18,7 @@ import nuxt_plugin_vuescrollto_8cd921f0 from 'nuxt_plugin_vuescrollto_8cd921f0' 
 import nuxt_plugin_axios_3263b03e from 'nuxt_plugin_axios_3263b03e' // Source: .\\axios.js (mode: 'all')
 import nuxt_plugin_plugin_03b7832e from 'nuxt_plugin_plugin_03b7832e' // Source: ..\\plugins\\plugin.js (mode: 'client')
 import nuxt_plugin_localStorage_830ec59e from 'nuxt_plugin_localStorage_830ec59e' // Source: ..\\plugins\\localStorage.js (mode: 'client')
-import nuxt_plugin_axios_3566aa80 from 'nuxt_plugin_axios_3566aa80' // Source: ..\\plugins\\axios (mode: 'client')
+import nuxt_plugin_axios_3566aa80 from 'nuxt_plugin_axios_3566aa80' // Source: ..\\plugins\\axios (mode: 'all')
 
 // Component: <ClientOnly>
 Vue.component(ClientOnly.name, ClientOnly)
@@ -232,7 +232,7 @@ async function createApp(ssrContext, config = {}) {
     await nuxt_plugin_localStorage_830ec59e(app.context, inject)
   }
 
-  if (process.client && typeof nuxt_plugin_axios_3566aa80 === 'function') {
+  if (typeof nuxt_plugin_axios_3566aa80 === 'function') {
     await nuxt_plugin_axios_3566aa80(app.context, inject)
   }
 

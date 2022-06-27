@@ -1,6 +1,12 @@
 const middleware = {}
 
-middleware['admin/auth'] = require('..\\middleware\\admin\\auth.js')
-middleware['admin/auth'] = middleware['admin/auth'].default || middleware['admin/auth']
+middleware['auth'] = require('..\\middleware\\auth.js')
+middleware['auth'] = middleware['auth'].default || middleware['auth']
+
+middleware['custome'] = require('..\\middleware\\custome.js')
+middleware['custome'] = middleware['custome'].default || middleware['custome']
+
+middleware['loginCheck'] = require('..\\middleware\\loginCheck.js')
+middleware['loginCheck'] = middleware['loginCheck'].default || middleware['loginCheck']
 
 export default middleware

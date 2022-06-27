@@ -86,9 +86,10 @@
 
 <script>
 
-import layout from "../../components/admin/Body.vue";
+import layout from "@/components/admin/Body.vue";
 
 export default {
+  middleware: ["auth"],
   components: {
    layout
   },

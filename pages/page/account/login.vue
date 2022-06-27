@@ -48,7 +48,7 @@
                   <button
                     type="submit"
                     class="btn"
-                    :class="!invalid ? 'btn-solid' : 'btn-solid-disabled' "
+                    :class="!invalid ? 'btn-solid' : 'btn-solid-disabled'"
                     :disabled="invalid"
                   >
                     Login
@@ -87,7 +87,10 @@ import {
 import Header from "../../../components/header/header1";
 import Footer from "../../../components/footer/footer1";
 import Breadcrumbs from "../../../components/widgets/breadcrumbs";
+import { mapState, mapGetters, mapActions } from 'vuex'
+
 export default {
+  middleware: ["loginCheck"],
   components: {
     Header,
     Footer,
@@ -99,29 +102,45 @@ export default {
     return {
       logintitle: "Login",
       registertitle: "New Customer",
-      email: 'user@gmail.com',
-      password: 'admin123',
+      email: "user@gmail.com",
+      password: "admin123",
     };
   },
   methods: {
+    ...mapActions({
+      login:"admin_adminauth/login"
+    }),
     onSubmit() {
-
+      this.login({ email: this.email, password: this.password })
+        .then((resp) => {
+          if (resp.data.status) {
+            this.$toast.success("Login Succesfull");
+            this.$router.push("/");
+          }
+        })
+        .catch((error) => {
+          this.$toast.error("Something Want Wrong");
+        });
     },
   },
 };
 </script>
 <style >
 .btn-solid-disabled {
-    padding: 13px 29px;
-    color: #ffffff !important;
-    letter-spacing: 0.05em;
-    border: 2px solid #ff4c3b;
-    border: 2px solid var(--theme-deafult);
-    background-image: linear-gradient(30deg, #ff4c3b 50%, transparent 50%);
-    background-image: linear-gradient(30deg, var(--theme-deafult) 50%, transparent 50%);
-    background-size: 850px;
-    background-repeat: no-repeat;
-    background-position: 0;
-    cursor:not-allowed;
+  padding: 13px 29px;
+  color: #ffffff !important;
+  letter-spacing: 0.05em;
+  border: 2px solid #ff4c3b;
+  border: 2px solid var(--theme-deafult);
+  background-image: linear-gradient(30deg, #ff4c3b 50%, transparent 50%);
+  background-image: linear-gradient(
+    30deg,
+    var(--theme-deafult) 50%,
+    transparent 50%
+  );
+  background-size: 850px;
+  background-repeat: no-repeat;
+  background-position: 0;
+  cursor: not-allowed;
 }
 </style>
