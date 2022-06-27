@@ -22,6 +22,7 @@ import admin_localization from './admin/modules/localization.js'
 import admin_invoice from './admin/modules/invoice.js'
 import { authentication } from './admin/modules/authentication.js'
 import admin_reports from './admin/modules/reports.js';
+import category from './admin/modules/category.js';
 
 Vue.use(Vuex)
 const createStore = () => {
@@ -47,7 +48,8 @@ const createStore = () => {
       admin_invoice,
       authentication,
       admin_reports,
-      admin_adminauth
+      admin_adminauth,
+      category
     }
   })
 }
