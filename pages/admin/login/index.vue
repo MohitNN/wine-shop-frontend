@@ -287,6 +287,7 @@ import { swiper, swiperSlide } from "vue-awesome-swiper";
 
 export default {
   components: { login,swiper, swiperSlide },
+  middleware: ["loginCheck"],
   data() {
     return {
       type: "password",

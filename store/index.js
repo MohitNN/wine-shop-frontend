@@ -22,7 +22,16 @@ import admin_localization from './admin/modules/localization.js'
 import admin_invoice from './admin/modules/invoice.js'
 import { authentication } from './admin/modules/authentication.js'
 import admin_reports from './admin/modules/reports.js';
+import { setAuthToken, resetAuthToken } from "@/config/auth";
 
+if (process.browser) {
+  const token = localStorage.getItem("x-access-token");
+  if (token) {
+    setAuthToken(token);
+  } else {
+    resetAuthToken();
+  }
+}
 Vue.use(Vuex)
 const createStore = () => {
   return new Vuex.Store({

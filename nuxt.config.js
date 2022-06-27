@@ -42,7 +42,7 @@ export default {
   plugins: [
      { src: '~/plugins/plugin.js', ssr:false },
      { src: '~/plugins/localStorage.js', ssr:false },
-     { src: '~/plugins/axios', ssr:false },
+     { src: "~/plugins/axios" },
   ],
   /*
   ** Nuxt.js modules
