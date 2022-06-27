@@ -303,15 +303,15 @@ export default {
     mounted() {
         this.menuItem.filter(items => {
             if (items.path === this.$route.path)
-                this.$store.dispatch("menu/setActiveRoute", items);
+                this.$store.dispatch("admin_menu/setActiveRoute", items);
             if (!items.children) return false;
             items.children.filter(subItems => {
                 if (subItems.path === this.$route.path)
-                    this.$store.dispatch("menu/setActiveRoute", subItems);
+                    this.$store.dispatch("admin_menu/setActiveRoute", subItems);
                 if (!subItems.children) return false;
                 subItems.children.filter(subSubItems => {
                     if (subSubItems.path === this.$route.path)
-                        this.$store.dispatch("menu/setActiveRoute", subSubItems);
+                        this.$store.dispatch("admin_menu/setActiveRoute", subSubItems);
                 });
             });
         });

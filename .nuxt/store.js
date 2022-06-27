@@ -28,6 +28,7 @@ let store = {};
   resolveStoreModules(require('..\\store\\modules\\products.js'), 'modules/products.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\adminauth.js'), 'admin/modules/adminauth.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\authentication.js'), 'admin/modules/authentication.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\category.js'), 'admin/modules/category.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\coupon.js'), 'admin/modules/coupon.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\digital-products.js'), 'admin/modules/digital-products.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\employee.js'), 'admin/modules/employee.js')
@@ -57,6 +58,7 @@ let store = {};
       '..\\store\\modules\\products.js',
       '..\\store\\admin\\modules\\adminauth.js',
       '..\\store\\admin\\modules\\authentication.js',
+      '..\\store\\admin\\modules\\category.js',
       '..\\store\\admin\\modules\\coupon.js',
       '..\\store\\admin\\modules\\digital-products.js',
       '..\\store\\admin\\modules\\employee.js',
