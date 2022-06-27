@@ -9,11 +9,14 @@ import VueLazyLoad from 'vue-lazyload'
 import ProductZoomer from 'vue-product-zoomer'
 import VueScrollTo from 'vue-scrollto'
 import VueFeather from 'vue-feather';
+import { VueEditor } from "vue2-editor";
 
 Vue.use(VueAwesomeSwiper)
+Vue.use(VueEditor)
 Vue.use(Vue2Filters)
 Vue.use(VueMasonryPlugin)
 Vue.use(InfiniteLoading)
+Vue.component('VueEditor', VueEditor);
 Vue.component('paypal-checkout', PayPal)
 Vue.use(VueLazyLoad)
 Vue.use(ProductZoomer)

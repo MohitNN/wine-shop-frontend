@@ -92,5 +92,6 @@ export default {
   components: {
    layout
   },
+  // middleware: ['admin/auth']
 };
 </script>

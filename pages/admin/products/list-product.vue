@@ -5,7 +5,7 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <h5>Manage order</h5>
+              <h5>List Product</h5>
             </div>
 
             <div class="card-body">
@@ -133,7 +133,7 @@
 
 <script>
 
-import layout from "../../components/admin/Body.vue";
+import layout from "@/components/admin/Body.vue";
 import { mapGetters } from "vuex";
 
 export default {
