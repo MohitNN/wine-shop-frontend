@@ -188,6 +188,7 @@ const mutations = {
         });
     },
     setNavActive: (state, item) => {
+        console.log(item,"------------------------------------------------------------------------------------>>")
         if (!item.active) {
             state.data.forEach(a => {
                 if (state.data.includes(item))
@@ -200,6 +201,7 @@ const mutations = {
                 })
             });
         }
+        console.log(item,"------ITEM---------")
         item.active = !item.active
     },
     setActiveRoute: (state, item) => {

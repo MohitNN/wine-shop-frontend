@@ -2,7 +2,7 @@
   <div>
     <!-- <Header /> -->
     <Breadcrumbs title="Dashboard" />
-    <section class="section-b-space">
+    <section class="section-b-space" v-if="user && user.user">
       <div class="container">
         <div class="row">
           <b-card no-body v-bind:class="'dashboardtab'">
@@ -15,7 +15,7 @@
                         <h2>My Dashboard</h2>
                       </div>
                       <div class="welcome-msg">
-                        <p>Hello, MARK JECNO !</p>
+                        <p>Hello, {{user.user.name}} !</p>
                         <p>From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.</p>
                       </div>
                       <div class="box-account box-info">
@@ -30,8 +30,8 @@
                                 <a href="#">Edit</a>
                               </div>
                               <div class="box-content">
-                                <h6>MARK JECNO</h6>
-                                <h6>MARk-JECNO@gmail.com</h6>
+                                <h6>{{user.user.name}}</h6>
+                                <h6>{{user.user.email}}</h6>
                                 <h6>
                                   <a href="#">Change Password</a>
                                 </h6>
@@ -332,11 +332,17 @@
 import Header from '../../../components/header/header1'
 import Footer from '../../../components/footer/footer1'
 import Breadcrumbs from '../../../components/widgets/breadcrumbs'
+import { mapState, mapGetters, mapActions } from 'vuex'
+
 export default {
+  middleware: ["login"],
   components: {
     Header,
     Footer,
     Breadcrumbs
-  }
+  },
+  computed:{
+     ...mapState('admin_adminauth',['user'])
+  },
 }
 </script>

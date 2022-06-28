@@ -15,8 +15,8 @@
               <i class="fa fa-user" aria-hidden="true"></i> My Account
               <ul class="onhover-show-div">
                 <li>
-                  <a v-if="isLogin" @click="logout"> Logout </a>
-                  <nuxt-link v-if="!isLogin" :to="{ path: '/page/account/login' }">Login</nuxt-link>
+                  <a v-if="user.isAuthenticated" @click="logout"> Logout </a>
+                  <nuxt-link v-if="!user.isAuthenticated" :to="{ path: '/page/account/login' }">Login</nuxt-link>
                 </li>
                 <li>
                   <nuxt-link :to="{ path: '/page/account/dashboard' }">Dashboard</nuxt-link>
@@ -43,8 +43,11 @@ export default {
   },
   created() {
     if (process.client) {
-      this.isLogin = localStorage.getItem('userlogin')
+       
     }
+  },
+  computed:{
+     ...mapState('admin_adminauth',['user'])
   },
   methods: {
     ...mapActions({
@@ -52,7 +55,10 @@ export default {
     }),
     logout: function () {
       this.logOutAPi().then((resp) => {
-          
+          if (resp.data.status) {
+            this.$toast.success("Logout Succesfull");
+            this.$router.push("/page/account/login");
+          }
       }).catch((error) => {
 
       })
