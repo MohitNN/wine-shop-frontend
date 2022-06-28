@@ -28,6 +28,8 @@ let store = {};
   resolveStoreModules(require('..\\store\\modules\\products.js'), 'modules/products.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\adminauth.js'), 'admin/modules/adminauth.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\authentication.js'), 'admin/modules/authentication.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\brand.js'), 'admin/modules/brand.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\category.js'), 'admin/modules/category.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\coupon.js'), 'admin/modules/coupon.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\digital-products.js'), 'admin/modules/digital-products.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\employee.js'), 'admin/modules/employee.js')
@@ -38,7 +40,10 @@ let store = {};
   resolveStoreModules(require('..\\store\\admin\\modules\\order.js'), 'admin/modules/order.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\pages.js'), 'admin/modules/pages.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\product.js'), 'admin/modules/product.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\Products.js'), 'admin/modules/Products.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\reports.js'), 'admin/modules/reports.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\setCoupons.js'), 'admin/modules/setCoupons.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\sub_category.js'), 'admin/modules/sub_category.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\user.js'), 'admin/modules/user.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\vendor.js'), 'admin/modules/vendor.js')
 
@@ -57,6 +62,8 @@ let store = {};
       '..\\store\\modules\\products.js',
       '..\\store\\admin\\modules\\adminauth.js',
       '..\\store\\admin\\modules\\authentication.js',
+      '..\\store\\admin\\modules\\brand.js',
+      '..\\store\\admin\\modules\\category.js',
       '..\\store\\admin\\modules\\coupon.js',
       '..\\store\\admin\\modules\\digital-products.js',
       '..\\store\\admin\\modules\\employee.js',
@@ -67,7 +74,10 @@ let store = {};
       '..\\store\\admin\\modules\\order.js',
       '..\\store\\admin\\modules\\pages.js',
       '..\\store\\admin\\modules\\product.js',
+      '..\\store\\admin\\modules\\Products.js',
       '..\\store\\admin\\modules\\reports.js',
+      '..\\store\\admin\\modules\\setCoupons.js',
+      '..\\store\\admin\\modules\\sub_category.js',
       '..\\store\\admin\\modules\\user.js',
       '..\\store\\admin\\modules\\vendor.js',
     ], () => {

@@ -53,5 +53,8 @@ export default {
     components: {
         layout
     },
+    mounted(){ console.log(this.$route)
+          console.log(this.$route.params.editbrand)
+    }
 };
 </script>

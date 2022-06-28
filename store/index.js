@@ -22,7 +22,13 @@ import admin_localization from './admin/modules/localization.js'
 import admin_invoice from './admin/modules/invoice.js'
 import { authentication } from './admin/modules/authentication.js'
 import admin_reports from './admin/modules/reports.js';
+import category from './admin/modules/category.js';
+import sub_category from './admin/modules/sub_category.js';
+import Products from './admin/modules/Products.js';
+import setCoupons from './admin/modules/setCoupons.js';
+import brand from './admin/modules/brand.js';
 import { setAuthToken, resetAuthToken } from "@/config/auth";
+
 
 if (process.browser) {
   const token = localStorage.getItem("x-access-token");
@@ -56,7 +62,12 @@ const createStore = () => {
       admin_invoice,
       authentication,
       admin_reports,
-      admin_adminauth
+      admin_adminauth,
+      category,
+      sub_category,
+      Products,
+      setCoupons,
+      brand
     }
   })
 }

@@ -5,33 +5,30 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Add Sub Category</h5>
+                        <h5>Create Coupan</h5>
                     </div>
                     <div class="card-body">
                         <div class="row product-adding">
                             <div class="col-xl-7">
                                 <form class="needs-validation" novalidate="">
-                                    <h4>General</h4>
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group row">
                                                 <label for="validationCustom0" class="col-xl-3 col-md-4"><span>*</span> Coupan Title</label>
-                                                <input class="form-control col-md-7" id="validationCustom0" type="text" required="" />
+                                                <input v-model="productCoupon.title" class="form-control col-md-7" id="validationCustom0" type="text" required="" />
                                             </div>
                                             <div class="form-group row">
                                                 <label for="validationCustom1" class="col-xl-3 col-md-4"><span>*</span>Coupan Code</label>
-                                                <input class="form-control col-md-7" id="validationCustom1" type="text" required="" />
-                                                <div class="valid-feedback">
-                                                    Please Provide a Valid Coupon Code.
-                                                </div>
+                                                <input v-model="productCoupon.code" class="form-control col-md-7" id="validationCustom1" type="text" required="" />
+                                                <button type="button" class="btn btn-primary"><feather type="settings"></feather></button>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">Start Date</label>
-                                                <input class="datepicker-here form-control digits col-md-7" type="text" data-language="en" />
+                                                <input v-model="productCoupon.startDate" class="datepicker-here form-control digits col-md-7" type="text" data-language="en" />
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">End Date</label>
-                                                <input class="datepicker-here form-control digits col-md-7" type="text" data-language="en" />
+                                                <input v-model="productCoupon.endDate" class="datepicker-here form-control digits col-md-7" type="text" data-language="en" />
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">Status</label>
@@ -41,7 +38,7 @@
                                                 </label>
                                             </div>
                                             <div class="pull-right">
-                                                <button type="button" class="btn btn-primary">Save</button>
+                                                <button type="button" @click="coupon" class="btn btn-primary">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -58,7 +55,7 @@
 
 <script>
 import layout from "@/components/admin/Body.vue";
-
+import { mapActions } from 'vuex';
 export default {
     components: {
         layout
@@ -66,9 +63,21 @@ export default {
     data() {
         return {
             image: '',
+            productCoupon:{
+                title:"",
+                code:"",
+                startDate:"",
+                endDate:""
+            }
         }
     },
     methods: {
+        coupon(){
+            this.setCoupon(this.productCoupon)
+        },
+        ...mapActions({
+            setCoupon: "setCoupons/setCoupon",
+        }), 
         fileselected(e) {
             const file = e.target.files.item(0);
             const reader = new FileReader();

@@ -14,7 +14,7 @@
                                     <div class="form">
                                         <div class="form-group row">
                                             <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select Category :</label>
-                                            <select class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
+                                            <select v-model="subCategory.subSelected" class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
                                                 <option>Small</option>
                                                 <option>Medium</option>
                                                 <option>Large</option>
@@ -23,15 +23,15 @@
                                         </div>
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
-                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" />
+                                            <input v-model="subCategory.subCategoryName" class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" />
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-md-4">Description :</label>
-                                            <textarea rows="4" class="col-xl-8 col-md-7"></textarea>
+                                            <textarea v-model="subCategory.subCategoryDescription" rows="4" class="col-xl-8 col-md-7"></textarea>
                                         </div>
                                     </div>
                                     <div class="offset-xl-3 offset-sm-4">
-                                        <button type="submit" class="btn btn-primary">Add</button>
+                                        <button type="button" @click="getSubCategory" class="btn btn-primary">Add</button>
                                         <button type="button" class="btn btn-light ml-1">
                                             Discard
                                         </button>
@@ -49,7 +49,7 @@
 
 <script>
 import layout from "@/components/admin/Body.vue";
-
+import { mapActions } from 'vuex';
 export default {
     components: {
         layout
@@ -57,6 +57,11 @@ export default {
     data() {
         return {
             image: '',
+            subCategory:{
+                subCategoryName:'',
+                subCategoryDescription : '',
+                subSelected:""
+            }
         }
     },
     methods: {
@@ -69,7 +74,13 @@ export default {
         },
         imageloaded(e) {
             this.image = e.target.result;
-        }
+        },
+        getSubCategory(){
+            this.setSubCategory(this.subCategory)
+        },
+        ...mapActions({
+            setSubCategory: "sub_category/setSubCategory",
+        }), 
     }
 };
 </script>
