@@ -1,18 +1,18 @@
 const state = {
-    getCategory : []
+    getProducts : []
 }
 const getters = {
     
 }
 const actions = {
-      setCategory: (context, items) => {
-        context.commit('setCategoryValue', items);
+    setProducts: (context, items) => {
+        context.commit('setProductsValue', items);
         console.log(items)
       },
 }
 const mutations = {
-    setCategoryValue: (state, items) => {
-        state.getCategory.push(items);
+    setProductsValue: (state, items) => {
+        state.getProducts.push(items);
         console.log(items)
     },
 }

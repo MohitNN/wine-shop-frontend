@@ -14,7 +14,14 @@ import admin_localization from './modules/localization.js'
 import admin_invoice from './modules/invoice.js'
 import { authentication } from './modules/authentication.js'
 import admin_reports from './modules/reports.js';
+import brand from './modules/brand.js';
 import category from './modules/category.js';
+import sub_category from './modules/sub_category.js';
+import Products from './modules/Products.js';
+import setCoupons from './modules/setCoupons.js';
+
+
+
 
 Vue.use(Vuex)
 
@@ -52,6 +59,10 @@ export default new Vuex.Store({
         admin_adminauth,
         admin_reports,
         admin_admin_auth,
-        category
+        brand,
+        category,
+        sub_category,
+        Products,
+        setCoupons
     }
 })

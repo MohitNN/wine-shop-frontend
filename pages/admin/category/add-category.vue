@@ -70,7 +70,6 @@ export default {
         },
         ...mapActions({
             setCategory: "category/setCategory",
-            
         }), 
     }
 };

@@ -23,6 +23,10 @@ import admin_invoice from './admin/modules/invoice.js'
 import { authentication } from './admin/modules/authentication.js'
 import admin_reports from './admin/modules/reports.js';
 import category from './admin/modules/category.js';
+import sub_category from './admin/modules/sub_category.js';
+import Products from './admin/modules/Products.js';
+import setCoupons from './admin/modules/setCoupons.js';
+import brand from './admin/modules/brand.js';
 import { setAuthToken, resetAuthToken } from "@/config/auth";
 
 
@@ -59,7 +63,11 @@ const createStore = () => {
       authentication,
       admin_reports,
       admin_adminauth,
-      category
+      category,
+      sub_category,
+      Products,
+      setCoupons,
+      brand
     }
   })
 }

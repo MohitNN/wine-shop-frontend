@@ -38,12 +38,12 @@
                                     <div class="form">
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
-                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" />
+                                            <input v-model="products.ProductName" class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" />
                                             <div class="valid-feedback">Looks good!</div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select Category :</label>
-                                            <select class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
+                                            <select v-model="products.category" class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
                                                 <option>Small</option>
                                                 <option>Medium</option>
                                                 <option>Large</option>
@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select Sub Category :</label>
-                                            <select class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
+                                            <select v-model="products.subCategory" class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
                                                 <option>Small</option>
                                                 <option>Medium</option>
                                                 <option>Large</option>
@@ -61,7 +61,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select Brand :</label>
-                                            <select class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
+                                            <select v-model="products.brand" class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
                                                 <option>Small</option>
                                                 <option>Medium</option>
                                                 <option>Large</option>
@@ -71,7 +71,7 @@
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-sm-4">Description :</label>
                                             <div class=" col-xl-8 col-sm-7 editor-vue">
-                                                <vue-editor v-model="content"></vue-editor>
+                                                <vue-editor v-model="products.content"></vue-editor>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -81,24 +81,24 @@
                                                     <b-input-group-prepend>
                                                         <b-btn variant="primary" @click="decrement">-</b-btn>
                                                     </b-input-group-prepend>
-                                                    <b-input type="text" name="quantity" class="form-control input-number" v-model="counter" />
+                                                    <b-input type="text" name="quantity" class="form-control input-number" v-model="products.counter" />
                                                     <b-input-group-append>
-                                                        <b-btn variant="primary" @click="counter++">+</b-btn>
+                                                        <b-btn variant="primary" @click="products.counter++">+</b-btn>
                                                     </b-input-group-append>
                                                 </div>
                                             </fieldset>
                                         </div>
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Price :</label>
-                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="text" required="" />
+                                            <input class="form-control col-xl-8 col-sm-7" v-model="products.price" id="validationCustom02" type="text" required="" />
                                         </div>
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Fake Price :</label>
-                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="text" required="" />
+                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" v-model="products.fakePrice" type="text" required="" />
                                         </div>
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Discount :</label>
-                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="text" required="" />
+                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" v-model="products.discount" type="text" required="" />
                                         </div>
                                         <div class="form-group row dd d-block">
                                             <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Status :</label>
@@ -106,7 +106,7 @@
                                         </div>
                                     </div>
                                     <div class="offset-xl-3 offset-sm-4">
-                                        <button type="submit" class="btn btn-primary">Add</button>
+                                        <button type="button" @click="sawProduct" class="btn btn-primary">Add</button>
                                         <button type="button" class="btn btn-light ml-1">
                                             Discard
                                         </button>
@@ -124,24 +124,39 @@
 
 <script>
 import layout from "@/components/admin/Body.vue";
+import { mapActions } from 'vuex';
 
 export default {
     components: {
-        layout
+        layout,
     },
     data(){
       return{
-         counter: 0,
-      content: "<h1>Some initial content</h1>",
-      image: [],
-      imageUrl: "../../assets/images/pro3/33.jpg",
-      getImgUrl:"@assets/images/"
+        image: [],
+        imageUrl: "../../assets/images/pro3/33.jpg",
+        getImgUrl:"@assets/images/",
+        products:{
+            ProductName:"",
+            category:"",
+            subCategory:"",
+            brand:"",
+            counter: 0,
+            content: "",
+            price:"",
+            fakePrice:"",
+            discount:""
+        }
       }
     },
     methods: {
-         
+    sawProduct(){
+            this.setProducts(this.products)
+        },
+        ...mapActions({
+            setProducts: "Products/setProducts",
+        }), 
     decrement() {
-      if (this.counter > 1) this.counter--;
+      if (this.products.counter > 1) this.products.counter--;
     },
     onFileChange(e) {
       var files = e.target.files;
