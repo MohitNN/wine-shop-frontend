@@ -12,12 +12,12 @@ const getters = {
     },
 }
 const actions = {
-    getbrand: (context) => {
-        const URl = `${baseURL}api/admin/get-brand`
+    getbrand: (context,page=1) => {        
+        const URl = `${baseURL}api/admin/get-brand?page=${page}`
         const resp = axios.get(URl);
         resp.then(response => {
-            if(response.data.status){       
-                context.commit('setBrandValue', response.data.data.data);               
+            if(response.data.status){  
+                context.commit('setBrandValue', response.data.data);               
             }
          });         
     },

@@ -21,7 +21,7 @@
                             </b-col>
                         </b-row>
                         <div class="table-responsive datatable-vue text-center">
-                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getBrand" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
+                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getBrand.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
 
                                 <template #cell(image)="field">
                                     <img height="50px" :src="getImgUrl(field.item.image)" width="50px" />
@@ -35,7 +35,7 @@
                             </b-table>
                         </div>
                         <b-col md="12" class="my-1 p-0 pagination-justify">
-                            <b-pagination v-model="currentPage" :total-rows="totalRows" :per-page="perPage" aria-controls="my-table" class="mt-4"></b-pagination>
+                            <b-pagination  :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
                         </b-col>
                     </div>
                 </div>
@@ -92,7 +92,7 @@ export default {
     },
     computed: {
         ...mapGetters({
-            getBrand: "brand/getBrand"
+            getBrandDetails: "brand/getBrand"
         }),
         sortOptions() {
             return this.tablefields
@@ -103,10 +103,11 @@ export default {
                         value: f.key
                     };
                 });
+        },
+        getBrand(){   
+            this.totalRows =  this.getBrandDetails.total      
+            return this.getBrandDetails;
         }
-    },
-    mounted() {
-        this.totalRows = 50;
     },
     methods: {
       ...mapActions({
@@ -115,9 +116,12 @@ export default {
         getImgUrl(path) {
             return config.baseUrl + "brand/" + path;
         },
+        updateData(page) {
+            this.$store.dispatch("brand/getbrand",page);
+        },
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length;
-            this.currentPage = 1;
+            this.currentPage = this.getBrand.current_page;
         },
         goToEdit(item){
           this.$router.push('/admin/brand/'+item.id);      
