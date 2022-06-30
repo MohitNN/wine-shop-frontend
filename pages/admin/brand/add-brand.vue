@@ -14,7 +14,7 @@
                                     <div class="form">
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
-                                            <input v-model="brand.brandName" class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" />
+                                            <input v-model="brand.brandName" class="form-control col-xl-8 col-sm-7" placeholder="Name" id="validationCustom01" type="text" required="" />
                                             <div class="valid-feedback">Looks good!</div>
                                         </div>
                                         <div class="form-group mb-3 row">
@@ -34,7 +34,7 @@
                                     </div>
                                     <div class="offset-xl-3 offset-sm-4">
                                         <button type="button" @click="submit()" class="btn btn-primary">Add</button>
-                                        <button type="button" class="btn btn-light ml-1">
+                                        <button type="button" @click="$router.push('/admin/brand')" class="btn btn-light ml-1">
                                             Discard
                                         </button>
                                     </div>
@@ -62,12 +62,16 @@ export default {
             image: '',
             brand:{
                 brandName:'',
-                brandDescription : '',
+                brandDescription : 'Description',
                 logo:null
             }
         }
     },
     methods: {
+        ...mapActions({
+            setBrand: "brand/setBrand",
+        }), 
+        
         fileselected(e) {
             this.brand.logo = this.$refs.file.files[0];
             const file = e.target.files.item(0);
@@ -75,15 +79,20 @@ export default {
             reader.addEventListener('load', this.imageloaded);
             reader.readAsDataURL(file);
         },
+
         imageloaded(e) {
             this.image = e.target.result;
         },
+
         submit(){
-            this.setBrand(this.brand)
+            this.setBrand(this.brand).then(Response=>{
+                if(Response.data.status){
+                   this.$toast.success("Add Brand Successfully..!");
+                   this.$router.push('/admin/brand')                   
+                }                
+            })
         },
-        ...mapActions({
-            setBrand: "brand/setBrand",
-        }), 
+      
     }
 };
 </script>

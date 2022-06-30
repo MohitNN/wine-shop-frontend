@@ -5,7 +5,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>List Brand</h5>
+                        <h5>List Brand</h5>                     
                     </div>
                     <div class="card-body">
                         <b-row>
@@ -31,8 +31,8 @@
                                 </template>
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
-                                    <feather @click="goToEdit" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
-                                    <feather type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
+                                    <feather @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
+                                    <feather @click="deleteBrand(field.item.id)" type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
                                 </template>
 
                             </b-table>
@@ -52,7 +52,9 @@
 import layout from "@/components/admin/Body.vue";
 import config from '@/config.json'
 import {
-    mapGetters
+    mapGetters,
+    mapMutations,
+    mapActions
 } from "vuex";
 
 export default {
@@ -80,7 +82,6 @@ export default {
                     label: "actions",
                     class: "text-center"
                 }
-
             ],
             filter: null,
             totalRows: 1,
@@ -97,7 +98,6 @@ export default {
             getBrand: "brand/getBrand"
         }),
         sortOptions() {
-            // Create an options list from our fields
             return this.tablefields
                 .filter(f => f.sortable)
                 .map(f => {
@@ -109,21 +109,33 @@ export default {
         }
     },
     mounted() {
-        // Set the initial number of items
-        this.totalRows = 12;
+        this.totalRows = 50;
     },
     methods: {
+      ...mapActions({
+            delete: "brand/deleteBrand",
+        }),
         getImgUrl(path) {
             return config.baseUrl + "brand/" + path;
         },
         onFiltered(filteredItems) {
-            // Trigger pagination to update the number of buttons/pages due to filtering
             this.totalRows = filteredItems.length;
             this.currentPage = 1;
         },
-        goToEdit(){
-          this.$router.push('/admin/brand/_edit-brand');      
+        goToEdit(item){
+          this.$router.push('/admin/brand/'+item.id);      
         },
+      
+        deleteBrand(brandID){
+          this.delete(brandID).then(Response=>{
+                if(Response.data.status){
+                   this.$toast.success("Deleted Brand Successfully..!");
+                }                
+            })
+          
+        },
+        
+
     },
 }
 </script>

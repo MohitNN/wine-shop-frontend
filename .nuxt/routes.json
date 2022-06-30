@@ -228,12 +228,6 @@
     "chunkName": "pages/admin/category/add-category"
   },
   {
-    "name": "admin-category-edit-category",
-    "path": "/admin/category/edit-category",
-    "component": "G:\\\\wine-shop-frontend\\\\pages\\\\admin\\\\category\\\\edit-category.vue",
-    "chunkName": "pages/admin/category/edit-category"
-  },
-  {
     "name": "admin-coupnes-create-coupon",
     "path": "/admin/coupnes/create-coupon",
     "component": "G:\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupnes\\\\create-coupon.vue",
@@ -586,6 +580,12 @@
     "path": "/admin/brand/:editbrand",
     "component": "G:\\\\wine-shop-frontend\\\\pages\\\\admin\\\\brand\\\\_editbrand.vue",
     "chunkName": "pages/admin/brand/_editbrand"
+  },
+  {
+    "name": "admin-category-editcategory",
+    "path": "/admin/category/:editcategory",
+    "component": "G:\\\\wine-shop-frontend\\\\pages\\\\admin\\\\category\\\\_editcategory.vue",
+    "chunkName": "pages/admin/category/_editcategory"
   },
   {
     "name": "collection-leftsidebar-id",

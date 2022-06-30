@@ -18,7 +18,7 @@
             <ul class="sidebar-menu" id="myDIV">
                 <li v-for="(menuItem, index) in menuItem" :key="index" :class="{ active: menuItem.active }">
                     <!-- Sub -->
-                    <a href="javascript:void(0)" class="sidebar-header" v-if="menuItem.type == 'sub'" @click="setNavActive(menuItem, index)">
+                    <a :href="menuItem.path" class="sidebar-header" v-if="menuItem.type == 'sub'" @click="setNavActive(menuItem, index)">
                         <feather :type="menuItem.icon"> </feather>
                         <span @click="dashboardClick(menuItem.title)">
                             {{ menuItem.title }}
@@ -27,14 +27,6 @@
                         <span :class="'badge badge-pill badge-' + menuItem.badgeType" v-if="menuItem.badgeType">{{ menuItem.badgeValue }}</span>
                         <i class="fa fa-angle-right pull-right" v-if="menuItem.children"></i>
                     </a>
-                    <router-link :to="menuItem.path" class="sidebar-header" v-if="menuItem.type == 'link'" router-link-exact-active>
-                        <feather :type="menuItem.icon" class="middle"></feather>
-                        <span>
-                            {{ menuItem.title }}
-                            <span :class="'badge badge-' + menuItem.badgeType + ' ml-3'" v-if="menuItem.badgeType">{{ menuItem.badgeValue }}</span>
-                        </span>
-                        <i class="fa fa-angle-right pull-right" v-if="menuItem.children"></i>
-                    </router-link>
                     <!--</span>
             </span>-->
                     <!-- External Link -->
@@ -59,7 +51,7 @@
                     <ul class="sidebar-submenu" v-if="menuItem.children" :class="{ 'menu-open': menuItem.active }">
                         <li v-for="(childrenItem, index) in menuItem.children" :key="index" :class="{ active: childrenItem.active }">
                             <!-- Sub -->
-                            <a href="javascript:void(0)" v-if="childrenItem.type == 'sub'" @click="setNavActive(childrenItem, index)">
+                            <a :href="childrenItem.path" v-if="childrenItem.type == 'sub'" @click="setNavActive(childrenItem, index)">
                                 <i class="fa fa-circle"></i>
                                 {{ childrenItem.title }}
                                 <span :class="
@@ -157,7 +149,8 @@ export default {
         return {
             width: 0,
             height: 0,
-            menuItems_: [{
+            menuItems_: [
+                {
                     "path": "/admin/dashboard",
                     "title": "Dashboard",
                     "icon": "home",
@@ -166,22 +159,13 @@ export default {
                     "active": false
                 },
                 {
+                    "path": "/admin/brand",
                     "title": "Brand",
                     "type": "sub",
                     "path": "/admin/brand",
                     "icon": "box",
                     "active": false,
-                    "children": [{
-                            "path": "/admin/brand",
-                            "title": "Brand List",
-                            "type": "link"
-                        },
-                        {
-                            "path": "/admin/brand/add-brand",
-                            "title": "Create Brand",
-                            "type": "link"
-                        },
-                    ]
+                    "badgeType": "primary"
                 },
                 {
                     "title": "Category",
@@ -192,35 +176,13 @@ export default {
                             "title": "Category",
                             "type": "sub",
                             "active": false,
-                            "children": [{
-                                    "path": "/admin/category",
-                                    "title": "Category List",
-                                    "type": "link"
-                                },
-                                {
-                                    "path": "/admin/category/add-category",
-                                    "title": "Create Category",
-                                    "type": "link"
-                                },
-
-                            ]
+                            "path": "/admin/category"
                         },
                         {
                             "title": "Sub Category",
                             "type": "sub",
                             "active": false,
-                            "children": [{
-                                    "path": "/admin/sub_category",
-                                    "title": "Sub Category List",
-                                    "type": "link"
-                                },
-                                {
-                                    "path": "/admin/sub_category/add-sub-category",
-                                    "title": "Sub Create Category",
-                                    "type": "link"
-                                },
-
-                            ]
+                            "path": "/admin/sub_category"
                         }
                     ]
                 },
@@ -229,56 +191,28 @@ export default {
                     "type": "sub",
                     "icon": "box",
                     "active": false,
-                    "children": [{
-                            "path": "/admin/products/",
-                            "title": "List Product",
-                            "type": "link"
-                        },
-                        {
-                            "path": "/admin/products/add-product",
-                            "title": "Create Product",
-                            "type": "link"
-                        },
-                    ]
+                    "path": "/admin/products"
                 },
                 {
                     "title": "Order",
                     "type": "sub",
                     "icon": "image",
                     "active": false,
-                    "children": [{
-                        "path": "/admin/order",
-                        "title": "Order List",
-                        "type": "link"
-                    }, ]
+                    "path": "/admin/order"
                 },
                 {
                     "title": "Coupons",
                     "type": "sub",
                     "icon": "tag",
                     "active": false,
-                    "children": [{
-                            "path": "/admin/coupnes",
-                            "title": "Coupons List",
-                            "type": "link"
-                        },
-                        {
-                            "path": "/admin/coupnes/create-coupon",
-                            "title": "Create Coupons",
-                            "type": "link"
-                        }
-                    ]
+                    "path": "/admin/coupnes"
                 },
                 {
                     "title": "User",
                     "type": "sub",
                     "icon": "users",
                     "active": false,
-                    "children": [{
-                        "path": "/admin/user",
-                        "title": "User List",
-                        "type": "link"
-                    }, ]
+                    "path": "/admin/user"
                 },
             ]
         };

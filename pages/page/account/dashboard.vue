@@ -1,5 +1,5 @@
 <template>
-  <div>
+<div>
     <!-- <Header /> -->
     <Breadcrumbs title="Dashboard" />
     <section class="section-b-space" v-if="user && user.user">
@@ -326,8 +326,9 @@
       </div>
     </section>
     <Footer />
-  </div>
+</div>
 </template>
+
 <script>
 import Header from '../../../components/header/header1'
 import Footer from '../../../components/footer/footer1'

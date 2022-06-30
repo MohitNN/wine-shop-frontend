@@ -1,7 +1,7 @@
 <template>
 <layout>
     <template v-slot:content>
-        <div class="row">
+        <div class="row">       
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
@@ -14,24 +14,27 @@
                                     <div class="form">
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
-                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" />
+                                            <input v-model="brand.name" class="form-control col-xl-8 col-sm-7"  id="validationCustom01" type="text" required="" />
                                             <div class="valid-feedback">Looks good!</div>
                                         </div>
-                                        <div class="form-group mb-3 row">
+                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Logo :</label>
-                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" type="file" required="" />
-                                            <div class="valid-feedback">Looks good!</div>
+                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" ref="file" type="file" required=""  @change="fileselected"  />
+                                        </div>
+                                        <div class="form-group mb-3 row">
+                                            <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0"></label>
+                                            <img v-if="image" :src="image" width="100px" height="100px" />
                                         </div>
                                         <div class="form-group d-flex">
                                             <label class="col-xl-3 col-sm-4">Detail :</label>
                                             <div class=" col-xl-8 col-sm-7 editor-vue">
-                                                <vue-editor></vue-editor>
+                                                <vue-editor v-model="brand.detail"></vue-editor>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="offset-xl-3 offset-sm-4">
-                                        <button type="submit" class="btn btn-primary">Add</button>
-                                        <button type="button" class="btn btn-light ml-1">
+                                        <button type="button" @click="update" class="btn btn-primary">Update</button>
+                                        <button type="button" @click="$router.push('/admin/brand')" class="btn btn-light ml-1">
                                             Discard
                                         </button>
                                     </div>
@@ -48,13 +51,61 @@
 
 <script>
 import layout from "@/components/admin/Body.vue";
-
+import config from '@/config.json'
+import { mapActions } from "vuex";
 export default {
     components: {
-        layout
+        layout,
     },
-    mounted(){ console.log(this.$route)
-          console.log(this.$route.params.editbrand)
+    data() {
+        return {
+          brand:{
+            name:'',
+            detail : '',
+            logo:'',
+            id:this.$route.params.editbrand,
+         },
+         image:false
+
+        }
+    },
+    created() {        
+      this.getBrandDetails(this.brand.id).then((response) => {
+         if(response.data.status){
+            const data = response.data.data            
+            this.brand.name = data.name
+            this.brand.detail = data.detail
+            this.brand.logo = data.logo
+            this.image = `${config.baseUrl}brand/${data.image}`
+         }
+         
+      })
+    },
+   
+    methods:{
+        ...mapActions({
+            getBrandDetails: "brand/get_single_brand",
+            updateBrand: "brand/updatebrand",
+        }),
+        update(){
+            this.updateBrand(this.brand).then(response => {
+            if(response.data.status){       
+                this.$toast.success("Update Brand Successfully..!");
+                this.$router.push('/admin/brand')              
+            }
+         });
+        },
+        fileselected(e) {
+            this.brand.logo = this.$refs.file.files[0];
+            const file = e.target.files.item(0);
+            const reader = new FileReader();
+            reader.addEventListener('load', this.imageloaded);
+            reader.readAsDataURL(file);
+        },
+
+        imageloaded(e) {
+            this.image = e.target.result;
+        },
     }
 };
 </script>
