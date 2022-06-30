@@ -23,7 +23,7 @@ import admin_invoice from './admin/modules/invoice.js'
 import { authentication } from './admin/modules/authentication.js'
 import admin_reports from './admin/modules/reports.js';
 import category from './admin/modules/category.js';
-import sub_category from './admin/modules/sub_category.js';
+import subCategory from './admin/modules/subCategory.js';
 import Products from './admin/modules/Products.js';
 import setCoupons from './admin/modules/setCoupons.js';
 import brand from './admin/modules/brand.js';
@@ -64,7 +64,7 @@ const createStore = () => {
       admin_reports,
       admin_adminauth,
       category,
-      sub_category,
+      subCategory,
       Products,
       setCoupons,
       brand

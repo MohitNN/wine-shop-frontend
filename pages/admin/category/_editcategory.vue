@@ -1,11 +1,11 @@
 <template>
 <layout>
     <template v-slot:content>
-        <div class="row">
+        <div class="row">       
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Add Category</h5>
+                        <h5>Edit category</h5>
                     </div>
                     <div class="card-body">
                         <div class="row product-adding">
@@ -14,7 +14,8 @@
                                     <div class="form">
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
-                                            <input class="form-control col-xl-8 col-sm-7" placeholder="Name" id="validationCustom01" type="text" v-model="category.name" required="" />
+                                            <input v-model="category.name" class="form-control col-xl-8 col-sm-7"  id="validationCustom01" type="text" required="" />
+                                            <div class="valid-feedback">Looks good!</div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-md-4">Description :</label>
@@ -22,7 +23,7 @@
                                         </div>
                                     </div>
                                     <div class="offset-xl-3 offset-sm-4">
-                                        <button type="button" @click="saveCategory" class="btn btn-primary">Add</button>
+                                        <button type="button" @click="update" class="btn btn-primary">Update</button>
                                         <button type="button" @click="$router.push('/admin/category')" class="btn btn-light ml-1">
                                             Discard
                                         </button>
@@ -40,30 +41,41 @@
 
 <script>
 import layout from "@/components/admin/Body.vue";
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 export default {
     components: {
-        layout
+        layout,
     },
     data() {
-        return{
-            category:{
-                name:'',
-                description : ''
-            }
+        return {
+          category:{
+            name:'',
+            description : '',
+            id:this.$route.params.editcategory,
+         },
         }
     },
-    methods: {
+    created() {        
+      this.getCategoryDetails(this.category.id).then((response) => {
+         if(response.data.status){
+            const data = response.data.data            
+            this.category.name = data.name
+            this.category.description = data.description
+         }
+      })
+    },
+    methods:{
         ...mapActions({
-            setCategory: "category/setCategory",
-        }), 
-        saveCategory(){
-            this.setCategory(this.category).then(Response=>{
-                if(Response.data.status){
-                   this.$toast.success("Add Category Successfully..!");
-                   this.$router.push('/admin/category')                   
-                }                
-            })
+            getCategoryDetails: "category/get_single_category",
+            updateCategory: "category/updateCategory",
+        }),
+        update(){
+            this.updateCategory(this.category).then(response => {
+            if(response.data.status){       
+                this.$toast.success("Update Brand Successfully..!");
+                this.$router.push('/admin/category')              
+            }
+         });
         },
     }
 };
