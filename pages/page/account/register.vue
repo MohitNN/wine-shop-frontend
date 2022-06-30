@@ -90,6 +90,7 @@ import { ValidationProvider, ValidationObserver } from 'vee-validate/dist/vee-va
 import Header from '../../../components/header/header1'
 import Footer from '../../../components/footer/footer1'
 import Breadcrumbs from '../../../components/widgets/breadcrumbs'
+import { mapState, mapGetters, mapActions } from 'vuex'
 export default {
   components: {
     Header,
@@ -108,8 +109,17 @@ export default {
     }
   },
   methods: {
+    ...mapActions('admin_adminauth',['register']),
     onSubmit() {
-      console.log('Form has been submitted!')
+      this.register({name:this.fname,email:this.email,password:this.password}).then((resp) => {
+        if (resp.data.status) {
+            this.$toast.success("Register Succesfull");
+            this.$router.push("/page/account/login");
+        }
+
+      }).catch((error) => {
+
+      })
     }
   }
 }

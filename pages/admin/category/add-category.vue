@@ -14,11 +14,11 @@
                                     <div class="form">
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
-                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" v-model="category.categoryName" required="" />
+                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" v-model="category.name" required="" />
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-md-4">Description :</label>
-                                            <textarea class="form-control col-xl-8 col-sm-7" v-model="category.categoryDescription" required=""></textarea>
+                                            <textarea class="form-control col-xl-8 col-sm-7" v-model="category.description" required=""></textarea>
                                         </div>
                                     </div>
                                     <div class="offset-xl-3 offset-sm-4">
@@ -49,8 +49,8 @@ export default {
         return{
             image: '',
             category:{
-                categoryName:'',
-                categoryDescription : ''
+                name:'',
+                description : ''
             }
         }
     },

@@ -19,6 +19,13 @@ const actions = {
     }
     return resp;
   },
+  async register({ commit , dispatch}, data) {
+    const resp = await axios.post("/api/register", data);
+    if(resp.data.status) {
+      // dispatch("setCurrentUser",resp.data)
+    }
+    return resp;
+  },
   async LogOutApi({ commit , dispatch}, data) {
     const resp = await axios.post("/api/logout");
     if(resp.data.status) {
