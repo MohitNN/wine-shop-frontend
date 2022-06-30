@@ -5,8 +5,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5>Brand List</h5>
-                        <b-button @click="$router.push('/admin/brand/add-brand')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add Brand</b-button>               
+                        <h5>Product List</h5>
+                        <b-button @click="$router.push('/admin/product/add-product')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add Product</b-button>               
                     </div>
                     <div class="card-body">
                         <b-row>

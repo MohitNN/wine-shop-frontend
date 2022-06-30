@@ -4,15 +4,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>Category List</h5>                     
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5>Category List</h5>
+                        <b-button @click="$router.push('/admin/category/add-category')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add Category</b-button>               
                     </div>                   
                     <div class="card-body">
                         <b-row>
                             <b-col xl="3" lg="4" md="6">
-                                <b-form-group label-cols="3" label="show" class="datatable-select">
-                                    <b-form-select v-model="perPage" :options="pageOptions"></b-form-select>
-                                </b-form-group>
                             </b-col>
                             <b-col class="offset-xl-6 offset-lg-2 search-rs" xl="3" lg="5" md="6">
                                 <b-form-group label-cols="3" label="search:" class="datatable-select">
@@ -58,11 +56,6 @@ export default {
             value: "",
             tablefields: [
                 {
-                    key: "actions",
-                    label: "actions",
-                    class: "text-center"
-                },
-                {
                     key: "name",
                     label: "Name",
                     sortable: true
@@ -71,7 +64,12 @@ export default {
                     key: "description",
                     label: "Description",
                     class: "text-center"
-                }
+                },
+                {
+                    key: "actions",
+                    label: "actions",
+                    class: "text-center"
+                },
 
             ],
             filter: null,

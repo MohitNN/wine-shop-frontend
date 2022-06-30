@@ -190,7 +190,7 @@ export default {
                     "type": "sub",
                     "icon": "box",
                     "active": false,
-                    "path": "/admin/products"
+                    "path": "/admin/product"
                 },
                 {
                     "title": "Order",

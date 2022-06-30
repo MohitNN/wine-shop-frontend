@@ -43,7 +43,7 @@ let store = {};
   resolveStoreModules(require('..\\store\\admin\\modules\\Products.js'), 'admin/modules/Products.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\reports.js'), 'admin/modules/reports.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\setCoupons.js'), 'admin/modules/setCoupons.js')
-  resolveStoreModules(require('..\\store\\admin\\modules\\subCategory.js'), 'admin/modules/subCategory.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\subcategory.js'), 'admin/modules/subcategory.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\user.js'), 'admin/modules/user.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\vendor.js'), 'admin/modules/vendor.js')
 
@@ -77,7 +77,7 @@ let store = {};
       '..\\store\\admin\\modules\\Products.js',
       '..\\store\\admin\\modules\\reports.js',
       '..\\store\\admin\\modules\\setCoupons.js',
-      '..\\store\\admin\\modules\\subCategory.js',
+      '..\\store\\admin\\modules\\subcategory.js',
       '..\\store\\admin\\modules\\user.js',
       '..\\store\\admin\\modules\\vendor.js',
     ], () => {
