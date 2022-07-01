@@ -25,7 +25,7 @@
                         >
                           <option value="">Select Category</option>
                           <option
-                            v-for="item in getCategoryList"
+                            v-for="item in getCategoryList.data"
                             :key="item.id"
                             :value="item.id"
                           >
@@ -112,13 +112,16 @@ export default {
   },
   methods: {
     ...mapActions({
-      getSubCategory: "subCategory/setSubCategory",
+      setSubCategory: "subCategory/setSubCategory",
       getCategory: "category/getCategory",
     }),
-
     getSubCategorys() {
-      alert(JSON.stringify(this.subcategory));
-      this.getSubCategory(this.subcategory);
+      this.setSubCategory(this.subcategory).then(Response=>{
+          if(Response.data.status){
+              this.$toast.success("Add SubCategory Successfully..!");
+              this.$router.push('/admin/sub_category')
+          }                
+      });
     },
   },
 };

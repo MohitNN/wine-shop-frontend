@@ -19,7 +19,7 @@
                             </b-col>
                         </b-row>
                         <div class="table-responsive datatable-vue text-center">
-                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getSubCategory" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
+                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getSubCategory.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
                                     <feather @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
@@ -29,7 +29,7 @@
                             </b-table>
                         </div>
                         <b-col md="12" class="my-1 p-0 pagination-justify">
-                            <b-pagination v-model="currentPage" :total-rows="totalRows" :per-page="perPage" aria-controls="my-table" class="mt-4"></b-pagination>
+                            <b-pagination v-model="getSubCategory.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
                         </b-col>
                     </div>
                 </div>
@@ -51,6 +51,7 @@ export default {
     components: {
         layout
     },
+    props:["categoryType"],
     data() {
         return {
             value: "",
@@ -83,11 +84,11 @@ export default {
         };
     },
     created() {
-        this.$store.dispatch("subcategory/getSubCategory");
+        this.$store.dispatch("subCategory/getSubCategory");
     },
     computed: {
         ...mapGetters({
-            getSubCategory: "subcategory/getSubCategory"
+            getSubCategoryDetails: "subCategory/getSubCategory"
         }),
         sortOptions() {
             return this.tablefields
@@ -98,10 +99,11 @@ export default {
                         value: f.key
                     };
                 });
+        },
+        getSubCategory(){   
+            this.totalRows =  this.getSubCategoryDetails.total      
+            return this.getSubCategoryDetails;
         }
-    },
-    mounted() {
-        this.totalRows = 50;
     },
     methods: {
         ...mapActions({
@@ -111,8 +113,12 @@ export default {
         }),
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length;
-            this.currentPage = 1;
+            this.currentPage = this.getSubCategory.current_page;
         },
+         updateData(page) {
+            this.$store.dispatch("category/getCategory",page);
+        },
+
         goToEdit(item){
             this.get_single_subcategory(item)
             this.$router.push('/admin/sub_category/'+item.id);      

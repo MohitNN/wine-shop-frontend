@@ -24,12 +24,12 @@ const actions = {
         return resp;
     },
 
-    getSubCategory: (context) => {
-        const URl = `${baseURL}api/admin/get-sub-category`
+    getSubCategory: (context,page=1) => {
+        const URl = `${baseURL}api/admin/get-sub-category/?page=${page}`
         const resp = axios.get(URl);
         resp.then(response => {
             if (response.data.status) {
-                context.commit('setCategoryValue', response.data.data.data);
+                context.commit('setCategoryValue', response.data.data);
             }
         });
     },

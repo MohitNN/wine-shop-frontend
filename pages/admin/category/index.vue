@@ -19,7 +19,7 @@
                             </b-col>
                         </b-row>
                         <div class="table-responsive datatable-vue text-center">
-                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getCategory" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
+                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getCategory.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
                                     <feather @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
@@ -29,7 +29,7 @@
                             </b-table>
                         </div>
                         <b-col md="12" class="my-1 p-0 pagination-justify">
-                            <b-pagination v-model="currentPage" :total-rows="totalRows" :per-page="perPage" aria-controls="my-table" class="mt-4"></b-pagination>
+                            <b-pagination v-model="getCategory.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
                         </b-col>
                     </div>
                 </div>
@@ -85,7 +85,7 @@ export default {
     },
     computed: {
         ...mapGetters({
-            getCategory: "category/getCategory"
+            getCategoryDetails: "category/getCategory"
         }),
         sortOptions() {
             return this.tablefields
@@ -96,10 +96,11 @@ export default {
                         value: f.key
                     };
                 });
+        },
+        getCategory(){   
+            this.totalRows =  this.getCategoryDetails.total      
+            return this.getCategoryDetails;
         }
-    },
-    mounted() {
-        this.totalRows = 50;
     },
     methods: {
         ...mapActions({
@@ -107,8 +108,12 @@ export default {
         }),
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length;
-            this.currentPage = 1;
+            this.currentPage = this.getCategory.current_page;
         },
+        updateData(page) {
+            this.$store.dispatch("category/getCategory",page);
+        },
+
         goToEdit(item){
           this.$router.push('/admin/category/'+item.id);      
         },
