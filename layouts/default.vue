@@ -4,11 +4,7 @@
       <nuxt id="body-content" />
     <Footer v-if="!getrouter" />
     <layoutSetting />
-    <div class="tap-top top-cls" v-scroll-to="'#body-content'">
-      <div>
-        <i class="fa fa-angle-double-up"></i>
-      </div>
-    </div>
+    
   </div>
 </template>
 

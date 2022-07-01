@@ -23,31 +23,8 @@
       </div>
       <div class="nav-right col">
         <ul class="nav-menus" :class="headerMenu ? 'open' : ''">
-          <li>
-            <form class="form-inline search-form">
-              <div class="form-group">
-                <!-- <i data-feather="search"> </i> -->
-                <i
-                  class="search-icon"
-                  data-feather="search"
-                  @click="toggle_search()"
-                  ><feather type="search"></feather
-                ></i>
-                <input
-                  class="form-control-plaintext"
-                  :class="opensearch ? 'open' : ''"
-                  type="search"
-                  placeholder="Search.."
-                /><span
-                  class="d-sm-none mobile-search"
-                  @click="toggle_search()"
-                >
-                </span>
-              </div>
-            </form>
-          </li>
           <li class="onhover-dropdown">
-            <div class="media align-items-center">
+            <div class="media justify-content-end align-items-center">
               <img
                 class="
                   align-self-center

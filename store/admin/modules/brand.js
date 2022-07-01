@@ -11,6 +11,12 @@ const getters = {
         return state.getBrand;
     },
 }
+const mutations = {
+    setBrandValue: (state, items) => {   
+        state.getBrand = items;   
+    },
+}
+
 const actions = {
     getbrand: (context,page=1) => {        
         const URl = `${baseURL}api/admin/get-brand?page=${page}`
@@ -69,11 +75,6 @@ const actions = {
          });
         return resp;  
       }
-}
-const mutations = {
-    setBrandValue: (state, items) => {   
-        state.getBrand = items;   
-    },
 }
 
 export default {

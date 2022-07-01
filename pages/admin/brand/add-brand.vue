@@ -62,7 +62,7 @@ export default {
             image: '',
             brand:{
                 brandName:'',
-                brandDescription : 'Description',
+                brandDescription : '',
                 logo:null
             }
         }

@@ -4,15 +4,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>SubCategory List</h5>                     
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5>SubCategory List</h5>  
+                        <b-button @click="$router.push('/admin/sub_category/add-sub-category')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add SubCategory</b-button>               
                     </div>                   
                     <div class="card-body">
                         <b-row>
                             <b-col xl="3" lg="4" md="6">
-                                <b-form-group label-cols="3" label="show" class="datatable-select">
-                                    <b-form-select v-model="perPage" :options="pageOptions"></b-form-select>
-                                </b-form-group>
                             </b-col>
                             <b-col class="offset-xl-6 offset-lg-2 search-rs" xl="3" lg="5" md="6">
                                 <b-form-group label-cols="3" label="search:" class="datatable-select">
@@ -25,7 +23,7 @@
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
                                     <feather @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
-                                    <feather @click="deleteCategory(field.item.id)" type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
+                                    <feather @click="deleteSubCategory(field.item.id)" type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
                                 </template>
 
                             </b-table>
@@ -70,7 +68,11 @@ export default {
                     key: "category_id",
                     label: "category_id",
                     class: "text-center"
-                }
+                },{
+                    key: "actions",
+                    label: "actions",
+                    class: "text-center"
+                },
 
             ],
             filter: null,
@@ -81,11 +83,11 @@ export default {
         };
     },
     created() {
-        this.$store.dispatch("subCategory/getSubCategory");
+        this.$store.dispatch("subcategory/getSubCategory");
     },
     computed: {
         ...mapGetters({
-            getSubCategory: "subCategory/getSubCategory"
+            getSubCategory: "subcategory/getSubCategory"
         }),
         sortOptions() {
             return this.tablefields
@@ -104,25 +106,24 @@ export default {
     methods: {
         ...mapActions({
             delete: "category/deleteCategory",
+            get_single_subcategory : "subcategory/get_single_subcategory",
+            delete: "subcategory/deleteSubCategory",
         }),
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length;
             this.currentPage = 1;
         },
         goToEdit(item){
-          this.$router.push('/admin/subCategory/'+item.id);      
+            this.get_single_subcategory(item)
+            this.$router.push('/admin/sub_category/'+item.id);      
         },
-      
-        deleteCategory(CategoryID){
-          this.delete(CategoryID).then(Response=>{
+        deleteSubCategory(SubCategoryID){
+          this.delete(SubCategoryID).then(Response=>{
                 if(Response.data.status){
-                   this.$toast.success("Deleted Brand Successfully..!");
+                   this.$toast.success("Deleted SubCategory Successfully..!");
                 }                
             })
-          
         },
-        
-
     },
 }
 </script>
