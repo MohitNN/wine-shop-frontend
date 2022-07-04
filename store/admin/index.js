@@ -16,7 +16,7 @@ import { authentication } from './modules/authentication.js'
 import admin_reports from './modules/reports.js';
 import brand from './modules/brand.js';
 import category from './modules/category.js';
-import subCategory from './modules/subCategory.js';
+import subcategory from './modules/subcategory.js';
 import Products from './modules/Products.js';
 import setCoupons from './modules/setCoupons.js';
 
@@ -61,7 +61,7 @@ export default new Vuex.Store({
         admin_admin_auth,
         brand,
         category,
-        subCategory,
+        subcategory,
         Products,
         setCoupons
     }

@@ -5,8 +5,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5>Brand List</h5>
-                        <b-button @click="$router.push('/admin/brand/add-brand')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add Brand</b-button>               
+                        <h5>Product List</h5>
+                        <b-button @click="$router.push('/admin/product/add-product')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add Product</b-button>               
                     </div>
                     <div class="card-body">
                         <b-row>
@@ -19,13 +19,10 @@
                             </b-col>
                         </b-row>
                         <div class="table-responsive datatable-vue text-center">
-                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getBrand.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
+                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getBrand" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
 
                                 <template #cell(image)="field">
                                     <img height="50px" :src="getImgUrl(field.item.image)" width="50px" />
-                                </template>
-                                <template #cell(detail)="field">
-                                    <div v-html="field.item.detail"></div>
                                 </template>
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
@@ -36,7 +33,7 @@
                             </b-table>
                         </div>
                         <b-col md="12" class="my-1 p-0 pagination-justify">
-                            <b-pagination  v-model="getBrand.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
+                            <b-pagination v-model="currentPage" :total-rows="totalRows" :per-page="perPage" aria-controls="my-table" class="mt-4"></b-pagination>
                         </b-col>
                     </div>
                 </div>
@@ -59,7 +56,6 @@ export default {
     components: {
         layout
     },
-    props:["categoryType"],
     data() {
         return {
             value: "",
@@ -94,7 +90,7 @@ export default {
     },
     computed: {
         ...mapGetters({
-            getBrandDetails: "brand/getBrand"
+            getBrand: "brand/getBrand"
         }),
         sortOptions() {
             return this.tablefields
@@ -105,11 +101,10 @@ export default {
                         value: f.key
                     };
                 });
-        },
-        getBrand(){   
-            this.totalRows =  this.getBrandDetails.total      
-            return this.getBrandDetails;
         }
+    },
+    mounted() {
+        this.totalRows = 50;
     },
     methods: {
       ...mapActions({
@@ -118,12 +113,9 @@ export default {
         getImgUrl(path) {
             return config.baseUrl + "brand/" + path;
         },
-        updateData(page) {
-            this.$store.dispatch("brand/getbrand",page);
-        },
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length;
-            this.currentPage = this.getBrand.current_page;
+            this.currentPage = 1;
         },
         goToEdit(item){
           this.$router.push('/admin/brand/'+item.id);      

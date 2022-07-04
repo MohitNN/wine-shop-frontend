@@ -4,15 +4,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>SubCategory List</h5>                     
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5>SubCategory List</h5>  
+                        <b-button @click="$router.push('/admin/sub_category/add-sub-category')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add SubCategory</b-button>               
                     </div>                   
                     <div class="card-body">
                         <b-row>
                             <b-col xl="3" lg="4" md="6">
-                                <b-form-group label-cols="3" label="show" class="datatable-select">
-                                    <b-form-select v-model="perPage" :options="pageOptions"></b-form-select>
-                                </b-form-group>
                             </b-col>
                             <b-col class="offset-xl-6 offset-lg-2 search-rs" xl="3" lg="5" md="6">
                                 <b-form-group label-cols="3" label="search:" class="datatable-select">
@@ -21,17 +19,17 @@
                             </b-col>
                         </b-row>
                         <div class="table-responsive datatable-vue text-center">
-                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getSubCategory" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
+                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getSubCategory.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
                                     <feather @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
-                                    <feather @click="deleteCategory(field.item.id)" type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
+                                    <feather @click="deleteSubCategory(field.item.id)" type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
                                 </template>
 
                             </b-table>
                         </div>
                         <b-col md="12" class="my-1 p-0 pagination-justify">
-                            <b-pagination v-model="currentPage" :total-rows="totalRows" :per-page="perPage" aria-controls="my-table" class="mt-4"></b-pagination>
+                            <b-pagination v-model="getSubCategory.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
                         </b-col>
                     </div>
                 </div>
@@ -53,6 +51,7 @@ export default {
     components: {
         layout
     },
+    props:["categoryType"],
     data() {
         return {
             value: "",
@@ -70,7 +69,11 @@ export default {
                     key: "category_id",
                     label: "category_id",
                     class: "text-center"
-                }
+                },{
+                    key: "actions",
+                    label: "actions",
+                    class: "text-center"
+                },
 
             ],
             filter: null,
@@ -85,7 +88,7 @@ export default {
     },
     computed: {
         ...mapGetters({
-            getSubCategory: "subCategory/getSubCategory"
+            getSubCategoryDetails: "subCategory/getSubCategory"
         }),
         sortOptions() {
             return this.tablefields
@@ -96,33 +99,37 @@ export default {
                         value: f.key
                     };
                 });
+        },
+        getSubCategory(){   
+            this.totalRows =  this.getSubCategoryDetails.total      
+            return this.getSubCategoryDetails;
         }
-    },
-    mounted() {
-        this.totalRows = 50;
     },
     methods: {
         ...mapActions({
             delete: "category/deleteCategory",
+            get_single_subcategory : "subcategory/get_single_subcategory",
+            delete: "subcategory/deleteSubCategory",
         }),
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length;
-            this.currentPage = 1;
+            this.currentPage = this.getSubCategory.current_page;
         },
+         updateData(page) {
+            this.$store.dispatch("category/getCategory",page);
+        },
+
         goToEdit(item){
-          this.$router.push('/admin/subCategory/'+item.id);      
+            this.get_single_subcategory(item)
+            this.$router.push('/admin/sub_category/'+item.id);      
         },
-      
-        deleteCategory(CategoryID){
-          this.delete(CategoryID).then(Response=>{
+        deleteSubCategory(SubCategoryID){
+          this.delete(SubCategoryID).then(Response=>{
                 if(Response.data.status){
-                   this.$toast.success("Deleted Brand Successfully..!");
+                   this.$toast.success("Deleted SubCategory Successfully..!");
                 }                
             })
-          
         },
-        
-
     },
 }
 </script>

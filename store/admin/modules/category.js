@@ -22,10 +22,10 @@ const actions = {
         });
         return resp;
     },
-    getCategory: (context , data) => {
-        const URl = `${baseURL}api/admin/get-category?page=${data}`
-        const resp = axios.get(URl);
-        resp.then(response => {
+    getCategory: (context,page=1) => {     
+        const URl = `${baseURL}api/admin/get-category/?page=${page}`
+        const resp = axios.get(URl);   
+        resp.then(response => {            
             if (response.data.status) {
                 context.commit('setCategoryValue', response.data.data);
             }

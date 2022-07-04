@@ -4,15 +4,13 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h5>Category List</h5>                     
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5>Category List</h5>
+                        <b-button @click="$router.push('/admin/category/add-category')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add Category</b-button>               
                     </div>                   
                     <div class="card-body">
                         <b-row>
                             <b-col xl="3" lg="4" md="6">
-                                <b-form-group label-cols="3" label="show" class="datatable-select">
-                                    <b-form-select v-model="perPage" :options="pageOptions"></b-form-select>
-                                </b-form-group>
                             </b-col>
                             <b-col class="offset-xl-6 offset-lg-2 search-rs" xl="3" lg="5" md="6">
                                 <b-form-group label-cols="3" label="search:" class="datatable-select">
@@ -30,8 +28,13 @@
 
                             </b-table>
                         </div>
+<<<<<<< HEAD
                         <b-col md="12" v-if="getCategory.data" class="my-1 p-0 pagination-justify">
                             <b-pagination v-model="currentPage" :total-rows="getCategory.total" :per-page="getCategory.per_page" aria-controls="my-table" @input="updateData" class="mt-4"></b-pagination>
+=======
+                        <b-col md="12" class="my-1 p-0 pagination-justify">
+                            <b-pagination v-model="getCategory.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
+>>>>>>> fb53992eb9a1166e9631fa42aafcd28b4e356966
                         </b-col>
                     </div>
                 </div>
@@ -53,15 +56,11 @@ export default {
     components: {
         layout
     },
+    props:["categoryType"],
     data() {
         return {
             value: "",
             tablefields: [
-                {
-                    key: "actions",
-                    label: "actions",
-                    class: "text-center"
-                },
                 {
                     key: "name",
                     label: "Name",
@@ -71,7 +70,12 @@ export default {
                     key: "description",
                     label: "Description",
                     class: "text-center"
-                }
+                },
+                {
+                    key: "actions",
+                    label: "actions",
+                    class: "text-center"
+                },
 
             ],
             filter: null,
@@ -86,7 +90,7 @@ export default {
     },
     computed: {
         ...mapGetters({
-            getCategory: "category/getCategory"
+            getCategoryDetails: "category/getCategory"
         }),
         sortOptions() {
             return this.tablefields
@@ -97,10 +101,11 @@ export default {
                         value: f.key
                     };
                 });
+        },
+        getCategory(){   
+            this.totalRows =  this.getCategoryDetails.total      
+            return this.getCategoryDetails;
         }
-    },
-    mounted() {
-        this.totalRows = 50;
     },
     methods: {
         ...mapActions({
@@ -112,8 +117,12 @@ export default {
         },
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length;
-            this.currentPage = 1;
+            this.currentPage = this.getCategory.current_page;
         },
+        updateData(page) {
+            this.$store.dispatch("category/getCategory",page);
+        },
+
         goToEdit(item){
           this.$router.push('/admin/category/'+item.id);      
         },
