@@ -22,12 +22,12 @@ const actions = {
         });
         return resp;
     },
-    getCategory: (context) => {
-        const URl = `${baseURL}api/admin/get-category`
+    getCategory: (context , data) => {
+        const URl = `${baseURL}api/admin/get-category?page=${data}`
         const resp = axios.get(URl);
         resp.then(response => {
             if (response.data.status) {
-                context.commit('setCategoryValue', response.data.data.data);
+                context.commit('setCategoryValue', response.data.data);
             }
         });
     },

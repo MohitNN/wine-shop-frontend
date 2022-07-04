@@ -21,7 +21,7 @@
                             </b-col>
                         </b-row>
                         <div class="table-responsive datatable-vue text-center">
-                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getCategory" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
+                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getCategory.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
                                     <feather @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
@@ -30,8 +30,8 @@
 
                             </b-table>
                         </div>
-                        <b-col md="12" class="my-1 p-0 pagination-justify">
-                            <b-pagination v-model="currentPage" :total-rows="totalRows" :per-page="perPage" aria-controls="my-table" class="mt-4"></b-pagination>
+                        <b-col md="12" v-if="getCategory.data" class="my-1 p-0 pagination-justify">
+                            <b-pagination v-model="currentPage" :total-rows="getCategory.total" :per-page="getCategory.per_page" aria-controls="my-table" @input="updateData" class="mt-4"></b-pagination>
                         </b-col>
                     </div>
                 </div>
@@ -82,7 +82,7 @@ export default {
         };
     },
     created() {
-        this.$store.dispatch("category/getCategory");
+        this.$store.dispatch("category/getCategory",1);
     },
     computed: {
         ...mapGetters({
@@ -106,6 +106,10 @@ export default {
         ...mapActions({
             delete: "category/deleteCategory",
         }),
+        updateData(page) {
+         alert(page)
+        this.$store.dispatch("category/getCategory",page);
+        },
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length;
             this.currentPage = 1;
