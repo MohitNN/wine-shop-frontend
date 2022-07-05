@@ -90,7 +90,7 @@ export default {
         };
     },
     created() {
-        this.$store.dispatch("brand/getbrand");
+        this.$store.dispatch("brand/getbrand",1);
     },
     computed: {
         ...mapGetters({

@@ -14,11 +14,7 @@
                                     <div class="form">
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
-<<<<<<< HEAD
-                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" v-model="category.name" required="" />
-=======
                                             <input class="form-control col-xl-8 col-sm-7" placeholder="Name" id="validationCustom01" type="text" v-model="category.name" required="" />
->>>>>>> b513b6e2692bf16934f01cbd710466fd5a420df8
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-md-4">Description :</label>

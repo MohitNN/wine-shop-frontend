@@ -28,13 +28,8 @@
 
                             </b-table>
                         </div>
-<<<<<<< HEAD
                         <b-col md="12" v-if="getCategory.data" class="my-1 p-0 pagination-justify">
                             <b-pagination v-model="currentPage" :total-rows="getCategory.total" :per-page="getCategory.per_page" aria-controls="my-table" @input="updateData" class="mt-4"></b-pagination>
-=======
-                        <b-col md="12" class="my-1 p-0 pagination-justify">
-                            <b-pagination v-model="getCategory.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
->>>>>>> fb53992eb9a1166e9631fa42aafcd28b4e356966
                         </b-col>
                     </div>
                 </div>
@@ -112,7 +107,6 @@ export default {
             delete: "category/deleteCategory",
         }),
         updateData(page) {
-         alert(page)
         this.$store.dispatch("category/getCategory",page);
         },
         onFiltered(filteredItems) {

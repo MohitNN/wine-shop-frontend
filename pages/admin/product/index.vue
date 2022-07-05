@@ -19,10 +19,30 @@
                             </b-col>
                         </b-row>
                         <div class="table-responsive datatable-vue text-center">
-                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getBrand" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
+                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="productsList.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
 
                                 <template #cell(image)="field">
-                                    <img height="50px" :src="getImgUrl(field.item.image)" width="50px" />
+                                    <img height="50px" v-if="field.item.product_images" v-for="i in field.item.product_images" :src="getImgUrl(i.image)" width="50px" />
+                                </template>
+                                <template #cell(name)="field">
+                                    <!-- <img height="50px" :src="getImgUrl(field.item.image)" width="50px" /> -->
+                                    <div>{{field.item.product_name}}</div>
+                                </template>
+                                <template #cell(brand)="field">
+                                    <!-- <img height="50px" :src="getImgUrl(field.item.image)" width="50px" /> -->
+                                    <div>{{field.item.brand ? field.item.brand.name : '-'}}</div>
+                                </template>
+                                 <template #cell(category)="field">
+                                    <!-- <img height="50px" :src="getImgUrl(field.item.image)" width="50px" /> -->
+                                    <div>{{field.item.category ? field.item.category.name : '-' }}</div>
+                                </template>
+                                <template #cell(subcategory)="field">
+                                    <!-- <img height="50px" :src="getImgUrl(field.item.image)" width="50px" /> -->
+                                    <div>{{field.item.subcategory ? field.item.subcategory.name : '-'}}</div>
+                                </template>
+                                <template #cell(price)="field">
+                                    <!-- <img height="50px" :src="getImgUrl(field.item.image)" width="50px" /> -->
+                                    <div>{{field.item.price}}</div>
                                 </template>
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
@@ -33,7 +53,7 @@
                             </b-table>
                         </div>
                         <b-col md="12" class="my-1 p-0 pagination-justify">
-                            <b-pagination v-model="currentPage" :total-rows="totalRows" :per-page="perPage" aria-controls="my-table" class="mt-4"></b-pagination>
+                            <b-pagination v-model="currentPage" :total-rows="productsList.total" :per-page="productsList.per_page" aria-controls="my-table" @input="updateData" class="mt-4"></b-pagination>
                         </b-col>
                     </div>
                 </div>
@@ -49,6 +69,7 @@ import config from '@/config.json'
 import {
     mapGetters,
     mapMutations,
+    mapState,
     mapActions
 } from "vuex";
 
@@ -56,6 +77,7 @@ export default {
     components: {
         layout
     },
+    props:['categoryType'],
     data() {
         return {
             value: "",
@@ -66,6 +88,26 @@ export default {
                 }, {
                     key: "name",
                     label: "Name",
+                    sortable: true
+                },
+                {
+                    key: "category",
+                    label: "category",
+                    sortable: true
+                },
+                {
+                    key: "subcategory",
+                    label: "Sub Category",
+                    sortable: true
+                },
+                {
+                    key: "brand",
+                    label: "brand",
+                    sortable: true
+                },
+                {
+                    key: "price",
+                    label: "Price",
                     sortable: true
                 },
                 {
@@ -86,12 +128,13 @@ export default {
         };
     },
     created() {
-        this.$store.dispatch("brand/getbrand");
+        this.$store.dispatch("Products/getProducts");
     },
     computed: {
         ...mapGetters({
             getBrand: "brand/getBrand"
         }),
+        ...mapState('Products' , ['productsList']),
         sortOptions() {
             return this.tablefields
                 .filter(f => f.sortable)
@@ -107,22 +150,25 @@ export default {
         this.totalRows = 50;
     },
     methods: {
+        updateData(page) {
+        this.$store.dispatch("Products/getProducts",page);
+        },
       ...mapActions({
-            delete: "brand/deleteBrand",
+            delete: "Products/deleteProduct",
         }),
         getImgUrl(path) {
-            return config.baseUrl + "brand/" + path;
+            return config.baseUrl + "products/" + path;
         },
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length;
             this.currentPage = 1;
         },
         goToEdit(item){
-          this.$router.push('/admin/brand/'+item.id);      
+          this.$router.push('/admin/product/'+item.id);      
         },
       
-        deleteBrand(brandID){
-          this.delete(brandID).then(Response=>{
+        deleteBrand(id){
+          this.delete({id:id}).then(Response=>{
                 if(Response.data.status){
                    this.$toast.success("Deleted Brand Successfully..!");
                 }                

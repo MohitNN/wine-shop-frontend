@@ -8,8 +8,12 @@ import PayPal from 'vue-paypal-checkout'
 import VueLazyLoad from 'vue-lazyload'
 import ProductZoomer from 'vue-product-zoomer'
 import VueScrollTo from 'vue-scrollto'
+import 'vue-select/dist/vue-select.css';
 import VueFeather from 'vue-feather';
 import { VueEditor } from "vue2-editor";
+import vSelect from 'vue-select'
+
+Vue.component('v-select', vSelect)
 
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueEditor)
