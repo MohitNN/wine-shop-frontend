@@ -1,19 +1,22 @@
 <template>
   <div>
-    <!-- Sample menu definition -->
     <div class="main-navbar">
       <div id="mainnav">
-        <div class="toggle-nav" :class="leftSidebarVal ? 'toggle-button' : ''" @click="openmobilenav=true">
+        <div
+          class="toggle-nav"
+          :class="leftSidebarVal ? 'toggle-button' : ''"
+          @click="openmobilenav = true"
+        >
           <i class="fa fa-bars sidebar-bar"></i>
         </div>
-        <ul class="nav-menu" :class="{ opennav: openmobilenav }" >
+        <ul class="nav-menu" :class="{ opennav: openmobilenav }">
           <li class="back-btn">
             <div class="mobile-back text-right">
-              <span @click="openmobilenav=false">Back</span>
+              <span @click="openmobilenav = false">Back</span>
               <i class="fa fa-angle-right pl-2" aria-hidden="true"></i>
             </div>
           </li>
-          <li v-for="(menuItem, index) in menulist" :key="index" :class="menuItem.megamenu ? 'mega-menu' : 'dropdown'">
+          <!-- <li v-for="(menuItem, index) in menulist" :key="index" :class="menuItem.megamenu ? 'mega-menu' : 'dropdown'">
             <a href="#" class="nav-link" @click="setActive(menuItem.title)">
               {{menuItem.title}}
               <span class="sub-arrow" v-if="menuItem.children || menuItem.megamenu"></span>
@@ -60,6 +63,28 @@
                 </div>
               </div>
             </div>
+          </li> -->
+          <li class="dropdown">
+            <a href="#" class="nav-link">
+              Home
+              <!-- <span class="sub-arrow"></span> -->
+            </a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="nav-link">
+              Brand
+              <span class="sub-arrow" v-if="brand"></span>
+            </a>
+            <ul v-if="brand" class="nav-submenu">
+              <li v-for="b in brand" :key="b.id">
+                <!-- <a :to="{ path: '/collection/leftsidebar/'+b.slug}" href="" >
+                  {{b.name}}
+                </a> -->
+                <nuxt-link :to="{ path: '/collection/leftsidebar/'+b.slug , query: {brand_id: b.id} }">
+                  {{b.name}}
+                </nuxt-link>
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
@@ -67,60 +92,65 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from "vuex";
 export default {
-    props: ['leftSidebarVal'],
+  props: ["leftSidebarVal"],
   data() {
     return {
       openmobilenav: false,
       subnav: false,
-      activeItem: 'home',
-      activeChildItem: 'fashion 1',
-      activemegaChild: 'portfolio'
-    }
+      activeItem: "home",
+      activeChildItem: "fashion 1",
+      activemegaChild: "portfolio",
+    };
   },
   computed: {
-    ...mapState({
-      menulist: state => state.menu.data
-    })
+    // ...mapState({
+    //   menulist: state => state.menu.data
+    // })
+    ...mapState("menu", ["brand"]),
+  },
+  created() {
+    this.getBrand();
   },
   methods: {
+    ...mapActions("menu", ["getBrand"]),
     mobilenav: function () {
-      this.openmobilenav = !this.openmobilenav
+      this.openmobilenav = !this.openmobilenav;
     },
     isActive: function (menuItem) {
-      return this.activeItem === menuItem
+      return this.activeItem === menuItem;
     },
     setActive: function (menuItem) {
       if (this.activeItem === menuItem) {
-        this.activeItem = ''
+        this.activeItem = "";
       } else {
-        this.activeItem = menuItem
+        this.activeItem = menuItem;
       }
     },
     isActiveChild: function (menuChildItem) {
-      return this.activeChildItem === menuChildItem
+      return this.activeChildItem === menuChildItem;
     },
     setActiveChild: function (menuChildItem) {
-      console.log(menuChildItem)
+      console.log(menuChildItem);
       if (this.activeChildItem === menuChildItem) {
-        this.activeChildItem = ''
+        this.activeChildItem = "";
       } else {
-        this.activeChildItem = menuChildItem
+        this.activeChildItem = menuChildItem;
       }
     },
     isActivesubmega: function (megaChildItem) {
-      return this.activemegaChild === megaChildItem
+      return this.activemegaChild === megaChildItem;
     },
     setActivesubmega: function (megaChildItem) {
       if (this.activemegaChild === megaChildItem) {
-        this.activemegaChild = ''
+        this.activemegaChild = "";
       } else {
-        this.activemegaChild = megaChildItem
+        this.activemegaChild = megaChildItem;
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

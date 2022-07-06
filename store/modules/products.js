@@ -1,7 +1,11 @@
 import products from '../../data/products'
+import axios from "axios";
+import { baseURL } from "@/config/urls";
+axios.defaults.baseURL = baseURL.API_URL;
 
 const state = {
   productslist: products.data,
+  productList: [],
   products: products.data,
   wishlist: [],
   compare: [],
@@ -20,6 +24,7 @@ const getters = {
       return collection === product.collection
     })
   },
+
   getProductById: (state) => {
     return id => state.products.find((product) => {
       return product.id === +id
@@ -54,6 +59,9 @@ const getters = {
 const mutations = {
   changeCurrency: (state, payload) => {
     state.currency = payload
+  },
+  SET_PRODUCT_LIST(state , value) {
+    state.productList=value
   },
   addToWishlist: (state, payload) => {
     const product = state.products.find(item => item.id === payload.id)
@@ -102,6 +110,13 @@ const mutations = {
 const actions = {
   changeCurrency: (context, payload) => {
     context.commit('changeCurrency', payload)
+  },
+  async getProducts({ commit, dispatch }, data) {
+    const resp = await axios.post("/api/get-product-brand", data);
+    if (resp.data.status) {
+      commit('SET_PRODUCT_LIST',resp.data.data)
+    }
+    return resp;
   },
   addToWishlist: (context, payload) => {
     context.commit('addToWishlist', payload)

@@ -101,7 +101,7 @@
                       <div class="product-wrapper-grid" :class="{'list-view':listview == true}">
                         <div class="row">
                           <div class="col-sm-12">
-                            <div class="text-center section-t-space section-b-space" v-if="filterProduct.length == 0">
+                            <div class="text-center section-t-space section-b-space" v-if="productList.length > 0">
                               <img :src='"@/assets/images/empty-search.jpg"' class="img-fluid" alt />
                               <h3 class="mt-3">Sorry! Couldn't find the product you were looking For!!!</h3>
                               <div class="col-12 mt-3">
@@ -112,7 +112,7 @@
                           <div
                           class="col-grid-box"
                           :class="{'col-lg-3':col4 == true, 'col-lg-4':col3 == true, 'col-lg-6':col2 == true, 'col-lg-2':col6 == true, 'col-lg-12':listview == true}"
-                          v-for="(product,index) in filterProduct"
+                          v-for="(product,index) in productList.data"
                           :key="index"
                           v-show="setPaginate(index)"
                           >
@@ -192,7 +192,7 @@
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters , mapState , mapActions } from 'vuex'
 import productBox1 from '../../../components/product-box/product-box1'
 import Header from '../../../components/header/header1'
 import Footer from '../../../components/footer/footer1'
@@ -219,6 +219,8 @@ export default {
       col3: false,
       col4: true,
       col6: false,
+      slug:this.$route.params.id,
+      id:this.$route.query.brand_id,
       listview: false,
       priceArray: [],
       allfilters: [],
@@ -250,12 +252,17 @@ export default {
       filterProduct: 'filter/filterProducts',
       tags: 'filter/setTags',
       curr: 'products/changeCurrency'
-    })
+    }),
+    ...mapState('products',['productList'])
   },
   mounted() {
     this.updatePaginate(1)
   },
+  created() {
+    this.getProducts({slug:this.slug,brand_id:this.id})
+  },
   methods: {
+    ...mapActions('products' ,['getProducts'] ),
     onChangeSort(event) {
       this.$store.dispatch('filter/sortProducts', event.target.value)
     },

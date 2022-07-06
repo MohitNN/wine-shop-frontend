@@ -1,5 +1,6 @@
 <template>
   <div>
+    {{product}}
     <div class="img-wrapper">
       <div class="lable-block">
         <span class="lable3" v-if="product.new">new</span>
