@@ -108,7 +108,7 @@ export default {
     methods: {
         ...mapActions({
             delete: "category/deleteCategory",
-            get_single_subcategory : "subcategory/get_single_subcategory",
+            get_single_subcategory : "subCategory/get_single_subcategory",
             delete: "subcategory/deleteSubCategory",
         }),
         onFiltered(filteredItems) {
