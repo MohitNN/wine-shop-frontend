@@ -70,8 +70,8 @@ export default {
     },
     computed: {
         ...mapState({
-            SubCategoryDetail: state => state.subcategory.SubCategoryDetail,
-            Category: state => state.category.Category
+            SubCategoryDetail: state => state.subCategory.SubCategoryDetail,
+            Category: state => state.category.Category.data
         }),
         getCategoryList() {
             const CategoryArray = this.Category;
@@ -93,9 +93,9 @@ export default {
     },
     methods: {
         ...mapActions({
-            getSubCategory: "subcategory/setSubCategory",
+            getSubCategory: "subCategory/setSubCategory",
             getCategory: "category/getCategory",
-            updateSubCategory: "subcategory/updateSubCategory",
+            updateSubCategory: "subCategory/updateSubCategory",
         }),
         update(){
             this.updateSubCategory(this.SubCategoryData).then(response => {
