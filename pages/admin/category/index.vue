@@ -22,8 +22,8 @@
                             <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getCategory.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
-                                    <feather @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
-                                    <feather @click="deleteCategory(field.item.id)" type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
+                                    <feather style="cursor:pointer;" @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
+                                    <feather style="cursor:pointer;" @click="deleteCategory(field.item.id)" type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
                                 </template>
 
                             </b-table>

@@ -8,8 +8,10 @@ const _33cbf982 = () => interopDefault(import('..\\pages\\admin\\index.vue' /* w
 const _54e1ee60 = () => interopDefault(import('..\\pages\\admin\\addpage.vue' /* webpackChunkName: "pages/admin/addpage" */))
 const _28b68eeb = () => interopDefault(import('..\\pages\\admin\\brand\\index.vue' /* webpackChunkName: "pages/admin/brand/index" */))
 const _bc3a8f78 = () => interopDefault(import('..\\pages\\admin\\category\\index.vue' /* webpackChunkName: "pages/admin/category/index" */))
+const _18f60ab7 = () => interopDefault(import('..\\pages\\admin\\changePassword\\index.vue' /* webpackChunkName: "pages/admin/changePassword/index" */))
 const _26e48106 = () => interopDefault(import('..\\pages\\admin\\coupnes\\index.vue' /* webpackChunkName: "pages/admin/coupnes/index" */))
 const _3b608378 = () => interopDefault(import('..\\pages\\admin\\dashboard.vue' /* webpackChunkName: "pages/admin/dashboard" */))
+const _eed2159a = () => interopDefault(import('..\\pages\\admin\\editProfile\\index.vue' /* webpackChunkName: "pages/admin/editProfile/index" */))
 const _4b29ec6e = () => interopDefault(import('..\\pages\\admin\\login\\index.vue' /* webpackChunkName: "pages/admin/login/index" */))
 const _4bd400c4 = () => interopDefault(import('..\\pages\\admin\\order\\index.vue' /* webpackChunkName: "pages/admin/order/index" */))
 const _9c087afa = () => interopDefault(import('..\\pages\\admin\\product\\index.vue' /* webpackChunkName: "pages/admin/product/index" */))
@@ -132,6 +134,10 @@ export const routerOptions = {
     component: _bc3a8f78,
     name: "admin-category"
   }, {
+    path: "/admin/changePassword",
+    component: _18f60ab7,
+    name: "admin-changePassword"
+  }, {
     path: "/admin/coupnes",
     component: _26e48106,
     name: "admin-coupnes"
@@ -139,6 +145,10 @@ export const routerOptions = {
     path: "/admin/dashboard",
     component: _3b608378,
     name: "admin-dashboard"
+  }, {
+    path: "/admin/editProfile",
+    component: _eed2159a,
+    name: "admin-editProfile"
   }, {
     path: "/admin/login",
     component: _4b29ec6e,

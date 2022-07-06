@@ -28,6 +28,13 @@
     "_name": "_bc3a8f78"
   },
   {
+    "name": "admin-changePassword",
+    "path": "/admin/changePassword",
+    "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\changePassword\\\\index.vue",
+    "chunkName": "pages/admin/changePassword/index",
+    "_name": "_18f60ab7"
+  },
+  {
     "name": "admin-coupnes",
     "path": "/admin/coupnes",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupnes\\\\index.vue",
@@ -40,6 +47,13 @@
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\dashboard.vue",
     "chunkName": "pages/admin/dashboard",
     "_name": "_3b608378"
+  },
+  {
+    "name": "admin-editProfile",
+    "path": "/admin/editProfile",
+    "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\editProfile\\\\index.vue",
+    "chunkName": "pages/admin/editProfile/index",
+    "_name": "_eed2159a"
   },
   {
     "name": "admin-login",

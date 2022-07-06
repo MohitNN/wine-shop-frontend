@@ -34,7 +34,7 @@
                   blur-up
                   lazyloaded
                 "
-                src="../../../assets/admin/images/dashboard/man.png"
+                src="@/assets/images/admin.png"
                 alt="header-user"
               />
               <div class="dotted-animation">
@@ -43,6 +43,7 @@
               </div>
             </div>
             <ul
+              style="width: 200px !important;"
               class="
                 profile-dropdown
                 onhover-show-div
@@ -50,8 +51,11 @@
                 profile-dropdown-hover
               "
             >
-              <li>
+              <li @click="$router.push('/admin/editProfile')">
                 <a><feather type="user"></feather>Edit Profile</a>
+              </li>
+              <li @click="$router.push('/admin/changePassword')">
+                <a><feather type="user"></feather>Change Password</a>
               </li>
               <li>
                 <a @click="logout"
