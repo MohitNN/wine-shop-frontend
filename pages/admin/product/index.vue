@@ -22,7 +22,7 @@
                             <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="productsList.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
 
                                 <template #cell(image)="field">
-                                    <img height="50px" v-if="field.item.product_images" v-for="i in field.item.product_images" :src="getImgUrl(i.image)" width="50px" />
+                                    <img height="50px" v-if="field.item.product_images" v-for="i in field.item.product_images" :key="i" :src="getImgUrl(i.image)" width="50px" />
                                 </template>
                                 <template #cell(name)="field">
                                     <!-- <img height="50px" :src="getImgUrl(field.item.image)" width="50px" /> -->

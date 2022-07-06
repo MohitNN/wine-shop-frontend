@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <footer class="footer">
     <div class="container-fluid">
       <div class="row">
@@ -21,4 +21,4 @@ export default {};
 
 <style>
 
-</style>
+</style> -->

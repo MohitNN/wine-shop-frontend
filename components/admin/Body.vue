@@ -15,7 +15,7 @@
         <div class="page-body">
           <slot name="content"></slot>
         </div>
-       <Footer />
+       
       </div>
       </body>
     </div>
@@ -25,7 +25,6 @@
 import { mapState } from "vuex";
 import Header from "@/components/admin/UI/header.vue";
 import Sidebar from "@/components/admin/UI/sidebar.vue";
-import Footer from "@/components/admin/UI/footer.vue";
 
 export default {
   name: "mainpage",
@@ -44,7 +43,6 @@ export default {
   components: {
     Header,
     Sidebar,
-    Footer
   },
   computed: {
     ...mapState({

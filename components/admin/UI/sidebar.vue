@@ -16,7 +16,7 @@
                 <p>general manager.</p>
             </div>
             <ul class="sidebar-menu" id="myDIV">
-                <li v-for="(menuItem, index) in menuItem" :key="index" :class="{ active: menuItem.active }">
+                <li style="cursor: pointer;" v-for="(menuItem, index) in menuItem" :key="index" :class="{ active: menuItem.active }">
                     <!-- Sub -->
                     <a :href="menuItem.path" class="sidebar-header" v-if="menuItem.type == 'sub'" @click="setNavActive(menuItem, index)">
                         <feather :type="menuItem.icon"> </feather>
@@ -172,13 +172,16 @@ export default {
                     "icon": "box",
                     "type": "sub",
                     "active": false,
+                    "badgeType": "primary",
                     "children": [{
+                            "badgeType": "primary",
                             "title": "Category",
                             "type": "sub",
                             "active": false,
                             "path": "/admin/category"
                         },
                         {
+                            "badgeType": "primary",
                             "title": "Sub Category",
                             "type": "sub",
                             "active": false,
