@@ -37,7 +37,8 @@
                         />
                       </div>
                       <div class="col-xl-3 xl-50 col-sm-6 col-3">
-                        <ul v-if="products.product_images && products.product_images.length && products.product_images != undefined" class="file-upload-product">
+                        <ul  class="file-upload-product">
+                        <!-- <ul v-if="products.product_images && products.product_images.length && products.product_images != undefined" class="file-upload-product"> -->
                           <li v-for="(i, index) in products.product_images" :key="index">
                             <img
                               @click="preview(i)"
