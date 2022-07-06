@@ -1,15 +1,14 @@
 <template>
   <div>
-    {{product}}
-    <div class="img-wrapper">
+     <div class="img-wrapper">
       <div class="lable-block">
-        <span class="lable3" v-if="product.new">new</span>
-        <span class="lable4" v-if="product.sale">on sale</span>
+        <!-- <span class="lable3" v-if="product.new">new</span> -->
+        <span class="lable4" v-if="product.onsell">on sale</span>
       </div>
       <div class="front">
         <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
           <img
-            :src='getImgUrl(imageSrc ? imageSrc : product.images[0].src)'
+            :src='getImgUrl(imageSrc ? imageSrc :  product.product_images[0].image)'
             :id="product.id"
             class="img-fluid bg-img"
             :alt="product.title"
@@ -21,7 +20,7 @@
         <li
           class="grid_thumb_img"
           :class="{active: imageSrc === image.src}"
-          v-for="(image,index) in product.images"
+          v-for="(image,index) in product.product_images"
           :key="index"
           @click="productVariantChange(image.src)"
         >
@@ -60,30 +59,15 @@
         <i class="fa fa-star"></i>
         <i class="fa fa-star"></i>
       </div>
-      <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
-        <h6>{{ product.title }}</h6>
-      </nuxt-link>
-      <p>{{ product.description }}</p>
-      <h4 v-if="product.sale">
-        {{ discountedPrice(product) * curr.curr | currency(curr.symbol) }}
-        <del>{{ product.price * curr.curr | currency(curr.symbol) }}</del>
-      </h4>
-      <h4 v-else>{{ product.price * curr.curr | currency(curr.symbol) }}</h4>
-      <ul class="color-variant" v-if="product.variants[0].color">
-        <li v-for="(variant,variantIndex) in Color(product.variants)" :key="variantIndex">
-          <a
-            @click="productColorchange(variant, product)"
-            :class="[variant]"
-            v-bind:style="{ 'background-color' : variant}"
-          ></a>
-        </li>
-      </ul>
+  
     </div>
+     
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import config from '@/config.json'
 import { log } from 'util'
 export default {
   props: ['product', 'index'],
@@ -114,7 +98,7 @@ export default {
   },
   methods: {
     getImgUrl(path) {
-      return require('@/assets/images/' + path)
+      return  config.baseUrl + "products/" + path;
     },
     addToCart: function (product) {
       this.cartval = true

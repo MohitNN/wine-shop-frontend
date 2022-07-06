@@ -2,8 +2,8 @@
   <div>
     <!-- <Header /> -->
     <Slider />
-    <LogoSlider />
-    <TimerBanner />
+    <!-- <LogoSlider />
+    <TimerBanner /> -->
     <Category />
     <CategoryTab :products="products" :category="category" />
     <ProductSlider
@@ -22,7 +22,7 @@
     />
     <Blog />
     <Services />
-    <Instagram />
+    <!-- <Instagram /> -->
     <!-- <Footer /> -->
     <quickviewModel
       :openModal="showquickviewmodel"

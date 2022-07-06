@@ -1,7 +1,6 @@
 <template>
   <div>
-    <!-- <Header /> -->
-    <Breadcrumbs :title="getDetail.title" />
+   
     <section class="section-b-space">
       <div class="collection-wrapper">
         <div class="container">
@@ -218,70 +217,7 @@
                           </div>
                         </b-card-text>
                       </b-tab>
-                      <b-tab title="Write Review">
-                        <b-card-text>
-                          <form class="theme-form">
-                            <div class="form-row">
-                              <div class="col-md-12">
-                                <div class="media">
-                                  <label>Rating</label>
-                                  <div class="media-body ml-3">
-                                    <div class="rating three-star">
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                      <i class="fa fa-star"></i>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-md-6">
-                                <label for="name">Name</label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  id="name"
-                                  placeholder="Enter Your name"
-                                  required
-                                />
-                              </div>
-                              <div class="col-md-6">
-                                <label for="email">Email</label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  id="email"
-                                  placeholder="Email"
-                                  required
-                                />
-                              </div>
-                              <div class="col-md-12">
-                                <label for="review">Review Title</label>
-                                <input
-                                  type="text"
-                                  class="form-control"
-                                  id="review"
-                                  placeholder="Enter your Review Subjects"
-                                  required
-                                />
-                              </div>
-                              <div class="col-md-12">
-                                <label for="review">Review Title</label>
-                                <textarea
-                                  class="form-control"
-                                  placeholder="Wrire Your Testimonial Here"
-                                  id="exampleFormControlTextarea1"
-                                  rows="6"
-                                ></textarea>
-                              </div>
-                              <div class="col-md-12">
-                                <button class="btn btn-solid" type="submit">Submit YOur Review</button>
-                              </div>
-                            </div>
-                          </form>
-                        </b-card-text>
-                      </b-tab>
+                      
                     </b-tabs>
                   </div>
                 </div>
@@ -296,22 +232,22 @@
         <img src="../../../assets/images/size-chart.jpg" alt="size-chart" class="img-fluid" />
       </b-modal>
     </section>
-    <Footer />
+   
   </div>
 </template>
 <script>
 import { mapState, mapGetters } from 'vuex'
-import Header from '../../../components/header/header1'
-import Footer from '../../../components/footer/footer1'
-import Breadcrumbs from '../../../components/widgets/breadcrumbs'
+
+
+
 import Timer from '../../../components/widgets/timer'
 import productSidebar from '../../../components/widgets/product-sidebar'
 import relatedProduct from '../../../components/widgets/related-products'
+import config from '@/config.json'
+
 export default {
   components: {
-    Header,
-    Footer,
-    Breadcrumbs,
+
     Timer,
     productSidebar,
     relatedProduct
@@ -412,7 +348,7 @@ export default {
       this.selectedSize = variant
     },
     getImgUrl(path) {
-      return require('@/assets/images/' + path)
+      return  config.baseUrl + "products/" + path;
     },
     slideTo(id) {
       this.swiper.slideTo(id, 1000, false)
