@@ -16,58 +16,9 @@
               <i class="fa fa-angle-right pl-2" aria-hidden="true"></i>
             </div>
           </li>
-          <!-- <li v-for="(menuItem, index) in menulist" :key="index" :class="menuItem.megamenu ? 'mega-menu' : 'dropdown'">
-            <a href="#" class="nav-link" @click="setActive(menuItem.title)">
-              {{menuItem.title}}
-              <span class="sub-arrow" v-if="menuItem.children || menuItem.megamenu"></span>
-            </a>
-            <ul class="nav-submenu" :class="{ opensubmenu: isActive(menuItem.title) }" v-if="menuItem.children">
-              <li v-for="(childrenItem, index) in menuItem.children" :key="index">
-                <a href="javascript:void(0)" @click="setActiveChild(childrenItem.title)" v-if="childrenItem.children">
-                  {{childrenItem.title}}
-                  <span class="sub-arrow" v-if="childrenItem.children"></span>
-                </a>
-                <nuxt-link v-else :to="{ path: childrenItem.path}"  @click="setActiveChild(childrenItem.title)">
-                  {{childrenItem.title}}
-                </nuxt-link>
-                <ul class="nav-sub-childmenu" :class="{ opensubchild: isActiveChild(childrenItem.title) }" v-if="childrenItem.children">
-                  <li v-for="(childrenSubItem, index) in childrenItem.children" :key="index">
-                    <nuxt-link :to="{ path: childrenSubItem.path}">
-                      {{childrenSubItem.title}}
-                    </nuxt-link>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <div class="mega-menu-container" :class="{ opensubmenu: isActive('portfolio') }" v-if="menuItem.megamenu">
-              <div class="container">
-                <div class="row">
-                  <div class="col mega-box"  v-for="(childrenItem, index) in menuItem.children" :key="index">
-                    <div class="link-section">
-                      <div class="menu-title" @click="setActivesubmega('portfolio')">
-                        <h5>{{childrenItem.title}}
-                          <span class="sub-arrow"></span>
-                        </h5>
-                      </div>
-                      <div class="menu-content" :class="{ opensubmegamenu: isActivesubmega('portfolio') }">
-                        <ul>
-                          <li v-for="(childrenSubItem, index) in childrenItem.children" :key="index">
-                            <nuxt-link :to="{ path: childrenSubItem.path}">
-                              {{childrenSubItem.title}}
-                            </nuxt-link>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li> -->
           <li class="dropdown">
             <a href="#" class="nav-link">
               Home
-              <!-- <span class="sub-arrow"></span> -->
             </a>
           </li>
           <li class="dropdown">
@@ -77,9 +28,6 @@
             </a>
             <ul v-if="brand" class="nav-submenu">
               <li v-for="b in brand" :key="b.id">
-                <!-- <a :to="{ path: '/collection/leftsidebar/'+b.slug}" href="" >
-                  {{b.name}}
-                </a> -->
                 <nuxt-link :to="{ path: '/collection/leftsidebar/'+b.slug , query: {brand_id: b.id} }">
                   {{b.name}}
                 </nuxt-link>

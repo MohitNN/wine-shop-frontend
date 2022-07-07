@@ -32,7 +32,6 @@
                                     <feather style="cursor:pointer;" @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
                                     <feather style="cursor:pointer;" @click="deleteBrand(field.item.id)" type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
                                 </template>
-
                             </b-table>
                         </div>
                         <b-col md="12" class="my-1 p-0 pagination-justify">

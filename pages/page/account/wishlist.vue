@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <!-- <Header /> -->
     <Breadcrumbs title="wishlist" />
     <section class="wishlist-section section-b-space">
       <div class="container">

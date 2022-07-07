@@ -147,7 +147,7 @@ outline: none;
 section ,.section-t-space{
 padding-top: 70px;
 }
-.section-b-space {
+section ,.section-b-space {
 padding-bottom: 70px;
 }
 .large-section {
@@ -399,7 +399,7 @@ background-image: linear-gradient(30deg, $dark-font 50%, transparent 50%);
 border: 2px solid $dark-font;
 }
 &:focus {
-color: $white;
+color: $black;
 }
 &.btn-gradient {
 background: var(--theme-deafult);

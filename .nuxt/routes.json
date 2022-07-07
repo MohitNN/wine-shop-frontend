@@ -672,6 +672,13 @@
     "_name": "_4820244e"
   },
   {
+    "name": "admin-order-editOrder",
+    "path": "/admin/order/:editOrder",
+    "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\order\\\\_editOrder.vue",
+    "chunkName": "pages/admin/order/_editOrder",
+    "_name": "_d6aac83a"
+  },
+  {
     "name": "admin-product-editProduct",
     "path": "/admin/product/:editProduct",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\product\\\\_editProduct.vue",

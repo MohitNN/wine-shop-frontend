@@ -11,7 +11,6 @@
                 <div class="navbar">
                   <a @click="left_sidebar">
                     <div class="bar-style">
-                      <i class="fa fa-bars sidebar-bar" aria-hidden="true"></i>
                     </div>
                   </a>
                   <LeftSidebar :leftSidebarVal="leftSidebarVal" @closeVal="closeBarValFromChild" />

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <!-- <Header /> -->
     <Breadcrumbs title="Register" />
     <section class="register-page section-b-space">
       <div class="container">

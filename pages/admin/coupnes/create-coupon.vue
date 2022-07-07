@@ -14,13 +14,12 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group row">
-                                                <label for="validationCustom0" class="col-xl-3 col-md-4"><span>*</span> Coupan Title</label>
+                                                <label for="validationCustom0" class="col-xl-3 col-md-4">Coupan Title</label>
                                                 <input v-model="productCoupon.title" class="form-control col-md-7" id="validationCustom0" type="text" required="" />
                                             </div>
                                             <div class="form-group row">
-                                                <label for="validationCustom1" class="col-xl-3 col-md-4"><span>*</span>Coupan Code</label>
+                                                <label for="validationCustom1" class="col-xl-3 col-md-4">Coupan Code</label>
                                                 <input v-model="productCoupon.code" class="form-control col-md-7" id="validationCustom1" type="text" required="" />
-                                                <button type="button" class="btn btn-primary"><feather type="settings"></feather></button>
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">Start Date</label>

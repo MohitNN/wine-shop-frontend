@@ -10,7 +10,7 @@
               <div class="page-main-content">
                 <div class="row">
                   <div class="col-sm-12">
-                    <div class="top-banner-wrapper">
+                    <div class="">
                       <a href="#">
                         <img
                           :src='"@/assets/images/mega-menu/2.jpg"'

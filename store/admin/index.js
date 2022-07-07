@@ -19,6 +19,8 @@ import category from './modules/category.js';
 import subcategory from './modules/subcategory.js';
 import Products from './modules/Products.js';
 import setCoupons from './modules/setCoupons.js';
+import order from './modules/order.js';
+
 
 
 
@@ -63,6 +65,7 @@ export default new Vuex.Store({
         category,
         subcategory,
         Products,
-        setCoupons
+        setCoupons,
+        order
     }
 })

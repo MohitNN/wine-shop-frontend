@@ -82,7 +82,6 @@
     </template>
 </layout>
 </template>
-
 <script>
 import layout from "@/components/admin/Body.vue";
 export default {
@@ -90,11 +89,6 @@ export default {
         layout
     },
     props:['categoryType'],
-    data() {
-        return {
-
-        }
-    },
     methods: {
         onFileChange(e) {
             var reader = new FileReader();

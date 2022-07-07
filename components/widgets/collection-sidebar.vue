@@ -80,16 +80,7 @@
             </div>
           </div>
         </div>
-            <!-- side-bar single product slider end -->
-            <!-- side-bar banner start here -->
-            <div class="collection-sidebar-banner">
-              <a href="#">
-                <img :src="bannerimagepath" class="img-fluid" />
-              </a>
-            </div>
-            <!-- side-bar banner end here -->
     </div>
-    <!-- silde-bar colleps block end here -->
   </div>
 </template>
 <script>

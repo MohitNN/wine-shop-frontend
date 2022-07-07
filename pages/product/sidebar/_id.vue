@@ -54,52 +54,11 @@
                     <div class="product-right">
                       <h2>{{ getDetail.title }}</h2>
                       <h4 v-if="getDetail.sale">
-                        <del>{{ getDetail.price * curr.curr | currency(curr.symbol) }}</del>
                         <span>{{ getDetail.discount }}% off</span>
                       </h4>
                       <h3 v-if="getDetail.sale">{{ discountedPrice(getDetail) * curr.curr | currency(curr.symbol) }}</h3>
                       <h3 v-else>{{ getDetail.price * curr.curr | currency(curr.symbol) }}</h3>
-                      <ul class="color-variant">
-                        <li
-                          v-bind:class="{ active: activeColor == variant}"
-                          v-for="(variant,variantIndex) in Color(getDetail.variants)"
-                          :key="variantIndex"
-                        >
-                          <a
-                            :class="[variant]"
-                            v-bind:style="{ 'background-color' : variant}"
-                            @click="sizeVariant(getDetail.variants[variantIndex].image_id, variantIndex, variant)"
-                          ></a>
-                        </li>
-                      </ul>
-                      <div class="pro_inventory" v-if="getDetail.stock < 8">
-                        <p class="active"> Hurry! We have only {{ getDetail.stock }} product in stock. </p>
-                        <div class="inventory-scroll">
-                          <span style="width: 95%;"></span>
-                        </div>
-                      </div>
                       <div class="product-description border-product">
-                        <h6 class="product-title size-text">
-                          select size
-                          <span>
-                            <a href="javascript:void(0)" v-b-modal.modal-1>size chart</a>
-                          </span>
-                        </h6>
-                        <div class="size-box">
-                          <ul>
-                            <li
-                              class="product-title"
-                              v-bind:class="{ active: selectedSize == size}"
-                              v-for="(size,index) in size"
-                              :key="index"
-                            >
-                              <a
-                                href="javascript:void(0)"
-                                @click="changeSizeVariant(size)"
-                              >{{size}}</a>
-                            </li>
-                          </ul>
-                        </div>
                         <h5 class="avalibility" v-if="counter <= getDetail.stock">
                           <span>In Stock</span>
                         </h5>
@@ -166,58 +125,9 @@
                 <div class="row">
                   <div class="col-sm-12 col-lg-12">
                     <b-tabs card>
-                      <b-tab title="Description" active>
+                      <b-tab title="Description" style="padding: 10px 25px !important;" active>
                         <b-card-text>{{getDetail.description}}</b-card-text>
                       </b-tab>
-                      <b-tab title="Details">
-                        <b-card-text>
-                          {{getDetail.description}}
-                          <div class="single-product-tables">
-                            <table>
-                              <tbody>
-                                <tr>
-                                  <td>Febric</td>
-                                  <td>Chiffon</td>
-                                </tr>
-                                <tr>
-                                  <td>Color</td>
-                                  <td>Red</td>
-                                </tr>
-                                <tr>
-                                  <td>Material</td>
-                                  <td>Crepe printed</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                            <table>
-                              <tbody>
-                                <tr>
-                                  <td>Length</td>
-                                  <td>50 Inches</td>
-                                </tr>
-                                <tr>
-                                  <td>Size</td>
-                                  <td>S, M, L .XXL</td>
-                                </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </b-card-text>
-                      </b-tab>
-                      <b-tab title="Video">
-                        <b-card-text>
-                          <div class="mt-3 text-center">
-                            <iframe
-                              width="560"
-                              height="315"
-                              src="https://www.youtube.com/embed/BUWzX78Ye_8"
-                              allow="autoplay; encrypted-media"
-                              allowfullscreen
-                            ></iframe>
-                          </div>
-                        </b-card-text>
-                      </b-tab>
-                      
                     </b-tabs>
                   </div>
                 </div>

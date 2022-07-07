@@ -1,66 +1,77 @@
-import axios from 'axios';
-import order from '../../../data/admin/data/order.json';
-import config from '../../../config.json'
-import orderData from '../../../data/admin/data/order'
+import config from '@/config.json'
+import axios from "axios";
 
-const ax = axios.create({
-    baseURL: config.baseUrl,
-});
-const url = '/order.json';
-const transactionUrl = 'transactions.json';
+const  baseURL = config.baseUrl
 
 const state = {
-    orders: [],
-    orderList: order.data,
-    transactions: []
+    order : [],
+    orderDetails:[]
 }
 const getters = {
-    getOrders(state) {
-        return state.orders;
+    getOrders: (state) => {
+        return state.order;
     },
-    getOrdersDashboard(state) {
-        return state.orderList;
-    },
-    getTransactions(state) {
-        return state.transactions;
-    }
-}
-const actions = {
-    getOrders: (context) => {
-        // ax.get(url)
-            // .then(response => {
-                context.commit('getOrders', orderData.data);
-            // })
-            // .catch(error => {
-            //     console.log('error', error);
-            // })
-    },
-
-    getTransactions: (context) => {
-        // ax.get(transactionUrl)
-        //     .then(response => {
-                context.commit('getTransactions', orderData.data);
-            // })
-            // .catch(error => {
-            //     console.log('error', error);
-            // })
-    },
-    // OrderList
-    getOrderList(context) {
-        context.commit('getOrderList', order.data);
-    }
 }
 const mutations = {
-    getOrders(state) {
-        state.orders = orderData.data
+    setOrderValue: (state, items) => {   
+        state.order = items;   
     },
-    getTransactions(state, payload) {
-        state.transactions = payload.data;
+    setOrderDetailsValue: (state, items) => {
+        state.orderDetails = items;
+        console.log(items)
     },
-    // OrderList
-    getOrderList(state) {
-        state.orderList = orderData;
-    }
+}
+
+const actions = {
+    getOrder: (context,page=1) => {        
+        const URl = `${baseURL}api/admin/get-order?page=${page}`
+        const resp = axios.get(URl);
+        resp.then(response => {
+            if(response.data.status){  
+                context.commit('setOrderValue', response.data.data);               
+            }
+         });         
+    },
+
+    setBrand: (context, items) => {
+        const URl = `${baseURL}api/admin/add-order`      
+        let formData = new FormData();
+        formData.append('name', items.brandName);
+        formData.append('detail',items.brandDescription);
+        formData.append('image', items.logo);
+        const resp = axios.post(URl,formData);
+        resp.then(response => {
+            if(response.data.status){       
+                context.dispatch('getOrder');               
+            }
+         });
+        return resp;   
+      },
+
+      get_single_order: (context , item) => {        
+        context.commit('setOrderDetailsValue', item);
+      },
+     
+      updateOrder: (context,id) => { 
+        const URl = `${baseURL}api/admin/add-order`      
+        const resp = axios.post(URl,id);
+        resp.then(response => {
+            if(response.data.status){       
+                context.dispatch('getOrder');               
+            }
+         });
+        return resp;   
+      },
+      deleteBrand:(context,BrandId) => {
+        const URl = `${baseURL}api/admin/delete-brand`        
+        const resp = axios.post(URl,{id: BrandId});
+        resp.then(response => {          
+            if(response.data.status){       
+                context.dispatch('getOrder');
+            }
+         });
+        return resp;  
+      }
 }
 
 export default {
