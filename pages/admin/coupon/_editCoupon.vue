@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Create Coupon</h5>
+                        <h5>Edit Coupon</h5>
                     </div>
                     <div class="card-body">
                         <div class="row product-adding">
@@ -36,8 +36,12 @@
                                                     Enable the Coupon
                                                 </label>
                                             </div>
-                                            <div class="pull-right">
-                                                <button type="button" @click="coupon" class="btn btn-primary">Save</button>
+                                            <div class="form-group row">
+                                                <label class="col-xl-3 col-md-4"></label>
+                                                <button type="button" @click="update" class="btn btn-primary">Update</button>
+                                                <button type="button" class="btn btn-light ml-1" @click="$router.push('/admin/coupon')">
+                                                    Discard
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -62,20 +66,31 @@ export default {
     data() {
         return {
             image: '',
-            Coupon:{
-                coupon_name:"",
-                coupon_code:"",
-                status:"",
-                startDate:"",
-                endDate:""
+            coupon: {
+                coupon_name: "",
+                coupon_code: "",
+                status: 0,
+                start_date: "",
+                end_date: "",
+                id:this.$route.params.editcategory,
             }
         }
     },
+    created() {        
+      this.getCouponDetails(this.category.id).then((response) => {
+         if(response.data.status){
+            const data = response.data.data            
+            this.category.name = data.name
+            this.category.description = data.description
+         }
+      })
+    },
     methods: {
-        coupon(){
+        update(){
             this.setCoupon(this.productCoupon)
         },
         ...mapActions({
+            getCouponDetails: "setCoupons/setCoupon",
             setCoupon: "setCoupons/setCoupon",
         }), 
     }

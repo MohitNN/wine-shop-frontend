@@ -160,7 +160,7 @@ export default {
         },
         goToEdit(item) {
             this.get_single_order(item)
-            this.$router.push('/admin/order/' + item.id);
+            this.$router.push('/admin/coupon/' + item.id);
         },
         deleteCoupons(OrderID) {
             this.deleteCoupon(OrderID).then(Response => {

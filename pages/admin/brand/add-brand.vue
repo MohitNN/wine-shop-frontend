@@ -32,7 +32,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="offset-xl-3 offset-sm-4">
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-md-4"></label>
                                         <button type="button" @click="submit()" class="btn btn-primary">Add</button>
                                         <button type="button" @click="$router.push('/admin/brand')" class="btn btn-light ml-1">
                                             Discard

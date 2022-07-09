@@ -31,11 +31,12 @@ const actions = {
             }
         });
     },
-    get_single_Coupon: (context, id) => {
-        const URl = `${baseURL}api/admin/get-Coupon-single/${id}`
+    get_single_coupon: (context, id) => {
+        const URl = `${baseURL}api/admin/get-coupon-single/${id}`
         const resp = axios.get(URl)
         return resp;
     },
+
 
     updateCoupon: (context, items) => {
         const URl = `${baseURL}api/admin/add-Coupon`

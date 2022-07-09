@@ -32,15 +32,17 @@
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">Status</label>
                                                 <label class="d-block" for="chk-ani">
-                                                    <input  v-model="coupon.status" true-value="1" false-value="0" class="checkbox_animated" id="chk-ani" type="checkbox" />
+                                                    <input v-model="coupon.status" true-value="1" false-value="0" class="checkbox_animated" id="chk-ani" type="checkbox" />
                                                     Enable the Coupon
                                                 </label>
                                             </div>
-                                             <div class="form-group row">
+                                            <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4"></label>
                                                 <button type="button" @click="savacoupon" class="btn btn-primary">Save</button>
+                                                <button type="button" class="btn btn-light ml-1" @click="$router.push('/admin/coupon')">
+                                                    Discard
+                                                </button>
                                             </div>
-                                                
                                         </div>
                                     </div>
                                 </form>
@@ -56,7 +58,9 @@
 
 <script>
 import layout from "@/components/admin/Body.vue";
-import { mapActions } from 'vuex';
+import {
+    mapActions
+} from 'vuex';
 export default {
     components: {
         layout
@@ -64,27 +68,27 @@ export default {
     data() {
         return {
             image: '',
-            coupon:{
-                coupon_name:"",
-                coupon_code:"",
-                status:0,
-                start_date:"",
-                end_date:""
+            coupon: {
+                coupon_name: "",
+                coupon_code: "",
+                status: 0,
+                start_date: "",
+                end_date: ""
             }
         }
     },
     methods: {
-        savacoupon(){
-            this.setCoupon(this.coupon).then(Response=>{
-                if(Response.data.status){
-                   this.$toast.success("Add Coupon Successfully..!");
-                   this.$router.push('/admin/coupon')                   
-                }                
+        savacoupon() {
+            this.setCoupon(this.coupon).then(Response => {
+                if (Response.data.status) {
+                    this.$toast.success("Add Coupon Successfully..!");
+                    this.$router.push('/admin/coupon')
+                }
             })
         },
         ...mapActions({
             setCoupon: "coupon/setCoupon",
-        }), 
+        }),
     }
 };
 </script>

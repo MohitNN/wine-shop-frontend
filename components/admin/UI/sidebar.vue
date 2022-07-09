@@ -8,10 +8,17 @@
             </div>
         </div>
         <div class="sidebar custom-scrollbar">
+            <div class="sidebar-user text-center">
+                <div>
+                    <img class="img-60 rounded-circle lazyloaded blur-up" src="../../../assets/admin/images/dashboard/man.png" alt="#" />
+                </div>
+                <h6 class="mt-3 f-14">JOHN</h6>
+                <p>general manager.</p>
+            </div>
             <ul class="sidebar-menu" id="myDIV">
-                <li style="cursor: pointer;" v-for="(menuItem, index) in menuItem" :key="index" :class="{ active: menuItem.active }">
+                <li v-for="(menuItem, index) in menuItem" :key="index" :class="{ active: menuItem.active }">
                     <!-- Sub -->
-                    <nuxt-link :to="`${menuItem.path}`" class="sidebar-header" v-if="menuItem.type == 'sub'" @click="setNavActive(menuItem, index)">
+                    <a :href="menuItem.path" style="cursor:pointer;" class="sidebar-header" v-if="menuItem.type == 'sub'" @click="setNavActive(menuItem, index)">
                         <feather :type="menuItem.icon"> </feather>
                         <span @click="dashboardClick(menuItem.title)">
                             {{ menuItem.title }}
@@ -19,27 +26,27 @@
 
                         <span :class="'badge badge-pill badge-' + menuItem.badgeType" v-if="menuItem.badgeType">{{ menuItem.badgeValue }}</span>
                         <i class="fa fa-angle-right pull-right" v-if="menuItem.children"></i>
-                    </nuxt-link>
+                    </a>
                     <!--</span>
             </span>-->
                     <!-- External Link -->
-                    <nuxt-link :to="`${menuItem.path}`" class="sidebar-header" v-if="menuItem.type == 'extLink'" @click="setNavActive(menuItem, index)">
+                    <a :href="menuItem.path" class="sidebar-header" v-if="menuItem.type == 'extLink'" @click="setNavActive(menuItem, index)">
                         <feather :type="menuItem.icon" class="middle"></feather>
                         <span>
                             {{ menuItem.title }}
                             <span :class="'badge badge-' + menuItem.badgeType + ' ml-3'" v-if="menuItem.badgeType">{{ menuItem.badgeValue }}</span>
                         </span>
                         <i class="fa fa-angle-right pull-right" v-if="menuItem.children"></i>
-                    </nuxt-link>
+                    </a>
                     <!-- External Tab Link -->
-                    <nuxt-link :to="`${menuItem.path}`" target="_blank" class="sidebar-header" v-if="menuItem.type == 'extTabLink'" @click="setNavActive(menuItem, index)">
+                    <a :href="menuItem.path" target="_blank" class="sidebar-header" v-if="menuItem.type == 'extTabLink'" @click="setNavActive(menuItem, index)">
                         <feather :type="menuItem.icon" class="middle"></feather>
                         <span>
                             {{ menuItem.title }}
                             <span :class="'badge badge-' + menuItem.badgeType + ' ml-3'" v-if="menuItem.badgeType">{{ menuItem.badgeValue }}</span>
                         </span>
                         <i class="fa fa-angle-right pull-right" v-if="menuItem.children"></i>
-                    </nuxt-link>
+                    </a>
                     <!-- 2nd Level Menu -->
                     <ul class="sidebar-submenu" v-if="menuItem.children" :class="{ 'menu-open': menuItem.active }">
                         <li v-for="(childrenItem, index) in menuItem.children" :key="index" :class="{ active: childrenItem.active }">
@@ -152,6 +159,7 @@ export default {
                     "active": false
                 },
                 {
+                    "path": "/admin/brand",
                     "title": "Brand",
                     "type": "sub",
                     "path": "/admin/brand",
@@ -164,16 +172,13 @@ export default {
                     "icon": "box",
                     "type": "sub",
                     "active": false,
-                    "badgeType": "primary",
                     "children": [{
-                            "badgeType": "primary",
                             "title": "Category",
                             "type": "sub",
                             "active": false,
                             "path": "/admin/category"
                         },
                         {
-                            "badgeType": "primary",
                             "title": "Sub Category",
                             "type": "sub",
                             "active": false,
@@ -196,7 +201,7 @@ export default {
                     "path": "/admin/order"
                 },
                 {
-                    "title": "Coupon",
+                    "title": "Coupons",
                     "type": "sub",
                     "icon": "tag",
                     "active": false,
