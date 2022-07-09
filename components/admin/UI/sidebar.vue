@@ -8,13 +8,6 @@
             </div>
         </div>
         <div class="sidebar custom-scrollbar">
-            <div class="sidebar-user text-center">
-                <div>
-                    <img class="img-60 rounded-circle lazyloaded blur-up" src="../../../assets/admin/images/dashboard/man.png" alt="#" />
-                </div>
-                <h6 class="mt-3 f-14">JOHN</h6>
-                <p>general manager.</p>
-            </div>
             <ul class="sidebar-menu" id="myDIV">
                 <li v-for="(menuItem, index) in menuItem" :key="index" :class="{ active: menuItem.active }">
                     <!-- Sub -->
@@ -185,6 +178,13 @@ export default {
                             "path": "/admin/sub_category"
                         }
                     ]
+                },
+                {
+                    "title": "Type",
+                    "type": "sub",
+                    "icon": "box",
+                    "active": false,
+                    "path": "/admin/type"
                 },
                 {
                     "title": "Product",

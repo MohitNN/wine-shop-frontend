@@ -28,6 +28,7 @@ import Products from './admin/modules/Products.js';
 import coupon from './admin/modules/coupon.js';
 import brand from './admin/modules/brand.js';
 import order from './admin/modules/order.js';
+import types from './admin/modules/types.js';
 import { setAuthToken, resetAuthToken } from "@/config/auth";
 
 
@@ -69,7 +70,8 @@ const createStore = () => {
       Products,
       coupon,
       brand,
-      order
+      order,
+      types
     }
   })
 }

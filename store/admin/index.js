@@ -20,6 +20,8 @@ import subcategory from './modules/subcategory.js';
 import Products from './modules/Products.js';
 import coupon from './modules/coupon.js';
 import order from './modules/order.js';
+import types from './modules/types.js';
+
 
 
 
@@ -66,6 +68,7 @@ export default new Vuex.Store({
         subcategory,
         Products,
         coupon,
-        order
+        order,
+        types
     }
 })

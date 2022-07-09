@@ -10,8 +10,8 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5>SubCategory List</h5>
-                        <b-button @click="$router.push('/admin/sub_category/add-sub-category')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add SubCategory</b-button>
+                        <h5>Type List</h5>
+                        <b-button @click="$router.push('/admin/type/addType')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add Type</b-button>
                     </div>
                     <div class="card-body">
                         <b-row>
@@ -24,7 +24,7 @@
                             </b-col>
                         </b-row>
                         <div class="table-responsive datatable-vue text-center">
-                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getSubCategory.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
+                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getTypesList.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
                                     <feather style="cursor:pointer;" @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
@@ -34,7 +34,7 @@
                             </b-table>
                         </div>
                         <b-col md="12" class="my-1 p-0 pagination-justify">
-                            <b-pagination v-model="getSubCategory.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
+                            <b-pagination v-model="getTypesList.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
                         </b-col>
                     </div>
                 </div>
@@ -62,17 +62,13 @@ export default {
             value: "",
             selectedSku: "",
             tablefields: [{
-                    key: "name",
-                    label: "Name",
+                    key: "type_name",
+                    label: "Type Name",
                     sortable: true
                 },
                 {
-                    key: "description",
-                    label: "Description",
-                    class: "text-center"
-                }, {
                     key: "category_id",
-                    label: "category_id",
+                    label: "Category Id",
                     class: "text-center"
                 }, {
                     key: "actions",
@@ -89,11 +85,11 @@ export default {
         };
     },
     created() {
-        this.$store.dispatch("subCategory/getSubCategory");
+        this.$store.dispatch("types/getType");
     },
     computed: {
         ...mapGetters({
-            getSubCategoryDetails: "subCategory/getSubCategory"
+            getTypes: "types/getType"
         }),
         sortOptions() {
             return this.tablefields
@@ -105,9 +101,9 @@ export default {
                     };
                 });
         },
-        getSubCategory() {
-            this.totalRows = this.getSubCategoryDetails.total
-            return this.getSubCategoryDetails;
+        getTypesList() {
+            this.totalRows = this.getTypes.total
+            return this.getTypes;
         }
     },
     methods: {
@@ -118,13 +114,14 @@ export default {
         }),
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length;
-            this.currentPage = this.getSubCategory.current_page;
+            this.currentPage = this.getTypesList.current_page;
         },
         updateData(page) {
             this.$store.dispatch("category/getCategory", page);
         },
+
         goToEdit(item) {
-            this.get_single_type(item)
+            this.get_single_subcategory(item)
             this.$router.push('/admin/type/' + item.id);
         },
         deleteSubCategory(SubCategoryID) {
