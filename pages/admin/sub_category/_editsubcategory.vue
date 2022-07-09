@@ -30,9 +30,10 @@
                                             <textarea rows="4" class="col-xl-8 col-md-7" v-model="SubCategoryData.description"></textarea>
                                         </div>
                                     </div>
-                                    <div class="offset-xl-3 offset-sm-4">
+                                    <div class="form-group row">
+                                        <label class="col-xl-3 col-md-4"></label>
                                         <button type="button" @click="update" class="btn btn-primary">Add</button>
-                                        <button type="button" class="btn btn-light ml-1">
+                                        <button type="button" class="btn btn-light ml-1" @click="$router.push('/admin/sub_category')">
                                             Discard
                                         </button>
                                     </div>

@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     ...mapActions("menu", ["getBrand"]),
-    mobilenav: function () {
+      mobilenav: function () {
       this.openmobilenav = !this.openmobilenav;
     },
     isActive: function (menuItem) {

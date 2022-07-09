@@ -672,11 +672,11 @@
     "_name": "_c02a82a6"
   },
   {
-    "name": "admin-coupon-editcoupon",
-    "path": "/admin/coupon/:editcoupon",
-    "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupon\\\\_editcoupon.vue",
-    "chunkName": "pages/admin/coupon/_editcoupon",
-    "_name": "_1f1e846d"
+    "name": "admin-coupon-editCoupon",
+    "path": "/admin/coupon/:editCoupon",
+    "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupon\\\\_editCoupon.vue",
+    "chunkName": "pages/admin/coupon/_editCoupon",
+    "_name": "_d41f3ee6"
   },
   {
     "name": "admin-order-editOrder",

@@ -100,7 +100,7 @@ const _2e9552b2 = () => interopDefault(import('..\\pages\\shop\\watch\\component
 const _2549825a = () => interopDefault(import('..\\pages\\shop\\watch\\components\\top_products.vue' /* webpackChunkName: "pages/shop/watch/components/top_products" */))
 const _4202adc9 = () => interopDefault(import('..\\pages\\admin\\brand\\_editbrand.vue' /* webpackChunkName: "pages/admin/brand/_editbrand" */))
 const _c02a82a6 = () => interopDefault(import('..\\pages\\admin\\category\\_editcategory.vue' /* webpackChunkName: "pages/admin/category/_editcategory" */))
-const _1f1e846d = () => interopDefault(import('..\\pages\\admin\\coupon\\_editcoupon.vue' /* webpackChunkName: "pages/admin/coupon/_editcoupon" */))
+const _d41f3ee6 = () => interopDefault(import('..\\pages\\admin\\coupon\\_editCoupon.vue' /* webpackChunkName: "pages/admin/coupon/_editCoupon" */))
 const _5df79bb7 = () => interopDefault(import('..\\pages\\admin\\order\\_editOrder.vue' /* webpackChunkName: "pages/admin/order/_editOrder" */))
 const _3505260e = () => interopDefault(import('..\\pages\\admin\\product\\_editProduct.vue' /* webpackChunkName: "pages/admin/product/_editProduct" */))
 const _8bc39584 = () => interopDefault(import('..\\pages\\admin\\sub_category\\_editsubcategory.vue' /* webpackChunkName: "pages/admin/sub_category/_editsubcategory" */))
@@ -504,9 +504,9 @@ export const routerOptions = {
     component: _c02a82a6,
     name: "admin-category-editcategory"
   }, {
-    path: "/admin/coupon/:editcoupon",
-    component: _1f1e846d,
-    name: "admin-coupon-editcoupon"
+    path: "/admin/coupon/:editCoupon",
+    component: _d41f3ee6,
+    name: "admin-coupon-editCoupon"
   }, {
     path: "/admin/order/:editOrder",
     component: _5df79bb7,
