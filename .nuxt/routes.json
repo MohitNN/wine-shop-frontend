@@ -84,6 +84,13 @@
     "_name": "_1f2f7299"
   },
   {
+    "name": "admin-type",
+    "path": "/admin/type",
+    "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\type\\\\index.vue",
+    "chunkName": "pages/admin/type/index",
+    "_name": "_3e91235c"
+  },
+  {
     "name": "admin-user",
     "path": "/admin/user",
     "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\user\\\\index.vue",
@@ -299,6 +306,13 @@
     "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\sub_category\\\\add-sub-category.vue",
     "chunkName": "pages/admin/sub_category/add-sub-category",
     "_name": "_fd13c1c0"
+  },
+  {
+    "name": "admin-type-addType",
+    "path": "/admin/type/addType",
+    "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\type\\\\addType.vue",
+    "chunkName": "pages/admin/type/addType",
+    "_name": "_6b544d05"
   },
   {
     "name": "blog-widgets-blog-list",
@@ -698,6 +712,13 @@
     "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\sub_category\\\\_editsubcategory.vue",
     "chunkName": "pages/admin/sub_category/_editsubcategory",
     "_name": "_8bc39584"
+  },
+  {
+    "name": "admin-type-edittype",
+    "path": "/admin/type/:edittype",
+    "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\type\\\\_edittype.vue",
+    "chunkName": "pages/admin/type/_edittype",
+    "_name": "_67e27aad"
   },
   {
     "name": "collection-leftsidebar-id",
