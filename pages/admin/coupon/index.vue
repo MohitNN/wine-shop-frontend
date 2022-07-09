@@ -31,7 +31,7 @@
                             <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getCouponList.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
                                 <template #cell(paymentStatus)="field">
                                     <div>
-                                        {{ field.item.name }}
+                                        {{ field.item.coupon_name }}
                                     </div>
                                     <div v-if="field.item.paymentStatus == 'Payment Failed'" class="badge badge-glow badge-danger">
                                         {{ field.item.coupon_code }}
@@ -81,7 +81,7 @@ export default {
             value: "",
             selectedSku: "",
             tablefields: [{
-                    key: "name",
+                    key: "coupon_name",
                     label: "Coupon Name",
                     sortable: true
                 },
@@ -147,7 +147,7 @@ export default {
     },
     methods: {
         ...mapActions({
-            get_single_order: "order/get_single_order",
+            get_single_coupon: "coupon/get_single_coupon",
             deleteCoupon: "coupon/deleteCoupon"
         }),
         getImgUrl(path) {
@@ -159,8 +159,8 @@ export default {
             this.currentPage = 1;
         },
         goToEdit(item) {
-            this.get_single_order(item)
-            this.$router.push('/admin/order/' + item.id);
+            this.get_single_coupon(item)
+            this.$router.push('/admin/coupon/'+ item.id);
         },
         deleteCoupons(OrderID) {
             this.deleteCoupon(OrderID).then(Response => {

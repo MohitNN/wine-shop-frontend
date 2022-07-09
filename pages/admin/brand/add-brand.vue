@@ -10,17 +10,32 @@
                     <div class="card-body">
                         <div class="row product-adding">
                             <div class="col-xl-7">
+                                  <ValidationObserver v-slot="{ invalid }">
                                 <form class="needs-validation add-product-form" novalidate="" enctype="multipart/form-data">
                                     <div class="form">
+                                         <ValidationProvider
+                                            rules="required"
+                                            v-slot="{ errors }"
+                                            name="brandName"
+                                            >
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
-                                            <input v-model="brand.brandName" class="form-control col-xl-8 col-sm-7" placeholder="Name" id="validationCustom01" type="text" required="" />
+                                            <input v-model="brand.brandName" class="form-control col-xl-8 col-sm-7" name="brandName" placeholder="Name" id="validationCustom01" type="text" required="" />
                                             <div class="valid-feedback">Looks good!</div>
                                         </div>
+                                         <span class="col-xl-12 col-sm-12 validate-error">{{ errors[0] }}</span>
+                                         </ValidationProvider>
+                                         <ValidationProvider
+                                            rules="required"
+                                            v-slot="{ errors }"
+                                            name="logo"
+                                            >
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Logo :</label>
-                                            <input class="form-control col-xl-8 col-sm-7" id="validationCustom02" ref="file" type="file" required=""  @change="fileselected"  />
+                                            <input class="form-control col-xl-8 col-sm-7" name="logo" id="validationCustom02" ref="file" type="file" required=""  @change="fileselected"  />
                                         </div>
+                                        <span class="col-xl-12 col-sm-12 validate-error">{{ errors[0] }}</span>
+                                        </ValidationProvider>
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0"></label>
                                             <img v-if="image" :src="image" width="100px" height="100px" />
@@ -39,6 +54,7 @@
                                         </button>
                                     </div>
                                 </form>
+                                 </ValidationObserver>
                             </div>
                         </div>
                     </div>
@@ -52,9 +68,16 @@
 <script>
 import layout from "@/components/admin/Body.vue";
 import { mapActions } from 'vuex';
+import {
+  ValidationProvider,
+  ValidationObserver,
+} from "vee-validate/dist/vee-validate.full.esm";
+
 export default {
     components: {
-        layout
+        layout,
+        ValidationProvider,
+        ValidationObserver,
     },
      middleware: ["auth"],
     data() {

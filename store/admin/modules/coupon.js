@@ -5,6 +5,7 @@ const baseURL = config.baseUrl
 
 const state = {
     Coupon: [],
+    CouponDetail:[]
 }
 const getters = {
     getCoupon: (state) => {
@@ -31,10 +32,8 @@ const actions = {
             }
         });
     },
-    get_single_Coupon: (context, id) => {
-        const URl = `${baseURL}api/admin/get-Coupon-single/${id}`
-        const resp = axios.get(URl)
-        return resp;
+    get_single_coupon: (context, item) => {
+        context.commit('SetCouponDetail', item);
     },
 
     updateCoupon: (context, items) => {
@@ -63,6 +62,9 @@ const actions = {
 const mutations = {
     setCouponValue: (state, items) => {
         state.Coupon = items;
+    },
+    SetCouponDetail: (state, items) => {
+        state.CouponDetail = items;
     },
 }
 
