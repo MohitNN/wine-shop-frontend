@@ -62,9 +62,9 @@ const actions = {
          });
         return resp;   
       },
-      deleteBrand:(context,BrandId) => {
-        const URl = `${baseURL}api/admin/delete-brand`        
-        const resp = axios.post(URl,{id: BrandId});
+      deleteOrder:(context,OrderID) => {
+        const URl = `${baseURL}api/admin/delete-order`        
+        const resp = axios.post(URl,{id: OrderID});
         resp.then(response => {          
             if(response.data.status){       
                 context.dispatch('getOrder');

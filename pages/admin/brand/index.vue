@@ -2,11 +2,16 @@
 <layout>
     <template v-slot:content>
         <div class="row">
+            <div>
+                <b-modal id="modal-2" title="Confirmation" @ok="deleteBrand(selectedSku)">
+                    <p class="my-4">Are you sure!</p>
+                </b-modal>
+            </div>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5>Brand List</h5>
-                        <b-button @click="$router.push('/admin/brand/add-brand')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add Brand</b-button>               
+                        <b-button @click="$router.push('/admin/brand/add-brand')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add Brand</b-button>
                     </div>
                     <div class="card-body">
                         <b-row>
@@ -30,12 +35,12 @@
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
                                     <feather style="cursor:pointer;" @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
-                                    <feather style="cursor:pointer;" @click="deleteBrand(field.item.id)" type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
+                                    <feather style="cursor:pointer;" @click="getIndex(field.item.id)" v-b-modal.modal-2 type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
                                 </template>
                             </b-table>
                         </div>
                         <b-col md="12" class="my-1 p-0 pagination-justify">
-                            <b-pagination  v-model="getBrand.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
+                            <b-pagination v-model="getBrand.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
                         </b-col>
                     </div>
                 </div>
@@ -58,10 +63,11 @@ export default {
     components: {
         layout
     },
-    props:["categoryType"],
+    props: ["categoryType"],
     data() {
         return {
             value: "",
+            selectedSku: "",
             tablefields: [{
                     key: "Image",
                     label: "image",
@@ -89,7 +95,7 @@ export default {
         };
     },
     created() {
-        this.$store.dispatch("brand/getbrand",1);
+        this.$store.dispatch("brand/getbrand", 1);
     },
     computed: {
         ...mapGetters({
@@ -105,38 +111,40 @@ export default {
                     };
                 });
         },
-        getBrand(){   
-            this.totalRows =  this.getBrandDetails.total      
+        getBrand() {
+            this.totalRows = this.getBrandDetails.total
             return this.getBrandDetails;
         }
     },
     methods: {
-      ...mapActions({
+        ...mapActions({
             delete: "brand/deleteBrand",
         }),
         getImgUrl(path) {
             return config.baseUrl + "brand/" + path;
         },
         updateData(page) {
-            this.$store.dispatch("brand/getbrand",page);
+            this.$store.dispatch("brand/getbrand", page);
         },
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length;
             this.currentPage = this.getBrand.current_page;
         },
-        goToEdit(item){
-          this.$router.push('/admin/brand/'+item.id);      
+        goToEdit(item) {
+            this.$router.push('/admin/brand/' + item.id);
         },
-      
-        deleteBrand(brandID){
-          this.delete(brandID).then(Response=>{
-                if(Response.data.status){
-                   this.$toast.success("Deleted Brand Successfully..!");
-                }                
+
+        deleteBrand(brandID) {
+            this.delete(brandID).then(Response => {
+                if (Response.data.status) {
+                    this.$toast.success("Deleted Brand Successfully..!");
+                }
             })
-          
+
         },
-        
+        getIndex(id) {
+            this.selectedSku = id
+        },
 
     },
 }

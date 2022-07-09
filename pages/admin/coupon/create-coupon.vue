@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Create Coupan</h5>
+                        <h5>Create Coupon</h5>
                     </div>
                     <div class="card-body">
                         <div class="row product-adding">
@@ -14,31 +14,33 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form-group row">
-                                                <label for="validationCustom0" class="col-xl-3 col-md-4">Coupan Title</label>
-                                                <input v-model="productCoupon.title" class="form-control col-md-7" id="validationCustom0" type="text" required="" />
+                                                <label for="validationCustom0" class="col-xl-3 col-md-4">Coupon name : </label>
+                                                <input v-model="coupon.coupon_name" class="form-control col-md-7" placeholder="Coupaon name" id="validationCustom0" type="text" required="" />
                                             </div>
                                             <div class="form-group row">
-                                                <label for="validationCustom1" class="col-xl-3 col-md-4">Coupan Code</label>
-                                                <input v-model="productCoupon.code" class="form-control col-md-7" id="validationCustom1" type="text" required="" />
+                                                <label for="validationCustom1" class="col-xl-3 col-md-4">Coupon Code : </label>
+                                                <input v-model="coupon.coupon_code" class="form-control col-md-7" placeholder="Coupon Code" id="validationCustom1" type="text" required="" />
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">Start Date</label>
-                                                <input v-model="productCoupon.startDate" class="datepicker-here form-control digits col-md-7" type="text" data-language="en" />
+                                                <input v-model="coupon.start_date" class="datepicker-here form-control digits col-md-7" type="date" data-language="en" />
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">End Date</label>
-                                                <input v-model="productCoupon.endDate" class="datepicker-here form-control digits col-md-7" type="text" data-language="en" />
+                                                <input v-model="coupon.end_date" class="datepicker-here form-control digits col-md-7" type="date" data-language="en" />
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">Status</label>
                                                 <label class="d-block" for="chk-ani">
-                                                    <input class="checkbox_animated" id="chk-ani" type="checkbox" />
+                                                    <input  v-model="coupon.status" true-value="1" false-value="0" class="checkbox_animated" id="chk-ani" type="checkbox" />
                                                     Enable the Coupon
                                                 </label>
                                             </div>
-                                            <div class="pull-right">
-                                                <button type="button" @click="coupon" class="btn btn-primary">Save</button>
+                                             <div class="form-group row">
+                                                <label class="col-xl-3 col-md-4"></label>
+                                                <button type="button" @click="savacoupon" class="btn btn-primary">Save</button>
                                             </div>
+                                                
                                         </div>
                                     </div>
                                 </form>
@@ -62,31 +64,27 @@ export default {
     data() {
         return {
             image: '',
-            productCoupon:{
-                title:"",
-                code:"",
-                startDate:"",
-                endDate:""
+            coupon:{
+                coupon_name:"",
+                coupon_code:"",
+                status:0,
+                start_date:"",
+                end_date:""
             }
         }
     },
     methods: {
-        coupon(){
-            this.setCoupon(this.productCoupon)
+        savacoupon(){
+            this.setCoupon(this.coupon).then(Response=>{
+                if(Response.data.status){
+                   this.$toast.success("Add Coupon Successfully..!");
+                   this.$router.push('/admin/coupon')                   
+                }                
+            })
         },
         ...mapActions({
-            setCoupon: "setCoupons/setCoupon",
+            setCoupon: "coupon/setCoupon",
         }), 
-        fileselected(e) {
-            const file = e.target.files.item(0);
-            const reader = new FileReader();
-            reader.addEventListener('load', this.imageloaded);
-            reader.readAsDataURL(file);
-
-        },
-        imageloaded(e) {
-            this.image = e.target.result;
-        }
     }
 };
 </script>

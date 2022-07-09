@@ -9,7 +9,7 @@ const _54e1ee60 = () => interopDefault(import('..\\pages\\admin\\addpage.vue' /*
 const _28b68eeb = () => interopDefault(import('..\\pages\\admin\\brand\\index.vue' /* webpackChunkName: "pages/admin/brand/index" */))
 const _bc3a8f78 = () => interopDefault(import('..\\pages\\admin\\category\\index.vue' /* webpackChunkName: "pages/admin/category/index" */))
 const _18f60ab7 = () => interopDefault(import('..\\pages\\admin\\changePassword\\index.vue' /* webpackChunkName: "pages/admin/changePassword/index" */))
-const _26e48106 = () => interopDefault(import('..\\pages\\admin\\coupnes\\index.vue' /* webpackChunkName: "pages/admin/coupnes/index" */))
+const _c52e0bc8 = () => interopDefault(import('..\\pages\\admin\\coupon\\index.vue' /* webpackChunkName: "pages/admin/coupon/index" */))
 const _3b608378 = () => interopDefault(import('..\\pages\\admin\\dashboard.vue' /* webpackChunkName: "pages/admin/dashboard" */))
 const _eed2159a = () => interopDefault(import('..\\pages\\admin\\editProfile\\index.vue' /* webpackChunkName: "pages/admin/editProfile/index" */))
 const _4b29ec6e = () => interopDefault(import('..\\pages\\admin\\login\\index.vue' /* webpackChunkName: "pages/admin/login/index" */))
@@ -44,7 +44,7 @@ const _74452458 = () => interopDefault(import('..\\pages\\product\\four-image.vu
 const _2b8a4bb8 = () => interopDefault(import('..\\pages\\shop\\watch\\index.vue' /* webpackChunkName: "pages/shop/watch/index" */))
 const _01b7ec74 = () => interopDefault(import('..\\pages\\admin\\brand\\add-brand.vue' /* webpackChunkName: "pages/admin/brand/add-brand" */))
 const _17b589b0 = () => interopDefault(import('..\\pages\\admin\\category\\add-category.vue' /* webpackChunkName: "pages/admin/category/add-category" */))
-const _70157742 = () => interopDefault(import('..\\pages\\admin\\coupnes\\create-coupon.vue' /* webpackChunkName: "pages/admin/coupnes/create-coupon" */))
+const _a4d0ba3e = () => interopDefault(import('..\\pages\\admin\\coupon\\create-coupon.vue' /* webpackChunkName: "pages/admin/coupon/create-coupon" */))
 const _eb310b98 = () => interopDefault(import('..\\pages\\admin\\product\\add-product.vue' /* webpackChunkName: "pages/admin/product/add-product" */))
 const _507c7318 = () => interopDefault(import('..\\pages\\admin\\sub_category\\add-sub-category.vue' /* webpackChunkName: "pages/admin/sub_category/add-sub-category" */))
 const _04fe804a = () => interopDefault(import('..\\pages\\blog\\widgets\\blog-list.vue' /* webpackChunkName: "pages/blog/widgets/blog-list" */))
@@ -100,6 +100,7 @@ const _f63e0bf4 = () => interopDefault(import('..\\pages\\shop\\watch\\component
 const _7b9529ae = () => interopDefault(import('..\\pages\\shop\\watch\\components\\top_products.vue' /* webpackChunkName: "pages/shop/watch/components/top_products" */))
 const _78b5adf5 = () => interopDefault(import('..\\pages\\admin\\brand\\_editbrand.vue' /* webpackChunkName: "pages/admin/brand/_editbrand" */))
 const _4820244e = () => interopDefault(import('..\\pages\\admin\\category\\_editcategory.vue' /* webpackChunkName: "pages/admin/category/_editcategory" */))
+const _2837f48e = () => interopDefault(import('..\\pages\\admin\\coupon\\_editCoupon.vue' /* webpackChunkName: "pages/admin/coupon/_editCoupon" */))
 const _d6aac83a = () => interopDefault(import('..\\pages\\admin\\order\\_editOrder.vue' /* webpackChunkName: "pages/admin/order/_editOrder" */))
 const _e5c711b6 = () => interopDefault(import('..\\pages\\admin\\product\\_editProduct.vue' /* webpackChunkName: "pages/admin/product/_editProduct" */))
 const _1069dc92 = () => interopDefault(import('..\\pages\\admin\\sub_category\\_editsubcategory.vue' /* webpackChunkName: "pages/admin/sub_category/_editsubcategory" */))
@@ -139,9 +140,9 @@ export const routerOptions = {
     component: _18f60ab7,
     name: "admin-changePassword"
   }, {
-    path: "/admin/coupnes",
-    component: _26e48106,
-    name: "admin-coupnes"
+    path: "/admin/coupon",
+    component: _c52e0bc8,
+    name: "admin-coupon"
   }, {
     path: "/admin/dashboard",
     component: _3b608378,
@@ -279,9 +280,9 @@ export const routerOptions = {
     component: _17b589b0,
     name: "admin-category-add-category"
   }, {
-    path: "/admin/coupnes/create-coupon",
-    component: _70157742,
-    name: "admin-coupnes-create-coupon"
+    path: "/admin/coupon/create-coupon",
+    component: _a4d0ba3e,
+    name: "admin-coupon-create-coupon"
   }, {
     path: "/admin/product/add-product",
     component: _eb310b98,
@@ -502,6 +503,10 @@ export const routerOptions = {
     path: "/admin/category/:editcategory",
     component: _4820244e,
     name: "admin-category-editcategory"
+  }, {
+    path: "/admin/coupon/:editCoupon",
+    component: _2837f48e,
+    name: "admin-coupon-editCoupon"
   }, {
     path: "/admin/order/:editOrder",
     component: _d6aac83a,

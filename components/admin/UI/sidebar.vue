@@ -11,7 +11,7 @@
             <ul class="sidebar-menu" id="myDIV">
                 <li style="cursor: pointer;" v-for="(menuItem, index) in menuItem" :key="index" :class="{ active: menuItem.active }">
                     <!-- Sub -->
-                    <a :href="menuItem.path" class="sidebar-header" v-if="menuItem.type == 'sub'" @click="setNavActive(menuItem, index)">
+                    <nuxt-link :to="`${menuItem.path}`" class="sidebar-header" v-if="menuItem.type == 'sub'" @click="setNavActive(menuItem, index)">
                         <feather :type="menuItem.icon"> </feather>
                         <span @click="dashboardClick(menuItem.title)">
                             {{ menuItem.title }}
@@ -19,27 +19,27 @@
 
                         <span :class="'badge badge-pill badge-' + menuItem.badgeType" v-if="menuItem.badgeType">{{ menuItem.badgeValue }}</span>
                         <i class="fa fa-angle-right pull-right" v-if="menuItem.children"></i>
-                    </a>
+                    </nuxt-link>
                     <!--</span>
             </span>-->
                     <!-- External Link -->
-                    <a :href="menuItem.path" class="sidebar-header" v-if="menuItem.type == 'extLink'" @click="setNavActive(menuItem, index)">
+                    <nuxt-link :to="`${menuItem.path}`" class="sidebar-header" v-if="menuItem.type == 'extLink'" @click="setNavActive(menuItem, index)">
                         <feather :type="menuItem.icon" class="middle"></feather>
                         <span>
                             {{ menuItem.title }}
                             <span :class="'badge badge-' + menuItem.badgeType + ' ml-3'" v-if="menuItem.badgeType">{{ menuItem.badgeValue }}</span>
                         </span>
                         <i class="fa fa-angle-right pull-right" v-if="menuItem.children"></i>
-                    </a>
+                    </nuxt-link>
                     <!-- External Tab Link -->
-                    <a :href="menuItem.path" target="_blank" class="sidebar-header" v-if="menuItem.type == 'extTabLink'" @click="setNavActive(menuItem, index)">
+                    <nuxt-link :to="`${menuItem.path}`" target="_blank" class="sidebar-header" v-if="menuItem.type == 'extTabLink'" @click="setNavActive(menuItem, index)">
                         <feather :type="menuItem.icon" class="middle"></feather>
                         <span>
                             {{ menuItem.title }}
                             <span :class="'badge badge-' + menuItem.badgeType + ' ml-3'" v-if="menuItem.badgeType">{{ menuItem.badgeValue }}</span>
                         </span>
                         <i class="fa fa-angle-right pull-right" v-if="menuItem.children"></i>
-                    </a>
+                    </nuxt-link>
                     <!-- 2nd Level Menu -->
                     <ul class="sidebar-submenu" v-if="menuItem.children" :class="{ 'menu-open': menuItem.active }">
                         <li v-for="(childrenItem, index) in menuItem.children" :key="index" :class="{ active: childrenItem.active }">
@@ -152,7 +152,6 @@ export default {
                     "active": false
                 },
                 {
-                    "path": "/admin/brand",
                     "title": "Brand",
                     "type": "sub",
                     "path": "/admin/brand",
@@ -197,11 +196,11 @@ export default {
                     "path": "/admin/order"
                 },
                 {
-                    "title": "Coupons",
+                    "title": "Coupon",
                     "type": "sub",
                     "icon": "tag",
                     "active": false,
-                    "path": "/admin/coupnes"
+                    "path": "/admin/coupon"
                 },
                 {
                     "title": "User",

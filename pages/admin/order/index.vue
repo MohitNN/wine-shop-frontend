@@ -2,9 +2,14 @@
 <layout>
     <template v-slot:content>
         <div class="row">
+            <div>
+                <b-modal id="modal-2" title="Confirmation" @ok="deleteOrder(selectedSku)">
+                    <p class="my-4">Are you sure!</p>
+                </b-modal>
+            </div>
             <div class="col-md-12">
-                <div class="card">               
-                  <div class="card-header d-flex justify-content-between align-items-center">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
                         <h5>Order List</h5>
                     </div>
                     <div class="card-body">
@@ -31,13 +36,7 @@
                                     </div>
                                     <div>
                                         {{ field.item.payment_status }}
-                                    </div>
-                                    <div>
-                                        {{ field.item.start_date }}
-                                    </div>
-                                    <div>
-                                        {{ field.item.end_date }}
-                                    </div>
+                                    </div>                                   
                                     <div>
                                         {{ field.item.total }}
                                     </div>
@@ -45,7 +44,7 @@
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
                                     <feather style="cursor:pointer;" @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
-                                    <feather style="cursor:pointer;" @click="deleteBrand(field.item.id)" type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
+                                    <feather style="cursor:pointer;" @click="getIndex(field.item.id)" v-b-modal.modal-2 type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
                                 </template>
                             </b-table>
                         </div>
@@ -71,10 +70,11 @@ export default {
     components: {
         layout
     },
-    props:["categoryType"],
+    props: ["categoryType"],
     data() {
         return {
             value: "",
+            selectedSku: "",
             tablefields: [{
                     key: "product_id",
                     label: "Product Id",
@@ -89,17 +89,7 @@ export default {
                     key: "payment_status",
                     label: "Payment Status",
                     sortable: true
-                },
-                {
-                    key: "start_date",
-                    label: "Start Date",
-                    sortable: true
-                },
-                {
-                    key: "end_date",
-                    label: "End Date",
-                    sortable: true
-                },
+                },               
                 {
                     key: "total",
                     label: "Total",
@@ -134,21 +124,22 @@ export default {
                     };
                 });
         },
-        getOrdersList(){   
+        getOrdersList() {
             return this.orders;
         }
     },
     created() {
-        this.$store.dispatch("order/getOrder",1);
-    }, 
+        this.$store.dispatch("order/getOrder", 1);
+    },
     mounted() {
         // Set the initial number of items
         this.totalRows = 12;
     },
     methods: {
-      ...mapActions({
-         get_single_order : "order/get_single_order",
-      }),
+        ...mapActions({
+            get_single_order: "order/get_single_order",
+            deleteOrders: "order/deleteOrder"
+        }),
         getImgUrl(path) {
             return require("@/assets/admin/images/dashboard/product/" + path);
         },
@@ -157,10 +148,21 @@ export default {
             this.totalRows = filteredItems.length;
             this.currentPage = 1;
         },
-        goToEdit(item){
-           this.get_single_order(item)
-          this.$router.push('/admin/order/'+item.id);  
-        }
+        goToEdit(item) {
+            this.get_single_order(item)
+            this.$router.push('/admin/order/' + item.id);
+        },
+        deleteOrder(OrderID) {
+            this.deleteOrders(OrderID).then(Response => {
+                if (Response.data.status) {
+                    this.$toast.success("Deleted Brand Successfully..!");
+                }
+            })
+
+        },
+        getIndex(id) {
+            this.selectedSku = id
+        },
     }
 }
 </script>

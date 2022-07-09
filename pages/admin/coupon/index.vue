@@ -2,11 +2,17 @@
 <layout>
     <template v-slot:content>
         <div class="row">
+            <div>
+                <b-modal id="modal-2" title="Confirmation" @ok="deleteCoupons(selectedSku)">
+                    <p class="my-4">Are you sure!</p>
+                </b-modal>
+            </div>
+
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5>Coupon List</h5>
-                        <b-button @click="$router.push('/admin/coupnes/create-coupon')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Create Coupon</b-button>
+                        <b-button @click="$router.push('/admin/coupon/create-coupon')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Create Coupon</b-button>
                     </div>
                     <div class="card-body">
                         <b-row>
@@ -22,39 +28,28 @@
                             </b-col>
                         </b-row>
                         <div class="table-responsive datatable-vue text-center">
-                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="orders" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
-                                <template #cell(images)="field" class="d-flex">
-                                    <img height="50px" :src="getImgUrl(field.item.images)" width="50px" />
-                                </template>
+                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getCouponList.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
                                 <template #cell(paymentStatus)="field">
-                                    <div v-if="field.item.paymentStatus == 'Cash On Delivered'" class="badge badge-glow badge-secondary">
-                                        {{ field.item.paymentStatus }}
+                                    <div>
+                                        {{ field.item.name }}
                                     </div>
                                     <div v-if="field.item.paymentStatus == 'Payment Failed'" class="badge badge-glow badge-danger">
-                                        {{ field.item.paymentStatus }}
+                                        {{ field.item.coupon_code }}
                                     </div>
-                                    <div v-if="field.item.paymentStatus == 'Paid'" class="badge badge-glow badge-success">
-                                        {{ field.item.paymentStatus }}
-                                    </div>
-                                    <div v-if="
-                        field.item.paymentStatus == 'Awaiting Authentication'
-                      " class="badge badge-glow badge-warning">
-                                        {{ field.item.paymentStatus }}
+                                    <div>
+                                        {{ field.item.status }}
+                                    </div>   
+                                    <div>
+                                        {{ field.item.start_date }}
+                                    </div>                                      
+                                    <div>
+                                        {{ field.item.end_date }}
                                     </div>
                                 </template>
-                                <template #cell(orderStatus)="field">
-                                    <div v-if="field.item.orderStatus == 'Shipped'" class="badge badge-glow badge-primary">
-                                        {{ field.item.orderStatus }}
-                                    </div>
-                                    <div v-if="field.item.orderStatus == 'Cancelled'" class="badge badge-glow badge-danger">
-                                        {{ field.item.orderStatus }}
-                                    </div>
-                                    <div v-if="field.item.orderStatus == 'Processing'" class="badge badge-glow badge-warning">
-                                        {{ field.item.orderStatus }}
-                                    </div>
-                                    <div v-if="field.item.orderStatus == 'Delivered'" class="badge badge-glow badge-success">
-                                        {{ field.item.orderStatus }}
-                                    </div>
+                                <template #cell(actions)="field">
+                                    <div v-show="false">{{field.item.id}}</div>
+                                    <feather style="cursor:pointer;" @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
+                                    <feather style="cursor:pointer;" @click="getIndex(field.item.id)" v-b-modal.modal-2 type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
                                 </template>
                             </b-table>
                         </div>
@@ -72,50 +67,48 @@
 <script>
 import layout from "@/components/admin/Body.vue";
 import {
-    mapGetters
+    mapGetters,
+    mapActions
 } from "vuex";
 
 export default {
     components: {
         layout
     },
+    props: ["categoryType"],
     data() {
         return {
             value: "",
+            selectedSku: "",
             tablefields: [{
-                    key: "orderId",
-                    label: "Order Id",
+                    key: "name",
+                    label: "Coupon Name",
                     sortable: true
                 },
                 {
-                    key: "images",
-                    label: "Product",
+                    key: "coupon_code",
+                    label: "Coupon Code",
                     sortable: false
                 },
                 {
-                    key: "paymentStatus",
-                    label: "Payment status",
+                    key: "status",
+                    label: "Status",
+                    sortable: true
+                },               
+                {
+                    key: "start_date",
+                    label: "Start Date",
                     sortable: true
                 },
                 {
-                    key: "paymentMethod",
-                    label: "Payment Method",
+                    key: "end_date",
+                    label: "End Date",
                     sortable: true
                 },
                 {
-                    key: "orderStatus",
-                    label: "Order status",
-                    sortable: true
-                },
-                {
-                    key: "date",
-                    label: "Date",
-                    sortable: true
-                },
-                {
-                    key: "total",
-                    label: "Total",
-                    sortable: true
+                    key: "actions",
+                    label: "actions",
+                    class: "text-center"
                 }
             ],
 
@@ -126,12 +119,9 @@ export default {
             pageOptions: [10, 25, 50, 100]
         };
     },
-    created() {
-        this.$store.dispatch("admin_order/getOrders");
-    },
     computed: {
         ...mapGetters({
-            orders: "admin_order/getOrders"
+            coupons: "coupon/getCoupon"
         }),
         sortOptions() {
             // Create an options list from our fields
@@ -143,13 +133,23 @@ export default {
                         value: f.key
                     };
                 });
+        },
+        getCouponList() {
+            return this.coupons;
         }
+    },
+    created() {
+        this.$store.dispatch("coupon/getCoupon", 1);
     },
     mounted() {
         // Set the initial number of items
         this.totalRows = 12;
     },
     methods: {
+        ...mapActions({
+            get_single_order: "order/get_single_order",
+            deleteCoupon: "coupon/deleteCoupon"
+        }),
         getImgUrl(path) {
             return require("@/assets/admin/images/dashboard/product/" + path);
         },
@@ -157,7 +157,22 @@ export default {
             // Trigger pagination to update the number of buttons/pages due to filtering
             this.totalRows = filteredItems.length;
             this.currentPage = 1;
-        }
+        },
+        goToEdit(item) {
+            this.get_single_order(item)
+            this.$router.push('/admin/order/' + item.id);
+        },
+        deleteCoupons(OrderID) {
+            this.deleteCoupon(OrderID).then(Response => {
+                if (Response.data.status) {
+                    this.$toast.success("Deleted Coupon Successfully..!");
+                }
+            })
+
+        },
+        getIndex(id) {
+            this.selectedSku = id
+        },
     }
 }
 </script>

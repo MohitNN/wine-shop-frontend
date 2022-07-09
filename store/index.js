@@ -25,7 +25,7 @@ import admin_reports from './admin/modules/reports.js';
 import category from './admin/modules/category.js';
 import subCategory from './admin/modules/subcategory.js';
 import Products from './admin/modules/Products.js';
-import setCoupons from './admin/modules/setCoupons.js';
+import coupon from './admin/modules/coupon.js';
 import brand from './admin/modules/brand.js';
 import order from './admin/modules/order.js';
 import { setAuthToken, resetAuthToken } from "@/config/auth";
@@ -67,7 +67,7 @@ const createStore = () => {
       category,
       subCategory,
       Products,
-      setCoupons,
+      coupon,
       brand,
       order
     }

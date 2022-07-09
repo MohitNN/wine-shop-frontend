@@ -35,11 +35,11 @@
     "_name": "_18f60ab7"
   },
   {
-    "name": "admin-coupnes",
-    "path": "/admin/coupnes",
-    "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupnes\\\\index.vue",
-    "chunkName": "pages/admin/coupnes/index",
-    "_name": "_26e48106"
+    "name": "admin-coupon",
+    "path": "/admin/coupon",
+    "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupon\\\\index.vue",
+    "chunkName": "pages/admin/coupon/index",
+    "_name": "_c52e0bc8"
   },
   {
     "name": "admin-dashboard",
@@ -280,11 +280,11 @@
     "_name": "_17b589b0"
   },
   {
-    "name": "admin-coupnes-create-coupon",
-    "path": "/admin/coupnes/create-coupon",
-    "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupnes\\\\create-coupon.vue",
-    "chunkName": "pages/admin/coupnes/create-coupon",
-    "_name": "_70157742"
+    "name": "admin-coupon-create-coupon",
+    "path": "/admin/coupon/create-coupon",
+    "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupon\\\\create-coupon.vue",
+    "chunkName": "pages/admin/coupon/create-coupon",
+    "_name": "_a4d0ba3e"
   },
   {
     "name": "admin-product-add-product",
@@ -670,6 +670,13 @@
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\category\\\\_editcategory.vue",
     "chunkName": "pages/admin/category/_editcategory",
     "_name": "_4820244e"
+  },
+  {
+    "name": "admin-coupon-editCoupon",
+    "path": "/admin/coupon/:editCoupon",
+    "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupon\\\\_editCoupon.vue",
+    "chunkName": "pages/admin/coupon/_editCoupon",
+    "_name": "_2837f48e"
   },
   {
     "name": "admin-order-editOrder",

@@ -163,14 +163,6 @@
                           </div>
                         <!-- </ValidationProvider> -->
                         <div class="form-group row">
-                          <label class="col-xl-3 col-sm-4">Description :</label>
-                          <div class="col-xl-8 col-sm-7 editor-vue">
-                            <vue-editor
-                              v-model="products.description"
-                            ></vue-editor>
-                          </div>
-                        </div>
-                        <div class="form-group row">
                           <label class="col-xl-3 col-sm-4 mb-0"
                             >Total Products :</label
                           >
@@ -319,7 +311,6 @@ export default {
         sub_category_id: null,
         brand_id: null,
         quantity: 0,
-        description: "",
         price: "",
         fake_price: "",
         discount: "",
@@ -343,7 +334,6 @@ export default {
       formData.append("sub_category_id", this.products.sub_category_id ? this.products.sub_category_id : null );
       formData.append("brand_id", this.products.brand_id);
       formData.append("quantity", this.products.quantity);
-      formData.append("description", this.products.description);
       formData.append("price", this.products.price);
       formData.append("fake_price", this.products.fake_price);
       formData.append("discount", this.products.discount);

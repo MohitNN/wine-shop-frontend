@@ -22,18 +22,18 @@
                                                 <label for="validationCustom1" class="col-xl-3 col-md-4">Order Status : </label>
                                                 <select v-model="order.order_status" class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
                                                     <option value="">Select Status</option>
-                                                    <option value="Pending">Pending</option>
-                                                    <option value="Accept">Accept</option>
-                                                    <option value="Delivered">Delivered</option>
-                                                    <option value="Cancelled">Cancelled</option>
+                                                    <option value="pending">pending</option>
+                                                    <option value="accept">accept</option>
+                                                    <option value="delivered">delivered</option>
+                                                    <option value="cancelled">cancelled</option>
                                                 </select>
                                         </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">Payment Status : </label>
                                                 <select v-model="order.payment_status" class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
                                                     <option value="">Payment Status</option>
-                                                    <option value="Paid">Paid</option>
-                                                    <option value="Unpaid">Unpaid</option>
+                                                    <option value="paid">paid</option>
+                                                    <option value="unpaid">unpaid</option>
                                                 </select>
                                             </div>
                                            
@@ -70,9 +70,7 @@ export default {
             order:{
                 product_id:"",
                 order_status:"",
-                payment_status:"", 
-                start_date:"",
-                end_date:"",               
+                payment_status:"",                                
                 total:"",
                 id:this.$route.params.editOrder,
             }
@@ -89,9 +87,7 @@ export default {
     mounted() {
         this.order.product_id = this.getorder.product_id
         this.order.order_status = this.getorder.order_status
-        this.order.payment_status = this.getorder.payment_status        
-        this.order.start_date = this.getorder.start_date        
-        this.order.end_date = this.getorder.end_date        
+        this.order.payment_status = this.getorder.payment_status  
         this.order.total = this.getorder.total
     },
     methods: {
