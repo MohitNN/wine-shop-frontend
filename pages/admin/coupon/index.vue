@@ -31,7 +31,7 @@
                             <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getCouponList.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
                                 <template #cell(paymentStatus)="field">
                                     <div>
-                                        {{ field.item.name }}
+                                        {{ field.item.coupon_name }}
                                     </div>
                                     <div v-if="field.item.paymentStatus == 'Payment Failed'" class="badge badge-glow badge-danger">
                                         {{ field.item.coupon_code }}
@@ -81,7 +81,7 @@ export default {
             value: "",
             selectedSku: "",
             tablefields: [{
-                    key: "name",
+                    key: "coupon_name",
                     label: "Coupon Name",
                     sortable: true
                 },

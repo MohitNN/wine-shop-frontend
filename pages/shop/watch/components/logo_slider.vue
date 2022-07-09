@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <div>
     <section>
       <div class="container">
@@ -27,7 +27,17 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
 export default {
+  computed:{
+    ...mapState("menu", ["brand"]),
+  },
+  created() {
+    this.getBrand();
+  },
+  methods:{
+    ...mapActions("menu", ["getBrand"]),
+  },
   data() {
     return {
       swiperOption: {
@@ -77,4 +87,4 @@ export default {
     }
   }
 }
-</script> -->
+</script>

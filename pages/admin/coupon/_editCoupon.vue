@@ -90,7 +90,6 @@ export default {
             this.setCoupon(this.productCoupon)
         },
         ...mapActions({
-            getCouponDetails: "setCoupons/setCoupon",
             setCoupon: "setCoupons/setCoupon",
         }), 
     }
