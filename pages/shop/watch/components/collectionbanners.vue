@@ -1,6 +1,6 @@
 <template>
     <div>
-<section class="ratio_45">
+<!-- <section class="ratio_45">
     <div class="container">
         <div class="row partition3">
             <div class="col-md-4" v-for="(item, index) in items" :key="index">
@@ -20,7 +20,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
     </div>
 </template>
 

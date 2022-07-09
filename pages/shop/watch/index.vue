@@ -2,8 +2,8 @@
   <div>
     <!-- <Header /> -->
     <Slider />
-    <!-- <LogoSlider />
-    <TimerBanner /> -->
+     <LogoSlider />
+    <!-- <TimerBanner />  -->
     <Category />
     <CategoryTab :products="products" :category="category" />
     <ProductSlider

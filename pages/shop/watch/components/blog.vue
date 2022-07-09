@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div>
     <section class="blog blog-bg section-b-space ratio2_3">
       <div class="container">
@@ -83,4 +83,4 @@ export default {
     }
   }
 }
-</script>
+</script> -->

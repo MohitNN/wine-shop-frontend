@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div>
     <section class="section-b-space">
       <div class="full-box">
@@ -225,4 +225,4 @@ export default {
     }
   }
 }
-</script>
+</script> -->
