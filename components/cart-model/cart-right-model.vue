@@ -15,15 +15,15 @@
           <ul class="cart_product">
             <li v-for="(item,index) in cart" :key="index">
               <div class="media">
-                <nuxt-link :to="{ path: '/product/sidebar/'+item.id}">
-                  <img alt class="mr-3" :src='getImgUrl(item.images[0].src)'>
+                <nuxt-link :to="{ path: '/product/sidebar/'+item.id}" v-if="item.product_images">
+                  <img alt class="mr-3" :src='getImgUrl(item.product_images[0].image)'>
                 </nuxt-link>
                 <div class="media-body">
                   <nuxt-link :to="{ path: '/product/sidebar/'+item.id}">
-                    <h4>{{item.title}}</h4>
+                    <h4>{{item.product_name}}</h4>
                   </nuxt-link>
                   <h4>
-                    <span>{{item.quantity}} x {{ item.price * curr.curr | currency(curr.symbol) }}</span>
+                    <span>{{item.quantity}} x {{ item.price }}</span>
                   </h4>
                 </div>
               </div>
@@ -67,6 +67,7 @@
 </template>
 <script>
 import { mapState, mapGetters } from 'vuex'
+import config from '@/config.json'
 export default {
   props: ['openCart'],
   computed: {
@@ -82,7 +83,7 @@ export default {
   methods: {
     // Get Image Url
     getImgUrl(path) {
-      return require('@/assets/images/' + path)
+      return config.baseUrl + "products/" + path;
     },
     closeCart(val) {
       val = false

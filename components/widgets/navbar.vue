@@ -21,6 +21,19 @@
               Home
             </a>
           </li>
+          <li v-for="(category, key) in  categories" class="dropdown" :key="key">
+            <a href="#" class="nav-link">
+              {{category.name}}
+              <span class="sub-arrow" v-if="category.sub_category && category.sub_category.length"></span>
+            </a>
+            <ul v-if="category.sub_category && category.sub_category.length" class="nav-submenu">
+              <li v-for="sub_category, key in category.sub_category" :key="key">
+                <!-- <nuxt-link> -->
+                  {{sub_category.name}}
+                <!-- </nuxt-link> -->
+              </li>
+            </ul>
+          </li>
           <li class="dropdown">
             <a href="#" class="nav-link">
               Brand
@@ -56,13 +69,14 @@ export default {
     // ...mapState({
     //   menulist: state => state.menu.data
     // })
-    ...mapState("menu", ["brand"]),
+    ...mapState("menu", ["brand", "categories"]),
   },
   created() {
     this.getBrand();
+    this.getCategory();
   },
   methods: {
-    ...mapActions("menu", ["getBrand"]),
+    ...mapActions("menu", ["getBrand", "getCategory"]),
       mobilenav: function () {
       this.openmobilenav = !this.openmobilenav;
     },

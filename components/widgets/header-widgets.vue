@@ -36,11 +36,11 @@
                       <ul class="search-results" v-if="searchItems.length">
                         <li v-for="(product,index) in searchItems" :key="index" class="product-box">
                           <div class="img-wrapper">
-                            <img
+                            <!-- <img
                               :src='getImgUrl(product.images[0].src)'
                               class="img-fluid bg-img"
                               :key="index"
-                            />
+                            /> -->
                           </div>
                           <div class="product-detail">
                             <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
@@ -70,7 +70,7 @@
             <li v-for="(item,index) in cart" :key="index">
               <div class="media">
                 <nuxt-link :to="{ path: '/product/sidebar/'+item.id}">
-                  <img alt class="mr-3" :src='getImgUrl(item.images[0].src)'>
+                  <!-- <img alt class="mr-3" :src='getImgUrl(item.images[0].src)'> -->
                 </nuxt-link>
                 <div class="media-body">
                   <nuxt-link :to="{ path: '/product/sidebar/'+item.id}">

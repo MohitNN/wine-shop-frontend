@@ -735,6 +735,13 @@
     "_name": "_654735ea"
   },
   {
+    "name": "store-slug",
+    "path": "/store/:slug?",
+    "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\store\\\\_slug.vue",
+    "chunkName": "pages/store/_slug",
+    "_name": "_4e969d88"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\index.vue",
