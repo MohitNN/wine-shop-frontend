@@ -11,6 +11,7 @@ const state = {
   category: [],
   subCategory: [],
   brand: [],
+  type:[],
   singleProduct:{},
 };
 const getters = {};
@@ -40,6 +41,13 @@ const actions = {
     const resp = await axios.get("/api/admin/get-brand", data);
     if (resp.data.status) {
       commit('SET_BRAND',resp.data.data)
+    }
+    return resp;
+  },
+  async getType({ commit, dispatch }, data) {
+    const resp = await axios.get("/api/admin/get-type", data);
+    if (resp.data.status) {
+      commit('SET_TYPE',resp.data.data)
     }
     return resp;
   },
@@ -91,6 +99,9 @@ const mutations = {
   },
   SET_BRAND(state , value) {
     state.brand = value
+  },
+  SET_TYPE(state , value) {
+    state.type = value
   },
   SET_SUB_CATEGORY(state , value) {
     state.subCategory = value

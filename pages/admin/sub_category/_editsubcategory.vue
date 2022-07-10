@@ -22,6 +22,15 @@
                                             </select>
                                         </div>
                                         <div class="form-group mb-3 row">
+                                            <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select Type :</label>
+                                            <select v-model="SubCategoryData.type_id" class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
+                                                <option selected value="">Select Type</option>
+                                                <option v-for="type in getTypeList.data" :key="type.id" :value="type.id">
+                                                    {{ type.type_name }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
                                             <input class="form-control col-xl-8 col-sm-7" v-model="SubCategoryData.name" id="validationCustom01" type="text" required="" />
                                         </div>
@@ -32,7 +41,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-md-4"></label>
-                                        <button type="button" @click="update" class="btn btn-primary">Add</button>
+                                        <button type="button" @click="update" class="btn btn-primary">Update</button>
                                         <button type="button" class="btn btn-light ml-1" @click="$router.push('/admin/sub_category')">
                                             Discard
                                         </button>
@@ -65,14 +74,16 @@ export default {
                 name: '',
                 description: '',
                 category_id: '',
+                type_id:"",
                 id:this.$route.params.editsubcategory,
             }
         }
     },
     computed: {
+        ...mapState("types", ["Type"]),
         ...mapState({
             SubCategoryDetail: state => state.subCategory.SubCategoryDetail,
-            Category: state => state.category.Category.data
+            Category: state => state.category.Category.data,
         }),
         getCategoryList() {
             const CategoryArray = this.Category;
@@ -83,6 +94,15 @@ export default {
                 return CategoryArray;
             }
         },
+        getTypeList(){
+             const TypeArray = this.Type;
+            if (TypeArray.length != 0) {
+                return TypeArray;
+            } else {
+                this.getTypes();
+                return TypeArray;
+            }
+        },
         getdatasub() {
             return this.SubCategoryDetail;
         }
@@ -91,12 +111,14 @@ export default {
         this.SubCategoryData.name = this.getdatasub.name
         this.SubCategoryData.description = this.getdatasub.description
         this.SubCategoryData.category_id = this.getdatasub.category_id
+        this.SubCategoryData.type_id = this.getdatasub.type_id
     },
     methods: {
         ...mapActions({
             getSubCategory: "subCategory/setSubCategory",
             getCategory: "category/getCategory",
             updateSubCategory: "subCategory/updateSubCategory",
+            getTypes : "types/getType",
         }),
         update(){
             this.updateSubCategory(this.SubCategoryData).then(response => {

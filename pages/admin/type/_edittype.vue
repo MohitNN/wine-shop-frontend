@@ -69,8 +69,8 @@ export default {
     computed: {
         ...mapState({
             typesDetail: state => state.types.singleType,
-            Category: state => state.category.Category.data
         }),
+        ...mapState("category", ["Category"]),
         getCategoryList() {
             const CategoryArray = this.Category;
             if (CategoryArray.length != 0) {

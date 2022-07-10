@@ -22,6 +22,15 @@
                                             </select>
                                         </div>
                                         <div class="form-group mb-3 row">
+                                            <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select Type :</label>
+                                            <select v-model="subcategory.type_id" class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
+                                                <option selected value="">Select Type</option>
+                                                <option v-for="type in getTypeList.data" :key="type.id" :value="type.id">
+                                                    {{ type.type_name }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
                                             <input v-model="subcategory.name" class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" placeholder="Name" />
                                         </div>
@@ -67,11 +76,13 @@ export default {
                 name: "",
                 description: "",
                 category_id: "",
+                type_id:""
             },
         };
     },
     computed: {
         ...mapState("category", ["Category"]),
+        ...mapState("types", ["Type"]),
         getCategoryList() {
             const CategoryArray = this.Category;
             if (CategoryArray.length != 0) {
@@ -81,11 +92,21 @@ export default {
                 return CategoryArray;
             }
         },
+        getTypeList(){
+             const TypeArray = this.Type;
+            if (TypeArray.length != 0) {
+                return TypeArray;
+            } else {
+                this.getType();
+                return TypeArray;
+            }
+        }
     },
     methods: {
         ...mapActions({
             setSubCategory: "subCategory/setSubCategory",
             getCategory: "category/getCategory",
+            getType : "types/getType",
         }),
         getSubCategorys() {
             this.setSubCategory(this.subcategory).then(Response => {
