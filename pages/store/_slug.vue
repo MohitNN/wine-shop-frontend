@@ -5,7 +5,10 @@
 <section class="section-b-space ratio_asos">
       <div class="container">
         <div class="row">
-          <div class="col-10">
+          <div class="col-lg-3">
+              <sidebar @allFilters="allfilter"/>
+            </div>
+          <div class="collection-content col">
             <div v-swiper:mySwiper="swiperOption">
               <div class="row">
                 <div
@@ -54,6 +57,7 @@ import quickviewModel from '@/components/widgets/quickview'
 import compareModel from '@/components/widgets/compare-popup'
 import cartModel from '@/components/cart-model/cart-right-model'
 import productBox1 from '@/components/product-box/product-list'
+import sidebar from '@/components/widgets/collection-sidebar'
 export default {
   props: ['products'],
   components: {
@@ -63,11 +67,13 @@ export default {
     productBox1,
     quickviewModel,
     compareModel,
-    cartModel
+    cartModel,
+    sidebar
   },
   data() {
     return {
         slug:this.$route.params.slug,
+        name: this.$route.query.name,
       showquickviewmodel: false,
       showcomparemodal: false,
       showcartmodal: false,
@@ -100,13 +106,27 @@ export default {
     ...mapState({
       productslist: state => state.products.productslist
     }),
-    ...mapState("products", ["productData"])
+    ...mapState("products", ["productData"]),
   },
   mounted () {
-    this.allProduct()
+    // alert(this.name)
+    // alert(this.slug)
+    this.getAllProduct()
+    this.getBrand()
+    this.getCategory()
+    this.getSubCategory()
   },
   methods: {
     ...mapActions("products", ["allProduct"]),
+    ...mapActions("filter", ["clearFilter"]),
+    ...mapActions("menu", ["getBrand", "getCategory", "getSubCategory"]),
+    getAllProduct() {
+      // this.$route.query.name
+      const type = this.slug
+      const name = this.name
+      this.clearFilter()
+      this.allProduct({type, name})
+    },
     alert(item) {
       this.dismissCountDown = item
     },
@@ -129,6 +149,11 @@ export default {
     },
     closeCartModal(item) {
       this.showcartmodal = item
+    },
+    allfilter (data) {
+      const type = this.slug
+      const name = this.name
+      this.allProduct({...data, type, name})
     }
   }
 }

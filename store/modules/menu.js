@@ -6,7 +6,8 @@ axios.defaults.baseURL = baseURL.API_URL;
 const state = {
   data: Menu.data,
   brand : [],
-  categories: []
+  categories: [],
+  subCategories: [],
 }
 
 // getters
@@ -20,6 +21,9 @@ const mutations = {
   },
   SET_CATEGORY(state , value) {
     state.categories = value
+  },
+  SET_SUB_CATEGORY(state , value) {
+    state.subCategories = value
   },
 }
 
@@ -35,8 +39,14 @@ const actions = {
   async getCategory({ commit, dispatch }, data) {
     const resp = await axios.get("/api/get-all-category", data);
     if (resp.data.status) {
-      console.log('resp.data.data', resp.data.data)
       commit('SET_CATEGORY',resp.data.data)
+    }
+    return resp;
+  },
+  async getSubCategory({ commit, dispatch }, data) {
+    const resp = await axios.get("/api/get-all-sub-category", data);
+    if (resp.data.status) {
+      commit('SET_SUB_CATEGORY',resp.data.data)
     }
     return resp;
   }

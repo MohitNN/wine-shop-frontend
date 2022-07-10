@@ -109,6 +109,7 @@ const _8bc39584 = () => interopDefault(import('..\\pages\\admin\\sub_category\\_
 const _67e27aad = () => interopDefault(import('..\\pages\\admin\\type\\_edittype.vue' /* webpackChunkName: "pages/admin/type/_edittype" */))
 const _ea086294 = () => interopDefault(import('..\\pages\\collection\\leftsidebar\\_id.vue' /* webpackChunkName: "pages/collection/leftsidebar/_id" */))
 const _654735ea = () => interopDefault(import('..\\pages\\product\\sidebar\\_id.vue' /* webpackChunkName: "pages/product/sidebar/_id" */))
+const _12fdf6de = () => interopDefault(import('..\\pages\\product\\_id.vue' /* webpackChunkName: "pages/product/_id" */))
 const _4e969d88 = () => interopDefault(import('..\\pages\\store\\_slug.vue' /* webpackChunkName: "pages/store/_slug" */))
 const _614ea0a2 = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -543,6 +544,10 @@ export const routerOptions = {
     path: "/product/sidebar/:id?",
     component: _654735ea,
     name: "product-sidebar-id"
+  }, {
+    path: "/product/:id?",
+    component: _12fdf6de,
+    name: "product-id"
   }, {
     path: "/store/:slug?",
     component: _4e969d88,
