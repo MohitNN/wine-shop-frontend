@@ -80,7 +80,7 @@ export default {
       this.getCouponDetails(this.category.id).then((response) => {
          if(response.data.status){
             const data = response.data.data            
-            this.category.name = data.name
+            this.category.coupon_name = data.coupon_name
             this.category.description = data.description
          }
       })

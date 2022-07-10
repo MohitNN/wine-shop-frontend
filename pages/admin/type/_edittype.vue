@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-md-4"></label>
-                                        <button type="button" @click="getSubCategorys" class="btn btn-primary">
+                                        <button type="button" @click="getType" class="btn btn-primary">
                                             Add
                                         </button>
                                         <button type="button" class="btn btn-light ml-1" @click="$router.push('/admin/type')">
@@ -62,12 +62,15 @@ export default {
              type: {
                 type_name: "",
                 category_id: "",
-                id:this.$route.params.editsubcategory,
+                id:this.$route.params.edittype,
             },
         };
     },
     computed: {
-        ...mapState("category", ["Category"]),
+        ...mapState({
+            typesDetail: state => state.types.singleType,
+            Category: state => state.category.Category.data
+        }),
         getCategoryList() {
             const CategoryArray = this.Category;
             if (CategoryArray.length != 0) {
@@ -77,17 +80,24 @@ export default {
                 return CategoryArray;
             }
         },
+        getDataType() {
+            return this.typesDetail;
+        }
+    },
+    mounted() {
+       this.type.type_name = this.getDataType.type_name
+       this.type.category_id = this.getDataType.category_id
     },
     methods: {
         ...mapActions({
-            setSubCategory: "subCategory/setSubCategory",
+            setType: "types/setType",
             getCategory: "category/getCategory",
         }),
-        getSubCategorys() {
-            this.setSubCategory(this.subcategory).then(Response => {
+        getType() {
+            this.setType(this.type).then(Response => {
                 if (Response.data.status) {
                     this.$toast.success("Add SubCategory Successfully..!");
-                    this.$router.push('/admin/sub_category')
+                    this.$router.push('/admin/type')
                 }
             });
         },
