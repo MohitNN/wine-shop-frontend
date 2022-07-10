@@ -70,11 +70,18 @@ export default {
                     key: "description",
                     label: "Description",
                     class: "text-center"
-                }, {
+                },{
                     key: "category_id",
-                    label: "category_id",
+                    label: "Category Id",
                     class: "text-center"
-                }, {
+                },
+                {
+                    key: "type_id",
+                    label: "Type Id",
+                    class: "text-center"
+                },
+                
+                {
                     key: "actions",
                     label: "actions",
                     class: "text-center"
@@ -124,8 +131,8 @@ export default {
             this.$store.dispatch("category/getCategory", page);
         },
         goToEdit(item) {
-            this.get_single_type(item)
-            this.$router.push('/admin/type/' + item.id);
+            this.get_single_subcategory(item)
+            this.$router.push('/admin/sub_category/' + item.id);
         },
         deleteSubCategory(SubCategoryID) {
             this.delete(SubCategoryID).then(Response => {

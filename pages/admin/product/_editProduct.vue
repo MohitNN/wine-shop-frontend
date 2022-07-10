@@ -224,11 +224,9 @@ export default {
                         this.init();
                         this.this.imageFile = []
                         this.$toast.success("Product added");
+                        this.$router.push('/admin/product')
                     }
                 })
-                .catch((error) => {
-                    this.$toast.error("Something Want Wrong");
-                });
         },
         ...mapActions({
             saveProduct: "Products/EditProduct",

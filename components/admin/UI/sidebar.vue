@@ -167,18 +167,18 @@ export default {
                     "path": "/admin/category",
                 },
                 {
-                    "title": "Sub Category",
-                    "icon": "box",
-                    "type": "sub",
-                    "active": false,
-                    "path": "/admin/sub_category"
-                },
-                {
                     "title": "Type",
                     "type": "sub",
                     "icon": "box",
                     "active": false,
                     "path": "/admin/type"
+                },
+                {
+                    "title": "Sub Category",
+                    "icon": "box",
+                    "type": "sub",
+                    "active": false,
+                    "path": "/admin/sub_category"
                 },
                 {
                     "title": "Product",
