@@ -3,7 +3,7 @@
     <template v-slot:content>
         <div class="row">
             <div>
-                <b-modal id="modal-2" title="Confirmation" @ok="deleteSubCategory(selectedSku)">
+                <b-modal id="modal-2" title="Confirmation" @ok="deleteTypes(selectedSku)">
                     <p class="my-4">Are you sure!</p>
                 </b-modal>
             </div>
@@ -108,9 +108,8 @@ export default {
     },
     methods: {
         ...mapActions({
-            delete: "category/deleteCategory",
-            get_single_subcategory: "subCategory/get_single_subcategory",
-            delete: "subCategory/deleteSubCategory",
+            delete: "types/deleteType",
+            get_single_type: "types/get_single_type",
         }),
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length;
@@ -121,13 +120,14 @@ export default {
         },
 
         goToEdit(item) {
-            this.get_single_subcategory(item)
+            this.get_single_type(item)
             this.$router.push('/admin/type/' + item.id);
         },
-        deleteSubCategory(SubCategoryID) {
+        deleteTypes(SubCategoryID) {
+            alert(SubCategoryID)
             this.delete(SubCategoryID).then(Response => {
                 if (Response.data.status) {
-                    this.$toast.success("Deleted SubCategory Successfully..!");
+                    this.$toast.success("Deleted Type Successfully..!");
                 }
             })
         },

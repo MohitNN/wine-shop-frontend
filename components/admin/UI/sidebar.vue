@@ -11,7 +11,7 @@
             <ul class="sidebar-menu" id="myDIV">
                 <li v-for="(menuItem, index) in menuItem" :key="index" :class="{ active: menuItem.active }">
                     <!-- Sub -->
-                    <a :href="menuItem.path" style="cursor:pointer;" class="sidebar-header" v-if="menuItem.type == 'sub'" @click="setNavActive(menuItem, index)">
+                    <nuxt-link :to="`${menuItem.path}`" style="cursor:pointer;" class="sidebar-header" v-if="menuItem.type == 'sub'" @click="setNavActive(menuItem, index)">
                         <feather :type="menuItem.icon"> </feather>
                         <span @click="dashboardClick(menuItem.title)">
                             {{ menuItem.title }}
@@ -19,7 +19,7 @@
 
                         <span :class="'badge badge-pill badge-' + menuItem.badgeType" v-if="menuItem.badgeType">{{ menuItem.badgeValue }}</span>
                         <i class="fa fa-angle-right pull-right" v-if="menuItem.children"></i>
-                    </a>
+                    </nuxt-link>
                     <!--</span>
             </span>-->
                     <!-- External Link -->
@@ -142,8 +142,7 @@ export default {
         return {
             width: 0,
             height: 0,
-            menuItems_: [
-                {
+            menuItems_: [{
                     "path": "/admin/dashboard",
                     "title": "Dashboard",
                     "icon": "home",
@@ -165,19 +164,14 @@ export default {
                     "icon": "box",
                     "type": "sub",
                     "active": false,
-                    "children": [{
-                            "title": "Category",
-                            "type": "sub",
-                            "active": false,
-                            "path": "/admin/category"
-                        },
-                        {
-                            "title": "Sub Category",
-                            "type": "sub",
-                            "active": false,
-                            "path": "/admin/sub_category"
-                        }
-                    ]
+                    "path": "/admin/category",
+                },
+                {
+                    "title": "Sub Category",
+                    "icon": "box",
+                    "type": "sub",
+                    "active": false,
+                    "path": "/admin/sub_category"
                 },
                 {
                     "title": "Type",

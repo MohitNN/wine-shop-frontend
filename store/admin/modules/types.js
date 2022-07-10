@@ -5,6 +5,7 @@ const baseURL = config.baseUrl
 
 const state = {
     Type: [],
+    singleType:[]
 }
 const getters = {
     getType: (state) => {
@@ -31,10 +32,8 @@ const actions = {
             }
         });
     },
-    get_single_type: (context, id) => {
-        const URl = `${baseURL}api/admin/get-type-single/${id}`
-        const resp = axios.get(URl)
-        return resp;
+    get_single_type: (context, item) => {
+        context.commit('setTypesValue', item);
     },
 
     updateType: (context, items) => {
@@ -64,6 +63,11 @@ const mutations = {
     setTypeValue: (state, items) => {
         state.Type = items;
     },
+    setTypesValue: (state, items) => {
+        state.singleType = items;
+        console.log(items)
+    },
+
 }
 
 export default {
