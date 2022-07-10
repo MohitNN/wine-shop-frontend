@@ -15,24 +15,24 @@
                                         <div class="col-lg-12">
                                             <div class="form-group row">
                                                 <label for="validationCustom0" class="col-xl-3 col-md-4">Coupon name</label>
-                                                <input v-model="Coupon.coupon_name" class="form-control col-md-7" id="validationCustom0" type="text" required="" />
+                                                <input v-model="coupon.coupon_name" class="form-control col-md-7" id="validationCustom0" type="text" required="" />
                                             </div>
                                             <div class="form-group row">
                                                 <label for="validationCustom1" class="col-xl-3 col-md-4">Coupon Code</label>
-                                                <input v-model="Coupon.coupon_code" class="form-control col-md-7" id="validationCustom1" type="text" required="" />
+                                                <input v-model="coupon.coupon_code" class="form-control col-md-7" id="validationCustom1" type="text" required="" />
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">Start Date</label>
-                                                <input v-model="Coupon.startDate" class="datepicker-here form-control digits col-md-7" type="text" data-language="en" />
+                                                <input v-model="coupon.start_date" class="datepicker-here form-control digits col-md-7" type="text" data-language="en" />
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">End Date</label>
-                                                <input v-model="Coupon.endDate" class="datepicker-here form-control digits col-md-7" type="text" data-language="en" />
+                                                <input v-model="coupon.end_date" class="datepicker-here form-control digits col-md-7" type="text" data-language="en" />
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">Status</label>
                                                 <label class="d-block" for="chk-ani">
-                                                    <input v-model="Coupon.status" class="checkbox_animated" id="chk-ani" type="checkbox" />
+                                                    <input v-model="coupon.status"  class="checkbox_animated" id="chk-ani" type="checkbox" />
                                                     Enable the Coupon
                                                 </label>
                                             </div>
@@ -58,7 +58,7 @@
 
 <script>
 import layout from "@/components/admin/Body.vue";
-import { mapActions } from 'vuex';
+import { mapActions,mapState } from 'vuex';
 export default {
     components: {
         layout
@@ -66,32 +66,45 @@ export default {
     data() {
         return {
             image: '',
-            coupon: {
-                coupon_name: "",
-                coupon_code: "",
-                status: 0,
-                start_date: "",
-                end_date: "",
-                id:this.$route.params.editcategory,
+            coupon:{
+                coupon_name:"",
+                coupon_code:"",
+                status:"",
+                start_date:"",
+                end_date:"",
+                id:this.$route.params.editcoupon
             }
         }
     },
-    created() {        
-      this.getCouponDetails(this.category.id).then((response) => {
-         if(response.data.status){
-            const data = response.data.data            
-            this.category.coupon_name = data.coupon_name
-            this.category.description = data.description
-         }
-      })
+     computed: {
+        ...mapState({
+            CouponDetail: state => state.coupon.CouponDetail,
+        }),
+        getCouponDetail() {
+            return this.CouponDetail
+        }
+    },
+     mounted() {
+        this.coupon.coupon_name = this.getCouponDetail.coupon_name
+        this.coupon.coupon_code = this.getCouponDetail.coupon_code
+        this.coupon.status = this.getCouponDetail.status
+        this.coupon.start_date = this.getCouponDetail.start_date
+        this.coupon.end_date = this.getCouponDetail.end_date
     },
     methods: {
-        update(){
-            this.setCoupon(this.productCoupon)
+         ...mapActions({
+            setCoupon: "coupon/setCoupon",
+        }),
+         update(){
+            this.setCoupon(this.coupon).then(response => {
+            if(response.data.status){       
+                this.$toast.success("Update Coupon Successfully..!");
+                this.$router.push('/admin/coupon')            
+            }
+         });
+            
         },
-        ...mapActions({
-            setCoupon: "setCoupons/setCoupon",
-        }), 
+        
     }
 };
 </script>

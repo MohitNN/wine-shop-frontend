@@ -15,7 +15,8 @@ const state = {
   },
   order: [],
   locale: 'en',
-  searchProduct: []
+  searchProduct: [],
+  productData: []
 }
 // getters
 const getters = {
@@ -104,7 +105,10 @@ const mutations = {
   },
   createOrder: (state, payload) => {
     state.order = payload
-  }
+  },
+  SET_PRODUCT(state , value) {
+    state.productData=value
+  },
 }
 // actions
 const actions = {
@@ -135,6 +139,13 @@ const actions = {
   },
   createOrder: (context, payload) => {
     context.commit('createOrder', payload)
+  },
+  async allProduct({ commit, dispatch }, data) {
+    const resp = await axios.get("/api/product", data);
+    if (resp.data.status) {
+      commit('SET_PRODUCT',resp.data.data)
+    }
+    return resp;
   }
 }
 export default {

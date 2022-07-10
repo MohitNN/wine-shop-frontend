@@ -147,7 +147,7 @@ export default {
     },
     methods: {
         ...mapActions({
-            get_single_order: "order/get_single_order",
+            get_single_coupon: "coupon/get_single_coupon",
             deleteCoupon: "coupon/deleteCoupon"
         }),
         getImgUrl(path) {
@@ -159,8 +159,8 @@ export default {
             this.currentPage = 1;
         },
         goToEdit(item) {
-            this.get_single_order(item)
-            this.$router.push('/admin/coupon/' + item.id);
+            this.get_single_coupon(item)
+            this.$router.push('/admin/coupon/'+ item.id);
         },
         deleteCoupons(OrderID) {
             this.deleteCoupon(OrderID).then(Response => {

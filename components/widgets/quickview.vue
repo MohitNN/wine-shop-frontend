@@ -13,15 +13,21 @@
           <div class="quick-view-img">
             <div v-swiper:mySwiper="swiperOption">
               <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(imag,index) in productData.images" :key="index">
+                <!-- <div class="swiper-slide" v-for="(imag,index) in productData.product_images" :key="index"> -->
                   <img
-                    :src="getImgUrl(imag.src)"
-                    :id="imag.image_id"
+                    :src='getImgUrl(imageSrc ? imageSrc :  "165710779030.png")'
                     class="img-fluid bg-img"
                     alt="imag.alt"
                   />
-                </div>
+                <!-- </div> -->
               </div>
+               <ul class="product-thumb-list mt-3">
+                  <li class="grid_thumb_img mr-2" :class="{active: imageSrc === image.image}" v-for="(image,index) in productData.product_images" :key="index" @click="productVariantChange(image.image)">
+                      <a href="javascript:void(0);">
+                          <img :src="getImgUrl(image.image)" width="50px" />
+                      </a>
+                  </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -33,15 +39,15 @@
         <del>{{ productData.price * curr.curr | currency(curr.symbol) }}</del>
             </h3>
             <h3 v-else>{{ productData.price * curr.curr | currency(curr.symbol) }}</h3>
-            <ul class="color-variant" v-if="productData.variants[0].color">
+            <!-- <ul class="color-variant" v-if="productData.variants[0].color">
               <li v-for="(variant,variantIndex) in Color(productData.variants)" :key="variantIndex">
                 <a
                   :class="[variant]"
                   v-bind:style="{ 'background-color' : variant}"
                 ></a>
               </li>
-            </ul>
-            <div class="product-description border-product" v-if="productData.variants[0].size">
+            </ul> -->
+            <!-- <div class="product-description border-product" v-if="productData.variants[0].size">
               <h6 class="product-title">select size</h6>
               <div class="size-box">
                 <ul>
@@ -50,10 +56,10 @@
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> -->
             <div class="border-product">
               <h6 class="product-title">product details</h6>
-              <p>{{productData.description.substring(0,250)+"...."}}</p>
+              <p v-if="productData.description">{{productData.description.substring(0,250)+"...."}}</p>
             </div>
             <div class="product-buttons">
               <a href="javascript:void(0)" @click="addToCart(product)" class="btn btn-solid">add to cart</a>
@@ -67,10 +73,12 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import config from '@/config.json'
 export default {
   props: ['openModal', 'productData'],
   data() {
     return {
+      imageSrc: '',
       swiperOption: {
         slidesPerView: 1,
         spaceBetween: 20,
@@ -82,6 +90,22 @@ export default {
     ...mapGetters({
       curr: 'products/changeCurrency'
     })
+  },
+  watch: {
+    'productData.product_images':{
+      deep: true,
+      handler: function(newValue) {
+        if(this.productData.product_images && this.productData.product_images.length) {
+        this.productData.product_images.forEach((item)=> {
+            if(item.image) {
+              console.log('item.image', item.image)
+                this.imageSrc = item.image
+                return false
+            }
+        })
+    }
+      },
+    }
   },
   methods: {
     // Display Unique Color
@@ -110,7 +134,8 @@ export default {
     },
     // Get Image Url
     getImgUrl(path) {
-      return require('@/assets/images/' + path)
+      return config.baseUrl + "products/" + path;
+      // return require('@/assets/images/' + path)
     },
     // Display Sale Price Discount
     discountedPrice(product) {
