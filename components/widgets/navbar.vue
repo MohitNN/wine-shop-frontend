@@ -17,33 +17,39 @@
             </div>
           </li>
           <li class="dropdown">
-            <a href="#" class="nav-link">
+            <nuxt-link to="/">Home</nuxt-link>
+            <!-- <a href="#" class="nav-link">
               Home
-            </a>
+            </a> -->
           </li>
           <li v-for="(category, key) in  categories" class="dropdown" :key="key">
-            <a href="#" class="nav-link">
+            <!-- <a href="#" class="nav-link" @click.self="loadProduct('category', category.name)"> -->
+            <span class="nav-link category-title" @click.self="loadProduct('category', category.slug)">
               {{category.name}}
-              <span class="sub-arrow" v-if="category.sub_category && category.sub_category.length"></span>
-            </a>
-            <ul v-if="category.sub_category && category.sub_category.length" class="nav-submenu">
-              <li v-for="sub_category, key in category.sub_category" :key="key">
-                <!-- <nuxt-link> -->
+                <i class="fa fa-angle-down" id="angle-down" v-if="category.sub_category && category.sub_category.length"></i>
+            </span>
+            <ul v-if="category.sub_category && category.sub_category.length" class="nav-submenu" style="width: 100vh !important">
+              <li v-for="sub_category, key in category.sub_category" :key="key" @click="loadProduct('sub-category', sub_category.slug)">
+                <span class="sub-category-title">
                   {{sub_category.name}}
-                <!-- </nuxt-link> -->
+                </span>
               </li>
             </ul>
           </li>
           <li class="dropdown">
-            <a href="#" class="nav-link">
+            <!-- <a href="#" class="nav-link">
               Brand
               <span class="sub-arrow" v-if="brand"></span>
-            </a>
-            <ul v-if="brand" class="nav-submenu">
-              <li v-for="b in brand" :key="b.id">
-                <nuxt-link :to="{ path: '/collection/leftsidebar/'+b.slug , query: {brand_id: b.id} }">
+            </a> -->
+            <span class="nav-link category-title" @click.self="loadProduct('brands', '')">
+              Brands
+                <i class="fa fa-angle-down" id="angle-down" v-if="brand && brand.length"></i>
+            </span>
+            <ul v-if="brand" class="nav-submenu"  style="width: 100vh !important">
+              <li v-for="b in brand" :key="b.id"  @click="loadProduct('brand', b.slug)">
+                <span class="sub-category-title">
                   {{b.name}}
-                </nuxt-link>
+                </span>
               </li>
             </ul>
           </li>
@@ -110,11 +116,51 @@ export default {
       } else {
         this.activemegaChild = megaChildItem;
       }
-    },
+    }
   },
 };
 </script>
-
+<style scoped>
+.category-title {
+      display: block;
+    padding-right: 45px;
+    color: #222222;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding-top: 42px;
+    padding-bottom: 42px;
+    padding-left: 0;
+    letter-spacing: 0.07em;
+    position: relative;
+    cursor: pointer;
+}
+.sub-category-title {
+    border: 0 !important;
+    background: transparent;
+    color: #222222;
+    border-radius: 0 !important;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: capitalize;
+    padding: 5px 35px;
+    display: block;
+    letter-spacing: 0.07em;
+    line-height: 1.9;
+    cursor: pointer;
+}
+.sub-category-title:hover {
+  color: #df0007;
+  transition: 0.3s;
+}
+#angle-down {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+</style>
 <style lang="scss" scoped>
 .toggle-nav {
   &.toggle-button {

@@ -7,7 +7,7 @@
         <span class="lable4" v-if="product.sale">on sale</span>
       </div>
       <div class="front text-center">
-        <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
+        <nuxt-link :to="{ path: '/product/'+product.id}">
           <img
             :src='getImgUrl(imageSrc ? imageSrc :  "165710779030.png")'
             :id="product.id"
@@ -18,7 +18,7 @@
         </nuxt-link>
       </div>
       <div class="back">
-        <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
+        <nuxt-link :to="{ path: '/product/'+product.id}">
           <img
             :src='getImgUrl(imageSrc ? imageSrc :  "165710779030.png")'
             :id="product.id"
@@ -59,7 +59,7 @@
         <i class="fa fa-star"></i>
         <i class="fa fa-star"></i>
       </div>
-      <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
+      <nuxt-link :to="{ path: '/product/'+product.id}">
         <h6>{{ product.product_name }}</h6>
       </nuxt-link>
       <p>{{ product.description }}</p>
@@ -85,7 +85,7 @@
             <span class="lable4" v-if="product.onsell">on sale</span>
         </div>
         <div class="front text-center">
-        <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
+        <nuxt-link :to="{ path: '/product/'+product.id}">
           <img
             :src='getImgUrl(imageSrc ? imageSrc :  "165710779030.png")'
             :id="product.id"
@@ -142,7 +142,7 @@
         <i class="fa fa-star"></i>
         <i class="fa fa-star"></i>
       </div>
-      <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
+      <nuxt-link :to="{ path: '/product/'+product.id}">
         <h6>{{ product.title }}</h6>
       </nuxt-link>
       <p>{{ product.description }}</p>

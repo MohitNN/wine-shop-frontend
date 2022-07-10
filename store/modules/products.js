@@ -16,19 +16,20 @@ const state = {
   order: [],
   locale: 'en',
   searchProduct: [],
-  productData: []
+  productData: [],
+  productDetail: {}
 }
 // getters
 const getters = {
   getcollectionProduct: (state) => {
-    return collection => state.products.filter((product) => {
+    return collection => state.productData.filter((product) => {
       return collection === product.collection
     })
   },
 
   getProductById: (state) => {
-    return id => state.products.find((product) => {
-      return product.id === +id
+    return id => state.productData.find((product) => {
+      return product.id === id
     })
   },
   compareItems: (state) => {
@@ -109,6 +110,9 @@ const mutations = {
   SET_PRODUCT(state , value) {
     state.productData=value
   },
+  SET_PRODUCT_DETAIL(state , value) {
+    state.productDetail=value
+  },
 }
 // actions
 const actions = {
@@ -141,9 +145,17 @@ const actions = {
     context.commit('createOrder', payload)
   },
   async allProduct({ commit, dispatch }, data) {
-    const resp = await axios.get("/api/product", data);
+    const resp = await axios.post("/api/product", data);
     if (resp.data.status) {
       commit('SET_PRODUCT',resp.data.data)
+    }
+    return resp;
+  },
+  async getSingleProduct ({ commit, dispatch }, data) {
+    commit('SET_PRODUCT_DETAIL',{})
+    const resp = await axios.get("/api/getSingleProductData/"+data);
+    if (resp.data.status) {
+      commit('SET_PRODUCT_DETAIL',resp.data.data)
     }
     return resp;
   }
