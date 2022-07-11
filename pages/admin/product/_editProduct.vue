@@ -63,8 +63,8 @@
                                             </ValidationProvider>
                                             <ValidationProvider rules="required" v-slot="{ errors }" name="type">
                                                 <div class="form-group row">
-                                                    <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Category :</label>
-                                                    <v-select name="type" placeholder="Select Category" v-model="products.category_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="category" :reduce="(c) => c.id" @input="getSubCateFromcate" label="name" index="id"></v-select>
+                                                    <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Type :</label>
+                                                    <v-select name="type" placeholder="Select Category" v-model="products.type_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="type" :reduce="(c) => c.id" label="type_name" index="id"></v-select>
                                                     <span class="validate-error">{{ errors[0] }}</span>
                                                 </div>
                                             </ValidationProvider>
@@ -100,6 +100,9 @@
                                             <div class="form-group mb-3 row">
                                                 <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">discount :</label>
                                                 <input class="form-control col-xl-8 col-sm-7" placeholder="discount" id="validationCustom02" v-model="products.discount" type="text" required="" />
+                                            </div>
+                                            <div class="form-group mb-3 row">
+                                                
                                             </div>
                                             <div class="form-group row dd d-block">
                                                 <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Status :</label>
@@ -147,7 +150,7 @@ export default {
         ValidationObserver,
     },
     computed: {
-        ...mapState("Products", ["category", "brand", "subCategory", "singleProduct"]),
+        ...mapState("Products", ["category", "brand", "subCategory", "type" ,"singleProduct"]),
         productSingle() {
             return this.singleProduct;
         },
@@ -163,6 +166,7 @@ export default {
             products: {
                 product_name: "",
                 category_id: null,
+                type_id: null,
                 sub_category_id: null,
                 brand_id: null,
                 quantity: 0,
@@ -200,6 +204,7 @@ export default {
             formData.append("product_name", this.products.product_name);
             formData.append("id", this.$route.params.editProduct);
             formData.append("category_id", this.products.category_id);
+            formData.append("type_id", this.products.type_id);
             formData.append("sub_category_id", this.products.sub_category_id ? this.products.sub_category_id : null);
             formData.append("brand_id", this.products.brand_id);
             formData.append("quantity", this.products.quantity);
@@ -227,6 +232,7 @@ export default {
             getBrand: "Products/getBrand",
             getSingleProduct: "Products/getSingleProduct",
             getSubCategory: "Products/getSubCategory",
+            getType: "Products/getType",
             productImageDelete: "Products/productImageDelete",
         }),
         decrement() {

@@ -30,11 +30,25 @@
                                                 <input v-model="coupon.end_date" class="datepicker-here form-control digits col-md-7" type="date" data-language="en" />
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-xl-3 col-md-4">Status</label>
-                                                <label class="d-block" for="chk-ani">
-                                                    <input v-model="coupon.status" true-value="1" false-value="0" class="checkbox_animated" id="chk-ani" type="checkbox" />
-                                                    Enable the Coupon
-                                                </label>
+                                                <label class="col-form-label col-xl-3 col-md-4">Status</label>
+                                                <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                                    <label class="d-block" for="edo-ani">
+                                                        <input class="radio_animated" id="edo-ani" @click="amount" type="radio" name="rdo-ani" />
+                                                        Amount
+                                                    </label>
+                                                    <label class="d-block" for="edo-ani1">
+                                                        <input class="radio_animated" id="edo-ani1" @click="discount" type="radio" name="rdo-ani" />
+                                                        Discount
+                                                    </label>
+                                                </div>
+                                            </div>
+                                             <div v-if="showAmount" class="form-group row">
+                                                <label for="validationCustom1" class="col-xl-3 col-md-4">Amount : </label>
+                                                <input v-model="coupon.amount" class="form-control col-md-7" placeholder="Amount" id="validationCustom1" type="text" required="" />
+                                            </div>
+                                            <div v-else class="form-group row">
+                                                <label for="validationCustom1" class="col-xl-3 col-md-4">Discount : </label>
+                                                <input v-model="coupon.discount" class="form-control col-md-7" placeholder="Discount" id="validationCustom1" type="text" required="" />
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4"></label>
@@ -74,10 +88,14 @@ export default {
                 status: 0,
                 start_date: "",
                 end_date: ""
-            }
+            },
+            showAmount:true
         }
     },
     methods: {
+        ...mapActions({
+            setCoupon: "coupon/setCoupon",
+        }),
         savacoupon() {
             this.setCoupon(this.coupon).then(Response => {
                 if (Response.data.status) {
@@ -86,9 +104,12 @@ export default {
                 }
             })
         },
-        ...mapActions({
-            setCoupon: "coupon/setCoupon",
-        }),
+        amount(){
+            this.showAmount = true
+        },
+        discount(){
+            this.showAmount = false
+        }
     }
 };
 </script>
