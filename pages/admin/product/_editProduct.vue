@@ -63,7 +63,7 @@
                                             <ValidationProvider rules="required" v-slot="{ errors }" name="category">
                                                 <div class="form-group row">
                                                     <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Category :</label>
-                                                    <v-select name="category" placeholder="Select Category" v-model="products.category_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="category" :reduce="(c) => c.id" @input="getSubCateFromcate" label="name" index="id"></v-select>
+                                                    <v-select name="category" placeholder="Select Category" v-model="products.category_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="category" :reduce="(c) => c.id" @input="getCategoryTotype" label="name" index="id"></v-select>
                                                     <span class="validate-error">{{ errors[0] }}</span>
                                                 </div>
                                             </ValidationProvider>
@@ -155,7 +155,7 @@ export default {
         ValidationObserver,
     },
     computed: {
-        ...mapState("Products", ["category", "brand", "subCategory", "singleProduct"]),
+        ...mapState("Products", ["category", "brand", "subCategory", "singleProduct" , "type_List"]),
         productSingle() {
             return this.singleProduct;
         }
@@ -235,6 +235,8 @@ export default {
             getSingleProduct: "Products/getSingleProduct",
             getSubCategory: "Products/getSubCategory",
             productImageDelete: "Products/productImageDelete",
+            getTypeFormCategory: "Products/getTypeFormCategory",
+
         }),
         decrement() {
             if (this.products.quantity > 1) this.products.quantity--;

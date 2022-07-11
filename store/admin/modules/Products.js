@@ -12,7 +12,9 @@ const state = {
   subCategory: [],
   brand: [],
   type:[],
+  type_List:[],
   singleProduct:{},
+  typeIdList:[]
 };
 const getters = {};
 const actions = {
@@ -48,6 +50,20 @@ const actions = {
     const resp = await axios.get("/api/admin/get-type", data);
     if (resp.data.status) {
       commit('SET_TYPE',resp.data.data)
+    }
+    return resp;
+  },
+  async getTypeFormCategory({ commit, dispatch }, data) {
+    const resp = await axios.get("/api/admin/category-to-type/"+ data);
+    if (resp.data.status) {
+      commit('SET_TYPE_LIST',resp.data.data)
+    }
+    return resp;
+  },
+  async getTypeFormSubCategory({ commit, dispatch }, type_id) {
+    const resp = await axios.get("/api/admin/type-to-sub_category/"+ type_id);
+    if (resp.data.status) {
+      commit('SET_TYPE_ID',resp.data.data)
     }
     return resp;
   },
@@ -102,6 +118,12 @@ const mutations = {
   },
   SET_TYPE(state , value) {
     state.type = value
+  },
+  SET_TYPE_LIST(state , value) {
+    state.type_List = value
+  },
+  SET_TYPE_ID(state , value) {
+    state.typeIdList = value
   },
   SET_SUB_CATEGORY(state , value) {
     state.subCategory = value

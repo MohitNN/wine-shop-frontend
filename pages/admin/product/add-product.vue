@@ -54,18 +54,18 @@
                                             <ValidationProvider rules="required" v-slot="{ errors }" name="category">
                                                 <div class="form-group row">
                                                     <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Category :</label>
-                                                    <v-select name="category" placeholder="Select Category" v-model="products.category_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="category" :reduce="(c) => c.id" label="name" index="id"></v-select>
+                                                    <v-select name="category"  @input="getCategoryTotype" placeholder="Select Category" v-model="products.category_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="category" :reduce="(c) => c.id" label="name" index="id"></v-select>
                                                     <span class="validate-error">{{ errors[0] }}</span>
                                                 </div>
                                             </ValidationProvider>
                                             <div class="form-group row">
                                                 <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Type :</label>
-                                                <v-select name="Type" placeholder="Select Type" v-model="products.type_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="type" :reduce="(c) => c.id" label="name" index="id"></v-select>
+                                                <v-select name="Type" @input="getTypeToSubCategory" placeholder="Select Type" v-model="products.type_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="type_List" :reduce="(c) => c.id" label="type_name" index="id"></v-select>
                                             </div>
                                                 <!-- <ValidationProvider rules="required" v-slot="{ errors }" name="subcategory" > -->
                                                 <div class="form-group row">
                                                     <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Sub Category :</label>
-                                                    <v-select name="subcategory" placeholder="Select Sub Category" v-model="products.sub_category_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="subCategory" :reduce="(c) => c.id" :disabled="subCategory.length > 0 ? false : true" label="name"></v-select>
+                                                    <v-select name="subcategory" placeholder="Select Sub Category" v-model="products.sub_category_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="typeIdList" :reduce="(c) => c.id" :disabled="typeIdList.length > 0 ? false : true" label="name"></v-select>
                                                     <!-- <span class="validate-error">{{ errors[0] }}</span> -->
                                                 </div>
                                                 <!-- </ValidationProvider> -->
@@ -140,7 +140,7 @@ export default {
         ValidationObserver,
     },
     computed: {
-        ...mapState("Products", ["category", "brand", "subCategory","type"]),
+        ...mapState("Products", ["category", "brand", "subCategory","type","type_List","typeIdList"]),
     },
     data() {
         return {
@@ -204,6 +204,9 @@ export default {
             getBrand: "Products/getBrand",
             getSubCategory: "Products/getSubCategory",
             getType: "Products/getType",
+            getTypeFormCategory: "Products/getTypeFormCategory",
+            getTypeFormSubCategory: "Products/getTypeFormSubCategory",
+            
         }),
         decrement() {
             if (this.products.quantity > 1) this.products.quantity--;
@@ -232,7 +235,19 @@ export default {
             };
             reader.readAsDataURL(file);
         },
-
+        getSubCateFromcate(data) {
+            this.products.sub_category_id = null;
+            this.getSubCategory(data);
+        },
+        getCategoryTotype(data) {
+            this.products.type_id = null;
+            this.products.sub_category_id = null;
+            this.getTypeFormCategory(data);
+        },
+        getTypeToSubCategory(data){
+            this.products.sub_category_id = null;
+            this.getTypeFormSubCategory(data);
+        },
         removeImage: function (index) {
             this.image.splice(index, 1);
             var output = document.getElementById("sawImg");
