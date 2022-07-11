@@ -103,6 +103,11 @@ export default {
                     sortable: true
                 },
                 {
+                    key: "type_id",
+                    label: "type",
+                    sortable: true
+                },
+                {
                     key: "subcategory",
                     label: "Sub Category",
                     sortable: true

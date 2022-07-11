@@ -686,11 +686,11 @@
     "_name": "_4820244e"
   },
   {
-    "name": "admin-coupon-editCoupon",
-    "path": "/admin/coupon/:editCoupon",
-    "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupon\\\\_editCoupon.vue",
-    "chunkName": "pages/admin/coupon/_editCoupon",
-    "_name": "_2837f48e"
+    "name": "admin-coupon-editcoupon",
+    "path": "/admin/coupon/:editcoupon",
+    "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupon\\\\_editcoupon.vue",
+    "chunkName": "pages/admin/coupon/_editcoupon",
+    "_name": "_75122999"
   },
   {
     "name": "admin-order-editOrder",
@@ -737,9 +737,9 @@
   {
     "name": "product-id",
     "path": "/product/:id?",
-    "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\_id.vue",
+    "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\_id.vue",
     "chunkName": "pages/product/_id",
-    "_name": "_12fdf6de"
+    "_name": "_71224dec"
   },
   {
     "name": "store-slug",
