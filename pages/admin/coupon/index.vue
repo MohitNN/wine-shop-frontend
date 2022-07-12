@@ -106,6 +106,16 @@ export default {
                     sortable: true
                 },
                 {
+                    key: "amount",
+                    label: "Amount",
+                    sortable: true
+                },
+                {
+                    key: "discount",
+                    label: "Discount",
+                    sortable: true
+                },
+                {
                     key: "actions",
                     label: "actions",
                     class: "text-center"

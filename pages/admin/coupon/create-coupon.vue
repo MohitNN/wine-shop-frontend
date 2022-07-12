@@ -87,7 +87,9 @@ export default {
                 coupon_code: "",
                 status: 0,
                 start_date: "",
-                end_date: ""
+                end_date: "",
+                amount:"",
+                discount:""
             },
             showAmount:true
         }

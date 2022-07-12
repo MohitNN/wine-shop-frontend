@@ -30,9 +30,30 @@
                                                 <input v-model="coupon.end_date" class="datepicker-here form-control digits col-md-7" type="text" data-language="en" />
                                             </div>
                                             <div class="form-group row">
+                                                <label class="col-form-label col-xl-3 col-md-4">Status</label>
+                                                <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                                    <label class="d-block" for="edo-ani">
+                                                        <input class="radio_animated" id="edo-ani" @click="amount" type="radio" name="rdo-ani" />
+                                                        Amount
+                                                    </label>
+                                                    <label class="d-block" for="edo-ani1">
+                                                        <input class="radio_animated" id="edo-ani1" @click="discount" type="radio" name="rdo-ani" />
+                                                        Discount
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div v-if="showAmount" class="form-group row">
+                                                <label for="validationCustom1" class="col-xl-3 col-md-4">Amount : </label>
+                                                <input v-model="coupon.amount" class="form-control col-md-7" placeholder="Amount" id="validationCustom1" type="text" required="" />
+                                            </div>
+                                            <div v-else class="form-group row">
+                                                <label for="validationCustom1" class="col-xl-3 col-md-4">Discount : </label>
+                                                <input v-model="coupon.discount" class="form-control col-md-7" placeholder="Discount" id="validationCustom1" type="text" required="" />
+                                            </div>
+                                            <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4">Status</label>
                                                 <label class="d-block" for="chk-ani">
-                                                    <input v-model="coupon.status"  class="checkbox_animated" id="chk-ani" type="checkbox" />
+                                                    <input v-model="coupon.status" class="checkbox_animated" id="chk-ani" type="checkbox" />
                                                     Enable the Coupon
                                                 </label>
                                             </div>
@@ -58,7 +79,10 @@
 
 <script>
 import layout from "@/components/admin/Body.vue";
-import { mapActions,mapState } from 'vuex';
+import {
+    mapActions,
+    mapState
+} from 'vuex';
 export default {
     components: {
         layout
@@ -66,17 +90,18 @@ export default {
     data() {
         return {
             image: '',
-            coupon:{
-                coupon_name:"",
-                coupon_code:"",
-                status:"",
-                start_date:"",
-                end_date:"",
-                id:this.$route.params.editcoupon
-            }
+            coupon: {
+                coupon_name: "",
+                coupon_code: "",
+                status: "",
+                start_date: "",
+                end_date: "",
+                id: this.$route.params.editcoupon
+            },
+            showAmount:true
         }
     },
-     computed: {
+    computed: {
         ...mapState({
             CouponDetail: state => state.coupon.CouponDetail,
         }),
@@ -84,7 +109,7 @@ export default {
             return this.CouponDetail
         }
     },
-     mounted() {
+    mounted() {
         this.coupon.coupon_name = this.getCouponDetail.coupon_name
         this.coupon.coupon_code = this.getCouponDetail.coupon_code
         this.coupon.status = this.getCouponDetail.status
@@ -92,19 +117,25 @@ export default {
         this.coupon.end_date = this.getCouponDetail.end_date
     },
     methods: {
-         ...mapActions({
+        ...mapActions({
             setCoupon: "coupon/setCoupon",
         }),
-         update(){
+        update() {
             this.setCoupon(this.coupon).then(response => {
-            if(response.data.status){       
-                this.$toast.success("Update Coupon Successfully..!");
-                this.$router.push('/admin/coupon')            
-            }
-         });
-            
+                if (response.data.status) {
+                    this.$toast.success("Update Coupon Successfully..!");
+                    this.$router.push('/admin/coupon')
+                }
+            });
+
         },
-        
+        amount(){
+            this.showAmount = true
+        },
+        discount(){
+            this.showAmount = false
+        }
+
     }
 };
 </script>
