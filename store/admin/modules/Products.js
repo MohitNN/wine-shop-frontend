@@ -1,9 +1,6 @@
 import axios from "axios";
 import { baseURL } from "@/config/urls";
 
-import config from "../../../config.json";
-import { setAuthToken, resetAuthToken } from "@/config/auth";
-import category from "./category";
 axios.defaults.baseURL = baseURL.API_URL;
 const state = {
   getProducts: [],

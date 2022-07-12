@@ -101,15 +101,29 @@
                                                     On Sell
                                                 </div>
                                             </div>
-                                            <div class="form-group row">
-                                                <label class="col-xl-3 col-md-4"></label>
-                                                <button type="button" @click="sawProduct" class="btn btn-primary" :class="!invalid ? 'btn-solid' : 'btn-solid-disabled'" :disabled="invalid">
-                                                    Add
-                                                </button>
-                                                <button type="button" @click="$router.push('/admin/product')" class="btn btn-light ml-1">
-                                                    Discard
-                                                </button>
+                                            <!-- <div class="form-group mb-3 row">
+                                                <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Fake Price :</label>
+                                                <input class="form-control col-xl-8 col-sm-7" placeholder="Fake Price" id="validationCustom02" v-model="products.fake_price" type="text" required="" />
                                             </div>
+                                            <div class="form-group mb-3 row">
+                                                <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">discount :</label>
+                                                <input class="form-control col-xl-8 col-sm-7" placeholder="discount" id="validationCustom02" v-model="products.discount" type="text" required="" />
+                                            </div>
+                                            <div class="form-group row dd d-block">
+                                                <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Status :</label>
+                                                <input id="validationCustom02" type="checkbox" required="" v-model="products.onsell" />
+                                                On Sell
+                                            </div>
+                                        </div> -->
+                                        <div class="form-group row">
+                                            <label class="col-xl-3 col-md-4"></label>
+                                            <button type="button" @click="sawProduct" class="btn btn-primary" :class="!invalid ? 'btn-solid' : 'btn-solid-disabled'" :disabled="invalid">
+                                                Add
+                                            </button>
+                                            <button type="button" @click="$router.push('/admin/product')" class="btn btn-light ml-1">
+                                                Discard
+                                            </button>
+                                        </div>
                                     </form>
                                 </ValidationObserver>
                             </div>
@@ -151,7 +165,7 @@ export default {
             products: {
                 product_name: "",
                 category_id: null,
-                type_id:null,
+                type_id: null,
                 sub_category_id: null,
                 brand_id: null,
                 quantity: 0,
@@ -177,7 +191,7 @@ export default {
             formData.append("product_name", this.products.product_name);
             formData.append("category_id", this.products.category_id);
             formData.append("type_id", this.products.type_id);
-            formData.append( "sub_category_id", this.products.sub_category_id ? this.products.sub_category_id : null);
+            formData.append("sub_category_id", this.products.sub_category_id ? this.products.sub_category_id : null);
             formData.append("brand_id", this.products.brand_id);
             formData.append("quantity", this.products.quantity);
             formData.append("price", this.products.price);
@@ -210,6 +224,9 @@ export default {
         }),
         decrement() {
             if (this.products.quantity > 1) this.products.quantity--;
+        },
+        getSubCateFromcate(data) {
+            this.getSubCategory(data);
         },
         onFileChange(e) {
             var files = e.target.files;
