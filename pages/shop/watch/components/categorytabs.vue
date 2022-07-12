@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="title4">
-                            <h2 class="title-inner4">{{title}}</h2>
+                            <h2 class="title-inner4">{{title}} {{category}}</h2>
                             <div class="line">
                                 <span></span>
                             </div>
