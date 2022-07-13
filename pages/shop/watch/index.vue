@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState , mapActions } from "vuex";
 import Header from "../../../components/header/header1";
 import Footer from "../../../components/footer/footer4";
 import quickviewModel from "../../../components/widgets/quickview";
@@ -97,6 +97,9 @@ export default {
   mounted() {
     this.productsArray();
   },
+  created(){
+    this.getBanners()
+  },
   beforeMount() {
     if (process.client) {
       document.documentElement.style.setProperty("--theme-deafult", "#e4604a");
@@ -108,6 +111,9 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+            getBanners: "banner/getBanners",
+        }),
     productsArray: function() {
       this.productslist.map((item) => {
         if (item.type === "watch") {

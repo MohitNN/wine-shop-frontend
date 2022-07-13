@@ -3,7 +3,7 @@
     <template v-slot:content>
         <div class="row">
             <div>
-                <b-modal id="modal-2" title="Confirmation" @ok="deleteBrand(selectedSku)">
+                <b-modal id="modal-2" title="Confirmation" @ok="deleteBanner(selectedSku)">
                     <p class="my-4">Are you sure!</p>
                 </b-modal>
             </div>
@@ -24,7 +24,7 @@
                             </b-col>
                         </b-row>
                         <div class="table-responsive datatable-vue text-center">
-                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getBrand.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
+                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getBannerList" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
 
                                 <template #cell(image)="field">
                                     <img height="50px" :src="getImgUrl(field.item.image)" width="50px" />
@@ -39,9 +39,9 @@
                                 </template>
                             </b-table>
                         </div>
-                        <b-col md="12" class="my-1 p-0 pagination-justify">
+                        <!-- <b-col md="12" class="my-1 p-0 pagination-justify">
                             <b-pagination v-model="getBrand.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
-                        </b-col>
+                        </b-col> -->
                     </div>
                 </div>
             </div>
@@ -55,7 +55,6 @@ import layout from "@/components/admin/Body.vue";
 import config from '@/config.json'
 import {
     mapGetters,
-    mapMutations,
     mapActions
 } from "vuex";
 
@@ -69,17 +68,17 @@ export default {
             value: "",
             selectedSku: "",
             tablefields: [{
-                    key: "Image",
-                    label: "image",
+                    key: "image",
+                    label: "Image",
                     sortable: false
                 }, {
-                    key: "name",
-                    label: "Name",
+                    key: "title",
+                    label: "Title",
                     sortable: true
                 },
                 {
-                    key: "detail",
-                    label: "Detail",
+                    key: "description",
+                    label: "Description",
                     sortable: true
                 }, {
                     key: "actions",
@@ -95,11 +94,11 @@ export default {
         };
     },
     created() {
-        this.$store.dispatch("brand/getbrand", 1);
+        this.$store.dispatch("banner/getBanners", 1);
     },
     computed: {
         ...mapGetters({
-            getBrandDetails: "brand/getBrand"
+            getBannerDetails: "banner/getBanner"
         }),
         sortOptions() {
             return this.tablefields
@@ -111,30 +110,31 @@ export default {
                     };
                 });
         },
-        getBrand() {
-            this.totalRows = this.getBrandDetails.total
-            return this.getBrandDetails;
+        getBannerList() {
+            return this.getBannerDetails;
         }
     },
     methods: {
         ...mapActions({
-            delete: "brand/deleteBrand",
+            get_single_banner: "banner/get_single_banner",
+            delete: "banner/deleteBanner",
         }),
         getImgUrl(path) {
-            return config.baseUrl + "brand/" + path;
+            return config.baseUrl + "banner/" + path;
         },
         updateData(page) {
-            this.$store.dispatch("brand/getbrand", page);
+            this.$store.dispatch("banner/updateBanner", page);
         },
         onFiltered(filteredItems) {
             this.totalRows = filteredItems.length;
             this.currentPage = this.getBrand.current_page;
         },
         goToEdit(item) {
-            this.$router.push('/admin/banner/' + item.id);
+            this.get_single_banner(item)
+            this.$router.push('/admin/banner/'+ item.id);
         },
 
-        deleteBrand(brandID) {
+        deleteBanner(brandID) {
             this.delete(brandID).then(Response => {
                 if (Response.data.status) {
                     this.$toast.success("Deleted Brand Successfully..!");

@@ -16,7 +16,7 @@
                                             <ValidationProvider rules="required" v-slot="{ errors }" name="brandName">
                                                 <div class="form-group mb-0 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
-                                                    <input v-model="banner.name" class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" />
+                                                    <input v-model="banner.title" class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" />
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
@@ -41,16 +41,14 @@
                                                 <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0"></label>
                                                 <img v-if="image" :src="image" width="100px" height="100px" />
                                             </div>
-                                            <ValidationProvider rules="required" v-slot="{ errors }" name="detail">
-                                                <div class="form-group mb-0 d-flex">
-                                                    <label class="col-xl-3 col-sm-4">Detail :</label>
-                                                    <div class=" col-xl-8 col-sm-7 editor-vue">
-                                                        <vue-editor name="detail" v-model="banner.detail"></vue-editor>
-                                                    </div>
+                                           <ValidationProvider rules="required" v-slot="{ errors }" name="description">
+                                                <div class="form-group mb-0 row">
+                                                    <label class="col-xl-3 col-md-4">Description :</label>
+                                                    <textarea name="description" class="form-control col-xl-8 col-sm-7" v-model="banner.description" required=""></textarea>
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
-                                                    <div class="col-xl-8 col-sm-7 p-0 ml-2 validation">
+                                                    <div class="col-xl-8 col-sm-7 p-0 ml-0 validation">
                                                         <span class="validate-error">{{ errors[0] }}</span>
                                                     </div>
                                                 </div>
@@ -79,7 +77,8 @@
 import layout from "@/components/admin/Body.vue";
 import config from '@/config.json'
 import {
-    mapActions
+    mapActions,
+    mapState
 } from "vuex";
 import {
     ValidationProvider,
@@ -94,8 +93,8 @@ export default {
     data() {
         return {
             banner: {
-                name: '',
-                detail: '',
+                title: '',
+                description: '',
                 logo: '',
                 id: this.$route.params.editbanner,
             },
@@ -103,23 +102,25 @@ export default {
 
         }
     },
-    created() {
-        this.getBannerDetails(this.banner.id).then((response) => {
-            if (response.data.status) {
-                const data = response.data.data
-                this.banner.name = data.name
-                this.banner.detail = data.detail
-                this.banner.logo = data.logo
-                this.image = `${config.baseUrl}banner/${data.image}`
-            }
-
-        })
+    computed:{
+         ...mapState({
+            setBanner: state => state.banner.setBanner,
+        }),
+         getBannerDetail() {
+            return this.setBanner
+        }
+    },
+    mounted() {
+        this.banner.title = this.getBannerDetail.title
+        this.banner.description = this.getBannerDetail.description
+        this.banner.logo = this.getBannerDetail.logo
+        this.image = `${config.baseUrl}banner/${this.getBannerDetail.image}`
     },
 
     methods: {
         ...mapActions({
             getBannerDetails: "banner/get_single_banner",
-            updateBanner: "banner/updatebanner",
+            updateBanner: "banner/updateBanner",
         }),
         update() {
             this.updateBanner(this.banner).then(response => {

@@ -21,7 +21,7 @@ import Products from './modules/Products.js';
 import coupon from './modules/coupon.js';
 import order from './modules/order.js';
 import types from './modules/types.js';
-import benner from './modules/benner.js';
+import banner from './modules/banner.js';
 
 
 
@@ -72,6 +72,6 @@ export default new Vuex.Store({
         coupon,
         order,
         types,
-        benner
+        banner
     }
 })
