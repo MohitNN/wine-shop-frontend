@@ -6,6 +6,7 @@ axios.defaults.baseURL = baseURL.API_URL;
 const state = {
   productslist: products.data,
   productList: [],
+  reletedProductList: [],
   products: products.data,
   wishlist: [],
   compare: [],
@@ -64,6 +65,9 @@ const mutations = {
   },
   SET_PRODUCT_LIST(state , value) {
     state.productList=value
+  },
+  RELETED_PRODUCT(state , value) {
+    state.reletedProductList = value
   },
   addToWishlist: (state, payload) => {
     const product = state.products.find(item => item.id === payload.id)
@@ -148,6 +152,13 @@ const actions = {
     const resp = await axios.post("/api/product", data);
     if (resp.data.status) {
       commit('SET_PRODUCT',resp.data.data)
+    }
+    return resp;
+  },
+  async getReletedProduct({ commit, dispatch }, data) {
+    const resp = await axios.get("/api/getRelatedProduct/"+ data);
+    if (resp.data.status) {
+      commit('RELETED_PRODUCT',resp.data.data)
     }
     return resp;
   },

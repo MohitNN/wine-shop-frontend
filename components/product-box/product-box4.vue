@@ -2,27 +2,29 @@
   <div>
     <div class="img-wrapper">
       <div class="lable-block">
-        <span class="lable3" v-if="product.new">new</span>
-        <span class="lable4" v-if="product.sale">on sale</span>
+        <span class="lable4" v-if="product.onsell == '1' || product.onsell == 1">on sale</span>
+        <span class="lable3" v-else>new</span>
       </div>
       <div class="front text-center">
-        <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
+        <nuxt-link :to="{ path: '/product/'+product.id}">
           <img
-            :src='getImgUrl(product.images[0].src)'
+            :src='getImgUrl(product.product_images[0].image)'
             :id="product.id"
+            v-if="product.product_images"
             class="img-fluid bg-img"
-            :alt="product.title"
+            :alt="product.name"
             :key="index"
           />
         </nuxt-link>
       </div>
       <div class="back">
-        <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
+        <nuxt-link :to="{ path: '/product/'+product.id}">
           <img
-            :src="getImgUrl(product.images[0].src)"
+            :src='getImgUrl(product.product_images[0].image)'
             :id="product.id"
             class="img-fluid bg-img"
-            :alt="product.title"
+            :alt="product.name"
+            v-if="product.product_images"
             :key="index"
           />
         </nuxt-link>
@@ -61,16 +63,16 @@
         <i class="fa fa-star"></i>
         <i class="fa fa-star"></i>
       </div>
-      <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
-        <h6>{{ product.title }}</h6>
+      <nuxt-link :to="{ path: '/product/'+product.id}">
+        <h6>{{ product.product_name }}</h6>
       </nuxt-link>
       <p>{{ product.description }}</p>
-      <h4 v-if="product.sale">
+      <!-- <h4 v-if="product.sale">
         {{ discountedPrice(product) * curr.curr | currency(curr.symbol) }}
         <del>{{ product.price * curr.curr | currency(curr.symbol) }}</del>
-      </h4>
-      <h4 v-else>{{ product.price * curr.curr | currency(curr.symbol) }}</h4>
-      <ul class="color-variant" v-if="product.variants[0].color">
+      </h4> -->
+      <h4 >${{ product.price }}</h4>
+      <!-- <ul class="color-variant" v-if="product.variants[0].color">
         <li v-for="(variant,variantIndex) in Color(product.variants)" :key="variantIndex">
           <a
             @click="productColorchange(variant, product, index)"
@@ -78,13 +80,15 @@
             v-bind:style="{ 'background-color' : variant}"
           ></a>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from 'vuex'
+import config from "@/config.json";
+
 export default {
   props: ['product', 'index'],
   data() {
@@ -113,7 +117,7 @@ export default {
   },
   methods: {
     getImgUrl(path) {
-      return require('@/assets/images/' + path)
+      return config.baseUrl + "products/" + path;
     },
     addToCart: function (product) {
       this.cartval = true
