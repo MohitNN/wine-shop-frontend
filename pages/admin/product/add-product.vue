@@ -146,7 +146,6 @@ import {
     ValidationProvider,
     ValidationObserver,
 } from "vee-validate/dist/vee-validate.full.esm";
-
 export default {
     components: {
         layout,

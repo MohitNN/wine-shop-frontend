@@ -151,6 +151,13 @@ export default {
                     "active": false
                 },
                 {
+                    "title": "Banner",
+                    "type": "sub",
+                    "icon": "tag",
+                    "active": false,
+                    "path": "/admin/banner"
+                },
+                {
                     "path": "/admin/brand",
                     "title": "Brand",
                     "type": "sub",
