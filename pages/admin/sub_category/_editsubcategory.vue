@@ -6,6 +6,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h5>Edit Sub Category</h5>
+                        {{SubCategoryData}}
                     </div>
                     <div class="card-body">
                         <div class="row product-adding">
@@ -14,21 +15,11 @@
                                     <div class="form">
                                         <div class="form-group row">
                                             <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select Category :</label>
-                                            <select v-model="SubCategoryData.category_id" class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
-                                                <option value="">Select Category</option>
-                                                <option v-for="item in getCategoryList" :key="item.id" :value="item.id">
-                                                    {{ item.name }}
-                                                </option>
-                                            </select>
+                                            <v-select name="Category" placeholder="Select Category" v-model="SubCategoryData.category_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="getCategoryList" :reduce="(c) => c.id" label="name" index="id" @input="getCategoryTotype"></v-select>
                                         </div>
                                         <div class="form-group mb-3 row">
                                             <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select Type :</label>
-                                            <select v-model="SubCategoryData.type_id" class="form-control digits col-xl-8 col-sm-7" id="exampleFormControlSelect1">
-                                                <option selected value="">Select Type</option>
-                                                <option v-for="type in getTypeList.data" :key="type.id" :value="type.id">
-                                                    {{ type.type_name }}
-                                                </option>
-                                            </select>
+                                            <v-select name="Category" placeholder="Select Category" v-model="SubCategoryData.type_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="type_List ? type_List : []" :reduce="(c) => c.id" label="type_name"  ></v-select>
                                         </div>
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
@@ -81,9 +72,12 @@ export default {
     },
     computed: {
         ...mapState("types", ["Type"]),
+        // ...mapState("Products", ["type_List"]),
+
         ...mapState({
             SubCategoryDetail: state => state.subCategory.SubCategoryDetail,
             Category: state => state.category.Category.data,
+            type_List: state => state.Products.type_List,
         }),
         getCategoryList() {
             const CategoryArray = this.Category;
@@ -119,6 +113,7 @@ export default {
             getCategory: "category/getCategory",
             updateSubCategory: "subCategory/updateSubCategory",
             getTypes : "types/getType",
+            getTypeFormCategory: "Products/getTypeFormCategory",
         }),
         update(){
             this.updateSubCategory(this.SubCategoryData).then(response => {
@@ -128,6 +123,12 @@ export default {
             }
          });
             
+        },
+        getCategoryTotype(data) {
+            // console.log()
+            alert(data)
+            this.getTypeFormCategory(data);
+            // this.SubCategoryData.type_id = null;
         },
     }
 };

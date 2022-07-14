@@ -124,6 +124,7 @@
                       </div>
                     </div>
                   </b-tab>
+
                   <b-tab title="ON SALE">
                     <div class="row product-tab">
                       <div
@@ -131,7 +132,6 @@
                         v-for="(product, index) in newArrval"
                         :key="index"
                       >
-                        <!-- {{product}} -->
                         <div class="product-box2">
                           <div class="media">
                             <nuxt-link :to="{ path: '/product/' + product.id }">

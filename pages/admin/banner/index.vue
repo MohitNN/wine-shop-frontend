@@ -3,15 +3,15 @@
     <template v-slot:content>
         <div class="row">
             <div>
-                <b-modal id="modal-2" title="Confirmation" @ok="deleteSubCategory(selectedSku)">
+                <b-modal id="modal-2" title="Confirmation" @ok="deleteBanner(selectedSku)">
                     <p class="my-4">Are you sure!</p>
                 </b-modal>
             </div>
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5>SubCategory List</h5>
-                        <b-button @click="$router.push('/admin/sub_category/add-sub-category')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add SubCategory</b-button>
+                        <h5>Banner List</h5>
+                        <b-button @click="$router.push('/admin/banner/add-banner')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add Banner</b-button>
                     </div>
                     <div class="card-body">
                         <b-row>
@@ -24,18 +24,24 @@
                             </b-col>
                         </b-row>
                         <div class="table-responsive datatable-vue text-center">
-                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getSubCategory.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
+                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getBannerList" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
+
+                                <template #cell(image)="field">
+                                    <img height="50px" :src="getImgUrl(field.item.image)" width="50px" />
+                                </template>
+                                <template #cell(detail)="field">
+                                    <div v-html="field.item.detail"></div>
+                                </template>
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
                                     <feather style="cursor:pointer;" @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
                                     <feather style="cursor:pointer;" @click="getIndex(field.item.id)" v-b-modal.modal-2 type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
                                 </template>
-
                             </b-table>
                         </div>
-                        <b-col md="12" class="my-1 p-0 pagination-justify">
-                            <b-pagination v-model="getSubCategory.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
-                        </b-col>
+                        <!-- <b-col md="12" class="my-1 p-0 pagination-justify">
+                            <b-pagination v-model="getBrand.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
+                        </b-col> -->
                     </div>
                 </div>
             </div>
@@ -46,10 +52,10 @@
 
 <script>
 import layout from "@/components/admin/Body.vue";
+import config from '@/config.json'
 import {
     mapGetters,
     mapActions
-
 } from "vuex";
 
 export default {
@@ -62,31 +68,23 @@ export default {
             value: "",
             selectedSku: "",
             tablefields: [{
-                    key: "name",
-                    label: "Name",
+                    key: "image",
+                    label: "Image",
+                    sortable: false
+                }, {
+                    key: "title",
+                    label: "Title",
                     sortable: true
                 },
                 {
                     key: "description",
                     label: "Description",
-                    class: "text-center"
-                },{
-                    key: "category_id",
-                    label: "Category Id",
-                    class: "text-center"
-                },
-                {
-                    key: "type_id",
-                    label: "Type Id",
-                    class: "text-center"
-                },
-                
-                {
+                    sortable: true
+                }, {
                     key: "actions",
                     label: "actions",
                     class: "text-center"
-                },
-
+                }
             ],
             filter: null,
             totalRows: 1,
@@ -96,11 +94,11 @@ export default {
         };
     },
     created() {
-        this.$store.dispatch("subCategory/getSubCategory");
+        this.$store.dispatch("banner/getBanners", 1);
     },
     computed: {
         ...mapGetters({
-            getSubCategoryDetails: "subCategory/getSubCategory"
+            getBannerDetails: "banner/getBanner"
         }),
         sortOptions() {
             return this.tablefields
@@ -112,37 +110,42 @@ export default {
                     };
                 });
         },
-        getSubCategory() {
-            this.totalRows = this.getSubCategoryDetails.total
-            return this.getSubCategoryDetails;
+        getBannerList() {
+            return this.getBannerDetails;
         }
     },
     methods: {
         ...mapActions({
-            get_single_subcategory: "subCategory/get_single_subcategory",
-            delete: "subCategory/deleteSubCategory",
+            get_single_banner: "banner/get_single_banner",
+            delete: "banner/deleteBanner",
         }),
-        onFiltered(filteredItems) {
-            this.totalRows = filteredItems.length;
-            this.currentPage = this.getSubCategory.current_page;
+        getImgUrl(path) {
+            return config.baseUrl + "banner/" + path;
         },
         updateData(page) {
-            this.$store.dispatch("category/getCategory", page);
+            this.$store.dispatch("banner/updateBanner", page);
+        },
+        onFiltered(filteredItems) {
+            this.totalRows = filteredItems.length;
+            this.currentPage = this.getBrand.current_page;
         },
         goToEdit(item) {
-            this.get_single_subcategory(item)
-            this.$router.push('/admin/sub_category/' + item.id);
+            this.get_single_banner(item)
+            this.$router.push('/admin/banner/'+ item.id);
         },
-        deleteSubCategory(SubCategoryID) {
-            this.delete(SubCategoryID).then(Response => {
+
+        deleteBanner(brandID) {
+            this.delete(brandID).then(Response => {
                 if (Response.data.status) {
-                    this.$toast.success("Deleted SubCategory Successfully..!");
+                    this.$toast.success("Deleted Brand Successfully..!");
                 }
             })
+
         },
         getIndex(id) {
             this.selectedSku = id
         },
+
     },
 }
 </script>

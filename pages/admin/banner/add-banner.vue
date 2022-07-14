@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Add Brand</h5>
+                        <h5>Add Banner</h5>
                     </div>
                     <div class="card-body">
                         <div class="row product-adding">
@@ -13,10 +13,22 @@
                                 <ValidationObserver v-slot="{ invalid }">
                                     <form class="needs-validation add-product-form" novalidate="" enctype="multipart/form-data">
                                         <div class="form">
-                                            <ValidationProvider rules="required" v-slot="{ errors }" name="brandName">
+                                            <ValidationProvider rules="required" v-slot="{ errors }" name="title">
                                                 <div class="form-group mb-0 row">
-                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
-                                                    <input v-model="brand.brandName" class="form-control col-xl-8 col-sm-7" name="brandName" placeholder="Name" id="validationCustom01" type="text" required="" />
+                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Title :</label>
+                                                    <input v-model="banner.title" class="form-control col-xl-8 col-sm-7" name="title" placeholder="Title" id="validationCustom01" type="text" required="" />
+                                                </div>
+                                                <div class="form-group mb-3 row">
+                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
+                                                    <div class="col-xl-8 col-sm-7 p-0 ml-0 validation">
+                                                        <span class="validate-error">{{ errors[0] }}</span>
+                                                    </div>
+                                                </div>
+                                            </ValidationProvider>
+                                            <ValidationProvider rules="required" v-slot="{ errors }" name="description">
+                                                <div class="form-group mb-0 row">
+                                                    <label class="col-xl-3 col-md-4">Description :</label>
+                                                    <textarea name="description" class="form-control col-xl-8 col-sm-7" v-model="banner.description" required=""></textarea>
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
@@ -41,24 +53,10 @@
                                                 <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0"></label>
                                                 <img v-if="image" :src="image" width="100px" height="100px" />
                                             </div>
-                                            <ValidationProvider rules="required" v-slot="{ errors }" name="detail">
-                                                <div class="form-group mb-0 d-flex">
-                                                    <label class="col-xl-3 col-sm-4">Detail :</label>
-                                                    <div class=" col-xl-8 col-sm-7 editor-vue">
-                                                        <vue-editor name="detail" v-model="brand.brandDescription"></vue-editor>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group mb-3 row">
-                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
-                                                    <div class="col-xl-8 col-sm-7 p-0 ml-2 validation">
-                                                        <span class="validate-error">{{ errors[0] }}</span>
-                                                    </div>
-                                                </div>
-                                            </ValidationProvider>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4"></label>
                                                 <button type="button" @click="submit()" :class="!invalid ? 'btn-solid' : 'btn-solid-disabled'" :disabled="invalid" class="btn btn-primary">Add</button>
-                                                <button type="button" @click="$router.push('/admin/brand')" class="btn btn-light ml-1">
+                                                <button type="button" @click="$router.push('/admin/banner')" class="btn btn-light ml-1">
                                                     Discard
                                                 </button>
                                             </div>
@@ -95,20 +93,20 @@ export default {
     data() {
         return {
             image: '',
-            brand: {
-                brandName: '',
-                brandDescription: '',
+            banner: {
+                title: '',
+                description: '',
                 logo: null
             }
         }
     },
     methods: {
         ...mapActions({
-            setBrand: "brand/setBrand",
+            setBanner: "banner/setBanner",
         }),
 
         fileselected(e) {
-            this.brand.logo = this.$refs.file.files[0];
+            this.banner.logo = this.$refs.file.files[0];
             const file = e.target.files.item(0);
             const reader = new FileReader();
             reader.addEventListener('load', this.imageloaded);
@@ -120,10 +118,10 @@ export default {
         },
 
         submit() {
-            this.setBrand(this.brand).then(Response => {
+            this.setBanner(this.banner).then(Response => {
                 if (Response.data.status) {
-                    this.$toast.success("Add Brand Successfully..!");
-                    this.$router.push('/admin/brand')
+                    this.$toast.success("Add Banner Successfully..!");
+                    this.$router.push('/admin/banner')
                 }
             })
         },
