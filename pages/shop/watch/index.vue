@@ -5,9 +5,9 @@
      <LogoSlider />
     <!-- <TimerBanner />  -->
     <Category />
-    <CategoryTab :products="products" :category="category" />
+    <CategoryTab :products="productData" :category="category" />
     <ProductSlider
-      :products="products"
+      :products="productData"
       @openQuickview="showQuickview"
       @openCompare="showCoampre"
       @openCart="showCart"
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { mapState , mapActions} from "vuex";
+import { mapState , mapActions , mapMutations} from "vuex";
 import Header from "../../../components/header/header1";
 import Footer from "../../../components/footer/footer4";
 import quickviewModel from "../../../components/widgets/quickview";
@@ -92,13 +92,12 @@ export default {
   computed: {
     ...mapState({
       productslist: (state) => state.products.productslist,
+      productData: (state) => state.products.productData,
     }),
   },
   mounted() {
     this.productsArray();
-  },
-  created(){
-    this.getBanners()
+    this.allProduct();
   },
   beforeMount() {
     if (process.client) {
@@ -111,9 +110,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions({
-            getBanners: "banner/getBanners",
-        }),
+    ...mapActions('products',['allProduct']),
     productsArray: function() {
       this.productslist.map((item) => {
         if (item.type === "watch") {
