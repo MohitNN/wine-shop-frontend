@@ -8,7 +8,7 @@
             <div class="col-lg-3">
             <productSidebar />
             </div>
-            <!-- {{productDetail}} -->
+           
             <div class="col-lg-9 col-sm-12 col-xs-12 productdetail">
               <div class="container-fluid">
                 <div class="row">
@@ -198,8 +198,8 @@ export default {
   mounted() {
     // For displaying default color and size on pageload
     this.getSingleProduct(this.$route.params.id)
-    this.relatedProducts()
-    this.getReletedProduct(this.$route.params.id)
+    // this.relatedProducts()
+    // this.getReletedProduct(this.$route.params.id)
   },
   methods: {
     ...mapActions('products', ['getSingleProduct' , 'getReletedProduct']),

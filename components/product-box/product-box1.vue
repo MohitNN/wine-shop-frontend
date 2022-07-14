@@ -1,5 +1,6 @@
 <template>
 <div>
+    <!-- {{product}} -->
     <div class="img-wrapper" style="position: relative;">
         <div class="lable-block">
             <!-- <span class="lable3" v-if="product.new">new</span> -->
@@ -7,7 +8,7 @@
         </div>
         <div class="front">
             <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
-                <img :src='getImgUrl(imageSrc ? imageSrc :  "165710779030.png")' :id="product.id" class="img-fluid bg-img" :alt="product.title" :key="index" />
+                <img :src='getImgUrl(imageSrc ? imageSrc :  "165581564646.jpg")' :id="product.id" class="img-fluid bg-img" :alt="product.title" :key="index" />
             </nuxt-link>
         </div>
         <ul class="product-thumb-list">
@@ -21,7 +22,7 @@
             <a href="javascript:void(0)" title="Wishlist">
                 <i class="ti-heart" aria-hidden="true" @click="addToWishlist(product)"></i>
             </a>
-            <!-- <button
+            <button
             data-toggle="modal"
             data-target="#addtocart"
             title="Add to cart"
@@ -30,13 +31,13 @@
             variant="primary"
           >
             <i class="ti-shopping-cart"></i>
-          </button> -->
-            <!-- <a href="javascript:void(0)" title="Quick View" class="d-none" @click="showQuickview(product)" v-b-modal.modal-lg variant="primary">
+          </button>
+            <a href="javascript:void(0)" title="Quick View" class="d-none" @click="showQuickview(product)" v-b-modal.modal-lg variant="primary">
           <i class="ti-search" aria-hidden="true"></i>
         </a>
         <a href="javascript:void(0)" title="Comapre" class="d-none" @click="addToCompare(product)" v-b-modal.modal-compare variant="primary">
           <i class="ti-reload" aria-hidden="true"></i>
-        </a> -->
+        </a>
         </div>
     </div>
 </div>

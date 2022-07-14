@@ -164,9 +164,11 @@ const actions = {
   },
   async getSingleProduct ({ commit, dispatch }, data) {
     commit('SET_PRODUCT_DETAIL',{})
+    commit('RELETED_PRODUCT',[])
     const resp = await axios.get("/api/getSingleProductData/"+data);
     if (resp.data.status) {
-      commit('SET_PRODUCT_DETAIL',resp.data.data)
+      commit('SET_PRODUCT_DETAIL',resp.data.data.product)
+      commit('RELETED_PRODUCT',resp.data.data.reletedProduct)
     }
     return resp;
   }
