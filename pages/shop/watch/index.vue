@@ -99,6 +99,9 @@ export default {
     this.productsArray();
     this.allProduct();
   },
+  created() {
+    this.getBannersfRONT()
+  },
   beforeMount() {
     if (process.client) {
       document.documentElement.style.setProperty("--theme-deafult", "#e4604a");
@@ -111,6 +114,7 @@ export default {
   },
   methods: {
     ...mapActions('products',['allProduct']),
+    ...mapActions('banner',['getBannersfRONT']),
     productsArray: function() {
       this.productslist.map((item) => {
         if (item.type === "watch") {

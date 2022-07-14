@@ -4,7 +4,7 @@
       <div class="slide-1 home-slider">
         <div v-swiper:mySwiper="swiperOption">
           <div class="swiper-wrapper">
-            <div class="swiper-slide" v-for="(item, index) in getBanner" :key="index">
+            <div class="swiper-slide" v-for="(item, index) in bannerList" :key="index">
               <div
                 class="home text-left"
                 :class="item.alignclass"
@@ -49,7 +49,7 @@ export default {
     }
   },
   computed:{
-     ...mapState("banner", ["getBanner"]),
+     ...mapState("banner", ["bannerList"]),
   },
   methods : {
     getUrl(path) {

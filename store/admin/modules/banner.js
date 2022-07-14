@@ -5,7 +5,8 @@ const baseURL = config.baseUrl
 
 const state = {
     getBanner: [],
-    setBanner:[]
+    setBanner:[],
+    bannerList:[],
 }
 const getters = {
     getBanner: (state) => {
@@ -19,6 +20,9 @@ const mutations = {
     SetBannerDetail: (state, items) => {
         state.setBanner = items;
     },
+    SET_BANNER(state , item) {
+        state.bannerList = item
+    }
 }
 
 const actions = {
@@ -28,6 +32,15 @@ const actions = {
         resp.then(response => {
             if (response.data.status) {
                 context.commit('setBrandValue', response.data.data);
+            }
+        });
+    },
+    getBannersfRONT: (context) => {
+        const URl = `${baseURL}api/get-banner`
+        const resp = axios.get(URl);
+        resp.then(response => {
+            if (response.data.status) {
+                context.commit('SET_BANNER', response.data.data);
             }
         });
     },
