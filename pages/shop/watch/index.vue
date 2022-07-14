@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { mapState , mapActions } from "vuex";
+import { mapState , mapActions} from "vuex";
 import Header from "../../../components/header/header1";
 import Footer from "../../../components/footer/footer4";
 import quickviewModel from "../../../components/widgets/quickview";

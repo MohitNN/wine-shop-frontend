@@ -1,6 +1,5 @@
 <template>
   <div>
-  {{ item }}
     <section class="p-0">
       <div class="slide-1 home-slider">
         <div v-swiper:mySwiper="swiperOption">
@@ -9,7 +8,7 @@
               <div
                 class="home text-left"
                 :class="item.alignclass"
-                v-bind:style="{ 'background-image': 'url(' + item.imagepath + ')' }"
+                v-bind:style="{ 'background-image': 'url(' + getUrl(item.image) + ')' }"
               >
                 <div class="container">
                   <div class="row">
@@ -37,6 +36,7 @@
 
 <script>
 import { mapState } from "vuex";
+import config from '@/config.json'
 export default {
   data() {
     return {
@@ -50,6 +50,11 @@ export default {
   },
   computed:{
      ...mapState("banner", ["getBanner"]),
+  },
+  methods : {
+    getUrl(path) {
+       return config.baseUrl + "banner/" + path;
+    }
   }
 }
 </script>

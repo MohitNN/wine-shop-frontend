@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col">
             <div class="title4">
-              <h2 class="title-inner4">{{title}}</h2>
+              <h2 class="title-inner4">{{title}} </h2>
               <div class="line">
                 <span></span>
               </div>
@@ -44,6 +44,7 @@
 
 <script>
 import productBox4 from '../../../../components/product-box/product-box4'
+import productBox1 from '../../../../components/product-box/product-box1'
 export default {
   props: ['products'],
   components: {

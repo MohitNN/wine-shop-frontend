@@ -1,6 +1,7 @@
 <template>
 <div>
     <section class="ratio_asos">
+        {{products}}
         <div class="container">
             <div class="col-12 product-related">
                 <h2>{{ title }}</h2>
@@ -32,7 +33,7 @@ import cartModel from '../cart-model/cart-modal-popup'
 import quickviewModel from './quickview'
 import compareModel from './compare-popup'
 export default {
-    props: ['productTYpe', 'productId'],
+    props: ['productTYpe', 'products', 'productId'],
     components: {
         productBox1,
         quickviewModel,

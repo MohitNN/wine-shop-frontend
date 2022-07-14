@@ -22,7 +22,7 @@
               Home
             </a> -->
           </li>
-          <li v-for="(category, key) in  categories" class="dropdown" :key="key">
+          <li v-for="(category, key) in  categories" class="dropdown" v-if="key < 4" :key="key">
             <!-- <a href="#" class="nav-link" @click.self="loadProduct('category', category.name)"> -->
             <span class="nav-link category-title" @click.self="loadProduct('category', category.slug)">
               {{category.name}}
@@ -32,6 +32,20 @@
               <li v-for="sub_category, key in category.sub_category" :key="key" @click="loadProduct('sub-category', sub_category.slug)">
                 <span class="sub-category-title">
                   {{sub_category.name}}
+                </span>
+              </li>
+            </ul>
+           
+          </li>
+          <li class="dropdown" >
+             <span class="nav-link category-title" @click.self="loadProduct('brands', '')">
+              Other
+                <!-- <i class="fa fa-angle-down" id="angle-down" v-if="brand && brand.length"></i> -->
+            </span>
+            <ul v-if="brand" class="nav-submenu"  style="width: 100vh !important">
+              <li v-for="(category, key) in  categories" v-if="key > 4" :key="key">
+                <span class="sub-category-title">
+                  {{category.name}}
                 </span>
               </li>
             </ul>

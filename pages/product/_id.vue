@@ -130,14 +130,15 @@
           </div>
         </div>
       </div>
-      <relatedProduct :productTYpe="productTYpe" :productId="productId" />
+
+      <relatedProduct :products="reletedProductList" :productTYpe="productTYpe" :productId="productId" />
       <b-modal id="modal-1" size="md" centered hide-footer>
         <template v-slot:modal-title>{{productDetail.title}}</template>
         <img src="@/assets/images/size-chart.jpg" alt="size-chart" class="img-fluid" />
       </b-modal>
     </section>
     
-    <cartModel :openCart="cartval" :productData="cartProduct" @closeCart="cartval=false" />
+    <cartModel :openCart="cartval"  :productData="cartProduct" @closeCart="cartval=false" />
   </div>
 </template>
 <script>
@@ -186,7 +187,7 @@ export default {
     ...mapState({
       currency: state => state.products.currency
     }),
-    ...mapState("products", ['productDetail']),
+    ...mapState("products", ['productDetail','reletedProductList']),
     ...mapGetters({
       curr: 'products/changeCurrency'
     }),
@@ -198,9 +199,10 @@ export default {
     // For displaying default color and size on pageload
     this.getSingleProduct(this.$route.params.id)
     this.relatedProducts()
+    this.getReletedProduct(this.$route.params.id)
   },
   methods: {
-    ...mapActions('products', ['getSingleProduct']),
+    ...mapActions('products', ['getSingleProduct' , 'getReletedProduct']),
     priceCurrency: function () {
       this.$store.dispatch('products/changeCurrency')
     },
