@@ -1,6 +1,5 @@
 <template>
 <div>
-    <!-- {{product}} -->
     <div class="img-wrapper" style="position: relative;">
         <div class="lable-block">
             <!-- <span class="lable3" v-if="product.new">new</span> -->
@@ -8,13 +7,13 @@
         </div>
         <div class="front">
             <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
-                <img :src='getImgUrl(imageSrc ? imageSrc :  "165581564646.jpg")' :id="product.id" class="img-fluid bg-img" :alt="product.title" :key="index" />
+                <img :src='imageSrc ? getImgUrl(imageSrc) : getImgUrl(product.product_images[0].image)' v-if="product.product_images" :id="product.id" class="img-fluid bg-img" :alt="product.title" :key="index" />
             </nuxt-link>
         </div>
         <ul class="product-thumb-list">
-            <li class="grid_thumb_img" :class="{active: imageSrc === image.src}" v-for="(image,index) in product.product_images" :key="index" @click="productVariantChange(image.src)">
+            <li class="grid_thumb_img" v-if="product.product_images" :class="{active: imageSrc === image.image}" v-for="(image,index) in product.product_images" :key="index" @click="productVariantChange(image.image)">
                 <a href="javascript:void(0);">
-                    <img :src="getImgUrl(image.src)" />
+                    <img :src="getImgUrl(image.image)" />
                 </a>
             </li>
         </ul>

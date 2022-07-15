@@ -40,7 +40,7 @@
           <li class="dropdown" >
              <span class="nav-link category-title" @click.self="loadProduct('brands', '')">
               Other
-                <!-- <i class="fa fa-angle-down" id="angle-down" v-if="brand && brand.length"></i> -->
+                <i class="fa fa-angle-down" id="angle-down" v-if="categories && categories.length"></i>
             </span>
             <ul v-if="brand" class="nav-submenu"  style="width: 100vh !important">
               <li v-for="(category, key) in  categories" v-if="key > 4" :key="key">

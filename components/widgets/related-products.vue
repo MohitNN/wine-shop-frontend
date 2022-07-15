@@ -8,6 +8,7 @@
             <div class="row m-0">
                 <div class="col-xl-2 col-md-4 col-sm-6" v-for="(product,index) in products" :key="index">
                     <div class="product-box">
+                        <!-- <productBox1 @opencartmodel="showCart" @showCompareModal="showCoampre" @openquickview="showQuickview" @showalert="alert" @alertseconds="alert" :product="product" :index="index" /> -->
                         <productBox1 @opencartmodel="showCart" @showCompareModal="showCoampre" @openquickview="showQuickview" @showalert="alert" @alertseconds="alert" :product="product" :index="index" />
                     </div>
                 </div>
@@ -27,7 +28,8 @@
 import {
     mapState
 } from 'vuex'
-import productBox1 from '../product-box/product-box1'
+// import productBox1 from '../product-box/product-box1'
+import productBox1 from '../product-box/product-list.vue'
 import cartModel from '../cart-model/cart-modal-popup'
 import quickviewModel from './quickview'
 import compareModel from './compare-popup'
