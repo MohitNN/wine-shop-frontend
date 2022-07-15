@@ -9,19 +9,19 @@
                         <span></span>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col" v-if="topProductList">
                     <div v-swiper:mySwiper="swiperOption">
                         <div class="swiper-wrapper category-m">
-                            <div class="swiper-slide" v-for="(item, index) in items" :key="index">
+                            <div class="swiper-slide" v-for="(item, index) in topProductList" :key="index">
                                 <div class="category-wrapper">
                                     <div>
-                                        <div>
-                                            <img :src="item.imagepath" class="img-fluid bg-img" style="width:300px; height:300px" alt />
+                                        <div v-if="item.product_images">
+                                            <img :src="getImageUrl(item.product_images[0].image)" class="img-fluid bg-img" style="width:300px; height:300px" alt />
                                         </div>
-                                        <h4>{{item.title}}</h4>
+                                        <h4>{{item.product_name}}</h4>
                                         <div v-html="item.description">
                                         </div>
-                                        <a href="#" class="btn btn-outline">{{item.button}}</a>
+                                        <a href="#" class="btn btn-outline">view more</a>
                                     </div>
                                 </div>
                             </div>
@@ -35,6 +35,10 @@
 </template>
 
 <script>
+import { mapGetters, mapActions , mapState } from "vuex";
+import config from "@/config.json";
+
+
 export default {
     data() {
         return {
@@ -90,6 +94,14 @@ export default {
                     button: 'view more'
                 }
             ]
+        }
+    },
+    computed:{
+        ...mapState('products',['topProductList'])
+    },
+    methods:{
+        getImageUrl(path) {
+          return config.baseUrl + "products /" + path;
         }
     }
 }

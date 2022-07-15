@@ -98,6 +98,7 @@ export default {
   mounted() {
     this.productsArray();
     this.allProduct();
+    this.getTopProduct();
   },
   created() {
     this.getBannersfRONT()
@@ -113,7 +114,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('products',['allProduct']),
+    ...mapActions('products',['allProduct','getTopProduct']),
     ...mapActions('banner',['getBannersfRONT']),
     productsArray: function() {
       this.productslist.map((item) => {

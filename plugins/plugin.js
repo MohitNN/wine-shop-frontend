@@ -11,6 +11,11 @@ import VueScrollTo from 'vue-scrollto'
 import 'vue-select/dist/vue-select.css';
 import VueFeather from 'vue-feather';
 import { VueEditor } from "vue2-editor";
+import VueSweetalert2 from 'vue-sweetalert2';
+
+// If you don't need the styles, do not connect
+import 'sweetalert2/dist/sweetalert2.min.css';
+Vue.use(VueSweetalert2);
 import vSelect from 'vue-select'
 
 Vue.component('v-select', vSelect)

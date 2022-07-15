@@ -118,7 +118,7 @@
               <section class="tab-product m-0">
                 <div class="row">
                   <div class="col-sm-12 col-lg-12">
-                    <b-tabs card>
+                    <b-tabs v-if="productDetail.description" card>
                       <b-tab title="Description" style="padding: 10px 25px !important;" active>
                         <b-card-text v-html="productDetail.description"></b-card-text>
                       </b-tab>

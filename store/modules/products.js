@@ -18,7 +18,8 @@ const state = {
   locale: 'en',
   searchProduct: [],
   productData: [],
-  productDetail: {}
+  topProductList: [],
+  productDetail: {},
 }
 // getters
 const getters = {
@@ -114,6 +115,9 @@ const mutations = {
   SET_PRODUCT(state , value) {
     state.productData=value
   },
+  SET_TOP_PRODUCT(state , value) {
+    state.topProductList=value
+  },
   SET_PRODUCT_DETAIL(state , value) {
     state.productDetail=value
   },
@@ -152,6 +156,13 @@ const actions = {
     const resp = await axios.post("/api/product", data);
     if (resp.data.status) {
       commit('SET_PRODUCT',resp.data.data)
+    }
+    return resp;
+  },
+  async getTopProduct({ commit, dispatch }, data) {
+    const resp = await axios.get("/api/top-product", data);
+    if (resp.data.status) {
+      commit('SET_TOP_PRODUCT',resp.data.data)
     }
     return resp;
   },
