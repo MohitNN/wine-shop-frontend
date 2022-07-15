@@ -101,7 +101,7 @@ export default {
     },
     methods:{
         getImageUrl(path) {
-          return config.baseUrl + "products /" + path;
+          return config.baseUrl + "products/" + path;
         }
     }
 }

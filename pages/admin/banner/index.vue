@@ -120,6 +120,7 @@ export default {
   components: {
     layout,
   },
+  middleware: ["auth"],
   props: ["categoryType"],
   data() {
     return {

@@ -69,7 +69,7 @@
                                 "
                                 v-if="product.product_images"
                                 class="img-fluid bg-img"
-                                style="width: 230px !important"
+                                style="width: 230px !important;object-fit: contain;"
                                 alt
                               />
                             </nuxt-link>
