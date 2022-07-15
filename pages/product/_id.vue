@@ -17,6 +17,7 @@
                       <div class="swiper-wrapper">
                         <div
                           class="swiper-slide"
+                          style="display: flex; justify-content: center;"
                           v-for="(product,index) in productDetail.product_images"
                           :key="index"
                         >
@@ -24,6 +25,7 @@
                             :src="getImgUrl(product.image)"
                             :id="product.image_id"
                             class="img-fluid bg-img"
+                            style="height: 523px !important;"
                             :alt="product.alt"
                           />
                         </div>
@@ -39,6 +41,7 @@
                               :key="index"
                             >
                               <img
+                                style="width: 138px !important; height: 150px !important; object-fit: contain; padding: 10px;"
                                 :src="getImgUrl(product.image)"
                                 :id="product.image_id"
                                 class="img-fluid bg-img"
