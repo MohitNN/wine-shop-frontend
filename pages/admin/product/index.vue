@@ -80,6 +80,7 @@ import {
 } from "vuex";
 
 export default {
+    middleware: ["auth"],
     components: {
         layout
     },
