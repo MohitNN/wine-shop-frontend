@@ -278,6 +278,17 @@
                         </li>
                       </ul>
                     </div>
+                    <div class="payment-box">
+                      <div class="text-right">
+                        <button
+                          type="submit"
+                          class="btn-solid btn"
+                          disabled="disabled"
+                        >
+                          Place Order
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
