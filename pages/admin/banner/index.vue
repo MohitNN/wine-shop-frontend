@@ -12,99 +12,46 @@
           </b-modal>
         </div>
         <div class="col-md-12">
-          <div class="card">
-            <div
-              class="
-                card-header
-                d-flex
-                justify-content-between
-                align-items-center
-              "
-            >
-              <h5>Banner List</h5>
-              <b-button
-                @click="gotoAdd()"
-                v-b-modal.modal-1
-                :variant="categoryType == 'digital' ? 'primary' : 'primary'"
-                >Add Banner</b-button
-              >
-            </div>
-            <div class="card-body">
-              <b-row>
-                <b-col xl="3" lg="4" md="6"> </b-col>
-                <b-col
-                  class="offset-xl-6 offset-lg-2 search-rs"
-                  xl="3"
-                  lg="5"
-                  md="6"
-                >
-                  <b-form-group
-                    label-cols="3"
-                    label="search:"
-                    class="datatable-select"
-                  >
-                    <b-form-input
-                      type="text"
-                      v-model="filter"
-                      placeholder="Search"
-                    ></b-form-input>
-                  </b-form-group>
-                </b-col>
-              </b-row>
-              <div class="table-responsive datatable-vue text-center">
-                <b-table
-                  show-empty
-                  striped
-                  hover
-                  head-variant="light"
-                  bordered
-                  stacked="md"
-                  :items="getBannerList"
-                  :fields="tablefields"
-                  :filter="filter"
-                  :current-page="currentPage"
-                  :per-page="perPage"
-                  @filtered="onFiltered"
-                >
-                  <template #cell(image)="field">
-                    <img
-                      height="50px"
-                      :src="getImgUrl(field.item.image)"
-                      width="50px"
-                    />
-                  </template>
-                  <template #cell(detail)="field">
-                    <div v-html="field.item.detail"></div>
-                  </template>
-                  <template #cell(actions)="field">
-                    <div v-show="false">{{ field.item.id }}</div>
-                    <feather
-                      style="cursor: pointer"
-                      @click="goToEdit(field.item)"
-                      type="edit-2"
-                      stroke="#3758FD"
-                      stroke-width="1"
-                      size="18px"
-                      fill="#3758FD"
-                      stroke-linejoin="round"
-                    ></feather>
-                    <feather
-                      style="cursor: pointer"
-                      @click="getIndex(field.item.id)"
-                      v-b-modal.modal-2
-                      type="trash"
-                      stroke="#F72E9F"
-                      size="18px"
-                      fill="#F72E9F"
-                    ></feather>
-                  </template>
-                </b-table>
-              </div>
-              <!-- <b-col md="12" class="my-1 p-0 pagination-justify">
+          
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5>Banner List</h5>
+                        <b-button @click="$router.push('/admin/banner/add-banner')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add Banner</b-button>
+                    </div>
+                    <div class="card-body">
+                        <b-row>
+                            <b-col xl="3" lg="4" md="6">
+                            </b-col>
+                            <b-col class="offset-xl-6 offset-lg-2 search-rs" xl="3" lg="5" md="6">
+                                <b-form-group label-cols="3" label="search:" class="datatable-select">
+                                    <b-form-input type="text" v-model="filter" placeholder="Search"></b-form-input>
+                                </b-form-group>
+                            </b-col>
+                        </b-row>
+                        <div class="table-responsive datatable-vue text-center">
+                            <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getBannerList" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
+
+                                <template #cell(image)="field">
+                                    <img height="50px" style="object-fit: contain !important;" :src="getImgUrl(field.item.image)" width="50px" />
+                                </template>
+                                <template #cell(detail)="field">
+                                    <div v-html="field.item.detail"></div>
+                                </template>
+                                <template #cell(actions)="field">
+                                    <div v-show="false">{{field.item.id}}</div>
+                                    <feather style="cursor:pointer;" @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
+                                    <feather style="cursor:pointer;" @click="getIndex(field.item.id)" v-b-modal.modal-2 type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
+                                </template>
+                            </b-table>
+                        </div>
+                        <!-- <b-col md="12" class="my-1 p-0 pagination-justify">
                             <b-pagination v-model="getBrand.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
                         </b-col> -->
             </div>
           </div>
+        </div>
+
         </div>
       </div>
     </template>

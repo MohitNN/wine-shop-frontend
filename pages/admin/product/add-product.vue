@@ -14,12 +14,12 @@
                                     <div class="row">
                                         <div class=" col-xl-9 xl-50 col-sm-6 col-9 d-flex justify-content-center ">
                                             <!--src="../../assets/images/pro3/33.jpg"-->
-                                            <img src="@/assets/images/imgPerview.png" id="sawImg" class="img-fluid image_zoom_1 blur-up lazyloaded" />
+                                            <img src="@/assets/images/imgPerview.png" style="object-fit: contain !important;" id="sawImg" class="img-fluid image_zoom_1 blur-up lazyloaded" />
                                         </div>
                                         <div class="col-xl-3 xl-50 col-sm-6 col-3">
                                             <ul class="file-upload-product">
                                                 <li v-for="(i, index) in image" :key="index">
-                                                    <img @click="preview(i)" :src="i" class="box-input-file" />
+                                                    <img style="object-fit: contain !important;" @click="preview(i)" :src="i" class="box-input-file" />
                                                     <feather style="cursor: pointer" type="x" stroke-width="1" size="20px" class="icon" @click="removeImage(index)"></feather>
                                                 </li>
                                                 <li style="cursor: pointer">

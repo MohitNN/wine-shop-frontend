@@ -16,7 +16,7 @@
                                         <div class="col-xl-9 xl-50 col-sm-6 col-9 d-flex justify-content-center">
                                             <!--src="../../assets/images/pro3/33.jpg"-->
                                             <img :src="imageUrlSet + products.product_images[0].image" v-if="products.product_images && products.product_images.length" id="sawImg" class="img-fluid image_zoom_1 blur-up lazyloaded" />
-                                            <img src="@/assets/images/imgPerview.png" v-else id="sawImg" class="img-fluid image_zoom_1 blur-up lazyloaded" />
+                                            <img src="@/assets/images/imgPerview.png" style="object-fit: contain !important;" v-else id="sawImg" class="img-fluid image_zoom_1 blur-up lazyloaded" />
                                         </div>
                                         <div class="col-xl-3 xl-50 col-sm-6 col-3">
                                             <ul class="file-upload-product">
@@ -282,6 +282,9 @@ export default {
                     this.init();
                 }
             })
+        },
+        getCategoryTotype(data) {
+            this.getTypeFormCategory(data);
         },
     },
 };

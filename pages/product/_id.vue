@@ -60,7 +60,7 @@
                       <h4 v-if="productDetail.onsale">
                         <span>{{ productDetail.discount }}% off</span>
                       </h4>
-                      <h3 >{{productDetail.price}}</h3>
+                      <h3 >${{productDetail.price}}</h3>
                       <div class="product-description border-product">
                         <h5 class="avalibility">
                           <span>In Stock</span>
