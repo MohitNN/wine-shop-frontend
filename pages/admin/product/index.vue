@@ -28,7 +28,7 @@
 
                                 <template #cell(image)="field">
                                     <!-- v-if="field.item.product_images" -->
-                                    <img height="50px" v-for="i in field.item.product_images" :key="i.id" :src="getImgUrl(i.image)" width="50px" />
+                                    <img height="50px" style="object-fit: contain !important;" v-for="i in field.item.product_images" :key="i.id" :src="getImgUrl(i.image)" width="50px" />
                                 </template>
                                 <template #cell(name)="field">
                                     <!-- <img height="50px" :src="getImgUrl(field.item.image)" width="50px" /> -->

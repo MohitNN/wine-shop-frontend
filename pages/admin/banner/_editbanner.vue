@@ -39,7 +39,7 @@
                                             </ValidationProvider>
                                             <div class="form-group mb-3 row">
                                                 <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0"></label>
-                                                <img v-if="image" :src="image" width="100px" height="100px" />
+                                                <img style="object-fit: contain;" v-if="image" :src="image" width="100px" height="100px" />
                                             </div>
                                            <ValidationProvider rules="required" v-slot="{ errors }" name="description">
                                                 <div class="form-group mb-0 row">

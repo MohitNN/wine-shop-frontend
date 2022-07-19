@@ -27,7 +27,7 @@
                             <b-table show-empty striped hover head-variant="light" bordered stacked="md" :items="getBannerList" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
 
                                 <template #cell(image)="field">
-                                    <img height="50px" :src="getImgUrl(field.item.image)" width="50px" />
+                                    <img height="50px" style="object-fit: contain !important;" :src="getImgUrl(field.item.image)" width="50px" />
                                 </template>
                                 <template #cell(detail)="field">
                                     <div v-html="field.item.detail"></div>
