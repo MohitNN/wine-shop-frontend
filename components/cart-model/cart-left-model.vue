@@ -16,7 +16,7 @@
             <li v-for="(item,index) in cart" :key="index">
               <div class="media">
                 <nuxt-link :to="{ path: '/product/sidebar/'+item.id}">
-                  <img alt class="mr-3" :src='getImgUrl(item.images[0].src)'>
+                  <img alt class="mr-3" v-if="item.product_images" :src='getImgUrl(item.product_images[0].image)'>
                 </nuxt-link>
                 <div class="media-body">
                   <nuxt-link :to="{ path: '/product/sidebar/'+item.id}">
@@ -67,6 +67,8 @@
 </template>
 <script>
 import { mapState, mapGetters } from 'vuex'
+import config from '@/config.json'
+
 export default {
   props: ['openCart'],
   computed: {
@@ -82,7 +84,8 @@ export default {
   methods: {
     // Get Image Url
     getImgUrl(path) {
-      return require('@/assets/images/' + path)
+      // return require('@/assets/images/' + path)
+      return config.baseUrl + "products/" + path;
     },
     // Close cart model
     closeCart(val) {

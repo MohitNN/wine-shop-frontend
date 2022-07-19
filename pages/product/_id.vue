@@ -81,6 +81,7 @@
                             </span>
                             <input
                               type="text"
+                              :disabled="true"
                               name="quantity"
                               class="form-control input-number"
                               v-model="counter"
@@ -247,7 +248,9 @@ export default {
     },
     // Item Count
     increment() {
-      this.counter++
+      if(this.counter < 10) {
+        this.counter++
+      }
     },
     decrement() {
       if (this.counter > 1) this.counter--

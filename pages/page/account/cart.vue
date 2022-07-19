@@ -1,6 +1,7 @@
 <template>
   <div>
     <Breadcrumbs title="Cart" />
+    <!-- {{cart}} -->
     <section class="cart-section section-b-space">
       <div class="container">
         <div class="row">
@@ -19,12 +20,12 @@
               <tbody v-for="(item,index) in cart" :key="index">
                 <tr>
                   <td>
-                    <nuxt-link :to="{ path: '/product/sidebar/'+item.id}">
-                      <img :src="getImgUrl(item.images[0].src)" alt />
+                    <nuxt-link :to="{ path: '/product/'+item.id}">
+                      <img v-if="item.product_images" :src="getImgUrl(item.product_images[0].image)" alt />
                     </nuxt-link>
                   </td>
                   <td>
-                    <nuxt-link :to="{ path: '/product/sidebar/'+item.id}">{{item.title}}</nuxt-link>
+                    <nuxt-link :to="{ path: '/product/sidebar/'+item.id}">{{item.product_name}}</nuxt-link>
                     <div class="mobile-cart-content row">
                       <div class="col-xs-3">
                         <div class="qty-box">
@@ -43,6 +44,7 @@
                             <input
                               type="text"
                               name="quantity"
+                              :disabled="true"
                               class="form-control input-number"
                               v-model="counter"
                             />
@@ -163,6 +165,8 @@ import { mapGetters } from 'vuex'
 import Header from '../../../components/header/header1'
 import Footer from '../../../components/footer/footer1'
 import Breadcrumbs from '../../../components/widgets/breadcrumbs'
+import config from '@/config.json'
+
 export default {
   data() {
     return {
@@ -183,7 +187,7 @@ export default {
   },
   methods: {
     getImgUrl(path) {
-      return require('@/assets/images/' + path)
+       return config.baseUrl + "products/" + path;      
     },
     removeCartItem: function (product) {
       this.$store.dispatch('cart/removeCartItem', product)

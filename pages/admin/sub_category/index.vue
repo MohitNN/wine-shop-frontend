@@ -30,6 +30,12 @@
                                     <feather style="cursor:pointer;" @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
                                     <feather style="cursor:pointer;" @click="getIndex(field.item.id)" v-b-modal.modal-2 type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
                                 </template>
+                                <template #cell(category_id)="field">
+                                    {{field.item.category.name}}
+                                </template>
+                                <template #cell(type_id)="field">
+                                    {{field.item.type.type_name}}
+                                </template>
 
                             </b-table>
                         </div>
