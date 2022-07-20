@@ -2,26 +2,26 @@
 <div>
     <section class="section-b-space ratio_portrait">
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="">
                 <div class="title4">
                     <h2 class="title-inner4">This Item Is One The Best Wines</h2>
                     <div class="line">
                         <span></span>
                     </div>
-                </div>
-                <div class="col" v-if="topProductList">
-                    <div v-swiper:mySwiper="swiperOption">
-                        <div class="swiper-wrapper category-m">
-                            <div class="swiper-slide" v-for="(item, index) in topProductList" :key="index">
-                                <div class="category-wrapper">
-                                    <div>
-                                        <div v-if="item.product_images">
-                                            <img :src="getImageUrl(item.product_images[0].image)" class="img-fluid bg-img" style="width:300px; height:300px" alt />
+                    <div v-if="topProductList">
+                        <div class="col-12" v-swiper:mySwiper="swiperOption">
+                            <div class="swiper-wrapper category-m">
+                                <div class="col-4 swiper-slide m-0" v-for="(item, index) in topProductList" :key="index">
+                                    <div class="category-wrapper">
+                                        <div>
+                                            <div v-if="item.product_images">
+                                                <img :src="getImageUrl(item.product_images[0].image)" class="img-fluid bg-img" style="height: 250px; object-fit: contain;" alt />
+                                            </div>
+                                            <h4>{{item.product_name}}</h4>
+                                            <div v-html="item.description">
+                                            </div>
+                                            <a href="#" class="btn btn-outline">view more</a>
                                         </div>
-                                        <h4>{{item.product_name}}</h4>
-                                        <div v-html="item.description">
-                                        </div>
-                                        <a href="#" class="btn btn-outline">view more</a>
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +37,6 @@
 <script>
 import { mapGetters, mapActions , mapState } from "vuex";
 import config from "@/config.json";
-
 
 export default {
     data() {
@@ -96,12 +95,12 @@ export default {
             ]
         }
     },
-    computed:{
-        ...mapState('products',['topProductList'])
+    computed: {
+        ...mapState('products', ['topProductList'])
     },
-    methods:{
+    methods: {
         getImageUrl(path) {
-          return config.baseUrl + "products/" + path;
+            return config.baseUrl + "products/" + path;
         }
     }
 }

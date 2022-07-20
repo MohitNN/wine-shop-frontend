@@ -232,7 +232,7 @@ a {
             position: absolute;
             backface-visibility: hidden;
             top: 0;
-            left: 0;
+            left: 0%;
             transition: all 0.5s ease;
             transform: translateX(-100px);
             width: 100%;
@@ -276,7 +276,7 @@ a {
         position: relative;
         overflow: hidden;
         z-index: 0;
-        width: 155px;
+        width: 190px;
         margin: 0 auto;
         .front {
             opacity: 1;
@@ -289,7 +289,7 @@ a {
             position: absolute;
             backface-visibility: hidden;
             top: 0;
-            left: 0%;
+            left: 29%;
             transition: all 0.5s ease;
             transform: translateX(-100px);
             width: 100%;
