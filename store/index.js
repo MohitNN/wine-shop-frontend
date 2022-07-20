@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import blog from './modules/blog'
+import gloable from './modules/gloable'
 import menu from './modules/menu'
 import products from './modules/products'
 import cart from './modules/cart'
@@ -50,6 +51,7 @@ const createStore = () => {
       products,
       cart,
       filter,
+      gloable,
       layout,
       admin_menu,
       admin_product,

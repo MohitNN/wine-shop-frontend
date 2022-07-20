@@ -159,6 +159,13 @@ const actions = {
     }
     return resp;
   },
+  async makeOrder({ commit, dispatch }, data) {
+    const resp = await axios.post("/api/user/order-save", data);
+    if (resp.data.status) {
+      // commit('SET_PRODUCT',resp.data.data)
+    }
+    return resp;
+  },
   async getTopProduct({ commit, dispatch }, data) {
     const resp = await axios.get("/api/top-product", data);
     if (resp.data.status) {

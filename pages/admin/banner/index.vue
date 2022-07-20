@@ -17,7 +17,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h5>Banner List</h5>
-                        <b-button @click="$router.push('/admin/banner/add-banner')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add Banner</b-button>
+                        <b-button @click="gotoAdd()" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Add Banner</b-button>
                     </div>
                     <div class="card-body">
                         <b-row>
