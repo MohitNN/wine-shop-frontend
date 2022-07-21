@@ -15,7 +15,8 @@ const state = {
         curr: 'usd',
         symbol: '$'
     },
-    loadingStatus: false
+    loadingStatus: false,
+    orderUpdate:''
 }
 const getters = {
     getProducts: (state) => {
@@ -52,6 +53,7 @@ const getters = {
     },
 }
 const actions = {
+    
     getProducts: (context) => {
         ax.get(url, {
                 headers: {
@@ -116,6 +118,9 @@ const mutations = {
     changeCurrency: (state) => {
         state.currency = products
     },
+    updateOrderStatus: (state) => {
+        state.orderUpdate = products.data;
+    }
 }
 export default {
     namespaced: true,

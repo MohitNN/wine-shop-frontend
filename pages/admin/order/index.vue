@@ -58,13 +58,54 @@
               </b-row>
 
               <div class="table-responsive datatable-vue text-center">
-                <b-table striped hover :items="orderList">
-                  <template #cell(orderStatus)="field"> 
-                      <select class="form-control border-0" name="" id="">
-                        <option>New</option>
-                        <option>Open</option>
-                        <option>Panding</option>
-                      </select>
+                <b-table
+                  striped
+                  hover
+                  :fields="tablefields"
+                  :items="getOrdersList.data"
+                >
+                  <template #cell(order_status)="field">
+                    <b-dropdown class="m-md-2" :variant="getVariant('order',field.item.order_status)">
+                      <template #button-content>
+                        <span> {{getStatus('order',field.item.order_status)}} </span>
+                      </template>
+                      <b-dropdown-item-btn href="#" @click="updateStatus('order',1 , field.item.id)">
+                        <template #default>
+                          <div class="pandding-Ticket-dropdown">
+                            Pendding <span> </span>
+                          </div>
+                        </template>
+                      </b-dropdown-item-btn>
+                      <b-dropdown-item href="#" @click="updateStatus('order',2 , field.item.id)">
+                        <template #default>
+                          <div class="open-Ticket-dropdown">Confirm</div>
+                        </template>
+                      </b-dropdown-item>
+                      <b-dropdown-item href="#" @click="updateStatus('order',3 , field.item.id)">
+                        <template #default>
+                          <div class="success-Ticket-dropdown">Success</div>
+                        </template>
+                      </b-dropdown-item>
+                    </b-dropdown>
+                  </template>
+                  <template #cell(payment_status)="field">
+                    <b-dropdown class="m-md-2" :variant="getVariant('payment',field.item.payment_status)">
+                      <template #button-content>
+                        <span> {{getStatus('payment',field.item.payment_status)}} </span>
+                      </template>
+                      <b-dropdown-item href="#" @click="updateStatus('payment',1 , field.item.id)">
+                        <template #default>
+                          <div class="notvarified-Ticket-dropdown">
+                            Not Verified
+                          </div>
+                        </template>
+                      </b-dropdown-item>
+                      <b-dropdown-item href="#" @click="updateStatus('payment',2 , field.item.id)">
+                        <template #default>
+                          <div class="success-Ticket-dropdown">Verified</div>
+                        </template>
+                      </b-dropdown-item>
+                    </b-dropdown>
                   </template>
                   <template #cell(actions)="field">
                     <div v-show="false">{{ field.item.id }}</div>
@@ -90,13 +131,14 @@
                   </template>
                 </b-table>
               </div>
-              <b-col md="12" class="my-1 p-0 pagination-justify">
+              <b-col md="12" v-if="getOrdersList" class="my-1 p-0 pagination-justify">
                 <b-pagination
-                  v-model="currentPage"
-                  :total-rows="totalRows"
-                  :per-page="perPage"
+                  v-model="getOrdersList.current_page"
+                  :total-rows="getOrdersList.total"
+                  :per-page="getOrdersList.per_page"
                   aria-controls="my-table"
                   class="mt-4"
+                  @input="updateData"
                 ></b-pagination>
               </b-col>
             </div>
@@ -123,7 +165,7 @@ export default {
       selectedSku: "",
       tablefields: [
         {
-          key: "product_id",
+          key: "order_id",
           label: "Order id",
           sortable: true,
         },
@@ -139,12 +181,7 @@ export default {
         },
         {
           key: "total",
-          label: "Name",
-          sortable: true,
-        },
-        {
-          key: "product_ids",
-          label: "Totle Item",
+          label: "Total",
           sortable: true,
         },
         {
@@ -204,10 +241,55 @@ export default {
     this.totalRows = 12;
   },
   methods: {
+    updateData(page) {
+    this.$store.dispatch("order/getOrder", page);
+    },
     ...mapActions({
       get_single_order: "order/get_single_order",
       deleteOrders: "order/deleteOrder",
+      getOrderUpdateStatus : "order/updateOrderStatus"
     }),
+    updateStatus(type , status , id) {
+      this.getOrderUpdateStatus({type:type , status:status , id : id}).then((resp) => {
+         if(resp.data.status) {
+           this.$toast.success('update status')
+         }
+      })
+    },
+    getStatus(type,status) {
+      if(type == 'order') {
+        if(status == 1) {
+           return 'Pendding'
+        } else if (status == 2) {
+           return 'Confirm'
+        } else {
+           return 'Success'
+        }
+      } else {
+        if(status == 1) {
+           return 'Not Verified'
+        } else {
+           return  'Verified'
+        } 
+      }
+    },
+    getVariant(type,status) {
+      if(type == 'order') {
+        if(status == 1) {
+           return 'warning'
+        } else if (status == 2) {
+           return 'secondary'
+        } else {
+           return 'success'
+        }
+      } else {
+        if(status == 1) {
+           return 'primary'
+        } else {
+           return  'success'
+        } 
+      }
+    },
     getImgUrl(path) {
       return require("@/assets/admin/images/dashboard/product/" + path);
     },
@@ -235,4 +317,36 @@ export default {
 </script>
 
 <style>
+.pandding-Ticket-dropdown {
+  border-radius: 4px;
+  font-size: 10px;
+  padding: 5px 10px;
+
+  color: #ffa800;
+  background: #ffe6b3;
+}
+.open-Ticket-dropdown {
+  border-radius: 4px;
+  font-size: 10px;
+  padding: 5px 10px;
+
+  color: #2966f0;
+  background: #b7ccfa;
+}
+.success-Ticket-dropdown {
+  border-radius: 4px;
+  font-size: 10px;
+  padding: 5px 10px;
+
+  color: #29a329;
+  background: #70db70;
+}
+.notvarified-Ticket-dropdown {
+  border-radius: 4px;
+  font-size: 10px;
+  padding: 5px 10px;
+
+  color: #ff0000;
+  background: #ff9999;
+}
 </style>

@@ -33,6 +33,19 @@ const actions = {
          });         
     },
 
+    updateOrderStatus: (context,data) => {        
+        const URl = `${baseURL}api/admin/update-status`
+        const resp = axios.post(URl , data);
+        resp.then(response => {
+            if(response.data.status){  
+                context.dispatch('getOrder', 1);               
+            }
+         });      
+        return resp;   
+
+    },
+
+
     setBrand: (context, items) => {
         const URl = `${baseURL}api/admin/add-order`      
         let formData = new FormData();
