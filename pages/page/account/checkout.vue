@@ -190,18 +190,6 @@
                               (cartTotal * curr.curr) | currency(curr.symbol)
                             }}</span>
                           </li>
-                          <!-- <li>Shipping
-                                                    <div class="shipping">
-                                                        <div class="shopping-option">
-                                                            <input type="checkbox" name="free-shipping" id="free-shipping">
-                                                            <label for="free-shipping">Free Shipping</label>
-                                                        </div>
-                                                        <div class="shopping-option">
-                                                            <input type="checkbox" name="local-pickup" id="local-pickup">
-                                                            <label for="local-pickup">Local Pickup</label>
-                                                        </div>
-                                                    </div>
-                                                </li> -->
                         </ul>
                         <ul class="sub-total">
                           <li>
@@ -459,7 +447,7 @@ export default {
         .then((resp) => {
           if (resp.data.status) {
             this.setLoading(false);
-
+            this.$router.push('order-success')
           }
         })
         .catch((error) => {});

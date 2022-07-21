@@ -37,7 +37,6 @@ const _3c94558a = () => interopDefault(import('..\\pages\\page\\collection.vue' 
 const _2e8df17a = () => interopDefault(import('..\\pages\\page\\coming-soon.vue' /* webpackChunkName: "pages/page/coming-soon" */))
 const _194c096e = () => interopDefault(import('..\\pages\\page\\faq.vue' /* webpackChunkName: "pages/page/faq" */))
 const _f89c0e36 = () => interopDefault(import('..\\pages\\page\\lookbook.vue' /* webpackChunkName: "pages/page/lookbook" */))
-const _3c528012 = () => interopDefault(import('..\\pages\\page\\order-success.vue' /* webpackChunkName: "pages/page/order-success" */))
 const _17870916 = () => interopDefault(import('..\\pages\\page\\review.vue' /* webpackChunkName: "pages/page/review" */))
 const _3ae841c5 = () => interopDefault(import('..\\pages\\page\\search.vue' /* webpackChunkName: "pages/page/search" */))
 const _59d6eb4c = () => interopDefault(import('..\\pages\\page\\typography.vue' /* webpackChunkName: "pages/page/typography" */))
@@ -60,6 +59,7 @@ const _9065a838 = () => interopDefault(import('..\\pages\\page\\account\\dashboa
 const _538e7b6a = () => interopDefault(import('..\\pages\\page\\account\\forget-password.vue' /* webpackChunkName: "pages/page/account/forget-password" */))
 const _4108da39 = () => interopDefault(import('..\\pages\\page\\account\\login.vue' /* webpackChunkName: "pages/page/account/login" */))
 const _725e4b4b = () => interopDefault(import('..\\pages\\page\\account\\login-firebase.vue' /* webpackChunkName: "pages/page/account/login-firebase" */))
+const _b5a9ac58 = () => interopDefault(import('..\\pages\\page\\account\\order-success.vue' /* webpackChunkName: "pages/page/account/order-success" */))
 const _1d680679 = () => interopDefault(import('..\\pages\\page\\account\\profile.vue' /* webpackChunkName: "pages/page/account/profile" */))
 const _39082ffa = () => interopDefault(import('..\\pages\\page\\account\\register.vue' /* webpackChunkName: "pages/page/account/register" */))
 const _37a70e25 = () => interopDefault(import('..\\pages\\page\\account\\wishlist.vue' /* webpackChunkName: "pages/page/account/wishlist" */))
@@ -260,10 +260,6 @@ export const routerOptions = {
     component: _f89c0e36,
     name: "page-lookbook"
   }, {
-    path: "/page/order-success",
-    component: _3c528012,
-    name: "page-order-success"
-  }, {
     path: "/page/review",
     component: _17870916,
     name: "page-review"
@@ -351,6 +347,10 @@ export const routerOptions = {
     path: "/page/account/login-firebase",
     component: _725e4b4b,
     name: "page-account-login-firebase"
+  }, {
+    path: "/page/account/order-success",
+    component: _b5a9ac58,
+    name: "page-account-order-success"
   }, {
     path: "/page/account/profile",
     component: _1d680679,
