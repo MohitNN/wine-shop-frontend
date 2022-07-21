@@ -171,74 +171,6 @@
                             <span>Total</span>
                           </div>
                         </div>
-<<<<<<< HEAD
-                      </div>
-                      <ul class="qty" v-if="cart.length">
-                        <li v-for="(item, index) in cart" :key="index">
-                          {{ item.title | uppercase }} X {{ item.quantity }}
-                          <span>{{
-                            (item.price * curr.curr * item.quantity)
-                              | currency(curr.symbol)
-                          }}</span>
-                        </li>
-                      </ul>
-                      <ul class="sub-total">
-                        <li>
-                          Subtotal
-                          <span class="count">{{
-                            (cartTotal * curr.curr) | currency(curr.symbol)
-                          }}</span>
-                        </li>
-                      </ul>
-                      <ul class="sub-total">
-                        <li>
-                          Total
-                          <span class="count">{{
-                            (cartTotal * curr.curr) | currency(curr.symbol)
-                          }}</span>
-                        </li>
-                        <li>
-                          <div class="shopping-option">
-                            <input
-                              type="checkbox"
-                              v-model="isPaymentBank"
-                              name="free-shipping"
-                              id="free-shipping"
-                            />
-                            <label for="free-shipping">Pay With Bank</label>
-                          </div>
-                        </li>
-                      </ul>
-                      <ul v-if="isPaymentBank" class="sub-total">
-                        <li>
-                          Bank Name :-
-                          <span class="text-primary"> Paytm Payment Bank </span>
-                        </li>
-                        <li>
-                          Branch :-
-                          <span class="text-primary"> Nodia , India </span>
-                        </li>
-                        <li>
-                          Bank Account No :-
-                          <span class="text-primary"> 918488028320 </span>
-                        </li>
-                        <li>
-                          IFSC :-
-                          <span class="text-primary"> PYTM0123456 </span>
-                        </li>
-                        <li>
-                          <ValidationProvider
-                            rules="required"
-                            v-slot="{ errors }"
-                            name="file"
-                          >
-                            <div class="form-group align-items-center mb-0 row">
-                              <label
-                                for="validationCustom02"
-                                class="col-xl-2 col-sm-2 mb-0"
-                                >Upload Payment Screenshot :</label
-                              >
-=======
                         <ul class="qty" v-if="cartProducts.length">
                           <li
                             v-for="(item, index) in cartProducts"
@@ -258,18 +190,6 @@
                               (cartTotal * curr.curr) | currency(curr.symbol)
                             }}</span>
                           </li>
-                          <!-- <li>Shipping
-                                                    <div class="shipping">
-                                                        <div class="shopping-option">
-                                                            <input type="checkbox" name="free-shipping" id="free-shipping">
-                                                            <label for="free-shipping">Free Shipping</label>
-                                                        </div>
-                                                        <div class="shopping-option">
-                                                            <input type="checkbox" name="local-pickup" id="local-pickup">
-                                                            <label for="local-pickup">Local Pickup</label>
-                                                        </div>
-                                                    </div>
-                                                </li> -->
                         </ul>
                         <ul class="sub-total">
                           <li>
@@ -280,7 +200,6 @@
                           </li>
                           <li>
                             <div class="shopping-option">
->>>>>>> adc8c6dce423fe78b7f6674534498335e5ffcea9
                               <input
                                 type="checkbox"
                                 v-model="isPaymentBank"
@@ -528,7 +447,7 @@ export default {
         .then((resp) => {
           if (resp.data.status) {
             this.setLoading(false);
-            
+            this.$router.push('order-success')
           }
         })
         .catch((error) => {});
