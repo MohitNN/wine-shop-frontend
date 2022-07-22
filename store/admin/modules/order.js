@@ -5,16 +5,23 @@ const  baseURL = config.baseUrl
 
 const state = {
     order : [],
-    orderDetails:[]
+    orderDetails:[],
+    orderList:[]
 }
 const getters = {
     getOrders: (state) => {
         return state.order;
     },
+    getOrdersList: (state) => {
+        return state.orderList;
+    },
 }
 const mutations = {
     setOrderValue: (state, items) => {   
         state.order = items;   
+    },
+    setOrderList: (state, items) => {   
+        state.orderList = items;   
     },
     setOrderDetailsValue: (state, items) => {
         state.orderDetails = items;
@@ -33,6 +40,16 @@ const actions = {
          });         
     },
 
+    getOrderList: (context,page=1) => {        
+        const URl = `${baseURL}api/user/get-order-lists?page=${page}`
+        const resp = axios.get(URl);
+        resp.then(response => {
+            if(response.data.status){  
+                context.commit('setOrderList', response.data.data);               
+            }
+         });         
+    },
+
     updateOrderStatus: (context,data) => {        
         const URl = `${baseURL}api/admin/update-status`
         const resp = axios.post(URl , data);
@@ -44,8 +61,6 @@ const actions = {
         return resp;   
 
     },
-
-
     setBrand: (context, items) => {
         const URl = `${baseURL}api/admin/add-order`      
         let formData = new FormData();

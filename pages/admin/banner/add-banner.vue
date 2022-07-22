@@ -51,7 +51,7 @@
                                             </ValidationProvider>
                                             <div class="form-group mb-3 row">
                                                 <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0"></label>
-                                                <img style="object-fit: contain;" v-if="image" :src="image" width="100px" height="100px" />
+                                                <img v-if="image" :src="image" width="100px" height="100px" />
                                             </div>
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4"></label>

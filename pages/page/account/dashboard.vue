@@ -2,10 +2,10 @@
 <div>
     <!-- <Header /> -->
     <Breadcrumbs title="Dashboard" />
-    <section class="section-b-space" v-if="user && user.user">
+    <section class="section-b-space" style="background-color: #FFFFFF;" v-if="user && user.user">
         <div class="container">
             <div class="row">
-                <b-card no-body v-bind:class="'dashboardtab'">
+                <b-card no-body v-bind:class="'dashboardtab'" style="box-shadow: none !important;">
                     <b-tabs pills card vertical>
                         <b-tab title="Account Info" active>
                             <b-card-text>
@@ -134,47 +134,7 @@
                                         <div class="page-title">
                                             <h2>My orders</h2>
                                         </div>
-                                        <div class="welcome-msg">
-                                            <p>Hello, MARK JECNO !</p>
-                                            <p>From your Orders you have the ability to view your all orders and status of order.</p>
-                                        </div>
-                                        <div class="box-account box-info">
-                                            <div class="box-head">
-                                                <h2>Order Information</h2>
-                                            </div>
-                                            <div>
-                                                <div class="box">
-                                                    <div class="box-title mb-3">
-                                                        <h3>orders list</h3>
-                                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <h4>Order no: 2105</h4>
-                                                            <h6>Slim Fit Cotton Shirt</h6>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <h4>Order no: 1032</h4>
-                                                            <h6>Slim Fit Cotton Shirt</h6>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div class="box mt-2">
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <h4>Order no: 2105</h4>
-                                                            <h6>Slim Fit Cotton Shirt</h6>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <h4>Order no: 1032</h4>
-                                                            <h6>Slim Fit Cotton Shirt</h6>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <orderdetails />
                                     </div>
                                 </div>
                             </b-card-text>
@@ -318,9 +278,11 @@
 </template>
 
 <script>
+
 import Header from '../../../components/header/header1'
 import Footer from '../../../components/footer/footer1'
 import Breadcrumbs from '../../../components/widgets/breadcrumbs'
+import orderdetails from '../../../components/widgets/orderdetails'
 import {
     mapState,
     mapGetters,
@@ -328,14 +290,22 @@ import {
 } from 'vuex'
 
 export default {
+    props:["categoryType"],
     middleware: ["login"],
     components: {
         Header,
         Footer,
-        Breadcrumbs
+        Breadcrumbs,
+        orderdetails
     },
     computed: {
         ...mapState('admin_adminauth', ['user'])
     },
+    methods:{
+        ...mapActions('order',['getOrderList']),
+    },
+    created(){
+        this.getOrderList()
+    }
 }
 </script>

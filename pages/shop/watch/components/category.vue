@@ -15,7 +15,7 @@
                                     <div class="category-wrapper">
                                         <div>
                                             <div v-if="item.product_images">
-                                                <img :src="getImageUrl(item.product_images[0].image)" class="img-fluid bg-img" style="height: 250px; object-fit: contain;" alt />
+                                                <img :src="getImageUrl(item.product_images[0].image)" class="img-fluid bg-img" style="height: 250px;" alt />
                                             </div>
                                             <h4>{{item.product_name}}</h4>
                                             <div v-html="item.description">
