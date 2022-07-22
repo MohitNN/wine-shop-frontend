@@ -16,12 +16,12 @@
                                             <div class="col-lg-12">
                                                 <ValidationProvider rules="required" v-slot="{ errors }" name="name">
                                                     <div class="form-group row">
-                                                        <label for="validationCustom0" class="col-xl-3 col-md-4">Coupon name : </label>
+                                                        <label for="validationCustom0" class="col-xl-3 col-md-4">Coupon Title : </label>
                                                         <input v-model="coupon.coupon_name" class="form-control col-md-7" placeholder="Coupaon name" name="name" id="validationCustom0" type="text" required="" />
                                                         <span class="validate-error">{{ errors[0] }}</span>
                                                     </div>
                                                 </ValidationProvider>
-                                                <ValidationProvider rules="required" v-slot="{ errors }" name="Coupon Code">
+                                                <ValidationProvider rules="required|min:6" v-slot="{ errors }" name="Coupon Code">
                                                     <div class="form-group row">
                                                         <label for="validationCustom1" class="col-xl-3 col-md-4">Coupon Code : </label>
                                                         <input name="Coupon Code" v-model="coupon.coupon_code" class="form-control col-md-7" placeholder="Coupon Code" id="validationCustom1" type="text" required="" />
@@ -46,29 +46,38 @@
                                                     <label class="col-form-label col-xl-3 col-md-4">Status</label>
                                                     <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
                                                         <label class="d-block" for="edo-ani">
-                                                            <input class="radio_animated" id="edo-ani" @click="amount" type="radio" name="rdo-ani" />
+                                                            <input class="radio_animated" id="edo-ani" @click="amount" v-model="coupon.selectedType" value="amount" type="radio" name="rdo-ani" />
                                                             Amount
                                                         </label>
                                                         <label class="d-block" for="edo-ani1">
-                                                            <input class="radio_animated" id="edo-ani1" @click="discount" type="radio" name="rdo-ani" />
+                                                            <input class="radio_animated" id="edo-ani1" @click="discount" v-model="coupon.selectedType" value="discount" type="radio" name="rdo-ani" />
                                                             Discount
                                                         </label>
                                                     </div>
                                                 </div>
                                                 <div v-if="showAmount">
-                                                    <ValidationProvider rules="required" v-slot="{ errors }" name="name">
+                                                    <ValidationProvider rules="required" v-slot="{ errors }" name="amount">
                                                         <div class="form-group row">
                                                             <label for="validationCustom1" class="col-xl-3 col-md-4">Amount : </label>
-                                                            <input v-model="coupon.amount" class="form-control col-md-7" placeholder="Amount" id="validationCustom1" type="text" required="" />
+                                                            <input v-model="coupon.amount" class="form-control col-md-7" name="amount"  placeholder="Amount" id="validationCustom1" type="text" required="" />
                                                             <span class="validate-error">{{ errors[0] }}</span>
                                                         </div>
                                                     </ValidationProvider>
                                                 </div>
                                                 <div v-else>
-                                                    <ValidationProvider rules="required" v-slot="{ errors }" name="name">
+                                                    <ValidationProvider rules="required" v-slot="{ errors }" name="discount">
                                                         <div class="form-group row">
                                                             <label for="validationCustom1" class="col-xl-3 col-md-4">Discount : </label>
-                                                            <input v-model="coupon.discount" class="form-control col-md-7" placeholder="Discount" id="validationCustom1" type="text" required="" />
+                                                            <input v-model="coupon.discount" name="discount" class="form-control col-md-7" placeholder="Discount" id="validationCustom1" type="number" min="0" max="100" required="" />
+                                                            <span class="validate-error">{{ errors[0] }}</span>
+                                                        </div>
+                                                    </ValidationProvider>
+                                                </div>
+                                                <div >
+                                                    <ValidationProvider rules="required" v-slot="{ errors }" name="minOrder">
+                                                        <div class="form-group row">
+                                                            <label for="validationCustom1" class="col-xl-3 col-md-4">Min Order Value : </label>
+                                                            <input v-model="coupon.minOrderValue" class="form-control col-md-7" name="minOrder"  placeholder="Minimum Order Value" id="validationCustom1" type="number"  required="" />
                                                             <span class="validate-error">{{ errors[0] }}</span>
                                                         </div>
                                                     </ValidationProvider>
@@ -116,8 +125,10 @@ export default {
                 coupon_name: "",
                 coupon_code: "",
                 status: 0,
+                selectedType:'amount',
                 start_date: "",
                 end_date: "",
+                minOrderValue:'',
                 amount: 0,
                 discount: 0
             },

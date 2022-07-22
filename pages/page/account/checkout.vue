@@ -198,20 +198,39 @@
                               (cartTotal * curr.curr) | currency(curr.symbol)
                             }}</span>
                           </li>
+                          <li v-if="promoData && promoData.promo_value">
+                            You have To save 
+                            <span class="count">{{
+                              100 | currency(curr.symbol)
+                            }}</span>
+                          </li>
+                          <hr/>
+                          <li v-if="promoData && promoData.total">
+                            Net Amount  
+                            <span class="count">{{
+                              promoData.total | currency(curr.symbol)
+                            }}</span>
+                          </li>
                           <li>
-                            <div class="shopping-option">
-                              <input
-                                type="checkbox"
-                                v-model="isPaymentBank"
-                                :disabled="invalid"
-                                name="isPyament"
-                                id="free-shipping"
-                              />
-                              <label for="free-shipping">Pay With Bank</label>
-                            </div>
+                            <div class="shopping-option"></div>
                           </li>
                         </ul>
-                        <ul v-if="isPaymentBank" class="sub-total">
+                        <b-input-group prepend="" class="mt-3 mb-3">
+                          <b-form-input
+                            class="col-7"
+                            v-model="promoCode"
+                          ></b-form-input>
+                          <b-input-group-append>
+                            <b-button
+                              variant="outline-info"
+                              @click="applyPromocode(promoCode)"
+                            >
+                              <b-spinner small v-if="btnLoading"></b-spinner>
+                              Apply Coupon Code
+                            </b-button>
+                          </b-input-group-append>
+                        </b-input-group>
+                        <ul class="sub-total">
                           <li>
                             Bank Name :-
                             <span class="text-primary">
@@ -283,12 +302,13 @@
                           </li>
                         </ul>
                       </div>
+
                       <div class="payment-box">
                         <div class="text-right">
                           <button
                             type="submit"
                             class="btn-solid btn"
-                            :disabled="!invalid && isPaymentBank ? false : true"
+                            :disabled="invalid"
                           >
                             Place Order
                           </button>
@@ -338,6 +358,9 @@ export default {
   data() {
     return {
       image: "",
+      promoCode: "",
+      btnLoading: false,
+      promoData:{},
       loaderImg: Loader,
       previewimg: {
         preview: null,
@@ -375,6 +398,7 @@ export default {
   methods: {
     ...mapActions("products", ["makeOrder"]),
     ...mapActions("gloable", ["setLoading"]),
+    ...mapActions("coupon", ["checkPromoCode"]),
     order() {
       this.isLogin = localStorage.getItem("userlogin");
       if (this.isLogin) {
@@ -447,10 +471,31 @@ export default {
         .then((resp) => {
           if (resp.data.status) {
             this.setLoading(false);
-            this.$router.push('order-success')
+            this.$router.push("order-success");
           }
         })
         .catch((error) => {});
+    },
+    applyPromocode(promocode) {
+      if (this.promoCode) {
+        this.btnLoading = true;
+        this.checkPromoCode({ order: this.cartTotal, promocode: promocode })
+          .then((resp) => {
+             if(resp.data.status) {
+               this.btnLoading = false;
+               this.promoData = resp.data.data;
+               this.$toast.success("Your Promocode Applye succesfully");
+             }
+          })
+          .catch((error) => {
+           if(error.response.data) {
+             this.$toast.error(error.response.data.message); 
+           }  
+           this.btnLoading = false;
+          });
+      } else {
+        alert("Please Enter Valid Promocode");
+      }
     },
     fileselected(e) {
       if (this.$refs.file.files[0]) {

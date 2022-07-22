@@ -48,6 +48,28 @@ const actions = {
         return resp;
     },
 
+    updateStatus: (context, items) => {
+        const URl = `${baseURL}api/admin/update-coupan-status`
+        const resp = axios.post(URl, items);
+        resp.then(response => {
+            if (response.data.status) {
+                context.dispatch('getCoupon');
+            }
+        });
+        return resp;
+    },
+
+    checkPromoCode: (context, items) => {
+        const URl = `${baseURL}api/user/varified-coupon`
+        const resp = axios.post(URl, items);
+        resp.then(response => {
+            if (response.data.status) {
+                // context.dispatch('getCoupon');
+            }
+        });
+        return resp;
+    },
+
     deleteCoupon: (context, CouponId) => {
         const URl = `${baseURL}api/admin/delete-coupon`
         const resp = axios.post(URl, { id: CouponId });
