@@ -41,7 +41,7 @@
                               :key="index"
                             >
                               <img
-                                style="width: 138px !important; height: 150px !important; object-fit: contain; padding: 10px;"
+                                style="width: 138px !important; height: 150px !important; padding: 10px;"
                                 :src="getImgUrl(product.image)"
                                 :id="product.image_id"
                                 class="img-fluid bg-img"

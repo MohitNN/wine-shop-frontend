@@ -28,14 +28,13 @@
               {{category.name}}
                 <i class="fa fa-angle-down" id="angle-down" v-if="category.sub_category && category.sub_category.length"></i>
             </span>
-            <ul v-if="category.sub_category && category.sub_category.length" class="nav-submenu" style="width: 100vh !important">
-              <li v-for="sub_category, key in category.sub_category" :key="key" @click="loadProduct('sub-category', sub_category.slug)">
-                <span class="sub-category-title">
-                  {{sub_category.name}}
-                </span>
-              </li>
-            </ul>
-           
+              <ul v-if="category.sub_category && category.sub_category.length" class="nav-submenu" style="width: 100vh !important">
+                <li v-for="sub_category, key in category.sub_category" :key="key" @click="loadProduct('sub-category', sub_category.slug)">
+                  <span class="sub-category-title">
+                    {{sub_category.name}}
+                  </span>
+                </li>
+              </ul>
           </li>
           <li class="dropdown" >
              <span class="nav-link category-title" @click.self="loadProduct('brands', '')">

@@ -14,7 +14,7 @@
             class="img-fluid bg-img"
             :alt="product.name"
             :key="index"
-            style="width: 300px; height: 300px; object-fit: contain;"
+            style="width: 300px; height: 300px;"
           />
         </nuxt-link>
       </div>
@@ -27,7 +27,7 @@
             :alt="product.name"
             v-if="product.product_images"
             :key="index"
-            style="width: 300px; height: 300px; object-fit: contain; position: absolute; right: 30%;"
+            style="width: 300px; height: 300px; position: absolute; right: 30%;"
           />
         </nuxt-link>
       </div>
