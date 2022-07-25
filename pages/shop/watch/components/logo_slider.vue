@@ -1,90 +1,52 @@
 <template>
-  <div>
+<div>
     <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="slide-6 no-arrow">
-              <div v-swiper:mySwiper="swiperOption">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide" v-for="(item, index) in items" :key="index">
-                    <div>
-                      <div class="logo-block text-center">
+        <div class="container">
+            <div class="img-grid">
+                <div v-for="(item, index) in brand" :key="index">
+                    <div style="margin: 10px !important;">
                         <a href="#">
-                          <img :src="item.imagepath" alt />
+                            <img width="160px;" class="img-hover" :src="getUrl(item.image)" alt />
                         </a>
-                      </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </section>
-  </div>
+</div>
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import {
+    mapState,
+    mapActions
+} from "vuex";
+import config from '@/config.json'
 export default {
-  computed:{
-    ...mapState("menu", ["brand"]),
-  },
-  created() {
-    this.getBrand();
-  },
-  methods:{
-    ...mapActions("menu", ["getBrand"]),
-  },
-  data() {
-    return {
-      swiperOption: {
-        slidesPerView: 6,
-        freeMode: true,
-        breakpoints: {
-          1199: {
-            slidesPerView: 4
-          },
-          768: {
-            slidesPerView: 4
-          },
-          420: {
-            slidesPerView: 3
-          },
-          0: {
-            slidesPerView: 2,
-          }
+    computed: {
+        ...mapState("menu", ["brand"]),
+    },
+    methods: {
+        getUrl(path) {
+            return config.baseUrl + "brand/" + path;
         }
-      },
-      items: [
-        {
-          imagepath: require('@/assets/images/logos/1.png')
-        },
-        {
-          imagepath: require('@/assets/images/logos/2.png')
-        },
-        {
-          imagepath: require('@/assets/images/logos/3.png')
-        },
-        {
-          imagepath: require('@/assets/images/logos/4.png')
-        },
-        {
-          imagepath: require('@/assets/images/logos/5.png')
-        },
-        {
-          imagepath: require('@/assets/images/logos/6.png')
-        },
-        {
-          imagepath: require('@/assets/images/logos/7.png')
-        },
-        {
-          imagepath: require('@/assets/images/logos/8.png')
-        }
-      ]
     }
-  }
 }
 </script>
+<style scoped>
+.img-grid{
+    max-width: 1400px;
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.img-hover{
+    transition: 0.7s;
+}
+.img-hover:hover {
+    filter: drop-shadow(1px 2px 3px black);
+    width: 220px;
+}
+</style>

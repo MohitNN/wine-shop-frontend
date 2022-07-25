@@ -2,7 +2,6 @@
   <div>
     <!-- <Header /> -->
     <Slider />
-     <LogoSlider />
     <!-- <TimerBanner />  -->
     <Category />
     <CategoryTab :products="productData" :category="category" />
@@ -21,6 +20,7 @@
       @openCart="showCart"
     />
     <Blog />
+    <LogoSlider />
     <Services />
     <!-- <Instagram /> -->
     <!-- <Footer /> -->

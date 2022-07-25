@@ -15,7 +15,7 @@
                                     <div class="category-wrapper">
                                         <div>
                                             <div v-if="item.product_images">
-                                                <img :src="getImageUrl(item.product_images[0].image)" class="img-fluid bg-img" style="height: 250px;" alt />
+                                                <img :src="getImageUrl(item.product_images[0].image)" class="img-fluid bg-img img-blow" alt />
                                             </div>
                                             <h4>{{item.product_name}}</h4>
                                             <div v-html="item.description">
@@ -62,37 +62,6 @@ export default {
                     },
                 }
             },
-            items: [{
-                    imagepath: require('@/assets/images/watch/cat1.png'),
-                    title: 'Gold Wine',
-                    description: '<ul class="category-link"><li><a href="#">Winemaking conglomerates</a></li><li><a href="#">Breitling SA</a></li><li><a href="#">Casio Wines</a></li><li><a href="#">Citizen Watch</a></li></ul>',
-                    button: 'view more'
-                },
-                {
-                    imagepath: require('@/assets/images/watch/cat2.png'),
-                    title: 'Red Wine',
-                    description: '<ul class="category-link"><li><a href="#">Winemaking conglomerates</a></li><li><a href="#">Breitling SA</a></li><li><a href="#">Casio Wines</a></li><li><a href="#">Citizen Watch</a></li></ul>',
-                    button: 'view more'
-                },
-                {
-                    imagepath: require('@/assets/images/watch/cat3.png'),
-                    title: 'Black Wine',
-                    description: '<ul class="category-link"><li><a href="#">Winemaking conglomerates</a></li><li><a href="#">Breitling SA</a></li><li><a href="#">Casio Wines</a></li><li><a href="#">Citizen Watch</a></li></ul>',
-                    button: 'view more'
-                },
-                {
-                    imagepath: require('@/assets/images/watch/cat4.png'),
-                    title: 'Wine models',
-                    description: '<ul class="category-link"><li><a href="#">Winemaking conglomerates</a></li><li><a href="#">Breitling SA</a></li><li><a href="#">Casio Wines</a></li><li><a href="#">Citizen Watch</a></li></ul>',
-                    button: 'view more'
-                },
-                {
-                    imagepath: require('@/assets/images/watch/cat1.png'),
-                    title: 'Wine watch',
-                    description: '<ul class="category-link"><li><a href="#">Winemaking conglomerates</a></li><li><a href="#">Breitling SA</a></li><li><a href="#">Casio Wines</a></li><li><a href="#">Citizen Watch</a></li></ul>',
-                    button: 'view more'
-                }
-            ]
         }
     },
     computed: {
@@ -105,3 +74,13 @@ export default {
     }
 }
 </script>
+<style scoped>
+.img-blow{
+    height: 250px !important;
+    width: 80px !important;
+    transition: 0.5s;
+}
+.category-wrapper:hover .img-blow{
+    filter: drop-shadow(1px 2px 3px black);
+}
+</style>
