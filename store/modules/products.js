@@ -153,7 +153,13 @@ const actions = {
     context.commit('createOrder', payload)
   },
   async allProduct({ commit, dispatch }, data) {
-    const resp = await axios.post("/api/product", data);
+    var url = '';
+    if(data.page) {
+      url = "/api/product?"+data.page
+    } else {
+      url = "/api/product"
+    }
+    const resp = await axios.post(url, data)
     if (resp.data.status) {
       commit('SET_PRODUCT',resp.data.data)
     }

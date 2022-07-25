@@ -1,6 +1,5 @@
 <template>
 <div>
-    <!-- {{productData}} -->
     <Breadcrumbs :title="slug" />
 <section class="section-b-space ratio_asos">
       <div class="container">
@@ -13,7 +12,7 @@
               <div class="row">
                 <div
                   class="swiper-slide col-3 my-3"
-                  v-for="(product,index) in productData"
+                  v-for="(product,index) in productData.data"
                   :key="index"
                 >
                   <div class="product-box">
@@ -125,7 +124,7 @@ export default {
       const type = this.slug
       const name = this.name
       this.clearFilter()
-      this.allProduct({type, name})
+      this.allProduct({type, name , page:'page=1'})
     },
     alert(item) {
       this.dismissCountDown = item
