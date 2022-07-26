@@ -15,9 +15,9 @@
                     <div class="col">
                       <div class="slider-contain">
                         <div>
-                          <h4>{{ item.title }}</h4>
+                          <!-- <h4>{{ item.title }}</h4>
                           <h1>{{ item.description }}</h1>
-                          <nuxt-link :to="{ path: '/collection/left-sidebar'}" class="btn btn-solid">shop now</nuxt-link>
+                          <nuxt-link :to="{ path: '/collection/left-sidebar'}" class="btn btn-solid">shop now</nuxt-link> -->
                         </div>
                       </div>
                     </div>

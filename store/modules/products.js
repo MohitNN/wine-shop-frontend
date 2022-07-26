@@ -10,6 +10,7 @@ const state = {
   products: products.data,
   wishlist: [],
   compare: [],
+  indexProductsList:[],
   currency: {
     curr: 'usd',
     symbol: '$'
@@ -121,6 +122,9 @@ const mutations = {
   SET_PRODUCT_DETAIL(state , value) {
     state.productDetail=value
   },
+  SET_PRODUCT_indexList(state , value) {
+    state.indexProductsList=value
+  },
 }
 // actions
 const actions = {
@@ -154,14 +158,22 @@ const actions = {
   },
   async allProduct({ commit, dispatch }, data) {
     var url = '';
-    if(data.page) {
-      url = "/api/product?"+data.page
+    if(data && data.pageIndex) {
+      url = "/api/product?"+data.pageIndex
     } else {
       url = "/api/product"
     }
     const resp = await axios.post(url, data)
     if (resp.data.status) {
       commit('SET_PRODUCT',resp.data.data)
+    }
+    return resp;
+  },
+  async getIndexProducts({ commit, dispatch }, data) {
+    var url = "/api/product"
+    const resp = await axios.post(url, data)
+    if (resp.data.status) {
+      commit('SET_PRODUCT_indexList',resp.data.data)
     }
     return resp;
   },

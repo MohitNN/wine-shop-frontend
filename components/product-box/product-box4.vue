@@ -14,11 +14,11 @@
             class="img-fluid bg-img"
             :alt="product.name"
             :key="index"
-            style="width: 300px; height: 300px;"
+            style="width: 50% !important; height: 350px;"
           />
         </nuxt-link>
       </div>
-      <div class="back col-12" style="left: 29% !important;">
+      <div class="back col-12">
         <nuxt-link :to="{ path: '/product/'+product.id}">
           <img
             :src='getImgUrl(product.product_images[0].image)'
@@ -27,7 +27,7 @@
             :alt="product.name"
             v-if="product.product_images"
             :key="index"
-            style="width: 300px; height: 300px; position: absolute; right: 30%;"
+            style="width: 62% !important; height: 350px;"
           />
         </nuxt-link>
       </div>

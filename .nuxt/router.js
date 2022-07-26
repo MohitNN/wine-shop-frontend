@@ -17,6 +17,7 @@ const _5f74138c = () => interopDefault(import('..\\pages\\admin\\login\\index.vu
 const _41aeed35 = () => interopDefault(import('..\\pages\\admin\\order\\index.vue' /* webpackChunkName: "pages/admin/order/index" */))
 const _c6655298 = () => interopDefault(import('..\\pages\\admin\\product\\index.vue' /* webpackChunkName: "pages/admin/product/index" */))
 const _f4690b98 = () => interopDefault(import('..\\pages\\admin\\sub_category\\index.vue' /* webpackChunkName: "pages/admin/sub_category/index" */))
+const _647a4b50 = () => interopDefault(import('..\\pages\\admin\\translation.vue' /* webpackChunkName: "pages/admin/translation" */))
 const _8aa01412 = () => interopDefault(import('..\\pages\\admin\\type\\index.vue' /* webpackChunkName: "pages/admin/type/index" */))
 const _24867674 = () => interopDefault(import('..\\pages\\admin\\user\\index.vue' /* webpackChunkName: "pages/admin/user/index" */))
 const _73c4c65c = () => interopDefault(import('..\\pages\\blog\\blog-detail.vue' /* webpackChunkName: "pages/blog/blog-detail" */))
@@ -179,6 +180,10 @@ export const routerOptions = {
     path: "/admin/sub_category",
     component: _f4690b98,
     name: "admin-sub_category"
+  }, {
+    path: "/admin/translation",
+    component: _647a4b50,
+    name: "admin-translation"
   }, {
     path: "/admin/type",
     component: _8aa01412,

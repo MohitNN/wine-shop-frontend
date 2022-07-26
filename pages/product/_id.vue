@@ -1,6 +1,5 @@
 <template>
   <div>
-   
     <section class="section-b-space">
       <div class="collection-wrapper">
         <div class="container">
@@ -8,7 +7,6 @@
             <div class="col-lg-3">
             <productSidebar />
             </div>
-           
             <div class="col-lg-9 col-sm-12 col-xs-12 productdetail">
               <div class="container-fluid">
                 <div class="row">
@@ -60,7 +58,12 @@
                       <h4 v-if="productDetail.onsale">
                         <span>{{ productDetail.discount }}% off</span>
                       </h4>
-                      <h3 >${{productDetail.price}}</h3>
+                      <div class="d-flex align-items-center">
+                        <span class="amount mr-3">${{productDetail.price}}</span>
+                        <span class="mr-2"><strike>${{productDetail.fake_price}}</strike></span>
+                        <span class="discount badge" >{{productDetail.discount}} %</span>
+                      </div>
+                      
                       <div class="product-description border-product">
                         <h5 class="avalibility">
                           <span>In Stock</span>
@@ -278,3 +281,18 @@ export default {
   }
 }
 </script>
+<style scoped>
+.amount{
+    font-size: 31px;
+    color: #292524;
+    font-weight: 600;
+}
+strike{
+    font-size: 16px;
+    color: grey;
+}
+.discount{
+      font-size: 28px;
+    color: #ff4c3b;
+}
+</style>

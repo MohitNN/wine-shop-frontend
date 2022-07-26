@@ -2,25 +2,27 @@
   <div>
     <!-- <Header /> -->
     <Slider />
-     <LogoSlider />
     <!-- <TimerBanner />  -->
     <Category />
-    <CategoryTab :products="productData" :category="category" />
+    <CategoryTab :products="indexProductsList" v-if="indexProductsList" :category="category" />
     <ProductSlider
-      :products="productData"
+      :products="indexProductsList"
+      v-if="indexProductsList"
       @openQuickview="showQuickview"
       @openCompare="showCoampre"
       @openCart="showCart"
     />
     <CollectionBanner />
-    <TopProducts
+    <!-- <TopProducts
+    v-if="products"
       :products="products"
       :category="category"
       @openQuickview="showQuickview"
       @openCompare="showCoampre"
       @openCart="showCart"
-    />
+    /> -->
     <Blog />
+    <LogoSlider />
     <Services />
     <!-- <Instagram /> -->
     <!-- <Footer /> -->
@@ -93,15 +95,18 @@ export default {
     ...mapState({
       productslist: (state) => state.products.productslist,
       productData: (state) => state.products.productData,
+      indexProductsList: (state) => state.products.indexProductsList,
     }),
   },
   mounted() {
     this.productsArray();
     this.allProduct();
+    this.getIndexProducts();
     this.getTopProduct();
   },
   created() {
     this.getBannersfRONT()
+    // this.allProduct();
   },
   beforeMount() {
     if (process.client) {
@@ -114,7 +119,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('products',['allProduct','getTopProduct']),
+    ...mapActions('products',['allProduct','getTopProduct','getIndexProducts']),
     ...mapActions('banner',['getBannersfRONT']),
     productsArray: function() {
       this.productslist.map((item) => {
