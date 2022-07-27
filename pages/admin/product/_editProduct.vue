@@ -64,7 +64,7 @@
                                             <ValidationProvider rules="required" v-slot="{ errors }" name="type">
                                                 <div class="form-group row">
                                                     <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Type :</label>
-                                                    <v-select name="type" placeholder="Select Category" v-model="products.type_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="type" :reduce="(c) => c.id" label="type_name" index="id"></v-select>
+                                                    <v-select name="type" placeholder="Select Category" v-model="products.type_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="type_List" :reduce="(c) => c.id" label="type_name" index="id"></v-select>
                                                     <span class="validate-error">{{ errors[0] }}</span>
                                                 </div>
                                             </ValidationProvider>

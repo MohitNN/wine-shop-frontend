@@ -119,10 +119,6 @@ export default {
             this.totalRows = filteredItems.length;
             this.currentPage = this.getCategory.current_page;
         },
-        updateData(page) {
-            this.$store.dispatch("category/getCategory", page);
-        },
-
         goToEdit(item) {
             this.$router.push('/admin/category/' + item.id);
         },

@@ -33,8 +33,8 @@
 
                             </b-table>
                         </div>
-                        <b-col md="12" class="my-1 p-0 pagination-justify">
-                            <b-pagination v-model="getTypesList.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
+                        <b-col md="12" v-if="getTypesList" class="my-1 p-0 pagination-justify">
+                            <b-pagination v-model="getTypesList.current_page" :total-rows="getTypesList.total" :per-page="getTypesList.per_page" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
                         </b-col>
                     </div>
                 </div>
@@ -117,7 +117,7 @@ export default {
             this.currentPage = this.getTypesList.current_page;
         },
         updateData(page) {
-            this.$store.dispatch("category/getCategory", page);
+            this.$store.dispatch("types/getType", page);
         },
 
         goToEdit(item) {
