@@ -18,11 +18,8 @@
           </li>
           <li class="dropdown">
             <nuxt-link to="/">Home</nuxt-link>
-            <!-- <a href="#" class="nav-link">
-              Home
-            </a> -->
           </li>
-          <li v-for="(category, key) in  categories" class="dropdown" v-if="key < 4" :key="key">
+          <li v-for="(category, key) in  categories.slice(0,4)" class="dropdown"  :key="key">
             <!-- <a href="#" class="nav-link" @click.self="loadProduct('category', category.name)"> -->
             <span class="nav-link category-title" @click.self="loadProduct('category', category.slug)">
               {{category.name}}
@@ -42,7 +39,7 @@
                 <i class="fa fa-angle-down" id="angle-down" v-if="categories && categories.length"></i>
             </span>
             <ul v-if="brand" class="nav-submenu"  style="width: 100vh !important">
-              <li v-for="(category, key) in  categories" v-if="key > 4" :key="key">
+              <li v-for="(category, key) in categories.slice(4)"  :key="key">
                 <span class="sub-category-title">
                   {{category.name}}
                 </span>
@@ -61,7 +58,7 @@
             <ul v-if="brand" class="nav-submenu"  style="width: 100vh !important">
               <li v-for="b in brand" :key="b.id"  @click="loadProduct('brand', b.slug)">
                 <span class="sub-category-title">
-                  {{b.name}}
+                  {{b.name}} 
                 </span>
               </li>
             </ul>

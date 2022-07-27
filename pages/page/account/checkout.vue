@@ -139,7 +139,7 @@
                           <span class="validate-error">{{ errors[0] }}</span>
                         </ValidationProvider>
                       </div>
-                      <div>
+                      <!-- <div>
                         <div
                           class="
                             form-group
@@ -160,7 +160,7 @@
                             >Login</nuxt-link
                           >
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12 col-xs-12">
@@ -343,6 +343,7 @@ import Header from "../../../components/header/header1";
 import Footer from "../../../components/footer/footer1";
 import Breadcrumbs from "../../../components/widgets/breadcrumbs";
 export default {
+  middleware: ["login"],
   components: {
     Header,
     Footer,
