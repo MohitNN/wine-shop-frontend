@@ -79,7 +79,11 @@
                   class="mt-4"
                 ></b-pagination> -->
               </div>
-              <b-col md="12" v-if="getOrdersList" class="pagination-self my-1 p-0 pagination-justify">
+              <b-col
+                md="12"
+                v-if="getOrdersList"
+                class="pagination-self my-1 p-0 pagination-justify"
+              >
                 <b-pagination
                   v-model="getOrdersList.current_page"
                   :total-rows="getOrdersList.total"
@@ -287,19 +291,19 @@ export default {
   background: #ff9999;
 }
 .pagination-custome {
-    ul{
-        margin-bottom: 0 !important;
+  ul {
+    margin-bottom: 0 !important;
     padding-right: 0px !important;
-        li{
-            &:before {
-                display: inline-block !important;
-            }
-        }
+    li {
+      &:before {
+        display: inline-block !important;
+      }
     }
+  }
 }
 </style>
 <style  >
 .pagination-self ul li:before {
-    display: none !important;
+  display: none !important;
 }
 </style>

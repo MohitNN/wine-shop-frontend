@@ -23,7 +23,7 @@
     /> -->
     <Blog />
     <LogoSlider />
-    <Services />
+    <!-- <Services /> -->
     <!-- <Instagram /> -->
     <!-- <Footer /> -->
     <quickviewModel
