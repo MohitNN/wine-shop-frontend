@@ -32,13 +32,13 @@
                       />
                     </nuxt-link>
                     <div class="media-body align-self-center">
-                      <div class="rating">
+                      <!-- <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                      </div>
+                      </div> -->
                       <nuxt-link
                         :to="{ path: '/product/' + product.id }"
                       >
@@ -83,13 +83,13 @@
                       />
                     </nuxt-link>
                     <div class="media-body align-self-center">
-                      <div class="rating">
+                      <!-- <div class="rating">
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star"></i>
-                      </div>
+                      </div> -->
                       <nuxt-link
                         :to="{ path: '/product/' + product.id }"
                       >
@@ -161,11 +161,12 @@ export default {
     // this.allProduct();
   },
   mounted() {
-    this.allProduct();
+    // this.allProduct();
+    this.getIndexProducts();
 
   },
   methods: {
-    ...mapActions('products' , ['allProduct']),
+    ...mapActions('products' , ['allProduct','getIndexProducts']),
     getCategoryProduct(collection) {
       return this.productslist.filter((item) => {
         if (item.collection.find((i) => i === collection)) {

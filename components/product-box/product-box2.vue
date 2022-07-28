@@ -46,13 +46,13 @@
       </div>
     </div>
     <div class="product-detail">
-      <div class="rating">
+      <!-- <div class="rating">
         <i class="fa fa-star"></i>
         <i class="fa fa-star"></i>
         <i class="fa fa-star"></i>
         <i class="fa fa-star"></i>
         <i class="fa fa-star"></i>
-      </div>
+      </div> -->
       <a href="product-page(no-sidebar).html">
         <h6>{{ product.title }}</h6>
       </a>

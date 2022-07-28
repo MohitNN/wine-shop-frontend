@@ -139,7 +139,7 @@ export default {
   mounted() {
     // alert(this.name)
     // alert(this.slug)
-    this.getAllProduct();
+    this.getAllProduct({pageIndex: "page=" + 1});
     this.getBrand();
     this.getCategory();
     this.getSubCategory();
