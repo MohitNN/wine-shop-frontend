@@ -24,14 +24,14 @@
                         <!-- {{product}} -->
                         <div class="product-box2">
                           <div class="media col-12">
-                            <nuxt-link class="d-flex justify-content-center" :to="{ path: '/product/' + product.id }">
+                            <nuxt-link class="w-100 col-6" :to="{ path: '/product/' + product.id }">
                               <img
                                 :src="
                                   getImgUrl(product.product_images[0].image)
                                 "
                                 v-if="product.product_images"
-                                class="img-fluid bg-img col-6"
-                                style="width: 200px !important;"
+                                class="img-fluid bg-img"
+                                
                                 alt
                               />
                             </nuxt-link>
