@@ -50,9 +50,6 @@
         >
           <i class="ti-search" aria-hidden="true"></i>
         </a>
-        <a href="javascript:void(0)" title="Comapre" @click="addToCompare(product)" v-b-modal.modal-compare variant="primary">
-          <i class="ti-reload" aria-hidden="true"></i>
-        </a>
       </div>
     </div>
     <div class="product-detail text-center">

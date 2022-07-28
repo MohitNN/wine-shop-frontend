@@ -14,11 +14,11 @@
             class="img-fluid bg-img"
             :alt="product.title"
             :key="index"
-            style="height: 270px !important; width: 80px !important;"
+            style="height: 270px !important;"
           />
         </nuxt-link>
       </div>
-      <div class="back" style="left:29% !important;">
+      <div class="back ">
         <nuxt-link :to="{ path: '/product/'+product.id}">
           <img
             :src='getImgUrl(imageSrc ? imageSrc :  "165710779030.png")'
@@ -26,7 +26,7 @@
             class="img-fluid bg-img"
             :alt="product.title"
             :key="index"
-            style="height: 270px !important; width: 80px !important;"
+            style="height: 270px !important;"
           />
         </nuxt-link>
       </div>
