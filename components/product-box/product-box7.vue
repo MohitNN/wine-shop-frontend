@@ -47,13 +47,13 @@
         </div>
       </div>
       <div class="product-info">
-        <div class="rating">
+        <!-- <div class="rating">
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
           <i class="fa fa-star"></i>
-        </div>
+        </div> -->
         <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
         <h6>{{ product.title }}</h6>
       </nuxt-link>

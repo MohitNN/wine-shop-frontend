@@ -34,12 +34,12 @@
               </ul>
           </li>
           <li class="dropdown" >
-             <span class="nav-link category-title" @click.self="loadProduct('brands', '')">
+             <span class="nav-link category-title" >
               Other
                 <i class="fa fa-angle-down" id="angle-down" v-if="categories && categories.length"></i>
             </span>
-            <ul v-if="brand" class="nav-submenu"  style="width: 100vh !important">
-              <li v-for="(category, key) in categories.slice(4)"  :key="key">
+            <ul v-if="categories" class="nav-submenu"  style="width: 100vh !important">
+              <li v-for="(category, key) in categories.slice(4)"  :key="key" @click="loadProduct('category', category.slug)">
                 <span class="sub-category-title">
                   {{category.name}}
                 </span>

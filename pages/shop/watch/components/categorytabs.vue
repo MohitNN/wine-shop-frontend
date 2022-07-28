@@ -36,13 +36,13 @@
                               />
                             </nuxt-link>
                             <div class="media-body align-self-center col-6">
-                              <div class="rating">
+                              <!-- <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
-                              </div>
+                              </div> -->
                               <nuxt-link
                                 :to="{ path: '/product/' + product.id }"
                               >
@@ -108,13 +108,13 @@
                               />
                             </nuxt-link>
                             <div class="media-body align-self-center">
-                              <div class="rating">
+                              <!-- <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
-                              </div>
+                              </div> -->
                               <nuxt-link
                                 :to="{ path: '/product/' + product.id }"
                               >

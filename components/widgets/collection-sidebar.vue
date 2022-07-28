@@ -108,7 +108,7 @@
       </div>
     </div>
               <!-- side-bar single product slider start -->
-        <div class="theme-card">
+        <!-- <div class="theme-card">
           <h5 class="title-border">new products</h5>
           <div class="offer-slider slide-1">
             <div v-swiper:mySwiper="swiperOption">
@@ -174,14 +174,14 @@
             </div>
             </div>
           </div>
-        </div>
+        </div> -->
             <!-- side-bar single product slider end -->
             <!-- side-bar banner start here -->
-            <div class="collection-sidebar-banner">
+            <!-- <div class="collection-sidebar-banner">
               <a href="#">
                 <img :src="bannerimagepath" class="img-fluid" />
               </a>
-            </div>
+            </div> -->
             <!-- side-bar banner end here -->
     </div>
     <!-- silde-bar colleps block end here -->
