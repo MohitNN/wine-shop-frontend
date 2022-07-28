@@ -39,7 +39,7 @@
                             </b-table>
                         </div>
                         <b-col md="12" v-if="getBrand" class="my-1 p-0 pagination-justify">
-                            <b-pagination v-model="getBrand.current_page" :total-rows="getBrand.total" :per-page="getBrand.per_page" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
+                            <b-pagination v-model="getBrand.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
                         </b-col>
                     </div>
                 </div>

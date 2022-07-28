@@ -33,8 +33,8 @@
 
                             </b-table>
                         </div>
-                        <b-col md="12" v-if="getCategory.data" class="my-1 p-0 pagination-justify">
-                            <b-pagination v-model="currentPage" :total-rows="getCategory.total" :per-page="getCategory.per_page" aria-controls="my-table" @input="updateData" class="mt-4"></b-pagination>
+                        <b-col md="12" v-if="getCategory" class="my-1 p-0 pagination-justify">
+                            <b-pagination v-model="getCategory.current_page" :total-rows="getCategory.total" :per-page="getCategory.per_page" aria-controls="my-table" @input="updateData" class="mt-4"></b-pagination>
                         </b-col>
                     </div>
                 </div>
@@ -119,10 +119,6 @@ export default {
             this.totalRows = filteredItems.length;
             this.currentPage = this.getCategory.current_page;
         },
-        updateData(page) {
-            this.$store.dispatch("category/getCategory", page);
-        },
-
         goToEdit(item) {
             this.$router.push('/admin/category/' + item.id);
         },

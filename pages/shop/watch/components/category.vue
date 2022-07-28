@@ -80,10 +80,5 @@ export default {
 <style scoped>
 .img-blow{
     height: 250px !important;
-    width: 80px !important;
-    transition: 0.5s;
-}
-.category-wrapper:hover .img-blow{
-    filter: drop-shadow(1px 2px 3px black);
 }
 </style>

@@ -9,5 +9,5 @@
         "appId": "YOUR_API_ID"
 
     },
-    "baseUrl": "http://127.0.0.1:8000/"
+    "baseUrl": "https://api.langkawiliquor.com/"
 }

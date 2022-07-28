@@ -39,8 +39,8 @@
 
                             </b-table>
                         </div>
-                        <b-col md="12" class="my-1 p-0 pagination-justify">
-                            <b-pagination v-model="getSubCategory.current_page" :total-rows="totalRows" :per-page="perPage" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
+                        <b-col md="12" v-if="getSubCategory" class="my-1 p-0 pagination-justify">
+                            <b-pagination v-model="getSubCategory.current_page" :total-rows="getSubCategory.total" :per-page="getSubCategory.per_page" @input="updateData" aria-controls="my-table" class="mt-4"></b-pagination>
                         </b-col>
                     </div>
                 </div>
@@ -134,7 +134,7 @@ export default {
             this.currentPage = this.getSubCategory.current_page;
         },
         updateData(page) {
-            this.$store.dispatch("category/getCategory", page);
+            this.$store.dispatch("subCategory/getSubCategory", page);
         },
         goToEdit(item) {
             this.get_single_subcategory(item)
