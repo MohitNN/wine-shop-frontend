@@ -11,52 +11,14 @@
                   <span></span>
                 </div>
               </div>
-              <!-- <div class="theme-tab">
-                            <b-tabs content-class="mt-3">
-                                <b-tab :title="collection" v-for="(collection,index) in category" :key="index">
-                                    <div class="row product-tab">
-                                        <div class="tab-box" v-for="(product,index) in getCategoryProduct(collection)" :key="index">
-                                            <div class="product-box2">
-                                                <div class="media">
-                                                    <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
-                                                        <img :src="getImgUrl(product.images[0].src)" class="img-fluid bg-img" style="width: 230px !important;" alt />
-                                                    </nuxt-link>
-                                                    <div class="media-body align-self-center">
-                                                        <div class="rating">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-                                                        <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
-                                                            <h6>{{ product.title }}</h6>
-                                                        </nuxt-link>
-                                                        <h4 v-if="product.sale">
-                                                            {{ discountedPrice(product) * curr.curr | currency(curr.symbol) }}
-                                                            <del>{{ product.price * curr.curr | currency(curr.symbol) }}</del>
-                                                        </h4>
-                                                        <h4 v-else>{{ product.price * curr.curr | currency(curr.symbol) }}</h4>
-                                                        <ul class="color-variant">
-                                                            <li v-for="(variant,index) in Color(product.variants)" :key="index">
-                                                                <a :class="[variant]" v-bind:style="{ 'background-color' : variant}"></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </b-tab>
-                            </b-tabs>
-                        </div> -->
+            
               <div class="theme-tab">
                 <b-tabs content-class="mt-3">
                   <b-tab title="NEW ARRIVAL">
-                    <div class="row product-tab">
+                    <div class="row product-tab" v-if="products">
                       <div
                         class="tab-box"
-                        v-for="(product, index) in products"
+                        v-for="(product, index) in products.slice(0,8)"
                         :key="index"
                       >
                         <!-- {{product}} -->
@@ -126,10 +88,10 @@
                   </b-tab>
 
                   <b-tab title="ON SALE">
-                    <div class="row product-tab">
+                    <div class="row product-tab" v-if="products">
                       <div
                         class="tab-box"
-                        v-for="(product, index) in newArrval"
+                        v-for="(product, index) in products.slice(0,8)"
                         :key="index"
                       >
                         <div class="product-box2">
@@ -207,7 +169,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters , mapState } from "vuex";
 import config from "@/config.json";
 
 export default {
@@ -221,11 +183,14 @@ export default {
     ...mapGetters({
       curr: "products/changeCurrency",
     }),
+    productData: (state) => state.products.productData,
     newArrval() {
       const onSell = [];
-      this.products.forEach((ele, index) => {
-        if (ele.onsell == "1" || ele.onsell == 1) onSell.push(ele);
-      });
+      if(this.products) {
+        this.products.forEach((ele, index) => {
+          if (ele.onsell == "1" || ele.onsell == 1) onSell.push(ele);
+        });
+      }
       return onSell;
     },
   },

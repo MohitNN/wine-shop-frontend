@@ -1,6 +1,5 @@
 <template>
   <div>
-   
     <section class="section-b-space">
       <div class="collection-wrapper">
         <div class="container">
@@ -61,8 +60,8 @@
                       </h4>
                       <div class="d-flex align-items-center">
                         <span class="amount mr-3">${{productDetail.price}}</span>
-                        <span class="mr-2"><strike>$1200</strike></span>
-                        <span class="discount">43%</span>
+                        <span class="mr-2"><strike>${{productDetail.fake_price}}</strike></span>
+                        <span class="discount badge" >{{productDetail.discount}} %</span>
                       </div>
                       
                       <div class="product-description border-product">

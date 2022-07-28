@@ -9,6 +9,7 @@ const state = {
     bearerToken: null,
     isAuthenticated: false,
   },
+  userList:[],
 };
 const getters = {};
 const actions = {
@@ -47,6 +48,13 @@ const actions = {
     // localStorage.removeItem("vuex");
     return Promise.resolve();
   },
+  async  getUserList({ commit }, data) {
+    const resp = await axios.get("/api/admin/user-list?page="+data);
+    if(resp.data.status) {
+      commit("SET_USER_LIST" , resp.data.data)
+    }
+    return resp;
+  }
 };
 const mutations = {
   SET_USER(state, data) {
@@ -55,6 +63,9 @@ const mutations = {
       user: data.data,
       isAuthenticated: true,
     };
+  },
+  SET_USER_LIST(state , data) {
+    state.userList = data
   },
   RESET_USER(state) {
     state.user = {

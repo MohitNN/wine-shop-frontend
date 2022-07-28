@@ -27,7 +27,8 @@
               <p>
                 Payment is successfully processsed and your order is on the way
               </p>
-              <p>Transaction ID:{{ order.token }}</p>
+              <p>Order ID:{{ orderId ? orderId : '' }}</p>
+              
             </div>
           </div>
         </div>
@@ -35,7 +36,7 @@
     </section>
     <!-- Section ends -->
     <!-- order-detail section start -->
-    <section class="section-b-space" v-if="order != ''">
+    <!-- <section class="section-b-space" v-if="order != ''">
       <div class="container">
         <div class="row">
           <div class="col-lg-6">
@@ -128,7 +129,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <!-- Section ends -->
     <Footer />
   </div>
@@ -148,6 +149,11 @@ export default {
       cartTotal: "cart/cartTotalAmount",
       curr: "products/changeCurrency",
     }),
+  },
+  data() {
+    return {
+      orderId : this.$route.query.order_id,
+    }
   },
   methods: {
     getImgUrl(path) {

@@ -141,7 +141,7 @@ export default {
     },
     computed: {
         ...mapGetters({
-            getBrand: "brand/getBrand"
+            getBrand: "brand/getBrand",
         }),
         ...mapState('Products', ['productsList']),
         sortOptions() {
@@ -159,6 +159,7 @@ export default {
         this.totalRows = 50;
     },
     methods: {
+        ...mapMutations('Products' , ['SET_TYPE_LIST','SET_SUB_CATEGORY']),
         updateData(page) {
             this.$store.dispatch("Products/getProducts", page);
         },
@@ -173,6 +174,8 @@ export default {
             this.currentPage = 1;
         },
         goToEdit(item) {
+            this.SET_TYPE_LIST(item.type_list);
+            this.SET_SUB_CATEGORY(item.sub_category_list);
             this.$router.push('/admin/product/' + item.id);
         },
 

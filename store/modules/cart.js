@@ -56,6 +56,9 @@ const mutations = {
   removeCartItem: (state, payload) => {
     const index = state.cart.indexOf(payload)
     state.cart.splice(index, 1)
+  },
+  updateCartItems : (state , payload) => {
+    state.cart = [];
   }
 }
 // actions

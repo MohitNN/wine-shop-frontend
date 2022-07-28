@@ -43,82 +43,23 @@
                   hover
                   head-variant="light"
                   bordered
+                  v-if="userList"
                   stacked="md"
-                  :items="orders"
+                  :items="userList.data"
                   :fields="tablefields"
                   :filter="filter"
                   :current-page="currentPage"
                   :per-page="perPage"
                   @filtered="onFiltered"
                 >
-                  <template #cell(images)="field" class="d-flex">
-                    <img
-                      height="50px"
-                      :src="getImgUrl(field.item.images)"
-                      width="50px"
-                    />
-                  </template>
-                  <template #cell(paymentStatus)="field">
-                    <div
-                      v-if="field.item.paymentStatus == 'Cash On Delivered'"
-                      class="badge badge-glow badge-secondary"
-                    >
-                      {{ field.item.paymentStatus }}
-                    </div>
-                    <div
-                      v-if="field.item.paymentStatus == 'Payment Failed'"
-                      class="badge badge-glow badge-danger"
-                    >
-                      {{ field.item.paymentStatus }}
-                    </div>
-                    <div
-                      v-if="field.item.paymentStatus == 'Paid'"
-                      class="badge badge-glow badge-success"
-                    >
-                      {{ field.item.paymentStatus }}
-                    </div>
-                    <div
-                      v-if="
-                        field.item.paymentStatus == 'Awaiting Authentication'
-                      "
-                      class="badge badge-glow badge-warning"
-                    >
-                      {{ field.item.paymentStatus }}
-                    </div>
-                  </template>
-                  <template #cell(orderStatus)="field">
-                    <div
-                      v-if="field.item.orderStatus == 'Shipped'"
-                      class="badge badge-glow badge-primary"
-                    >
-                      {{ field.item.orderStatus }}
-                    </div>
-                    <div
-                      v-if="field.item.orderStatus == 'Cancelled'"
-                      class="badge badge-glow badge-danger"
-                    >
-                      {{ field.item.orderStatus }}
-                    </div>
-                    <div
-                      v-if="field.item.orderStatus == 'Processing'"
-                      class="badge badge-glow badge-warning"
-                    >
-                      {{ field.item.orderStatus }}
-                    </div>
-                    <div
-                      v-if="field.item.orderStatus == 'Delivered'"
-                      class="badge badge-glow badge-success"
-                    >
-                      {{ field.item.orderStatus }}
-                    </div>
-                  </template>
+                 
                 </b-table>
               </div>
-              <b-col md="12" class="my-1 p-0 pagination-justify">
+              <b-col v-if="userList" md="12" class="my-1 p-0 pagination-justify">
                 <b-pagination
-                  v-model="currentPage"
-                  :total-rows="totalRows"
-                  :per-page="perPage"
+                  v-model="userList.current_page"
+                  :total-rows="userList.total"
+                  :per-page="userList.per_page"
                   aria-controls="my-table"
                   class="mt-4"
                 ></b-pagination>
@@ -134,7 +75,7 @@
 <script>
 
 import layout from "@/components/admin/Body.vue";
-import { mapGetters } from "vuex";
+import { mapGetters, mapState } from "vuex";
 
 export default {
   middleware: ["auth"],
@@ -145,13 +86,8 @@ export default {
     return {
       value: "",
       tablefields: [
-        { key: "orderId", label: "Order Id", sortable: true },
-        { key: "images", label: "Product", sortable: false },
-        { key: "paymentStatus", label: "Payment status", sortable: true },
-        { key: "paymentMethod", label: "Payment Method", sortable: true },
-        { key: "orderStatus", label: "Order status", sortable: true },
-        { key: "date", label: "Date", sortable: true },
-        { key: "total", label: "Total", sortable: true }
+        { key: "name", label: "User Name", sortable: true },
+        { key: "email", label: "Email Id", sortable: false },
       ],
 
       filter: null,
@@ -162,12 +98,11 @@ export default {
     };
   },
   created() {
-    this.$store.dispatch("admin_order/getOrders");
+    this.$store.dispatch("admin_adminauth/getUserList" , 1);
   },
   computed: {
-    ...mapGetters({
-      orders: "admin_order/getOrders"
-    }),
+    ...mapState( "admin_adminauth" , ['userList']
+    ),
     sortOptions() {
       // Create an options list from our fields
       return this.tablefields

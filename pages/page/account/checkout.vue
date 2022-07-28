@@ -3,6 +3,7 @@
     <Breadcrumbs title="Checkout" />
     <section class="section-b-space">
       <div class="container">
+        <!-- {{cartProducts}} -->
         <div class="checkout-page">
           <div class="checkout-form">
             <ValidationObserver v-slot="{ invalid }">
@@ -138,7 +139,7 @@
                           <span class="validate-error">{{ errors[0] }}</span>
                         </ValidationProvider>
                       </div>
-                      <div>
+                      <!-- <div>
                         <div
                           class="
                             form-group
@@ -159,7 +160,7 @@
                             >Login</nuxt-link
                           >
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                   <div class="col-lg-6 col-sm-12 col-xs-12">
@@ -201,7 +202,7 @@
                           <li v-if="promoData && promoData.promo_value">
                             You have To save 
                             <span class="count">{{
-                              100 | currency(curr.symbol)
+                              promoData.promo_value | currency(curr.symbol)
                             }}</span>
                           </li>
                           <hr/>
@@ -229,6 +230,9 @@
                               Apply Coupon Code
                             </b-button>
                           </b-input-group-append>
+                          <div v-if="promoData" class="badge badge-glow badge-success mt-2 p-2" style="font-size:18px"> 
+                             <span>{{promoCode}}</span><span class="ml-2 " style="cursor: pointer;" @click="removePromocode()"><i class="fa fa-close"></i></span>  
+                          </div>
                         </b-input-group>
                         <ul class="sub-total">
                           <li>
@@ -260,11 +264,11 @@
                               >
                                 <label
                                   for="validationCustom02"
-                                  class="col-xl-2 col-sm-2 mb-0"
+                                  class="col-xl-5 col-sm-5 mb-0"
                                   >Upload Payment Screenshot :</label
                                 >
                                 <input
-                                  class="form-control col-xl-8 col-sm-7"
+                                  class="form-control col-xl-7 col-sm-7"
                                   name="file"
                                   id="validationCustom02"
                                   ref="file"
@@ -321,6 +325,7 @@
             </ValidationObserver>
           </div>
         </div>
+        
       </div>
     </section>
     <Footer />
@@ -332,12 +337,13 @@ import {
   ValidationProvider,
   ValidationObserver,
 } from "vee-validate/dist/vee-validate.full.esm";
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions , mapMutations } from "vuex";
 import Loader from "@/assets/images/LoaderProcess.gif";
 import Header from "../../../components/header/header1";
 import Footer from "../../../components/footer/footer1";
 import Breadcrumbs from "../../../components/widgets/breadcrumbs";
 export default {
+  middleware: ["login"],
   components: {
     Header,
     Footer,
@@ -360,7 +366,7 @@ export default {
       image: "",
       promoCode: "",
       btnLoading: false,
-      promoData:{},
+      promoData:null,
       loaderImg: Loader,
       previewimg: {
         preview: null,
@@ -393,9 +399,12 @@ export default {
       },
       amtchar: "",
     };
+  },  
+  mounted() {
+    // this.updateCartItems();
   },
-  mounted() {},
   methods: {
+    ...mapMutations('cart' , ['updateCartItems']),
     ...mapActions("products", ["makeOrder"]),
     ...mapActions("gloable", ["setLoading"]),
     ...mapActions("coupon", ["checkPromoCode"]),
@@ -457,7 +466,10 @@ export default {
       formData.append("first_name", this.user.first_name);
       formData.append("last_name", this.user.last_name);
       formData.append("phone", this.user.phone);
-      formData.append("total", this.cartTotal);
+      formData.append("total", this.promoData && this.promoData.promo_applye ? this.promoData.total  : this.cartTotal );
+      if (this.promoData && this.promoData.promo_code) {
+        formData.append("promo_code", this.promoData.promo_code );
+      }
       formData.append("total_product", this.cart.length);
       if (this.user.products.length) {
         this.user.products.forEach((element, index) => {
@@ -471,7 +483,8 @@ export default {
         .then((resp) => {
           if (resp.data.status) {
             this.setLoading(false);
-            this.$router.push("order-success");
+            this.updateCartItems();
+            this.$router.push("order-success?order_id="+ resp.data.data.order_id);
           }
         })
         .catch((error) => {});
@@ -483,6 +496,7 @@ export default {
           .then((resp) => {
              if(resp.data.status) {
                this.btnLoading = false;
+              //  this.promoCode = '';
                this.promoData = resp.data.data;
                this.$toast.success("Your Promocode Applye succesfully");
              }
@@ -491,11 +505,16 @@ export default {
            if(error.response.data) {
              this.$toast.error(error.response.data.message); 
            }  
+           this.promoData = '';
            this.btnLoading = false;
           });
       } else {
         alert("Please Enter Valid Promocode");
       }
+    },
+    removePromocode() {
+       this.promoCode = '';
+       this.promoData = null
     },
     fileselected(e) {
       if (this.$refs.file.files[0]) {

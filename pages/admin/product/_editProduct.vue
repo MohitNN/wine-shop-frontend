@@ -187,8 +187,10 @@ export default {
         this.init()
     },
     methods: {
-        init() {
-            this.getSingleProduct(this.$route.params.editProduct).then((resp) => {
+        async init() {
+            await this.getAllCategory()
+        await this.getBrand();
+            await this.getSingleProduct(this.$route.params.editProduct).then((resp) => {
                 if (resp.data.status) {
                     this.products = resp.data.data
                 }
@@ -284,6 +286,8 @@ export default {
             })
         },
         getCategoryTotype(data) {
+            this.products.type_id = '';
+            this.products.sub_category_id = '';
             this.getTypeFormCategory(data);
         },
     },

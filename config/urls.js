@@ -1,6 +1,6 @@
 let API_URL, FILE_URL
-API_URL = 'http://127.0.0.1:8000/'
-FILE_URL = 'http://127.0.0.1:8000/'
+API_URL = 'https://api.langkawiliquor.com/'
+FILE_URL = 'https://api.langkawiliquor.com/'
 
 export const baseURL = {
     API_URL, FILE_URL

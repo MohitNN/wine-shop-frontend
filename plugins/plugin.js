@@ -12,6 +12,9 @@ import 'vue-select/dist/vue-select.css';
 import VueFeather from 'vue-feather';
 import { VueEditor } from "vue2-editor";
 import VueSweetalert2 from 'vue-sweetalert2';
+import Pagination from 'vue-pagination-2';
+Vue.component('pagination', Pagination);
+
 
 // If you don't need the styles, do not connect
 import 'sweetalert2/dist/sweetalert2.min.css';

@@ -71,7 +71,7 @@
                 <div>
                   <div
                     class="media"
-                    v-for="(product, index) in newProducts.slice(3, 3)"
+                    v-for="(product, index) in newProducts.slice(3, 6)"
                     :key="index"
                   >
                    <nuxt-link :to="{ path: '/product/' + product.id }">
@@ -150,7 +150,7 @@ export default {
     ...mapState({
       productslist: (state) => state.products.productslist,
       currency: (state) => state.products.currency,
-      newProducts: (state) => state.products.productData,
+      newProducts: (state) => state.products.indexProductsList,
     }),
     ...mapGetters({
       filterbyCategory: "filter/filterbyCategory",

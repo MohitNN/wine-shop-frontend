@@ -1,6 +1,5 @@
 <template>
   <div>
-   
     <section class="section-b-space">
       <div class="collection-wrapper">
         <div class="container">

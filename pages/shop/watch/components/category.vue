@@ -12,7 +12,7 @@
                         <div class="col-12" v-swiper:mySwiper="swiperOption">
                             <div class="swiper-wrapper category-m">
                                 <div class="col-4 swiper-slide m-0" v-for="(item, index) in topProductList" :key="index">
-                                    <div class="category-wrapper">
+                                    <div class="category-wrapper" @click="redirectPage(item.id)">
                                         <div>
                                             <div v-if="item.product_images">
                                                 <img :src="getImageUrl(item.product_images[0].image)" class="img-fluid bg-img img-blow" alt />
@@ -20,7 +20,7 @@
                                             <h4>{{item.product_name}}</h4>
                                             <div v-html="item.description">
                                             </div>
-                                            <a href="#" class="btn btn-outline">view more</a>
+                                            <a href="javascript:void(0)" @click="redirectPage(item.id)" class="btn btn-outline">view more</a>
                                         </div>
                                     </div>
                                 </div>
@@ -70,6 +70,9 @@ export default {
     methods: {
         getImageUrl(path) {
             return config.baseUrl + "products/" + path;
+        },
+        redirectPage(id) {
+            this.$router.push({ path: '/product/' + id })
         }
     }
 }
@@ -77,10 +80,5 @@ export default {
 <style scoped>
 .img-blow{
     height: 250px !important;
-    width: 80px !important;
-    transition: 0.5s;
-}
-.category-wrapper:hover .img-blow{
-    filter: drop-shadow(1px 2px 3px black);
 }
 </style>
