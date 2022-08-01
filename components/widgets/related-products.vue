@@ -44,7 +44,7 @@ export default {
     data() {
         return {
             title: 'Related Products',
-            products: [],
+            Products: [],
             showquickviewmodel: false,
             showcomparemodal: false,
             showcartmodal: false,
@@ -74,7 +74,7 @@ export default {
             this.productslist.map((item) => {
                 if (item.type === this.productTYpe) {
                     if (item.id !== this.productId) {
-                        this.products.push(item)
+                        this.Products.push(item)
                     }
                 }
             })

@@ -15,8 +15,8 @@
                                         <div class="form">
                                             <ValidationProvider rules="required" v-slot="{ errors }" name="name">
                                                 <div class="form-group mb-0 row">
-                                                    <label for="exampleFormControlSelect1" class="col-xl-3 pl-4 col-sm-4 mb-0">Select Category :</label>
-                                                    <v-select name="Category" placeholder="Select Type" v-model="type.category_id" class="col-xl-8 col-sm-7 p-0" :options="getCategoryList.data" :reduce="(c) => c.id" label="name" index="id"></v-select>
+                                                    <label for="exampleFormControlSelect1" class="col-xl-3 pl-0 pl-lg-4 pl-md-4 pl-xl-4 col-sm-4 mb-0">Select Category :</label>
+                                                    <v-select name="Category" placeholder="Select Type" v-model="type.category_id" class="col-xl-8 col-sm-7 pl-0 pl-lg-4 pl-md-4 pl-xl-4" :options="getCategoryList.data" :reduce="(c) => c.id" label="name" index="id"></v-select>
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>

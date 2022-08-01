@@ -38,6 +38,7 @@
                               :key="index"
                             >
                               <img
+                                
                                 :src="getImgUrl(product.image)"
                                 :id="product.image_id"
                                 class="img-fluid bg-img"
