@@ -273,7 +273,6 @@ export default {
             };
             reader.readAsDataURL(file);
         },
-
         removeImage: function (index) {
             //   this.image.splice(index, 1);
             //   var output = document.getElementById("sawImg");
