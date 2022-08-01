@@ -7,11 +7,11 @@
           <div class="col-lg-3">
             <sidebar @allFilters="allfilter" />
           </div>
-          <div class="collection-content col">
+          <div class="collection-content">
             <div v-swiper:mySwiper="swiperOption">
               <div class="row">
                 <div
-                  class="swiper-slide col-3 my-3"
+                  class="swiper-slide col-12 col-lg-3 col-xl-3 col-md-4 my-3"
                   v-for="(product, index) in productData.data"
                   :key="index"
                 >
@@ -32,7 +32,7 @@
               <b-col
                 md="12"
                 v-if="productData"
-                class="my-1 p-0 pagination-justify justify-content-center"
+                class="my-1 p-0 d-flex align-items-center pagination-justify justify-content-center"
               >
                 <b-pagination
                   v-model="productData.current_page"
