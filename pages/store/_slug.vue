@@ -11,7 +11,7 @@
             <div v-swiper:mySwiper="swiperOption">
               <div class="row" v-if="productData.data.length && productData.data">
                 <div
-                  class="swiper-slide col-12 col-lg-3 col-xl-3 col-md-4 my-3"
+                  class="swiper-slide col-12 col-lg-3 col-xl-3 col-md-4"
                   v-for="(product, index) in productData.data"
                   :key="index"
                 >

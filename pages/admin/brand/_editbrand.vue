@@ -42,7 +42,7 @@
                                                 <img v-if="image" :src="image" width="100px" height="100px" />
                                             </div>
                                             <ValidationProvider rules="required" v-slot="{ errors }" name="detail">
-                                                <div class="form-group mb-0 d-flex">
+                                                <div class="form-group mb-0 d-lg-flex d-md-flex d-xl-flex">
                                                     <label class="col-xl-3 col-sm-4">Detail :</label>
                                                     <div class=" col-xl-8 col-sm-7 editor-vue">
                                                         <vue-editor name="detail" v-model="brand.detail"></vue-editor>
