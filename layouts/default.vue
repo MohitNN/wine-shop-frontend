@@ -21,7 +21,7 @@ import VueElementLoading from "vue-element-loading";
 export default {
   head() {
     return {
-      title: "Black Wine Shop",
+      title: "Langkawi Liquor",
     };
   },
   data() {

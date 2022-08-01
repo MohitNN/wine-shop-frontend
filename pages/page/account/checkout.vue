@@ -312,7 +312,7 @@
                           <button
                             type="submit"
                             class="btn-solid btn"
-                            :disabled="invalid"
+                            :disabled="invalid && user.file == null"
                           >
                             Place Order
                           </button>
@@ -376,6 +376,7 @@ export default {
         last_name: "",
         phone: "",
         email: "",
+        file:null,
         address: "",
         city: "",
         state: "",

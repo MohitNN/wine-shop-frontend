@@ -24,23 +24,24 @@
                           <input
                             type="text"
                             class="form-control"
+                            ref="serachBox"
                             v-model="searchString"
-                            @keyup="searchProduct"
                             placeholder="Search a Product"
                           >
+                            <!-- @keyup="searchProduct" -->
                         </div>
-                        <button type="submit" class="btn btn-primary">
-                          <i class="fa fa-search"></i>
+                        <button type="button" class="btn btn-primary" @click="ProductSerachList()">
+                           <i class="d-block ti-search " style="color:white;font-weight:1000"></i>
                         </button>
                       </form>
-                      <ul class="search-results" v-if="searchItems.length">
+                      <!-- <ul class="search-results" v-if="searchItems.length">
                         <li v-for="(product,index) in searchItems" :key="index" class="product-box">
                           <div class="img-wrapper">
-                            <!-- <img
+                            <img
                               :src='getImgUrl(product.images[0].src)'
                               class="img-fluid bg-img"
                               :key="index"
-                            /> -->
+                            />
                           </div>
                           <div class="product-detail">
                             <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
@@ -49,7 +50,7 @@
                             <h4>{{ product.price * curr.curr | currency(curr.symbol) }}</h4>
                           </div>
                         </li>
-                      </ul>
+                      </ul> -->
                     </div>
                   </div>
                 </div>
@@ -112,7 +113,7 @@
   </div>
 </template>
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters ,mapActions } from 'vuex'
 export default {
   data() {
     return {
@@ -132,6 +133,7 @@ export default {
     })
   },
   methods: {
+    ...mapActions('products',['getSerchData']),
     getImgUrl(path) {
       return require('@/assets/images/' + path)
     },
@@ -143,6 +145,25 @@ export default {
     },
     searchProduct() {
       this.$store.dispatch('products/searchProduct', this.searchString)
+    },
+    ProductSerachList() {
+      if(this.searchString) {
+        //  this.getSerchData({search:this.searchString}).then((resp) => {
+        //   if(resp.data.status) {
+
+        //   }
+        //  }) 
+        this.loadProduct('search', this.searchString)
+        this.search = false    
+      } else {
+        this.$swal({
+          icon: "error",
+          title: "Oops...",
+          text: "Please Enter Text",
+        });
+        this.$refs.serachBox.focus();
+        return
+      }
     },
     removeCartItem: function (product) {
       this.$store.dispatch('cart/removeCartItem', product)

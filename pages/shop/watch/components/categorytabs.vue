@@ -108,13 +108,7 @@
                               />
                             </nuxt-link>
                             <div class="media-body align-self-center">
-                              <!-- <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                              </div> -->
+                              
                               <nuxt-link
                                 :to="{ path: '/product/' + product.id }"
                               >
@@ -136,6 +130,9 @@
                                     | currency(curr.symbol) 
                                 }} -->
                                 ${{ product.price }}
+                              </h4>
+                              <h4 class="text-danger"> 
+                                {{product.discount}} %
                               </h4>
                               <!-- <ul class="color-variant">
                                 <li

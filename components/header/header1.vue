@@ -17,7 +17,7 @@
                 </div>
                 <div class="brand-logo">
                   <nuxt-link :to="{ path: '/'}">
-                    <img :src='"@/assets/images/icon/logo.png"' class="img-fluid" alt />
+                    <img :src='"@/assets/images/icon/LogoSIte.png"' height="75" style="height:75px" class="img-fluid" alt />
                   </nuxt-link>
                 </div>
               </div>

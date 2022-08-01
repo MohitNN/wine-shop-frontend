@@ -29,7 +29,7 @@
               :value="brand.id"
               :id="'brand'+brand.id"
               v-model="filters.brand_id"
-              @change="appliedFilter()" />
+              @change="appliedFilter(brand.name , brand.slug , 'brand')" />
               <label class="custom-control-label" v-bind:for="'brand'+brand.id">{{brand.name}}</label>
             </div>
           </div>
@@ -54,7 +54,7 @@
               :value="category.id"
               :id="'category'+category.id"
               v-model="filters.category_id"
-              @change="appliedFilter()" />
+              @change="appliedFilter(category.name , category.slug , 'category')" />
               <label class="custom-control-label" v-bind:for="'category'+category.id">{{category.name}}</label>
             </div>
           </div>
@@ -250,15 +250,19 @@ export default {
       const price = product.price - (product.price * product.discount / 100)
       return price
     },
-    appliedFilter() {
+    appliedFilter(name , slug , type) {
       let isFilter = false
+      let data = {};
       Object.keys(this.filters).forEach(key => {
         if (this.filters[key].length) {
           isFilter = true
+          data.name = name
+          data.slug = slug
+          data.type = type
           return false;
         }
       });
-      this.$emit('allFilters', {filter : this.filters, isFilter})
+      this.$emit('allFilters', {filter : this.filters, isFilter , selected_name:data})
     }
   }
 }
