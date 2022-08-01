@@ -13,7 +13,7 @@
                     <div class="bar-style">
                     </div>
                   </a>
-                  <LeftSidebar :leftSidebarVal="leftSidebarVal" @closeVal="closeBarValFromChild" />
+                  <!-- <LeftSidebar :leftSidebarVal="leftSidebarVal" @closeVal="closeBarValFromChild" /> -->
                 </div>
                 <div class="brand-logo">
                   <nuxt-link :to="{ path: '/'}">
@@ -40,7 +40,7 @@ import HeaderWidgets from '../widgets/header-widgets'
 export default {
   data() {
     return {
-      leftSidebarVal: false
+      leftSidebarVal: true
     }
   },
   components: {

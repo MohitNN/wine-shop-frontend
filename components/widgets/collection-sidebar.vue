@@ -199,7 +199,7 @@ export default {
       value: [0, 999998],
       applyFilter: [],
       activeItem: 'category',
-      filter: true,
+      filter: false,
       swiperOption: {
         loop: false,
         navigation: {
