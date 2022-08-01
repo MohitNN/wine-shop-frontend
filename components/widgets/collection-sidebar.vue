@@ -136,7 +136,7 @@
         </div>
 
         <!-- price filter start here -->
-        <div class="collection-collapse-block border-0 open">
+        <!-- <div class="collection-collapse-block border-0 open">
           <h3 class="collapse-block-title" v-b-toggle.price>price</h3>
           <b-collapse
             id="price"
@@ -157,7 +157,7 @@
               </div>
             </div>
           </b-collapse>
-        </div>
+        </div> -->
       </div>
       <!-- side-bar single product slider start -->
       <!-- <div class="theme-card">

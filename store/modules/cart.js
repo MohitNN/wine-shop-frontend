@@ -16,7 +16,6 @@ const getters = {
 // mutations
 const mutations = {
   addToCart: (state, payload) => {
-    alert(JSON.stringify(payload))
     const cartItems = state.cart.find(item => item.id === payload.id)
     const qty = payload.quantity ? payload.quantity : 1
     if (cartItems) {

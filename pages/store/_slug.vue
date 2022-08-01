@@ -7,9 +7,9 @@
           <div class="col-lg-3">
             <sidebar @allFilters="allfilter" />
           </div>
-          <div class="collection-content">
+          <div class="col-lg-9 collection-content">
             <div v-swiper:mySwiper="swiperOption">
-              <div class="row">
+              <div class="row" v-if="productData.data.length && productData.data">
                 <div
                   class="swiper-slide col-12 col-lg-3 col-xl-3 col-md-4 my-3"
                   v-for="(product, index) in productData.data"
@@ -28,10 +28,13 @@
                   </div>
                 </div>
               </div>
+              <div v-else class="row justify-content-center">
+                  <h2>No Products Avaliable</h2>
+              </div>
 
               <b-col
                 md="12"
-                v-if="productData"
+                v-if="productData && productData.current_page > 1"
                 class="my-1 p-0 d-flex align-items-center pagination-justify justify-content-center"
               >
                 <b-pagination
@@ -139,7 +142,7 @@ export default {
   mounted() {
     // alert(this.name)
     // alert(this.slug)
-    // this.getAllProduct({pageIndex: "page=" + 1});
+    this.getAllProduct({pageIndex: "page=" + 1});
     this.getBrand();
     this.getCategory();
     this.getSubCategory();

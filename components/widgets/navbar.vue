@@ -14,7 +14,7 @@
             </div>
           </li>
           <li v-for="(menuItem, index) in categories.slice(0, 4)" :key="index" :class="categories.length ? 'mega-menu' : 'dropdown'">
-            <a  style="cursor: pointer;" href="javascript:void(0)" class="nav-link" @click="setActive(menuItem.name) , loadProduct('category', menuItem.slug)">
+            <a  style="cursor: pointer;" href="javascript:void(0)" class="nav-link" @click="setActive(menuItem.name) ">
               {{menuItem.name}}
               <span class="sub-arrow" v-if="menuItem.types"></span>
             </a>
@@ -61,6 +61,36 @@
                 </div>
               </div>
             </div>
+          </li>
+          
+          <li class="dropdown">
+            <a  style="cursor: pointer;" href="javascript:void(0)" class="nav-link" >
+              Other
+              <span class="sub-arrow" v-if="categories && categories.length"></span>
+            </a>
+            <ul class="nav-submenu"  v-if="categories">
+              <li v-for="(childrenItem, index) in categories.slice(4)" :key="index">
+                <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.name) , loadProduct('category', childrenItem.slug)">
+                  {{childrenItem.name}}
+                </a>
+                <!-- :to="{ path: childrenItem.path}" -->
+              </li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a  style="cursor: pointer;" href="javascript:void(0)" class="nav-link" >
+              Brands
+              <span class="sub-arrow" v-if="brand && brand.length"></span>
+            </a>
+            <ul class="nav-submenu"  v-if="brand">
+              <li v-for="(childrenItem, index) in brand" :key="index">
+                <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.name) , loadProduct('brand', childrenItem.slug)">
+                  {{childrenItem.name}}
+                </a>
+                <!-- :to="{ path: childrenItem.path}" -->
+              </li>
+            </ul>
           </li>
         </ul>
       </div>
