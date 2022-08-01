@@ -139,7 +139,7 @@ export default {
   mounted() {
     // alert(this.name)
     // alert(this.slug)
-    this.getAllProduct({pageIndex: "page=" + 1});
+    // this.getAllProduct({pageIndex: "page=" + 1});
     this.getBrand();
     this.getCategory();
     this.getSubCategory();
@@ -184,9 +184,11 @@ export default {
       this.allProduct({ type, name, pageIndex: "page=" + page });
     },
     allfilter(data) {
-      const type = this.slug;
-      const name = this.name;
-      this.allProduct({ ...data, type, name, pageIndex: "page=1" });
+      const type = data.selected_name.type;
+      const name = data.selected_name.slug;
+      const slug = data.selected_name.slug;
+      this.loadProduct(type , slug)
+      // this.allProduct({ ...data, type, name, pageIndex: "page=1" });
     },
   },
 };

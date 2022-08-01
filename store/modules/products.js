@@ -21,6 +21,7 @@ const state = {
   productData: [],
   topProductList: [],
   productDetail: {},
+  serchProductList: [],
 }
 // getters
 const getters = {
@@ -125,6 +126,9 @@ const mutations = {
   SET_PRODUCT_indexList(state , value) {
     state.indexProductsList=value
   },
+  SET_SERACH_LIST(state , value) {
+    state.serchProductList=value
+  },
 }
 // actions
 const actions = {
@@ -174,6 +178,15 @@ const actions = {
     const resp = await axios.post(url, data)
     if (resp.data.status) {
       commit('SET_PRODUCT_indexList',resp.data.data)
+    }
+    return resp;
+  },
+
+  async getSerchData({ commit, dispatch }, data) {
+    var url = "/api/get-serch-data"
+    const resp = await axios.post(url, data)
+    if (resp.data.status) {
+      commit('SET_SERACH_LIST',resp.data.data)
     }
     return resp;
   },

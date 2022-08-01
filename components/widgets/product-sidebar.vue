@@ -83,13 +83,7 @@
                       />
                     </nuxt-link>
                     <div class="media-body align-self-center">
-                      <!-- <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div> -->
+                      
                       <nuxt-link
                         :to="{ path: '/product/' + product.id }"
                       >
@@ -111,6 +105,9 @@
                           product.price
                         }}
                       </h4>
+                      <div class="badge-danger"> 
+                        {{product.discount}}
+                      </div>
                     </div> 
                   </div>
                 </div>

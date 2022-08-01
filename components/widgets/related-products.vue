@@ -6,7 +6,7 @@
                 <h2>{{ title }}</h2>
             </div>
             <div class="row m-0">
-                <div class="col-xl-2 col-md-4 col-sm-6" v-for="(product,index) in products" :key="index">
+                <div class="col-xl-2 mb-3 col-md-4 col-sm-6" v-for="(product,index) in products" :key="index">
                     <div class="product-box">
                         <!-- <productBox1 @opencartmodel="showCart" @showCompareModal="showCoampre" @openquickview="showQuickview" @showalert="alert" @alertseconds="alert" :product="product" :index="index" /> -->
                         <productBox1 @opencartmodel="showCart" @showCompareModal="showCoampre" @openquickview="showQuickview" @showalert="alert" @alertseconds="alert" :product="product" :index="index" />

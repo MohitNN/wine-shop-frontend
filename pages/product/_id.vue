@@ -23,7 +23,6 @@
                             :src="getImgUrl(product.image)"
                             :id="product.image_id"
                             class="img-fluid bg-img"
-                            style="height: 523px !important;"
                             :alt="product.alt"
                           />
                         </div>
@@ -39,7 +38,6 @@
                               :key="index"
                             >
                               <img
-                                style="width: 138px !important; height: 150px !important; padding: 10px;"
                                 :src="getImgUrl(product.image)"
                                 :id="product.image_id"
                                 class="img-fluid bg-img"

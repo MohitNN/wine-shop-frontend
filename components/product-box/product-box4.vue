@@ -2,7 +2,7 @@
   <div>
     <div class="img-wrapper">
       <div class="lable-block">
-        <span class="lable4" v-if="product.onsell == '1' || product.onsell == 1">on sale</span>
+        <span class="lable4 badge-primary" v-if="product.onsell == '1' || product.onsell == 1">on sale</span>
         <span class="lable3" v-else>new</span>
       </div>
       <div class="front text-center">
@@ -95,6 +95,7 @@ export default {
       compareProduct: {},
       showquickview: false,
       showCompareModal: false,
+      cartProduct:{},
       cartval: false,
       variants: {
         productId: '',
@@ -118,8 +119,10 @@ export default {
     },
     addToCart: function (product) {
       this.cartval = true
+      this.cartProduct = product
+      this.cartProduct.quantity = 1;
       this.$emit('opencartmodel', this.cartval)
-      this.$store.dispatch('cart/addToCart', product)
+      this.$store.dispatch('cart/addToCart', this.cartProduct)
     },
     addToWishlist: function (product) {
       this.dismissCountDown = this.dismissSecs

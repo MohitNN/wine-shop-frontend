@@ -11,7 +11,7 @@
                     <div v-if="topProductList">
                         <div class="col-12" v-swiper:mySwiper="swiperOption">
                             <div class="swiper-wrapper category-m">
-                                <div class="col-4 swiper-slide m-0" v-for="(item, index) in topProductList" :key="index">
+                                <div class="col-12 col-lg-4 col-md-6 swiper-slide m-0" v-for="(item, index) in topProductList" :key="index">
                                     <div class="category-wrapper" @click="redirectPage(item.id)">
                                         <div>
                                             <div v-if="item.product_images">

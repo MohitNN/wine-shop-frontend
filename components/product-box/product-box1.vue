@@ -85,6 +85,7 @@ export default {
         addToCart: function (product) {
             this.cartval = true
             this.cartProduct = product
+            this.cartProduct.quantity = 1
             this.$emit('opencartmodel', this.cartval, this.cartProduct)
             this.$store.dispatch('cart/addToCart', product)
         },

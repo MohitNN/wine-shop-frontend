@@ -20,7 +20,6 @@ const _752317c5 = () => interopDefault(import('..\\pages\\admin\\sub_category\\i
 const _3ea5ec3e = () => interopDefault(import('..\\pages\\admin\\translation.vue' /* webpackChunkName: "pages/admin/translation" */))
 const _36e2b488 = () => interopDefault(import('..\\pages\\admin\\type\\index.vue' /* webpackChunkName: "pages/admin/type/index" */))
 const _69ef8357 = () => interopDefault(import('..\\pages\\admin\\user\\index.vue' /* webpackChunkName: "pages/admin/user/index" */))
-const _08311caa = () => interopDefault(import('..\\pages\\blog\\blog-detail.vue' /* webpackChunkName: "pages/blog/blog-detail" */))
 const _10c5978b = () => interopDefault(import('..\\pages\\blog\\blog-leftsidebar.vue' /* webpackChunkName: "pages/blog/blog-leftsidebar" */))
 const _37eecdde = () => interopDefault(import('..\\pages\\blog\\blog-nosidebar.vue' /* webpackChunkName: "pages/blog/blog-nosidebar" */))
 const _6d1ffbcc = () => interopDefault(import('..\\pages\\blog\\blog-rightsidebar.vue' /* webpackChunkName: "pages/blog/blog-rightsidebar" */))
@@ -192,10 +191,6 @@ export const routerOptions = {
     path: "/admin/user",
     component: _69ef8357,
     name: "admin-user"
-  }, {
-    path: "/blog/blog-detail",
-    component: _08311caa,
-    name: "blog-blog-detail"
   }, {
     path: "/blog/blog-leftsidebar",
     component: _10c5978b,

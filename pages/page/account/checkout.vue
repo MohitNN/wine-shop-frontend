@@ -218,7 +218,7 @@
                         </ul>
                         <b-input-group prepend="" class="mt-3 mb-3">
                           <b-form-input
-                            class="col-7"
+                            class="col-12 col-lg-7 col-xl-7 col-md-7"
                             v-model="promoCode"
                           ></b-form-input>
                           <b-input-group-append>
@@ -312,7 +312,7 @@
                           <button
                             type="submit"
                             class="btn-solid btn"
-                            :disabled="invalid"
+                            :disabled="invalid && user.file == null"
                           >
                             Place Order
                           </button>
@@ -376,6 +376,7 @@ export default {
         last_name: "",
         phone: "",
         email: "",
+        file:null,
         address: "",
         city: "",
         state: "",

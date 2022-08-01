@@ -23,6 +23,7 @@
                             :id="product.image_id"
                             class="img-fluid bg-img"
                             :alt="product.alt"
+                            style="height: auto !important;"
                           />
                         </div>
                       </div>

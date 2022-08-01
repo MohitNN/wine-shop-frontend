@@ -12,7 +12,7 @@
                     <ul class="qty">
                         <li class="d-flex justify-content-between">
                             <div style="font-size: 18px;font-weight: bold;">Order Id : </div>
-                            <span>{{
+                            <span style="word-break: break-all;">{{
                               order.order_id
                             }}</span>
                         </li>
@@ -40,7 +40,7 @@
                     <ul class="qty" style="margin-bottom:0px !important;">
                         <li class="d-flex justify-content-between">
                             <div style="font-size: 18px;font-weight: bold;">Created at : </div>
-                            <span>{{
+                            <span style="word-break: break-all;">{{
                               order.created_at
                             }}</span>
                         </li>
