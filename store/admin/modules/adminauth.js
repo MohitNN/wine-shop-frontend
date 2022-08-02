@@ -54,6 +54,13 @@ const actions = {
       commit("SET_USER_LIST" , resp.data.data)
     }
     return resp;
+  } ,
+  async  changePassword({ dispatch }, data) {
+    const resp = await axios.post("/api/changepassword",data);
+    if(resp.data.status) {
+      dispatch("reset")
+    }
+    return resp;
   }
 };
 const mutations = {
