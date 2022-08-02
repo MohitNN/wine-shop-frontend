@@ -553,11 +553,14 @@ header{
           &:hover{
             .nav-submenu{
               display: block;
+              height: 350px;
+              overflow-y: scroll;
             }
             .mega-menu-container{
               min-height: 35vh;
               padding-bottom: 20px;
               display: block;
+              z-index: 1;
             }
           }
         }

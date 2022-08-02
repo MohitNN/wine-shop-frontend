@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Header />
     <Breadcrumbs title="Forget Password" />
     <section class="pwd-page section-b-space">
       <div class="container">
@@ -32,17 +31,12 @@
         </div>
       </div>
     </section>
-    <Footer />
   </div>
 </template>
 <script>
-import Header from '../../../components/header/header1'
-import Footer from '../../../components/footer/footer1'
 import Breadcrumbs from '../../../components/widgets/breadcrumbs'
 export default {
   components: {
-    Header,
-    Footer,
     Breadcrumbs
   },
   data() {
