@@ -273,7 +273,6 @@
                                   id="validationCustom02"
                                   ref="file"
                                   type="file"
-                                  required=""
                                   @change="fileselected"
                                 />
                               </div>
@@ -312,7 +311,7 @@
                           <button
                             type="submit"
                             class="btn-solid btn"
-                            :disabled="invalid && user.file == null"
+                            :disabled="invalid"
                           >
                             Place Order
                           </button>
@@ -456,39 +455,47 @@ export default {
       console.log("You cancelled a window");
     },
     onSubmit() {
-      this.setLoading(true);
-      this.user.products = this.cartProducts;
-      var formData = new FormData();
-      formData.append("address", this.user.address);
-      formData.append("city", this.user.city);
-      formData.append("country", this.user.country);
-      formData.append("email", this.user.email);
-      formData.append("file", this.user.file);
-      formData.append("first_name", this.user.first_name);
-      formData.append("last_name", this.user.last_name);
-      formData.append("phone", this.user.phone);
-      formData.append("total", this.promoData && this.promoData.promo_applye ? this.promoData.total  : this.cartTotal );
-      if (this.promoData && this.promoData.promo_code) {
-        formData.append("promo_code", this.promoData.promo_code );
-      }
-      formData.append("total_product", this.cart.length);
-      if (this.user.products.length) {
-        this.user.products.forEach((element, index) => {
-          formData.append("products[" + index + "]", JSON.stringify(element));
+      if(this.user.file != null) {
+        this.setLoading(true);
+        this.user.products = this.cartProducts;
+        var formData = new FormData();
+        formData.append("address", this.user.address);
+        formData.append("city", this.user.city);
+        formData.append("country", this.user.country);
+        formData.append("email", this.user.email);
+        formData.append("file", this.user.file);
+        formData.append("first_name", this.user.first_name);
+        formData.append("last_name", this.user.last_name);
+        formData.append("phone", this.user.phone);
+        formData.append("total", this.promoData && this.promoData.promo_applye ? this.promoData.total  : this.cartTotal );
+        if (this.promoData && this.promoData.promo_code) {
+          formData.append("promo_code", this.promoData.promo_code );
+        }
+        formData.append("total_product", this.cart.length);
+        if (this.user.products.length) {
+          this.user.products.forEach((element, index) => {
+            formData.append("products[" + index + "]", JSON.stringify(element));
+          });
+        }
+        // formData.append("products", this.user.products);
+        formData.append("state", this.user.state);
+        formData.append("zipcode", this.user.zipcode);
+        this.makeOrder(formData)
+          .then((resp) => {
+            if (resp.data.status) {
+              this.setLoading(false);
+              this.updateCartItems();
+              this.$router.push("order-success?order_id="+ resp.data.data.order_id);
+            }
+          })
+          .catch((error) => {});
+      } else {
+        this.$swal({
+          icon: "error",
+          title: "Oops...",
+          text: "Please add Payment Image",
         });
       }
-      // formData.append("products", this.user.products);
-      formData.append("state", this.user.state);
-      formData.append("zipcode", this.user.zipcode);
-      this.makeOrder(formData)
-        .then((resp) => {
-          if (resp.data.status) {
-            this.setLoading(false);
-            this.updateCartItems();
-            this.$router.push("order-success?order_id="+ resp.data.data.order_id);
-          }
-        })
-        .catch((error) => {});
     },
     applyPromocode(promocode) {
       if (this.promoCode) {

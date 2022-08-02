@@ -89,7 +89,9 @@ export default {
     },
     sendForgotMailLink() {
       this.sendMailForForgot({email:this.email}).then((resp) => {
-
+          if(resp.data.status) {
+            this.$toast.success('Reset Link Sent Your Email Id');
+          }
       }).catch((error) => {
 
       })

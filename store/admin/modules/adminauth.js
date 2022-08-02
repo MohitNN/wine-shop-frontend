@@ -68,7 +68,13 @@ const actions = {
       // dispatch("reset")
     }
     return resp;
-  }
+  },
+  async  resetPassword({ dispatch }, data) {
+    const resp = await axios.post("/api/password/reset",data);
+    if(resp.data.status) {
+    }
+    return resp;
+  },
 };
 const mutations = {
   SET_USER(state, data) {
