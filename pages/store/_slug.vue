@@ -9,7 +9,7 @@
           </div>
           <div class="col-lg-9 collection-content">
             <div v-swiper:mySwiper="swiperOption">
-              <div class="row" v-if="productData.data.length && productData.data">
+              <div class="row" v-if="productData.data && productData.data.length">
                 <div
                   class="swiper-slide col-12 col-lg-3 col-xl-3 col-md-4"
                   v-for="(product, index) in productData.data"

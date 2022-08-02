@@ -171,18 +171,18 @@
                                                             <div class="form">
                                                                 <div class="form-group mb-3 row">
                                                                     <h5 for="validationCustom01" class="f-w-600 col-xl-4 col-sm-4 mb-0">Current Password :</h5>
-                                                                    <input class="form-control col-xl-6 col-sm-7" id="validationCustom01" type="text" required="" />
+                                                                    <input class="form-control col-xl-6 col-sm-7" id="validationCustom01" type="password" required="" />
                                                                 </div>
                                                                 <div class="form-group mb-3 row">
                                                                     <h5 for="validationCustom01" class="f-w-600 col-xl-4 col-sm-4 mb-0">Change Password :</h5>
-                                                                    <input class="form-control col-xl-6 col-sm-7" id="validationCustom01" type="text" required="" />
+                                                                    <input class="form-control col-xl-6 col-sm-7" id="validationCustom01" type="password" required="" />
                                                                 </div>
                                                                 <div class="form-group mb-3 row">
                                                                     <h5 for="validationCustom01" class="f-w-600 col-xl-4 col-sm-4 mb-0">Confirm Password :</h5>
-                                                                    <input class="form-control col-xl-6 col-sm-7" id="validationCustom01" type="text" required="" />
+                                                                    <input class="form-control col-xl-6 col-sm-7" id="validationCustom01" type="password" required="" />
                                                                 </div>
                                                                 <div style="display: flex; justify-content: flex-end; width: 448px;">
-                                                                    <b-button class="" style="margin:25px;" @click="$router.push('/admin/brand/add-brand')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Update</b-button>
+                                                                    <b-button class="" style="margin:25px;" >Update</b-button>
                                                                 </div>
                                                             </div>
                                                         </div>

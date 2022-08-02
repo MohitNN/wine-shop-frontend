@@ -23,19 +23,19 @@
                                                 <div class="form">
                                                     <div class="form-group mb-3 row">
                                                         <h5 for="validationCustom01" class="f-w-600 col-xl-3 col-sm-4 mb-0">Current Password :</h5>
-                                                        <input class="form-control col-xl-6 col-sm-7" placeholder="Current Password" id="validationCustom01" type="text" required="" />
+                                                        <input class="form-control col-xl-6 col-sm-7" placeholder="Current Password" id="validationCustom01" type="password" required="" />
                                                     </div>
                                                     <div class="form-group mb-3 row">
                                                         <h5 for="validationCustom01" class="f-w-600 col-xl-3 col-sm-4 mb-0">Change Password :</h5>
-                                                        <input class="form-control col-xl-6 col-sm-7" placeholder="Change Password" id="validationCustom01" type="text" required="" />
+                                                        <input class="form-control col-xl-6 col-sm-7" placeholder="Change Password" id="validationCustom01" type="password" required="" />
                                                     </div>
                                                     <div class="form-group mb-3 row">
                                                         <h5 for="validationCustom01" class="f-w-600 col-xl-3 col-sm-4 mb-0">Confirm Password :</h5>
-                                                        <input class="form-control col-xl-6 col-sm-7" placeholder="Confirm Password" id="validationCustom01" type="text" required="" />
+                                                        <input class="form-control col-xl-6 col-sm-7" placeholder="Confirm Password" id="validationCustom01" type="password" required="" />
                                                     </div>
                                                     <div class="form-group mb-3 row">
                                                         <h5 for="validationCustom01" class="f-w-600 col-xl-3 col-sm-4 mb-0"></h5>
-                                                        <b-button @click="$router.push('/admin/brand/add-brand')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Update</b-button>
+                                                        <b-button>Update</b-button>
                                                     </div>
                                                 </div>
                                             </div>
