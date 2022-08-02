@@ -45,6 +45,9 @@
                       <span class="validate-error">{{ errors[0] }}</span>
                     </ValidationProvider>
                   </div>
+                  <div class="h6 text-right"> 
+                    <a class="fw-bold" role="button"  @click="$router.push('/page/account/forget-password')">Forget Your Password</a>
+                  </div>
                   <button
                     type="submit"
                     class="btn"

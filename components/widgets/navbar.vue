@@ -18,13 +18,12 @@
               {{menuItem.name}}
               <span class="sub-arrow" v-if="menuItem.types"></span>
             </a>
-            <ul class="nav-submenu" :class="{ opensubmenu: isActive(menuItem.name) }" v-if="menuItem.types">
+            <!-- <ul class="nav-submenu" :class="{ opensubmenu: isActive(menuItem.name) }" v-if="menuItem.types">
               <li v-for="(childrenItem, index) in menuItem.types" :key="index">
                 <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.type_name)" v-if="childrenItem.subcategories">
                   {{childrenItem.type_name}}
                   <span class="sub-arrow" v-if="childrenItem.subcategories"></span>
                 </a>
-                <!-- :to="{ path: childrenItem.path}" -->
                 <a v-else @click="setActiveChild(childrenItem.type_name),loadProduct('type', childrenItem.type_name)" style="cursor: pointer;">
                   {{childrenItem.type_name}}
                 </a>
@@ -36,7 +35,7 @@
                   </li>
                 </ul>
               </li>
-            </ul>
+            </ul> -->
             <div class="mega-menu-container" :class="{ opensubmenu: isActive('portfolio') }" v-if="menuItem.types">
               <div class="container">
                 <div class="row">
