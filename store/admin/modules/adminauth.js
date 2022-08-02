@@ -61,6 +61,13 @@ const actions = {
       dispatch("reset")
     }
     return resp;
+  },
+  async sendMailForForgot({ dispatch }, data) {
+    const resp = await axios.post("/api/password/email",data);
+    if(resp.data.status) {
+      // dispatch("reset")
+    }
+    return resp;
   }
 };
 const mutations = {

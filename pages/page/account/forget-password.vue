@@ -5,28 +5,45 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6 offset-lg-3">
-            <h2>{{title}}</h2>
-            <form class="theme-form" @submit="checkForm" method="post">
-              <div v-if="errors.length">
-                <ul class="validation-error mb-3">
-                  <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
-                </ul>
-              </div>
-              <div class="form-row">
-                <div class="col-md-12">
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="email"
-                    v-model="email"
-                    placeholder="Enter Your Email"
-                    name="email"
-                    required
-                  />
-                </div>
-                <input type="submit" class="btn btn-solid" value="submit" />
-              </div>
-            </form>
+            <h2>{{ title }}</h2>
+            <ValidationObserver v-slot="{ invalid }">
+              <form class="theme-form">
+                <ValidationProvider
+                  rules="required|email"
+                  v-slot="{ errors }"
+                  name="email"
+                >
+                  <div v-if="errors.length">
+                    <ul
+                      class="validation-error mb-3 text-danger font-weight-bold"
+                      style="font-size: 18px"
+                    >
+                      <li v-for="(error, index) in errors" :key="index">
+                        {{ error }}
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-12">
+                      <input
+                        class="form-control"
+                        id="email"
+                        name="email"
+                        v-model="email"
+                        placeholder="Enter Your Email"
+                      />
+                    </div>
+                    <input
+                      class="btn btn-solid"
+                      value="submit"
+                      type="button"
+                      :disabled="invalid"
+                      @click="sendForgotMailLink()"
+                    />
+                  </div>
+                </ValidationProvider>
+              </form>
+            </ValidationObserver>
           </div>
         </div>
       </div>
@@ -34,33 +51,49 @@
   </div>
 </template>
 <script>
-import Breadcrumbs from '../../../components/widgets/breadcrumbs'
+import Breadcrumbs from "../../../components/widgets/breadcrumbs";
+import {
+  ValidationProvider,
+  ValidationObserver,
+} from "vee-validate/dist/vee-validate.full.esm";
+import { mapActions } from 'vuex';
 export default {
   components: {
-    Breadcrumbs
+    Breadcrumbs,
+    ValidationProvider,
+    ValidationObserver,
   },
   data() {
     return {
-      title: 'Forget Your Password',
+      title: "Forget Your Password",
       errors: [],
-      email: null
-    }
+      email: null,
+    };
   },
   methods: {
+    ...mapActions('admin_adminauth',['sendMailForForgot']),
     checkForm: function (e) {
-      this.errors = []
+      this.errors = [];
       if (!this.email) {
-        this.errors.push('Email required.')
+        this.errors.push("Email required.");
       } else if (!this.validEmail(this.email)) {
-        this.errors.push('Valid email required.')
+        this.errors.push("Valid email required.");
       }
-      if (!this.errors.length) return true
-      e.preventDefault()
+      if (!this.errors.length) return true;
+      e.preventDefault();
     },
     validEmail: function (email) {
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      return re.test(email)
+      const re =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    },
+    sendForgotMailLink() {
+      this.sendMailForForgot({email:this.email}).then((resp) => {
+
+      }).catch((error) => {
+
+      })
     }
-  }
-}
+  },
+};
 </script>
