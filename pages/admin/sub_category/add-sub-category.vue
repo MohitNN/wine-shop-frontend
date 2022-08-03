@@ -25,7 +25,7 @@
                                                     </div>
                                                 </div>
                                             </ValidationProvider>
-                                            <ValidationProvider rules="required" v-slot="{ errors }" name="Category">
+                                            <ValidationProvider rules="required" v-slot="{ errors }" name="Type">
                                                 <div class="form-group mb-0 row">
                                                     <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select Type :</label>
                                                     <v-select name="type" placeholder="Select Type" v-model="subcategory.type_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="type_List" :reduce="(c) => c.id" label="type_name" index="id"></v-select>
@@ -37,10 +37,10 @@
                                                     </div>
                                                 </div>
                                             </ValidationProvider>
-                                            <ValidationProvider rules="required" v-slot="{ errors }" name="Category">
+                                            <ValidationProvider rules="required" v-slot="{ errors }" name="name">
                                                 <div class="form-group mb-0 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
-                                                    <input v-model="subcategory.name" class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" placeholder="Name" />
+                                                    <input v-model="subcategory.name" name="name" class="form-control col-xl-8 col-sm-7" id="validationCustom01" type="text" required="" placeholder="Name" />
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
@@ -49,18 +49,13 @@
                                                     </div>
                                                 </div>
                                             </ValidationProvider>
-                                            <ValidationProvider rules="required" v-slot="{ errors }" name="Category">
-                                                <div class="form-group mb-0 row">
-                                                    <label class="col-xl-3 col-md-4">Description :</label>
-                                                    <textarea v-model="subcategory.description" placeholder="Description" rows="4" class="col-xl-8 col-md-7"></textarea>
-                                                </div>
-                                                <div class="form-group mb-3 row">
-                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
-                                                    <div class="col-xl-8 col-sm-7 p-0 validation">
-                                                        <span class="validate-error">{{ errors[0] }}</span>
-                                                    </div>
-                                                </div>
-                                            </ValidationProvider>
+                                            <div class="form-group mb-0 row">
+                                                <label class="col-xl-3 col-md-4">Description :</label>
+                                                <textarea v-model="subcategory.description" placeholder="Description" rows="4" class="col-xl-8 col-md-7"></textarea>
+                                            </div>
+                                            <div class="form-group mb-3 row">
+                                                <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
+                                            </div>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-md-4"></label>

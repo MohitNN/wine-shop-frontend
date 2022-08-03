@@ -41,18 +41,13 @@
                                                 <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0"></label>
                                                 <img  v-if="image" :src="image" width="100px" height="100px" />
                                             </div>
-                                           <ValidationProvider rules="required" v-slot="{ errors }" name="description">
                                                 <div class="form-group mb-0 row">
                                                     <label class="col-xl-3 col-md-4">Description :</label>
                                                     <textarea name="description" class="form-control col-xl-8 col-sm-7" v-model="banner.description" required=""></textarea>
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
-                                                    <div class="col-xl-8 col-sm-7 p-0 ml-0 validation">
-                                                        <span class="validate-error">{{ errors[0] }}</span>
-                                                    </div>
                                                 </div>
-                                            </ValidationProvider>
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-md-4"></label>
