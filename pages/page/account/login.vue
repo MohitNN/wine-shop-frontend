@@ -122,7 +122,7 @@ export default {
           }
         })
         .catch((error) => {
-          this.$toast.error("Something Want Wrong");
+          this.$toast.error("Something went wrong.");
         });
     },
   },

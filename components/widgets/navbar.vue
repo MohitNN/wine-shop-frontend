@@ -87,7 +87,6 @@
                 <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.name) , loadProduct('brand', childrenItem.slug)">
                   {{childrenItem.name}}
                 </a>
-                <!-- :to="{ path: childrenItem.path}" -->
               </li>
             </ul>
           </li>

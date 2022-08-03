@@ -19,13 +19,14 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-xl-12">
-                      <form>
+                      <!-- <form> -->
                         <div class="form-group mb-0">
                           <input
                             type="text"
                             class="form-control"
                             ref="serachBox"
                             v-model="searchString"
+                            @keypress.enter="ProductSerachList()"
                             placeholder="Search a Product"
                           >
                             <!-- @keyup="searchProduct" -->
@@ -33,7 +34,7 @@
                         <button type="button" class="btn btn-primary" @click="ProductSerachList()">
                            <i class="d-block ti-search " style="color:white;font-weight:1000"></i>
                         </button>
-                      </form>
+                      <!-- </form> -->
                       <!-- <ul class="search-results" v-if="searchItems.length">
                         <li v-for="(product,index) in searchItems" :key="index" class="product-box">
                           <div class="img-wrapper">

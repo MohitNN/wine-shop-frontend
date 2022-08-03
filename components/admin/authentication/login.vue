@@ -71,7 +71,7 @@ export default {
           this.$router.push('/admin/dashboard');
          }
       }).catch((error) => {
-           this.$toast.error("Something Want Wrong");
+           this.$toast.error("Something went wrong.");
       })
     },
   }

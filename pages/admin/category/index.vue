@@ -4,7 +4,7 @@
         <div class="row">
             <div>
                 <b-modal id="modal-2" title="Confirmation" @ok="deleteCategory(selectedSku)">
-                    <p class="my-4">Are you sure!</p>
+                    <p class="my-4">Are you sure?</p>
                 </b-modal>
             </div>
             <div class="col-md-12">

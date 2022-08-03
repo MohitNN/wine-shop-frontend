@@ -11,9 +11,7 @@
             <div class="img-grid">
                 <div v-for="(item, index) in brand" :key="index">
                     <div style="margin: 10px !important;">
-                        <a href="#">
-                            <img width="160px;" class="img-hover" :src="getUrl(item.image)" alt />
-                        </a>
+                            <img width="160px;" class="img-hover" :src="getUrl(item.image)" alt  @click="setActiveChild(item.name) , loadProduct('brand', item.slug)"/>
                     </div>
                 </div>
             </div>
@@ -29,9 +27,10 @@ import {
 } from "vuex";
 import config from '@/config.json'
 export default {
-    data(){
-        return{
-            title : "Our Brandas"
+    data() {
+        return {
+            title: "Our Brandas",
+            activeChildItem: "fashion 1",
         }
     },
     computed: {
@@ -40,7 +39,18 @@ export default {
     methods: {
         getUrl(path) {
             return config.baseUrl + "brand/" + path;
-        }
+        },
+        isActiveChild: function (menuChildItem) {
+            return this.activeChildItem === menuChildItem;
+        },
+        setActiveChild: function (menuChildItem) {
+            console.log(menuChildItem);
+            if (this.activeChildItem === menuChildItem) {
+                this.activeChildItem = "";
+            } else {
+                this.activeChildItem = menuChildItem;
+            }
+        },
     }
 }
 </script>
