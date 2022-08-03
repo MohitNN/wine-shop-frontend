@@ -32,9 +32,10 @@ const _2d162202 = () => interopDefault(import('..\\pages\\collection\\sidebar-po
 const _2bb5d606 = () => interopDefault(import('..\\pages\\collection\\six-grid.vue' /* webpackChunkName: "pages/collection/six-grid" */))
 const _3467aa7e = () => interopDefault(import('..\\pages\\collection\\three-grid.vue' /* webpackChunkName: "pages/collection/three-grid" */))
 const _4769586b = () => interopDefault(import('..\\pages\\page\\404.vue' /* webpackChunkName: "pages/page/404" */))
-const _1672c580 = () => interopDefault(import('..\\pages\\page\\about.vue' /* webpackChunkName: "pages/page/about" */))
+const _1f46d0bb = () => interopDefault(import('..\\pages\\page\\about-us.vue' /* webpackChunkName: "pages/page/about-us" */))
 const _3c94558a = () => interopDefault(import('..\\pages\\page\\collection.vue' /* webpackChunkName: "pages/page/collection" */))
 const _2e8df17a = () => interopDefault(import('..\\pages\\page\\coming-soon.vue' /* webpackChunkName: "pages/page/coming-soon" */))
+const _6ba69788 = () => interopDefault(import('..\\pages\\page\\contact-us.vue' /* webpackChunkName: "pages/page/contact-us" */))
 const _194c096e = () => interopDefault(import('..\\pages\\page\\faq.vue' /* webpackChunkName: "pages/page/faq" */))
 const _f89c0e36 = () => interopDefault(import('..\\pages\\page\\lookbook.vue' /* webpackChunkName: "pages/page/lookbook" */))
 const _17870916 = () => interopDefault(import('..\\pages\\page\\review.vue' /* webpackChunkName: "pages/page/review" */))
@@ -241,9 +242,9 @@ export const routerOptions = {
     component: _4769586b,
     name: "page-404"
   }, {
-    path: "/page/about",
-    component: _1672c580,
-    name: "page-about"
+    path: "/page/about-us",
+    component: _1f46d0bb,
+    name: "page-about-us"
   }, {
     path: "/page/collection",
     component: _3c94558a,
@@ -252,6 +253,10 @@ export const routerOptions = {
     path: "/page/coming-soon",
     component: _2e8df17a,
     name: "page-coming-soon"
+  }, {
+    path: "/page/contact-us",
+    component: _6ba69788,
+    name: "page-contact-us"
   }, {
     path: "/page/faq",
     component: _194c096e,

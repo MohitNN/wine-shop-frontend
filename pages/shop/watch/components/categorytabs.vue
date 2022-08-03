@@ -15,7 +15,7 @@
               <div class="theme-tab">
                 <b-tabs content-class="mt-3">
                   <b-tab title="NEW ARRIVAL">
-                    <div class="row product-tab" v-if="products">
+                    <div class="row product-tab" v-if="products && products.length">
                       <div
                         class="tab-box"
                         v-for="(product, index) in products.slice(0,8)"
@@ -29,7 +29,7 @@
                                 :src="
                                   getImgUrl(product.product_images[0].image)
                                 "
-                                v-if="product.product_images"
+                                v-if="product.product_images && product.product_images.length"
                                 class="img-fluid bg-img"
                                 
                                 alt
@@ -52,7 +52,7 @@
                   </b-tab>
 
                   <b-tab title="ON SALE">
-                    <div class="row product-tab" v-if="products">
+                    <div class="row product-tab" v-if="products && products.length">
                       <div
                         class="tab-box"
                         v-for="(product, index) in products.slice(0,8)"
@@ -65,7 +65,7 @@
                                 :src="
                                   getImgUrl(product.product_images[0].image)
                                 "
-                                v-if="product.product_images"
+                                v-if="product.product_images && product.product_images.length"
                                 class="img-fluid bg-img"
                                 style="width: 200px !important;"
                                 alt
