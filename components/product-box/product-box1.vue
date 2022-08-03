@@ -11,8 +11,8 @@
             </nuxt-link>
         </div>
         <ul class="product-thumb-list">
-            <li class="grid_thumb_img" v-if="product.product_images" :class="{active: imageSrc === image.image}" v-for="(image,index) in product.product_images" :key="index" @click="productVariantChange(image.image)">
-                <a href="javascript:void(0);">
+            <li class="grid_thumb_img" :class="{active: imageSrc === image.image}" v-for="(image,index) in product.product_images" :key="index" @click="productVariantChange(image.image)">
+                <a href="javascript:void(0);" v-if="product.product_images">
                     <img :src="getImgUrl(image.image)" />
                 </a>
             </li>

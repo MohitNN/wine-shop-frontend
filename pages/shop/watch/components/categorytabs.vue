@@ -42,7 +42,7 @@
                                 <h6>{{ product.product_name }}</h6>
                               </nuxt-link>
                               <h4>
-                                ${{ product.price }}
+                                RM {{ product.price }}
                               </h4>
                             </div>
                           </div>
@@ -93,7 +93,7 @@
                                    (product.price * curr.curr)
                                     | currency(curr.symbol) 
                                 }} -->
-                                ${{ product.price }}
+                                RM {{ product.price }}
                               </h4>
                               <h4 class="text-danger"> 
                                 {{product.discount}} %

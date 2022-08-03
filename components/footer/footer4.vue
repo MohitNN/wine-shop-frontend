@@ -10,7 +10,7 @@
                         </div>
                         <div class="footer-contant">
                             <div class="footer-logo">
-                                <img :src="'@/assets/images/icon/LogoSIte.png'" height="75" style="height: 75px" class="img-fluid" alt />
+                                <img :src="'_nuxt/assets/images/icon/LogoSIte.png'" height="75" style="height: 75px" class="img-fluid" alt />
                             </div>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed

@@ -13,7 +13,7 @@ const state = {
   indexProductsList:[],
   currency: {
     curr: 'usd',
-    symbol: 'RM'
+    symbol: 'RM '
   },
   order: [],
   locale: 'en',
