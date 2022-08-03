@@ -8,7 +8,7 @@
             title="Confirmation"
             @ok="deleteCoupons(selectedSku)"
           >
-            <p class="my-4">Are you sure!</p>
+            <p class="my-4">Are you sure?</p>
           </b-modal>
         </div>
 

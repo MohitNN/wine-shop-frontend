@@ -9393,11 +9393,6 @@ text-transform: capitalize;
 font-weight: 700;
 margin-bottom: 0;
 }
-.border-product {
-padding-top: 15px;
-padding-bottom: 20px;
-border-top: 1px dashed $round-border;
-}
 h2 {
 text-transform: uppercase;
 margin-bottom: 15px;
@@ -9511,7 +9506,6 @@ display: flex;
   background-color: transparent;
   border: none;
   i {
-    border-left: 1px solid $round-border;
     font-size: 18px;
     padding-left: 10px;
     margin-left: 5px;

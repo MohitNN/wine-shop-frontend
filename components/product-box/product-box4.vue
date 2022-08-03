@@ -68,7 +68,7 @@
         {{ discountedPrice(product) * curr.curr | currency(curr.symbol) }}
         <del>{{ product.price * curr.curr | currency(curr.symbol) }}</del>
       </h4> -->
-      <h4 >${{ product.price }}</h4>
+      <h4 >RM {{ product.price }}</h4>
       <!-- <ul class="color-variant" v-if="product.variants[0].color">
         <li v-for="(variant,variantIndex) in Color(product.variants)" :key="variantIndex">
           <a

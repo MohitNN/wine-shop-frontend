@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Breadcrumbs title="Checkout" />
+    <Breadcrumbs title="Payment Details " />
     <section class="section-b-space">
       <div class="container">
         <!-- {{cartProducts}} -->

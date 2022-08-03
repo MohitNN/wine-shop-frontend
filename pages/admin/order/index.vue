@@ -8,7 +8,7 @@
             title="Confirmation"
             @ok="deleteOrder(selectedSku)"
           >
-            <p class="my-4">Are you sure!</p>
+            <p class="my-4">Are you sure?</p>
           </b-modal>
         </div>
         <div class="col-md-12">
