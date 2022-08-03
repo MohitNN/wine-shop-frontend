@@ -25,18 +25,13 @@
                                                     </div>
                                                 </div>
                                             </ValidationProvider>
-                                            <ValidationProvider rules="required" v-slot="{ errors }" name="description">
-                                                <div class="form-group mb-0 row">
-                                                    <label class="col-xl-3 col-md-4">Description :</label>
-                                                    <textarea name="description" class="form-control col-xl-8 col-sm-7" v-model="category.description" required=""></textarea>
-                                                </div>
-                                                <div class="form-group mb-3 row">
-                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
-                                                    <div class="col-xl-8 col-sm-7 p-0 ml-0 validation">
-                                                        <span class="validate-error">{{ errors[0] }}</span>
-                                                    </div>
-                                                </div>
-                                            </ValidationProvider>
+                                            <div class="form-group mb-0 row">
+                                                <label class="col-xl-3 col-md-4">Description :</label>
+                                                <textarea name="description" class="form-control col-xl-8 col-sm-7" v-model="category.description" required=""></textarea>
+                                            </div>
+                                            <div class="form-group mb-3 row">
+                                                <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
+                                            </div>
                                         </div>
                                         <div class="offset-xl-3 offset-sm-4">
                                             <button type="button" @click="saveCategory" :class="!invalid ? 'btn-solid' : 'btn-solid-disabled'" :disabled="invalid" class="btn btn-primary">Add</button>
