@@ -65,25 +65,25 @@
                     <div class="col">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>why we choose</h4>
+                                <h4>Quick Links</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
                                     <li>
-                                        <a href="#">shipping & return</a>
+                                        <NuxtLink to="/page/about-us">
+                                            About Us
+                                        </NuxtLink>
                                     </li>
                                     <li>
-                                        <a href="#">secure shopping</a>
+                                        <NuxtLink to="/page/contact-us">
+                                            Contact Us
+                                        </NuxtLink>
                                     </li>
-                                    <li>
-                                        <a href="#">gallary</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">affiliates</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">contacts</a>
-                                    </li>
+                                    <!-- <li>
+                                        <NuxtLink to="/page/location">
+                                            Location
+                                        </NuxtLink>
+                                    </li> -->
                                 </ul>
                             </div>
                         </div>

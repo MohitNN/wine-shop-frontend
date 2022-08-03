@@ -1,74 +1,27 @@
 <template>
   <div>
-    <Header />
     <Breadcrumbs title="About" />
     <!-- about section start -->
-    <section class="about-page section-b-space">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="banner-section">
-              <img :src="aboutbanner" class="img-fluid" alt />
-            </div>
-          </div>
-          <div class="col-sm-12">
-            <h4>{{aboutTitle}}</h4>
-            <p>{{aboutText}}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- about section end -->
-    <!--Testimonial start-->
-    <section class="testimonial small-section">
+    <section class="about-page section-b-space" style="padding-top:0px">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
-            <div v-swiper:mySwiper="swiperOption">
-              <div class="swiper-wrapper testimonial-slider">
-                <div class="swiper-slide" v-for="(item, index) in items" :key="index">
-                  <div class="media">
-                    <div class="text-center">
-                      <img :src="item.imagepath" alt="#" />
-                      <h5>{{item.name}}</h5>
-                      <h6>{{item.role}}</h6>
-                    </div>
-                    <div class="media-body">
-                      <p>{{item.decs}}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h2>Introduction</h2>
+            <p>Liquid Village by PL Soon Huat Sdn. Bhd. is a trusted and modern Wines & Spirits retail shop in Kuah, Langkawi Island. We also sell some grocery items such as pork, cheese, bakery products and many more.
+
+We currently import and carry more than 500 labels of wines, champagnes and spirits. Our aim is to provide our customers the finest wines across Europe, Australia, New Zealand and many other countries.
+
+You can now purchase your favourite wines and various pairing snacks from us, at the comfort of your home.
+
+All of our Wines & Spirits guaranteed SAFE and GENUINE.</p>
+</br>
+          <h2>Delivery</h2>
+          <p>We offer free delivery within Langkawi Island for purchase above RM 200. For purchase below RM 200, there will be a delivery charge of RM 10.</p>
           </div>
+          
         </div>
       </div>
-    </section>
-    <!--Testimonial ends-->
-    <!--Team start-->
-    <section id="team" class="team section-b-space ratio_asos">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <h2>Our Team</h2>
-            <div v-swiper:mySwiper2="swiperOption2">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(team, index) in teams" :key="index">
-                  <div>
-                    <div>
-                      <img :src="team.imagepath" class="img-fluid" alt />
-                    </div>
-                    <h4>{{team.name}}</h4>
-                    <h6>{{team.post}}</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--Team ends-->
+    </section>    
     <Footer />
   </div>
 </template>
