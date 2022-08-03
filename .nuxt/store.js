@@ -12,6 +12,10 @@ let store = {};
 
   // If store is an exported method = classic mode (deprecated)
 
+  if (typeof store === 'function') {
+    return console.warn('Classic mode for store/ is deprecated and will be removed in Nuxt 3.')
+  }
+
   // Enforce store modules
   store.modules = store.modules || {}
 
@@ -45,6 +49,46 @@ let store = {};
   resolveStoreModules(require('..\\store\\admin\\modules\\vendor.js'), 'admin/modules/vendor.js')
 
   // If the environment supports hot reloading...
+
+  if (process.client && module.hot) {
+    // Whenever any Vuex module is updated...
+    module.hot.accept([
+      '..\\store\\index.js',
+      '..\\store\\modules\\blog.js',
+      '..\\store\\modules\\cart.js',
+      '..\\store\\modules\\filter.js',
+      '..\\store\\modules\\gloable.js',
+      '..\\store\\modules\\layout.js',
+      '..\\store\\modules\\menu.js',
+      '..\\store\\modules\\products.js',
+      '..\\store\\admin\\modules\\adminauth.js',
+      '..\\store\\admin\\modules\\authentication.js',
+      '..\\store\\admin\\modules\\banner.js',
+      '..\\store\\admin\\modules\\brand.js',
+      '..\\store\\admin\\modules\\category.js',
+      '..\\store\\admin\\modules\\coupon.js',
+      '..\\store\\admin\\modules\\digital-products.js',
+      '..\\store\\admin\\modules\\employee.js',
+      '..\\store\\admin\\modules\\invoice.js',
+      '..\\store\\admin\\modules\\localization.js',
+      '..\\store\\admin\\modules\\media.js',
+      '..\\store\\admin\\modules\\menu.js',
+      '..\\store\\admin\\modules\\order.js',
+      '..\\store\\admin\\modules\\pages.js',
+      '..\\store\\admin\\modules\\product.js',
+      '..\\store\\admin\\modules\\Products.js',
+      '..\\store\\admin\\modules\\reports.js',
+      '..\\store\\admin\\modules\\subCategory.js',
+      '..\\store\\admin\\modules\\types.js',
+      '..\\store\\admin\\modules\\user.js',
+      '..\\store\\admin\\modules\\vendor.js',
+    ], () => {
+      // Update `root.modules` with the latest definitions.
+      updateModules()
+      // Trigger a hot update in the store.
+      window.$nuxt.$store.hotUpdate(store)
+    })
+  }
 })()
 
 // createStore
