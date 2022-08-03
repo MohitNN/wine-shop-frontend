@@ -45,14 +45,14 @@
                               <div class="box-content">
                                 <h6>{{ user.user.name }}</h6>
                                 <h6>{{ user.user.email }}</h6>
-                                <h6>
-                                  <a href="#">Change Password</a>
-                                </h6>
+                                <!-- <h6>
+                                  <a role="button" @click="openChangePassword()">Change Password</a>
+                                </h6> -->
                               </div>
                             </div>
                           </div>
                           <div class="col-sm-6">
-                            <div class="box">
+                            <!-- <div class="box">
                               <div class="box-title">
                                 <h3>Newsletters</h3>
                                 <a href="#">Edit</a>
@@ -63,11 +63,11 @@
                                   newsletter.
                                 </p>
                               </div>
-                            </div>
+                            </div> -->
                           </div>
                         </div>
                         <div>
-                          <div class="box">
+                          <!-- <div class="box">
                             <div class="box-title">
                               <h3>Address Book</h3>
                               <a href="#">Manage Addresses</a>
@@ -90,14 +90,14 @@
                                 </address>
                               </div>
                             </div>
-                          </div>
+                          </div> -->
                         </div>
                       </div>
                     </div>
                   </div>
                 </b-card-text>
               </b-tab>
-              <b-tab title="Address Book">
+              <!-- <b-tab title="Address Book">
                 <b-card-text>
                   <div class="dashboard-right">
                     <div class="dashboard">
@@ -145,7 +145,7 @@
                     </div>
                   </div>
                 </b-card-text>
-              </b-tab>
+              </b-tab> -->
               <b-tab title="My Orders">
                 <b-card-text>
                   <div class="dashboard-right">
@@ -158,7 +158,7 @@
                   </div>
                 </b-card-text>
               </b-tab>
-              <b-tab title="Newsletter">
+              <!-- <b-tab title="Newsletter">
                 <b-card-text>
                   <div class="dashboard-right">
                     <div class="dashboard">
@@ -203,8 +203,8 @@
                     </div>
                   </div>
                 </b-card-text>
-              </b-tab>
-              <b-tab title="Change Password">
+              </b-tab> -->
+              <b-tab title="Change Password" ref="changePass">
                 <b-card-text>
                   <div class="dashboard-right">
                     <div class="dashboard">
@@ -352,7 +352,7 @@
                   </div>
                 </b-card-text>
               </b-tab>
-              <b-tab title="Log out">
+              <!-- <b-tab title="Log out">
                 <b-card-text>
                   <div class="dashboard-right">
                     <div class="dashboard">
@@ -431,7 +431,7 @@
                     </div>
                   </div>
                 </b-card-text>
-              </b-tab>
+              </b-tab> -->
             </b-tabs>
           </b-card>
         </div>
@@ -462,6 +462,7 @@ export default {
         newpassword: "",
         confirmpassword: "",
       },
+      changePasswordTab : false
     };
   },
   components: {
@@ -478,6 +479,9 @@ export default {
   methods: {
     ...mapActions("order", ["getOrderList"]),
     ...mapActions("admin_adminauth", ["changePassword"]),
+    openChangePassword() {
+       console.log(this.$refs.changePass,"-------")
+    },
     updatePassword() {
        if(this.password.newpassword == this.password.confirmpassword) {
           this.changePassword(this.password).then((resp) => {
