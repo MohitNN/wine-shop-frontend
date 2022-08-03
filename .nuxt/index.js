@@ -13,9 +13,15 @@ import { createStore } from './store.js'
 
 /* Plugins */
 
+<<<<<<< HEAD
 import nuxt_plugin_bootstrapvue_847fa754 from 'nuxt_plugin_bootstrapvue_847fa754' // Source: .\\bootstrap-vue.js (mode: 'all')
 import nuxt_plugin_vuescrollto_1995d702 from 'nuxt_plugin_vuescrollto_1995d702' // Source: .\\vue-scrollto.js (mode: 'client')
 import nuxt_plugin_axios_5eef6527 from 'nuxt_plugin_axios_5eef6527' // Source: .\\axios.js (mode: 'all')
+=======
+import nuxt_plugin_bootstrapvue_7e078521 from 'nuxt_plugin_bootstrapvue_7e078521' // Source: .\\bootstrap-vue.js (mode: 'all')
+import nuxt_plugin_vuescrollto_b82a8e52 from 'nuxt_plugin_vuescrollto_b82a8e52' // Source: .\\vue-scrollto.js (mode: 'client')
+import nuxt_plugin_axios_7a148e1c from 'nuxt_plugin_axios_7a148e1c' // Source: .\\axios.js (mode: 'all')
+>>>>>>> 400145f524005ece5f88241fef22b7c9ec260927
 import nuxt_plugin_plugin_03b7832e from 'nuxt_plugin_plugin_03b7832e' // Source: ..\\plugins\\plugin.js (mode: 'client')
 import nuxt_plugin_localStorage_830ec59e from 'nuxt_plugin_localStorage_830ec59e' // Source: ..\\plugins\\localStorage.js (mode: 'client')
 import nuxt_plugin_axios_3566aa80 from 'nuxt_plugin_axios_3566aa80' // Source: ..\\plugins\\axios (mode: 'all')
@@ -213,6 +219,7 @@ async function createApp(ssrContext, config = {}) {
   }
   // Plugin execution
 
+<<<<<<< HEAD
   if (typeof nuxt_plugin_bootstrapvue_847fa754 === 'function') {
     await nuxt_plugin_bootstrapvue_847fa754(app.context, inject)
   }
@@ -223,6 +230,18 @@ async function createApp(ssrContext, config = {}) {
 
   if (typeof nuxt_plugin_axios_5eef6527 === 'function') {
     await nuxt_plugin_axios_5eef6527(app.context, inject)
+=======
+  if (typeof nuxt_plugin_bootstrapvue_7e078521 === 'function') {
+    await nuxt_plugin_bootstrapvue_7e078521(app.context, inject)
+  }
+
+  if (process.client && typeof nuxt_plugin_vuescrollto_b82a8e52 === 'function') {
+    await nuxt_plugin_vuescrollto_b82a8e52(app.context, inject)
+  }
+
+  if (typeof nuxt_plugin_axios_7a148e1c === 'function') {
+    await nuxt_plugin_axios_7a148e1c(app.context, inject)
+>>>>>>> 400145f524005ece5f88241fef22b7c9ec260927
   }
 
   if (process.client && typeof nuxt_plugin_plugin_03b7832e === 'function') {

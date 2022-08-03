@@ -31,7 +31,7 @@
         <label class="custom-control-label" for="customControlAutosizing"
           >Remember me</label
         >
-        <a href="#" class="btn btn-default forgot-pass">lost your password</a>
+        <a role="button" class="btn btn-default forgot-pass" @click="$router.push('/page/account/forget-password')">lost your password</a>
       </div>
     </div>
     <div class="form-button">
