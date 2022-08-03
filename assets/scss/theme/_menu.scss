@@ -552,9 +552,10 @@ header{
           }
           &:hover{
             .nav-submenu{
+              overflow: auto;
               display: block;
-              height: 350px;
-              overflow-y: scroll;
+              height: 280px;
+              
             }
             .mega-menu-container{
               min-height: 35vh;
