@@ -25,7 +25,7 @@ const actions = {
     },
 
     getSubCategory: (context,page=1) => {
-        const URl = `${baseURL}api/admin/get-sub-category/?page=${page}`
+        const URl = `${baseURL}api/admin/get-sub-category?page=${page}`
         const resp = axios.get(URl);
         resp.then(response => {
             if (response.data.status) {

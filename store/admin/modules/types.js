@@ -24,7 +24,7 @@ const actions = {
         return resp;
     },
     getType: (context,page=1) => {     
-        const URl = `${baseURL}api/admin/get-type/?page=${page}`
+        const URl = `${baseURL}api/admin/get-type?page=${page}`
         const resp = axios.get(URl);   
         resp.then(response => {            
             if (response.data.status) {

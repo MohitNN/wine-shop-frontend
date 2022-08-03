@@ -6,7 +6,6 @@
                 <div class="card">
                     <div class="card-header">
                         <h5>Edit Sub Category</h5>
-                        {{SubCategoryData}}
                     </div>
                     <div class="card-body">
                         <div class="row product-adding">
@@ -15,7 +14,7 @@
                                     <div class="form">
                                         <div class="form-group row">
                                             <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select Category :</label>
-                                            <v-select name="Category" placeholder="Select Category" v-model="SubCategoryData.category_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options="getCategoryList" :reduce="(c) => c.id" label="name" index="id" @input="getCategoryTotype"></v-select>
+                                            <v-select name="Category" placeholder="Select Category" v-model="SubCategoryData.category_id" class="col-xl-8 col-sm-7 pr-0 pl-0" :options=" getCategoryList ? getCategoryList : [] " :reduce="(c) => c.id" label="name" index="id" @input="getCategoryTotype"></v-select>
                                         </div>
                                         <div class="form-group mb-3 row">
                                             <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Select Type :</label>
@@ -126,8 +125,8 @@ export default {
         },
         getCategoryTotype(data) {
             // console.log()
-            alert(data)
             this.getTypeFormCategory(data);
+            this.this.SubCategoryData.type_id = null
             // this.SubCategoryData.type_id = null;
         },
     }

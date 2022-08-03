@@ -30,6 +30,9 @@
                                     <feather style="cursor:pointer;" @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
                                     <feather style="cursor:pointer;" @click="getIndex(field.item.id)" v-b-modal.modal-2 type="trash" stroke="#F72E9F" size="18px" fill="#F72E9F"></feather>
                                 </template>
+                                <template #cell(category_id)="field">
+                                    {{field.item.categorys ? field.item.categorys.name : ''}}
+                                </template>
 
                             </b-table>
                         </div>
@@ -69,7 +72,7 @@ export default {
                 },
                 {
                     key: "category_id",
-                    label: "Category Id",
+                    label: "Category Name",
                     class: "text-center"
                 }, {
                     key: "actions",
@@ -125,7 +128,6 @@ export default {
             this.$router.push('/admin/type/' + item.id);
         },
         deleteTypes(SubCategoryID) {
-            alert(SubCategoryID)
             this.delete(SubCategoryID).then(Response => {
                 if (Response.data.status) {
                     this.$toast.success("Deleted Type Successfully..!");
