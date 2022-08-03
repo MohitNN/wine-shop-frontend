@@ -53,10 +53,10 @@
                             <div class="footer-title">
                                 <h4>Category</h4>
                             </div>
-                            <div class="footer-contant">
+                            <div class="footer-contant" v-for="(item , index) in categories.slice( 0, 5)" :key="index">
                                 <ul>
                                     <li>
-                                        <a href="#">mens</a>
+                                        <a href="#">{{item.name}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -166,6 +166,10 @@ import {
     mapState
 } from "vuex";
 export default {
-  name : "footer"
+  name : "footer",
+  computed:{
+    ...mapState('menu',['categories']),
+    
+  }
 };
 </script>
