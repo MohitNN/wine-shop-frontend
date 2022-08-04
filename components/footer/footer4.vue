@@ -79,11 +79,11 @@
                                             Contact Us
                                         </NuxtLink>
                                     </li>
-                                    <!-- <li>
+                                    <li>
                                         <NuxtLink to="/page/location">
                                             Location
                                         </NuxtLink>
-                                    </li> -->
+                                    </li>
                                 </ul>
                             </div>
                         </div>

@@ -13,7 +13,6 @@
                     <div class="bar-style">
                     </div>
                   </a>
-                  <!-- <LeftSidebar :leftSidebarVal="leftSidebarVal" @closeVal="closeBarValFromChild" /> -->
                 </div>
                 <div class="brand-logo">
                   <nuxt-link :to="{ path: '/'}">

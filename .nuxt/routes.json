@@ -231,6 +231,13 @@
     "_name": "_1b038f78"
   },
   {
+    "name": "page-location",
+    "path": "/page/location",
+    "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\location.vue",
+    "chunkName": "pages/page/location",
+    "_name": "_3ca007f7"
+  },
+  {
     "name": "page-lookbook",
     "path": "/page/lookbook",
     "component": "D:\\\\Harshad\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\lookbook.vue",

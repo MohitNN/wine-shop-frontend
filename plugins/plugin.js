@@ -13,6 +13,11 @@ import VueFeather from 'vue-feather';
 import { VueEditor } from "vue2-editor";
 import VueSweetalert2 from 'vue-sweetalert2';
 import Pagination from 'vue-pagination-2';
+import VueMoment from 'vue-moment';
+import moment from 'moment';
+
+Vue.use(VueMoment, { moment });
+
 Vue.component('pagination', Pagination);
 
 

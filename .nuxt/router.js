@@ -37,6 +37,7 @@ const _1b45d040 = () => interopDefault(import('..\\pages\\page\\collection.vue' 
 const _32cf0375 = () => interopDefault(import('..\\pages\\page\\coming-soon.vue' /* webpackChunkName: "pages/page/coming-soon" */))
 const _7c4dda2d = () => interopDefault(import('..\\pages\\page\\contact-us.vue' /* webpackChunkName: "pages/page/contact-us" */))
 const _1b038f78 = () => interopDefault(import('..\\pages\\page\\faq.vue' /* webpackChunkName: "pages/page/faq" */))
+const _3ca007f7 = () => interopDefault(import('..\\pages\\page\\location.vue' /* webpackChunkName: "pages/page/location" */))
 const _6a23a0ca = () => interopDefault(import('..\\pages\\page\\lookbook.vue' /* webpackChunkName: "pages/page/lookbook" */))
 const _0e50d89a = () => interopDefault(import('..\\pages\\page\\review.vue' /* webpackChunkName: "pages/page/review" */))
 const _54fc9eea = () => interopDefault(import('..\\pages\\page\\search.vue' /* webpackChunkName: "pages/page/search" */))
@@ -261,6 +262,10 @@ export const routerOptions = {
     path: "/page/faq",
     component: _1b038f78,
     name: "page-faq"
+  }, {
+    path: "/page/location",
+    component: _3ca007f7,
+    name: "page-location"
   }, {
     path: "/page/lookbook",
     component: _6a23a0ca,
