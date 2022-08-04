@@ -72,7 +72,7 @@
                       <b-dropdown-item-btn href="#" @click="updateStatus('order',1 , field.item.id)">
                         <template #default>
                           <div class="pandding-Ticket-dropdown">
-                            Pendding <span> </span>
+                            Pending <span> </span>
                           </div>
                         </template>
                       </b-dropdown-item-btn>
@@ -259,7 +259,7 @@ export default {
     getStatus(type,status) {
       if(type == 'order') {
         if(status == 1) {
-           return 'Pendding'
+           return 'Pending'
         } else if (status == 2) {
            return 'Confirm'
         } else {

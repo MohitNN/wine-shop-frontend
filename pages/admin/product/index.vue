@@ -42,6 +42,9 @@
                                     <!-- <img height="50px" :src="getImgUrl(field.item.image)" width="50px" /> -->
                                     <div>{{field.item.category ? field.item.category.name : '-' }}</div>
                                 </template>
+                                <!-- <template #cell(type_id)="field">
+                                    <div>{{field.item.type_id ? field.item.type_id.type_name : '-' }}</div>
+                                </template> -->
                                 <template #cell(subcategory)="field">
                                     <!-- <img height="50px" :src="getImgUrl(field.item.image)" width="50px" /> -->
                                     <div>{{field.item.subcategory ? field.item.subcategory.name : '-'}}</div>
