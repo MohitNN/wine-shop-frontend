@@ -37,11 +37,11 @@
                             }}</span>
                         </li>
                     </ul>
-                    <ul class="qty" style="margin-bottom:0px !important;">
+                    <ul class="qty" v-if="order && order.created_at" style="margin-bottom:0px !important;">
                         <li class="d-flex justify-content-between">
                             <div style="font-size: 18px;font-weight: bold;">Created at : </div>
                             <span style="word-break: break-all;">{{
-                              order.created_at
+                              order.created_at | moment('DD-MM-YYYY hh:mm a')
                             }}</span>
                         </li>
                     </ul>

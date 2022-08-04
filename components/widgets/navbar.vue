@@ -62,12 +62,12 @@
             </div>
           </li>
           
-          <li class="dropdown">
+          <li class="dropdown" v-if="categories.length > 3">
             <a  style="cursor: pointer;" href="javascript:void(0)" class="nav-link" >
               Other
               <span class="sub-arrow" v-if="categories && categories.length"></span>
             </a>
-            <ul class="nav-submenu"  v-if="categories">
+            <ul class="nav-submenu">
               <li v-for="(childrenItem, index) in categories.slice(4)" :key="index">
                 <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.name) , loadProduct('category', childrenItem.slug)">
                   {{childrenItem.name}}
