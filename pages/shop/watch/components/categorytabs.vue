@@ -11,27 +11,34 @@
                   <span></span>
                 </div>
               </div>
-            
               <div class="theme-tab">
                 <b-tabs content-class="mt-3">
                   <b-tab title="NEW ARRIVAL">
-                    <div class="row product-tab" v-if="products && products.length">
+                    <div
+                      class="row product-tab"
+                      v-if="products && products.length"
+                    >
                       <div
                         class="tab-box"
-                        v-for="(product, index) in products.slice(0,8)"
+                        v-for="(product, index) in products.slice(0, 8)"
                         :key="index"
                       >
-                        <!-- {{product}} -->
+                        
                         <div class="product-box2">
                           <div class="media col-12">
-                            <nuxt-link class="w-100 col-6" :to="{ path: '/product/' + product.id }">
+                            <nuxt-link
+                              class="w-100 col-6"
+                              :to="{ path: '/product/' + product.id }"
+                            >
                               <img
                                 :src="
                                   getImgUrl(product.product_images[0].image)
                                 "
-                                v-if="product.product_images && product.product_images.length"
+                                v-if="
+                                  product.product_images &&
+                                  product.product_images.length
+                                "
                                 class="img-fluid bg-img"
-                                
                                 alt
                               />
                             </nuxt-link>
@@ -41,9 +48,7 @@
                               >
                                 <h6>{{ product.product_name }}</h6>
                               </nuxt-link>
-                              <h4>
-                                RM {{ product.price }}
-                              </h4>
+                              <h4>RM {{ product.price }}</h4>
                             </div>
                           </div>
                         </div>
@@ -52,27 +57,37 @@
                   </b-tab>
 
                   <b-tab title="ON SALE">
-                    <div class="row product-tab" v-if="products && products.length">
+                    <div
+                      class="row product-tab"
+                      v-if="topDiscount && topDiscount.length"
+                    >
                       <div
                         class="tab-box"
-                        v-for="(product, index) in products.slice(0,8)"
+                        v-for="(product, index) in topDiscount.slice(0, 8)"
                         :key="index"
                       >
+                        
+
                         <div class="product-box2">
                           <div class="media">
-                            <nuxt-link class="w-100 col-6 " :to="{ path: '/product/' + product.id }">
+                            <nuxt-link
+                              class="w-100 col-6"
+                              :to="{ path: '/product/' + product.id }"
+                            >
                               <img
                                 :src="
                                   getImgUrl(product.product_images[0].image)
                                 "
-                                v-if="product.product_images && product.product_images.length"
+                                v-if="
+                                  product.product_images &&
+                                  product.product_images.length
+                                "
                                 class="img-fluid bg-img"
-                                style="width: 200px !important;"
+                                style="width: 200px !important"
                                 alt
                               />
                             </nuxt-link>
                             <div class="media-body align-self-center">
-                              
                               <nuxt-link
                                 :to="{ path: '/product/' + product.id }"
                               >
@@ -95,8 +110,8 @@
                                 }} -->
                                 RM {{ product.price }}
                               </h4>
-                              <h4 class="text-danger"> 
-                                {{product.discount}} %
+                              <h4 class="text-danger">
+                                {{ product.discount }} %
                               </h4>
                               <!-- <ul class="color-variant">
                                 <li
@@ -130,7 +145,7 @@
 </template>
 
 <script>
-import { mapGetters , mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 import config from "@/config.json";
 
 export default {
@@ -143,17 +158,17 @@ export default {
   computed: {
     ...mapGetters({
       curr: "products/changeCurrency",
+      onSellData: "products/onSellData",
     }),
+    ...mapState('products' , ['topDiscount']),
     productData: (state) => state.products.productData,
-    newArrval() {
-      const onSell = [];
-      if(this.products) {
-        this.products.forEach((ele, index) => {
-          if (ele.onsell == "1" || ele.onsell == 1) onSell.push(ele);
-        });
-      }
-      return onSell;
-    },
+    // discountProduct: (state) => state.products.topDiscount,
+    // sortedArray() {
+    //   if (this.products) {
+    //     return this.products?.sort((a, b) => (parseInt(a.discount) > parseInt(b.discount) ? -1 : 1))
+    //   }
+    // },
+    
   },
   methods: {
     getImgUrl(path) {

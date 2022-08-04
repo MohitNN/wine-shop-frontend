@@ -1,4 +1,4 @@
-import products from '../../data/products'
+import products from "../../data/products";
 import axios from "axios";
 import { baseURL } from "@/config/urls";
 axios.defaults.baseURL = baseURL.API_URL;
@@ -10,183 +10,200 @@ const state = {
   products: products.data,
   wishlist: [],
   compare: [],
-  indexProductsList:[],
+  indexProductsList: [],
   currency: {
-    curr: 'usd',
-    symbol: 'RM '
+    curr: "usd",
+    symbol: "RM ",
   },
   order: [],
-  locale: 'en',
+  locale: "en",
   searchProduct: [],
   productData: [],
   topProductList: [],
   productDetail: {},
   serchProductList: [],
-}
+  topDiscount: [],
+};
 // getters
 const getters = {
   getcollectionProduct: (state) => {
-    return collection => state.productData.filter((product) => {
-      return collection === product.collection
-    })
+    return (collection) =>
+      state.productData.filter((product) => {
+        return collection === product.collection;
+      });
+  },
+  onSellData: (state) => {
+    if (state.indexProductsList) {
+      return state.indexProductsList?.sort((a, b) =>
+        parseInt(a.discount) > parseInt(b.discount) ? -1 : 1
+      );
+    }
   },
 
   getProductById: (state) => {
-    return id => state.productData.find((product) => {
-      return product.id === id
-    })
+    return (id) =>
+      state.productData.find((product) => {
+        return product.id === id;
+      });
   },
   compareItems: (state) => {
-    return state.compare
+    return state.compare;
   },
   wishlistItems: (state) => {
-    return state.wishlist
+    return state.wishlist;
   },
   changeCurrency: (state) => {
-    if (state.currency.curr === 'eur') {
-      state.currency.curr = 0.90
-      return state.currency
-    } else if (state.currency.curr === 'inr') {
-      state.currency.curr = 70.93
-      return state.currency
-    } else if (state.currency.curr === 'gbp') {
-      state.currency.curr = 0.78
-      return state.currency
-    } else if (state.currency.curr === 'usd') {
-      state.currency.curr = 1
-      return state.currency
+    if (state.currency.curr === "eur") {
+      state.currency.curr = 0.9;
+      return state.currency;
+    } else if (state.currency.curr === "inr") {
+      state.currency.curr = 70.93;
+      return state.currency;
+    } else if (state.currency.curr === "gbp") {
+      state.currency.curr = 0.78;
+      return state.currency;
+    } else if (state.currency.curr === "usd") {
+      state.currency.curr = 1;
+      return state.currency;
     }
   },
   getOrder: (state) => {
-    return state.order
-  }
-}
+    return state.order;
+  },
+};
 // mutations
 const mutations = {
   changeCurrency: (state, payload) => {
-    state.currency = payload
+    state.currency = payload;
   },
-  SET_PRODUCT_LIST(state , value) {
-    state.productList=value
+  SET_PRODUCT_LIST(state, value) {
+    state.productList = value;
   },
-  RELETED_PRODUCT(state , value) {
-    state.reletedProductList = value
+  RELETED_PRODUCT(state, value) {
+    state.reletedProductList = value;
   },
   addToWishlist: (state, payload) => {
-    const product = state.products.find(item => item.id === payload.id)
-    const wishlistItems = state.wishlist.find(item => item.id === payload.id)
+    const product = state.products.find((item) => item.id === payload.id);
+    const wishlistItems = state.wishlist.find((item) => item.id === payload.id);
     if (wishlistItems) {
     } else {
       state.wishlist.push({
-        ...product
-      })
+        ...product,
+      });
     }
   },
   removeWishlistItem: (state, payload) => {
-    const index = state.wishlist.indexOf(payload)
-    state.wishlist.splice(index, 1)
+    const index = state.wishlist.indexOf(payload);
+    state.wishlist.splice(index, 1);
   },
   addToCompare: (state, payload) => {
-    const product = state.products.find(item => item.id === payload.id)
-    const compareItems = state.compare.find(item => item.id === payload.id)
+    const product = state.products.find((item) => item.id === payload.id);
+    const compareItems = state.compare.find((item) => item.id === payload.id);
     if (compareItems) {
     } else {
       state.compare.push({
-        ...product
-      })
+        ...product,
+      });
     }
   },
   removeCompareItem: (state, payload) => {
-    const index = state.compare.indexOf(payload)
-    state.compare.splice(index, 1)
+    const index = state.compare.indexOf(payload);
+    state.compare.splice(index, 1);
   },
   searchProduct: (state, payload) => {
-    payload = payload.toLowerCase()
-    state.searchProduct = []
+    payload = payload.toLowerCase();
+    state.searchProduct = [];
     if (payload.length) {
       state.products.filter((product) => {
         if (product.title.toLowerCase().includes(payload)) {
-          state.searchProduct.push(product)
+          state.searchProduct.push(product);
         }
-      })
+      });
     }
   },
   createOrder: (state, payload) => {
-    state.order = payload
+    state.order = payload;
   },
-  SET_PRODUCT(state , value) {
-    state.productData=value
+  SET_PRODUCT(state, value) {
+    state.productData = value;
   },
-  SET_TOP_PRODUCT(state , value) {
-    state.topProductList=value
+  SET_TOP_PRODUCT(state, value) {
+    state.topProductList = value;
   },
-  SET_PRODUCT_DETAIL(state , value) {
-    state.productDetail=value
+  SET_PRODUCT_DETAIL(state, value) {
+    state.productDetail = value;
   },
-  SET_PRODUCT_indexList(state , value) {
-    state.indexProductsList=value
+  SET_PRODUCT_indexList(state, value) {
+    state.indexProductsList = value;
   },
-  SET_SERACH_LIST(state , value) {
-    state.serchProductList=value
+  SET_SERACH_LIST(state, value) {
+    state.serchProductList = value;
   },
-}
+  SET_TOP_DISCOUNT(state, value) {
+    state.topDiscount = value;
+  },
+};
 // actions
 const actions = {
   changeCurrency: (context, payload) => {
-    context.commit('changeCurrency', payload)
+    context.commit("changeCurrency", payload);
   },
   async getProducts({ commit, dispatch }, data) {
     const resp = await axios.post("/api/get-product-brand", data);
     if (resp.data.status) {
-      commit('SET_PRODUCT_LIST',resp.data.data)
+      commit("SET_PRODUCT_LIST", resp.data.data);
     }
     return resp;
   },
   addToWishlist: (context, payload) => {
-    context.commit('addToWishlist', payload)
+    context.commit("addToWishlist", payload);
   },
   removeWishlistItem: (context, payload) => {
-    context.commit('removeWishlistItem', payload)
+    context.commit("removeWishlistItem", payload);
   },
   addToCompare: (context, payload) => {
-    context.commit('addToCompare', payload)
+    context.commit("addToCompare", payload);
   },
   removeCompareItem: (context, payload) => {
-    context.commit('removeCompareItem', payload)
+    context.commit("removeCompareItem", payload);
   },
   searchProduct: (context, payload) => {
-    context.commit('searchProduct', payload)
+    context.commit("searchProduct", payload);
   },
   createOrder: (context, payload) => {
-    context.commit('createOrder', payload)
+    context.commit("createOrder", payload);
   },
   async allProduct({ commit, dispatch }, data) {
-    var url = '';
-    if(data && data.pageIndex) {
-      url = "/api/product?"+data.pageIndex
+    var url = "";
+    if (data && data.pageIndex) {
+      url = "/api/product?" + data.pageIndex;
     } else {
-      url = "/api/product"
+      url = "/api/product";
     }
-    const resp = await axios.post(url, data)
+    const resp = await axios.post(url, data);
     if (resp.data.status) {
-      commit('SET_PRODUCT',resp.data.data)
+      commit("SET_PRODUCT", resp.data.data);
     }
     return resp;
   },
   async getIndexProducts({ commit, dispatch }, data) {
-    var url = "/api/product"
-    const resp = await axios.post(url, data)
+    var url = "/api/index-product-data";
+    const resp = await axios.get(url, data);
     if (resp.data.status) {
-      commit('SET_PRODUCT_indexList',resp.data.data)
+      console.log(resp.data.data.discountProduct)
+      commit("SET_PRODUCT_indexList", resp.data.data.latestProduct);
+      commit("SET_TOP_DISCOUNT", resp.data.data.discountProduct);
     }
     return resp;
   },
 
+  
+
   async getSerchData({ commit, dispatch }, data) {
-    var url = "/api/get-serch-data"
-    const resp = await axios.post(url, data)
+    var url = "/api/get-serch-data";
+    const resp = await axios.post(url, data);
     if (resp.data.status) {
-      commit('SET_SERACH_LIST',resp.data.data)
+      commit("SET_SERACH_LIST", resp.data.data);
     }
     return resp;
   },
@@ -200,32 +217,32 @@ const actions = {
   async getTopProduct({ commit, dispatch }, data) {
     const resp = await axios.get("/api/top-product", data);
     if (resp.data.status) {
-      commit('SET_TOP_PRODUCT',resp.data.data)
+      commit("SET_TOP_PRODUCT", resp.data.data);
     }
     return resp;
   },
   async getReletedProduct({ commit, dispatch }, data) {
-    const resp = await axios.get("/api/getRelatedProduct/"+ data);
+    const resp = await axios.get("/api/getRelatedProduct/" + data);
     if (resp.data.status) {
-      commit('RELETED_PRODUCT',resp.data.data)
+      commit("RELETED_PRODUCT", resp.data.data);
     }
     return resp;
   },
-  async getSingleProduct ({ commit, dispatch }, data) {
-    commit('SET_PRODUCT_DETAIL',{})
-    commit('RELETED_PRODUCT',[])
-    const resp = await axios.get("/api/getSingleProductData/"+data);
+  async getSingleProduct({ commit, dispatch }, data) {
+    commit("SET_PRODUCT_DETAIL", {});
+    commit("RELETED_PRODUCT", []);
+    const resp = await axios.get("/api/getSingleProductData/" + data);
     if (resp.data.status) {
-      commit('SET_PRODUCT_DETAIL',resp.data.data.product)
-      commit('RELETED_PRODUCT',resp.data.data.reletedProduct)
+      commit("SET_PRODUCT_DETAIL", resp.data.data.product);
+      commit("RELETED_PRODUCT", resp.data.data.reletedProduct);
     }
     return resp;
-  }
-}
+  },
+};
 export default {
   namespaced: true,
   state,
   getters,
   actions,
-  mutations
-}
+  mutations,
+};
