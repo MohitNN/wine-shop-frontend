@@ -10,7 +10,7 @@
           <img
             :src='getImgUrl(product.product_images[0].image)'
             :id="product.id"
-            v-if="product.product_images"
+            v-if="product.product_images && product.product_images.length"
             class="img-fluid bg-img"
             :alt="product.name"
             :key="index"
@@ -24,7 +24,7 @@
             :id="product.id"
             class="img-fluid bg-img"
             :alt="product.name"
-            v-if="product.product_images"
+            v-if="product.product_images && product.product_images.length"
             :key="index"
           />
         </nuxt-link>

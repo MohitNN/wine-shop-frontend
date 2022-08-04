@@ -101,20 +101,6 @@
                                                     On Sell
                                                 </div>
                                             </div>
-                                            <!-- <div class="form-group mb-3 row">
-                                                <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Fake Price :</label>
-                                                <input class="form-control col-xl-8 col-sm-7" placeholder="Fake Price" id="validationCustom02" v-model="products.fake_price" type="text" required="" />
-                                            </div>
-                                            <div class="form-group mb-3 row">
-                                                <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">discount :</label>
-                                                <input class="form-control col-xl-8 col-sm-7" placeholder="discount" id="validationCustom02" v-model="products.discount" type="text" required="" />
-                                            </div>
-                                            <div class="form-group row dd d-block">
-                                                <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Status :</label>
-                                                <input id="validationCustom02" type="checkbox" required="" v-model="products.onsell" />
-                                                On Sell
-                                            </div>
-                                        </div> -->
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-md-4"></label>
                                             <button type="button" @click="sawProduct" class="btn btn-primary" :class="!invalid ? 'btn-solid' : 'btn-solid-disabled'" :disabled="invalid">

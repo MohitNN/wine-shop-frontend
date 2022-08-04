@@ -8,13 +8,13 @@
                     <div class="line">
                         <span></span>
                     </div>
-                    <div v-if="topProductList">
+                    <div v-if="topProductList && topProductList.length">
                         <div class="col-12" v-swiper:mySwiper="swiperOption">
                             <div class="swiper-wrapper category-m">
                                 <div class="col-12 col-lg-4 col-md-6 swiper-slide m-0" v-for="(item, index) in topProductList" :key="index">
                                     <div class="category-wrapper" @click="redirectPage(item.id)">
                                         <div>
-                                            <div v-if="item.product_images">
+                                            <div v-if="item.product_images && item.product_images.length">
                                                 <img :src="getImageUrl(item.product_images[0].image)" class="img-fluid bg-img img-blow" alt />
                                             </div>
                                             <h4>{{item.product_name}}</h4>
