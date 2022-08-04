@@ -1,4 +1,9 @@
 import Config from "../../data/config.json";
+import ConfigApp from '@/config.json'
+import axios from "axios";
+
+const baseURL = ConfigApp.baseUrl
+
 const state = {
   layout: Config,
 };
@@ -58,6 +63,11 @@ const actions = {
   setLayoutVersion: (context, payload) => {
     context.commit("setLayoutVersion", payload);
   },
+  SaveContact:(context,data) => {           
+      const URl = `${baseURL}api/add-contact`
+      const resp = axios.post(URl,data);
+      return resp;
+  }
 };
 
 export default {

@@ -6,7 +6,8 @@
       <div class="container">
          <div class="row">
           <div class="col-sm-12">
-            <form class="theme-form" @submit="checkForm" method="post">
+            <ValidationObserver v-slot="{ invalid }">
+            <form  @submit.prevent="onSubmit">
               <div v-if="errors.length">
                   <ul class="validation-error mb-3">
                     <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
@@ -15,53 +16,83 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <label>First Name</label>
-                  <input
-                    type="text"
-                    class="form-control"                     
-                      v-model="fname"
-                      placeholder="First Name"
-                      name="fname"
-                    required
-                  />
+                  <ValidationProvider
+                          rules="required"
+                          v-slot="{ errors }"
+                          name="First name"
+                        >
+                          <input
+                           class="form-control"
+                            type="text"
+                            placeholder="First Name"
+                            v-model="fname"
+                            name="First name"
+                          />
+                          <span class="validate-error">{{ errors[0] }}</span>
+                        </ValidationProvider>
                 </div>
                 <div class="col-md-6">
                   <label for="lname">Last Name</label>
+                  <ValidationProvider
+                          rules="required"
+                          v-slot="{ errors }"
+                          name="Last name"
+                        >
                     <input
                       type="text"
                       class="form-control"
                       id="lname"
                       v-model="lname"
                       placeholder="Last Name"
-                      name="lname"
-                      required
+                      name="Last name"
                     />
+                    <span class="validate-error">{{ errors[0] }}</span>
+                  </ValidationProvider>
                 </div>
                 <div class="col-md-6">
                   <label for="phone">Phone number</label>
+                   <ValidationProvider
+                          rules="required"
+                          v-slot="{ errors }"
+                          name="phone no"
+                        >
                   <input
                     type="tel"
                     class="form-control"
                     id="phone"
                     v-model="phone"
                     placeholder="Enter your number"
-                    name="phone"
-                    required
+                    name="phone no"
+                    
                   />
+                  <span class="validate-error">{{ errors[0] }}</span>
+                  </ValidationProvider>
                 </div>
                 <div class="col-md-6">
                   <label for="email">Email</label>
+                   <ValidationProvider
+                          rules="required"
+                          v-slot="{ errors }"
+                          name="email"
+                        >
                   <input
                     type="text"
                     class="form-control"
                     id="email"
                     v-model="email"
                     placeholder="Email"
-                    name="email"
-                    required
+                    name="email"                    
                   />
+                  <span class="validate-error">{{ errors[0] }}</span>
+                  </ValidationProvider>
                 </div>
                 <div class="col-md-12">
                   <label for="message">Write Your Message</label>
+                  <ValidationProvider
+                          rules="required"
+                          v-slot="{ errors }"
+                          name="message"
+                        >
                   <textarea
                     class="form-control"
                     placeholder="Write Your Message"
@@ -69,17 +100,22 @@
                     v-model="message"
                     name="message"
                     rows="6"
-                  ></textarea>
+                  ></textarea>  
+                  <span class="validate-error">{{ errors[0] }}</span>
+                  </ValidationProvider>               
                 </div>
                 <div class="col-md-12 mt-2">
-                  <input
-                  type="submit"
-                  class="btn btn-solid"
-                  value="Send Your Message"
-                >
+                  <button
+                            type="submit"
+                            class="btn-solid btn"
+                            :disabled="invalid"
+                          >
+                            Send Your Message
+                 </button>
                 </div>
               </div>
             </form>
+            </ValidationObserver>
           </div>
         </div>
       </div>
@@ -88,24 +124,25 @@
   </div>
 </template>
 <script>
+
+import {
+  ValidationProvider,
+  ValidationObserver,
+} from "vee-validate/dist/vee-validate.full.esm";
 import Header from '../../components/header/header1'
 import Footer from '../../components/footer/footer1'
 import Breadcrumbs from '../../components/widgets/breadcrumbs'
+import {  mapActions } from "vuex";
 export default {
   components: {
     Header,
     Footer,
-    Breadcrumbs
+    Breadcrumbs,
+    ValidationProvider,
+    ValidationObserver
   },  
   data() {
     return {
-      phoneimage: require('@/assets/images/icon/phone.png'),
-      emailimage: require('@/assets/images/icon/email.png'),
-      phone1: '+91 123 - 456 - 7890',
-      phone2: '+86 163 - 451 - 7894',
-      address: 'ABC Complex,Near xyz, New York <br /> USA 123456',
-      email1: 'Support@Shopcart.com',
-      email2: 'info@shopcart.com',
       errors: [],
       fname: null,
       lname: null,
@@ -115,6 +152,8 @@ export default {
     }
   },
   methods: {
+     ...mapActions("layout", ["SaveContact"]),
+    ...mapActions("gloable", ["setLoading"]),
     checkForm: function (e) {
       this.errors = []
       if (!this.fname) {
@@ -140,6 +179,23 @@ export default {
     validEmail: function (email) {
       const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       return re.test(email)
+    },
+    onSubmit() {
+      this.setLoading(true);
+      var formData = new FormData();
+      formData.append("firstname", this.fname);
+      formData.append("lastname", this.lname);
+      formData.append("email", this.email);
+      formData.append("phone_no", this.phone);
+      formData.append("message", this.message);
+       this.SaveContact(formData).then((resp) => {
+            if (resp.data.status) {
+              this.setLoading(false);
+              this.$toast.success("Request Send Successfully..!");
+              this.$router.push({path:"/"});
+            }
+          })
+        .catch((error) => {});
     }
   }
 }
