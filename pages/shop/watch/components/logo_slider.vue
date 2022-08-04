@@ -29,7 +29,7 @@ import config from '@/config.json'
 export default {
     data() {
         return {
-            title: "Our Brandas",
+            title: "Our Brands",
             activeChildItem: "fashion 1",
         }
     },

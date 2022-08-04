@@ -63,7 +63,7 @@
             </div>
             <div class="product-buttons">
               <a href="javascript:void(0)" @click="addToCart(product)" class="btn btn-solid">add to cart</a>
-              <nuxt-link :to="{ path: '/product/sidebar/'+productData.id}" class="btn btn-solid">view detail</nuxt-link>
+              <nuxt-link :to="{ path: '/product/sidebar/'+productData.id}" class="btn btn-solid">View details</nuxt-link>
             </div>
           </div>
         </div>

@@ -56,7 +56,7 @@
                         }}</del>
                       </h4> -->
                       <h4 >
-                        RM {{
+                        RM/MYR {{
                           product.price
                         }}
                       </h4>
@@ -101,7 +101,7 @@
                         }}</del>
                       </h4> -->
                       <h4 >
-                        RM {{
+                        RM/MYR {{
                           product.price
                         }}
                       </h4>

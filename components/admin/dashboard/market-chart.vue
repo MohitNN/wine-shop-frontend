@@ -77,7 +77,7 @@ export default {
         tooltip: {
           y: {
             formatter: function(val) {
-              return "RM " + val + " thousands";
+              return "RM/MYR " + val + " thousands";
             }
           }
         }

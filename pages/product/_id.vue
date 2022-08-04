@@ -54,8 +54,8 @@
                                             <span>{{ productDetail.discount }}% off</span>
                                         </h4>
                                         <div class="d-flex align-items-center">
-                                            <span class="amount mr-3">RM {{ productDetail.price }}</span>
-                                            <span class="mr-2"><strike>RM {{ productDetail.fake_price }}</strike></span>
+                                            <span class="amount mr-3">RM/MYR {{ productDetail.price }}</span>
+                                            <span class="mr-2"><strike>RM/MYR {{ productDetail.fake_price }}</strike></span>
                                             <span class="discount badge">{{ productDetail.discount }} %</span>
                                         </div>
 

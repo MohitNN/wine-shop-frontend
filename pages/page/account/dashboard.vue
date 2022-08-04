@@ -75,6 +75,7 @@
                                       id="name-input"
                                       v-model="name"
                                       :state="nameState"
+                                      placeholder="Name"
                                       required
                                     ></b-form-input>
                                   </b-form-group>
@@ -141,6 +142,7 @@
                                           v-model="password.currentpassword"
                                           id="validationCustom01"
                                           type="password"
+                                          placeholder="Current Password"
                                         />
                                         <div
                                           class="
@@ -174,6 +176,7 @@
                                           v-model="password.newpassword"
                                           id="validationCustom01"
                                           type="password"
+                                          placeholder="Change Password"
                                         />
                                         <div
                                           class="
@@ -207,6 +210,7 @@
                                           v-model="password.confirmpassword"
                                           id="validationCustom01"
                                           type="password"
+                                          placeholder="Confirm Password"
                                         />
                                         <div
                                           class="

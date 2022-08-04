@@ -170,15 +170,15 @@
                                 </div>
                                 <div class="bundle_detail">
                                     <div class="theme_checkbox">
-                                        <label>this product: WOMEN PINK SHIRT <span class="price_product">RM 55</span>
+                                        <label>this product: WOMEN PINK SHIRT <span class="price_product">RM/MYR 55</span>
                                             <input type="checkbox" checked="checked">
                                             <span class="checkmark"></span>
                                         </label>
-                                        <label>black long skirt <span class="price_product">RM 20</span>
+                                        <label>black long skirt <span class="price_product">RM/MYR 20</span>
                                             <input type="checkbox" checked="checked">
                                             <span class="checkmark"></span>
                                         </label>
-                                        <label>women heeled boots <span class="price_product">RM 15</span>
+                                        <label>women heeled boots <span class="price_product">RM/MYR 15</span>
                                             <input type="checkbox" checked="checked">
                                             <span class="checkmark"></span>
                                         </label>

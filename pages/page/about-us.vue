@@ -16,7 +16,7 @@ You can now purchase your favourite wines and various pairing snacks from us, at
 All of our Wines & Spirits guaranteed SAFE and GENUINE.</p>
 </br>
           <h2>Delivery</h2>
-          <p>We offer free delivery within Langkawi Island for purchase above RM 200. For purchase below RM 200, there will be a delivery charge of RM 10.</p>
+          <p>We offer free delivery within Langkawi Island for purchase above RM/MYR 200. For purchase below RM/MYR 200, there will be a delivery charge of RM/MYR 10.</p>
           </div>
           
         </div>
