@@ -23,6 +23,7 @@ const state = {
   productDetail: {},
   serchProductList: [],
   topDiscount: [],
+  trandingProduct: []
 };
 // getters
 const getters = {
@@ -83,14 +84,12 @@ const mutations = {
     state.reletedProductList = value;
   },
   addToWishlist: (state, payload) => {
-    const product = state.products.find((item) => item.id === payload.id);
-    const wishlistItems = state.wishlist.find((item) => item.id === payload.id);
-    if (wishlistItems) {
-    } else {
-      state.wishlist.push({
-        ...product,
-      });
-    }
+    const wishlistItems = state.productData.find((item) => item.id === payload.id );
+    const SetwishlistItems = state.wishlist.find((item) => item.id === payload.id);
+    // alert(JSON.stringify(SetwishlistItems))
+    if (wishlistItems && SetwishlistItems == undefined) {
+      state.wishlist.push(wishlistItems);
+    } 
   },
   removeWishlistItem: (state, payload) => {
     const index = state.wishlist.indexOf(payload);
@@ -129,6 +128,9 @@ const mutations = {
   },
   SET_TOP_PRODUCT(state, value) {
     state.topProductList = value;
+  },
+  SET_TRANDING_PRODUCT(state, value) {
+    state.trandingProduct = value;
   },
   SET_PRODUCT_DETAIL(state, value) {
     state.productDetail = value;
@@ -193,6 +195,7 @@ const actions = {
       console.log(resp.data.data.discountProduct)
       commit("SET_PRODUCT_indexList", resp.data.data.latestProduct);
       commit("SET_TOP_DISCOUNT", resp.data.data.discountProduct);
+      commit("SET_TRANDING_PRODUCT",resp.data.data.trandingProduct)
     }
     return resp;
   },

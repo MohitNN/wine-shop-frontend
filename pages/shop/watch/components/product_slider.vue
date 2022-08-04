@@ -12,7 +12,7 @@
             </div>
             <div v-swiper:mySwiper="swiperOption">
               <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(product,index) in products" :key="index">
+                <div class="swiper-slide" v-for="(product,index) in this.$store.state.products.trandingProduct" :key="index">
                   <div class="product-box product-wrap">
                     <productBox4
                       @opencartmodel="showCartModal"

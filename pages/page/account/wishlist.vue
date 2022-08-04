@@ -20,11 +20,11 @@
                 <tr>
                   <td>
                     <a href="#">
-                      <img :src='getImgUrl(item.images[0].src)' alt="">
+                      <img :src="getImgUrl(item.product_images[0].image)" alt="">
                     </a>
                   </td>
                   <td>
-                    <a href="#">{{item.title}}</a>
+                    <a href="#">{{item.product_name}}</a>
                     <div class="mobile-cart-content row">
                       <div class="col-xs-3">
                         <p>in stock</p>
@@ -87,6 +87,8 @@ import { mapGetters } from 'vuex'
 import Header from '../../../components/header/header1'
 import Footer from '../../../components/footer/footer1'
 import Breadcrumbs from '../../../components/widgets/breadcrumbs'
+import config from '@/config.json'
+
 export default {
   components: {
     Header,
@@ -101,7 +103,7 @@ export default {
   },
   methods: {
     getImgUrl(path) {
-      return require('@/assets/images/' + path)
+      return config.baseUrl + "products/" + path; 
     },
     removeWishlistItem: function (product) {
       this.$store.dispatch('products/removeWishlistItem', product)
