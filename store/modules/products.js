@@ -83,10 +83,9 @@ const mutations = {
   RELETED_PRODUCT(state, value) {
     state.reletedProductList = value;
   },
-  addToWishlist: (state, payload) => {
+  addToWishlist: (state, payload) => {  
     const wishlistItems = state.productData.find((item) => item.id === payload.id );
-    const SetwishlistItems = state.wishlist.find((item) => item.id === payload.id);
-    // alert(JSON.stringify(SetwishlistItems))
+    const SetwishlistItems = state.wishlist.find((wishitem) => wishitem.id === payload.id);
     if (wishlistItems && SetwishlistItems == undefined) {
       state.wishlist.push(wishlistItems);
     } 

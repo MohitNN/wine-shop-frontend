@@ -40,7 +40,7 @@
           <i class="ti-shopping-cart"></i>
         </button>
         <a href="javascript:void(0)" title="Wishlist">
-          <i class="ti-heart" aria-hidden="true" @click="addToWishlist(product)"></i>
+          <i class="ti-heart" aria-hidden="true" @click="addToWishlist_(product)"></i>
         </a>
         <a
           href="javascript:void(0)"
@@ -159,7 +159,7 @@
 
 <script>
 import {
-    mapState,
+    mapActions,
     mapGetters
 } from 'vuex'
 import config from '@/config.json'
@@ -203,6 +203,7 @@ export default {
 
     },
     methods: {
+      ...mapActions("products", ["addToWishlist"]),
         getImgUrl(path) {
             return config.baseUrl + "products/" + path;
         },
@@ -213,10 +214,10 @@ export default {
             this.$emit('opencartmodel', this.cartval, this.cartProduct)
             this.$store.dispatch('cart/addToCart', product)
         },
-        addToWishlist: function (product) {
+        addToWishlist_: function (product) {
             this.dismissCountDown = this.dismissSecs
             this.$emit('showalert', this.dismissCountDown)
-            this.$store.dispatch('Products/addToWishlist', product)
+            this.addToWishlist(product)
         },
         showQuickview: function (productData) {
             this.showquickview = true

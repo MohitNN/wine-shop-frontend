@@ -37,16 +37,13 @@
                                 <div class="col-lg-6 rtl-text">
                                     <div class="product-right">
                                         <div class="d-flex justify-content-between">
-                                            <h2>{{ productDetail.product_name }}</h2>
-
-                                            <div class="border-product">
-                                                <div class="product-icon">
-                                                    <form class="d-inline-block">
-                                                        <button type="button" class="wishlist-btn" @click="addToWishlist(productDetail)">
-                                                            <i class="fa fa-heart"></i>
-                                                            <span class="title-font">Add To WishList</span>
-                                                        </button>
-                                                    </form>
+                                            <h2 class="col-8">{{ productDetail.product_name }}</h2>
+                                            <div class="col-4 border-product">
+                                                <div class="product-icon" @click="addToWishlist_(productDetail)">
+                                                    <a href="javascript:void(0)" title="Wishlist">
+                                                        <i class="ti-heart" aria-hidden="true"></i>
+                                                    </a>
+                                                    <span class="ml-2">Add to Wishlist</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -182,12 +179,12 @@ export default {
         // this.getReletedProduct(this.$route.params.id)
     },
     methods: {
-        ...mapActions("products", ["getSingleProduct", "getReletedProduct"]),
+        ...mapActions("products", ["getSingleProduct", "getReletedProduct", "addToWishlist"]),
         priceCurrency: function () {
             this.$store.dispatch("products/changeCurrency");
         },
-        addToWishlist: function (product) {
-            this.$store.dispatch('products/addToWishlist', product)
+        addToWishlist_: function (product) {
+            this.addToWishlist(product)
         },
         discountedPrice(product) {
             const price = product.price - (product.price * product.discount) / 100;
