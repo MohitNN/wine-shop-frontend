@@ -14,7 +14,7 @@
             <div class="media-body col-8">
               <span class="m-0">Earnings</span>
               <h3 class="mb-0">
-                RM <span class="counter">6659</span><small> This Month</small>
+                RM/MYR <span class="counter">6659</span><small> This Month</small>
               </h3>
             </div>
           </div>
@@ -33,7 +33,7 @@
             <div class="media-body col-8">
               <span class="m-0">Products</span>
               <h3 class="mb-0">
-                RM <span class="counter">9856</span><small> This Month</small>
+                RM/MYR <span class="counter">9856</span><small> This Month</small>
               </h3>
             </div>
           </div>
@@ -52,7 +52,7 @@
             <div class="media-body col-8">
               <span class="m-0">Messages</span>
               <h3 class="mb-0">
-                RM <span class="counter">893</span><small> This Month</small>
+                RM/MYR <span class="counter">893</span><small> This Month</small>
               </h3>
             </div>
           </div>
@@ -71,7 +71,7 @@
             <div class="media-body col-8">
               <span class="m-0">New Vendors</span>
               <h3 class="mb-0">
-                RM <span class="counter">45631</span><small> This Month</small>
+                RM/MYR <span class="counter">45631</span><small> This Month</small>
               </h3>
             </div>
           </div>

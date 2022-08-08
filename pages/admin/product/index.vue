@@ -42,6 +42,9 @@
                                     <!-- <img height="50px" :src="getImgUrl(field.item.image)" width="50px" /> -->
                                     <div>{{field.item.category ? field.item.category.name : '-' }}</div>
                                 </template>
+                                <template #cell(types)="field">
+                                    <div>{{field.item.types ? field.item.types.type_name : '-' }}</div>
+                                </template>
                                 <template #cell(subcategory)="field">
                                     <!-- <img height="50px" :src="getImgUrl(field.item.image)" width="50px" /> -->
                                     <div>{{field.item.subcategory ? field.item.subcategory.name : '-'}}</div>
@@ -104,8 +107,8 @@ export default {
                     sortable: true
                 },
                 {
-                    key: "type_id",
-                    label: "type",
+                    key: "types",
+                    label: "types",
                     sortable: true
                 },
                 {

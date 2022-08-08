@@ -63,6 +63,7 @@ export default {
         fill: {
           opacity: 2,
           colors: ["#F98C91", "#A7A7A7"]
+          
         },
         legend: {
           show: false
@@ -77,7 +78,7 @@ export default {
         tooltip: {
           y: {
             formatter: function(val) {
-              return "RM " + val + " thousands";
+              return "RM/MYR" + val + " thousands";
             }
           }
         }

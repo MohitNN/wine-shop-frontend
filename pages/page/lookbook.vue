@@ -63,22 +63,22 @@ export default {
           imagepath: require('@/assets/images/lookbook.jpg'),
           pro1image: require('@/assets/images/1.jpg'),
           pro1title: 'Trim dress',
-          pro1price: 'RM 220.00',
+          pro1price: 'RM/MYR 220.00',
           pro1link: '/home',
           pro2image: require('@/assets/images/1.jpg'),
           pro2title: 'crop top',
-          pro2price: 'RM 695.00',
+          pro2price: 'RM/MYR 695.00',
           pro2link: '/home'
         },
         {
           imagepath: require('@/assets/images/lookbook2.jpg'),
           pro1image: require('@/assets/images/1.jpg'),
           pro1title: 'boho tops',
-          pro1price: 'RM 446.00',
+          pro1price: 'RM/MYR 446.00',
           pro1link: '/home',
           pro2image: require('@/assets/images/1.jpg'),
           pro2title: 'fitted dress',
-          pro2price: 'RM 235.00',
+          pro2price: 'RM/MYR 235.00',
           pro2link: '/home'
         }
       ]

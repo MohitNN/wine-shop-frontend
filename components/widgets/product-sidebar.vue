@@ -2,15 +2,10 @@
   <div>
     <div class="row">
       <div class="col-xl-12">
-        <div class="filter-main-btn mb-2 ml-3">
-          <span class="filter-btn btn btn-theme" @click="filter = !filter">
-            <i class="fa fa-filter" aria-hidden="true"></i> filter
-          </span>
-        </div>
+        
       </div>
     </div>
     <div class="collection-filter" :class="{ openFilterbar: filter }">
-      <!-- side-bar single product slider start -->
       <div class="theme-card">
         <h5 class="title-border">new products</h5>
         <div class="offer-slider slide-1">
@@ -32,31 +27,14 @@
                       />
                     </nuxt-link>
                     <div class="media-body align-self-center">
-                      <!-- <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </div> -->
                       <nuxt-link
                         :to="{ path: '/product/' + product.id }"
                       >
                         
                         <h6>{{ product.product_name }}</h6>
                       </nuxt-link>
-                      <!-- <h4 v-if="product.sale">
-                        {{
-                          (discountedPrice(product) * currency.curr)
-                            | currency(currency.symbol)
-                        }}
-                        <del>{{
-                          (product.price * currency.curr)
-                            | currency(currency.symbol)
-                        }}</del>
-                      </h4> -->
                       <h4 >
-                        RM {{
+                        RM/MYR {{
                           product.price
                         }}
                       </h4>
@@ -101,7 +79,7 @@
                         }}</del>
                       </h4> -->
                       <h4 >
-                        RM {{
+                        RM/MYR {{
                           product.price
                         }}
                       </h4>

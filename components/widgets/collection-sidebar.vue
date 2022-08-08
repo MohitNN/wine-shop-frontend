@@ -2,11 +2,6 @@
   <div>
     <div class="row">
       <div class="col-xl-12">
-        <div class="filter-main-btn" @click="filter = !filter">
-          <span class="filter-btn btn btn-theme">
-            <i class="fa fa-filter" aria-hidden="true"></i> Filter
-          </span>
-        </div>
       </div>
     </div>
     <div class="collection-filter" :class="{ openFilterbar: filter }">

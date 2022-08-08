@@ -24,9 +24,7 @@
                                         <div class="col-12 slider-nav-images">
                                             <div v-swiper:mySwiper1="swiperOption1">
                                                 <div class="swiper-wrapper">
-                                                    <div class="swiper-slide" v-for="(
-                                product, index
-                              ) in productDetail.product_images" :key="index">
+                                                    <div class="swiper-slide" v-for="(product, index) in productDetail.product_images" :key="index">
                                                         <img :src="getImgUrl(product.image)" :id="product.image_id" class="img-fluid bg-img" alt="product.alt" @click="slideTo(index)" />
                                                     </div>
                                                 </div>
@@ -51,8 +49,8 @@
                                             <span>{{ productDetail.discount }}% off</span>
                                         </h4>
                                         <div class="d-flex align-items-center">
-                                            <span class="amount mr-3">RM {{ productDetail.price }}</span>
-                                            <span class="mr-2"><strike>RM {{ productDetail.fake_price }}</strike></span>
+                                            <span class="amount mr-3">RM/MYR {{ productDetail.price }}</span>
+                                            <span class="mr-2"><strike>RM/MYR {{ productDetail.fake_price }}</strike></span>
                                             <span class="discount badge">{{ productDetail.discount }} %</span>
                                         </div>
 
@@ -68,7 +66,7 @@
                                                             <i class="ti-angle-left"></i>
                                                         </button>
                                                     </span>
-                                                    <input type="text" :disabled="true" name="quantity" class="form-control input-number" v-model="counter" />
+                                                    <input type="text" name="quantity" class="form-control input-number" v-model="counter" />
                                                     <span class="input-group-prepend">
                                                         <button type="button" class="btn quantity-right-plus" data-type="plus" data-field @click="increment()">
                                                             <i class="ti-angle-right"></i>

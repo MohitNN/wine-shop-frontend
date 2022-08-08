@@ -23,7 +23,6 @@
                         v-for="(product, index) in products.slice(0, 8)"
                         :key="index"
                       >
-                        
                         <div class="product-box2">
                           <div class="media col-12">
                             <nuxt-link
@@ -48,7 +47,7 @@
                               >
                                 <h6>{{ product.product_name }}</h6>
                               </nuxt-link>
-                              <h4>RM {{ product.price }}</h4>
+                              <h4>RM/MYR {{ product.price }}</h4>
                             </div>
                           </div>
                         </div>
@@ -65,11 +64,10 @@
                         class="tab-box"
                         v-for="(product, index) in topDiscount.slice(0, 8)"
                         :key="index"
+                        v-if="product.discount != 0"
                       >
-                        
-
                         <div class="product-box2">
-                          <div class="media">
+                          <div class="media col-12">
                             <nuxt-link
                               class="w-100 col-6"
                               :to="{ path: '/product/' + product.id }"
@@ -83,51 +81,21 @@
                                   product.product_images.length
                                 "
                                 class="img-fluid bg-img"
-                                style="width: 200px !important"
                                 alt
                               />
                             </nuxt-link>
-                            <div class="media-body align-self-center">
+                            <div class="media-body align-self-center col-6">
                               <nuxt-link
                                 :to="{ path: '/product/' + product.id }"
                               >
                                 <h6>{{ product.product_name }}</h6>
                               </nuxt-link>
-                              <!-- <h4 v-if="product.sale">
-                                {{
-                                  (discountedPrice(product) * curr.curr)
-                                    | currency(curr.symbol)
-                                }}
-                                <del>{{
-                                  (product.price * curr.curr)
-                                    | currency(curr.symbol)
-                                }}</del>
-                              </h4> -->
                               <h4>
-                                <!-- {{
-                                   (product.price * curr.curr)
-                                    | currency(curr.symbol) 
-                                }} -->
-                                RM {{ product.price }}
+                                RM/MYR {{ product.price }}
                               </h4>
                               <h4 class="text-danger">
                                 {{ product.discount }} %
                               </h4>
-                              <!-- <ul class="color-variant">
-                                <li
-                                  v-for="(variant, index) in Color(
-                                    product.variants
-                                  )"
-                                  :key="index"
-                                >
-                                  <a
-                                    :class="[variant]"
-                                    v-bind:style="{
-                                      'background-color': variant,
-                                    }"
-                                  ></a>
-                                </li>
-                              </ul> -->
                             </div>
                           </div>
                         </div>
@@ -160,7 +128,7 @@ export default {
       curr: "products/changeCurrency",
       onSellData: "products/onSellData",
     }),
-    ...mapState('products' , ['topDiscount']),
+    ...mapState("products", ["topDiscount"]),
     productData: (state) => state.products.productData,
     // discountProduct: (state) => state.products.topDiscount,
     // sortedArray() {
@@ -168,7 +136,6 @@ export default {
     //     return this.products?.sort((a, b) => (parseInt(a.discount) > parseInt(b.discount) ? -1 : 1))
     //   }
     // },
-    
   },
   methods: {
     getImgUrl(path) {

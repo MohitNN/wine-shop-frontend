@@ -75,6 +75,7 @@
                                       id="name-input"
                                       v-model="name"
                                       :state="nameState"
+                                      placeholder="Name"
                                       required
                                     ></b-form-input>
                                   </b-form-group>
@@ -141,18 +142,25 @@
                                           v-model="password.currentpassword"
                                           id="validationCustom01"
                                           type="password"
+                                          placeholder="Current Password"
                                         />
-                                        <div
-                                          class="
-                                            col-xl-8 col-sm-7
-                                            p-0
-                                            ml-0
-                                            validation
-                                          "
-                                        >
-                                          <span class="validate-error">{{
-                                            errors[0]
-                                          }}</span>
+                                        <div class="form-group mb-3 row">
+                                          <label
+                                            for="validationCustom01"
+                                            class="col-xl-3 col-sm-4 mb-0"
+                                          ></label>
+                                          <div
+                                            class="
+                                              col-xl-8 col-sm-7
+                                              p-0
+                                              ml-0
+                                              validation
+                                            "
+                                          >
+                                            <span class="validate-error">{{
+                                              errors[0]
+                                            }}</span>
+                                          </div>
                                         </div>
                                       </div>
                                     </ValidationProvider>
@@ -174,6 +182,7 @@
                                           v-model="password.newpassword"
                                           id="validationCustom01"
                                           type="password"
+                                          placeholder="Change Password"
                                         />
                                         <div
                                           class="
@@ -207,6 +216,7 @@
                                           v-model="password.confirmpassword"
                                           id="validationCustom01"
                                           type="password"
+                                          placeholder="Confirm Password"
                                         />
                                         <div
                                           class="

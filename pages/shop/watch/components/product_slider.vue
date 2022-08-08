@@ -44,7 +44,6 @@
 
 <script>
 import productBox4 from '../../../../components/product-box/product-box4'
-import productBox1 from '../../../../components/product-box/product-box1'
 export default {
   props: ['products'],
   components: {
