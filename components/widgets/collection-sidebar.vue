@@ -36,7 +36,7 @@
                     class="custom-control-input"
                     :value="brand.id"
                     :id="'brand' + brand.id"
-                    v-model="filters.brand_id"
+                    v-model="checkBrand"
                     @change="appliedFilter(brand.name, brand.slug, 'brand')"
                   />
                   <label
@@ -74,7 +74,7 @@
                     class="custom-control-input"
                     :value="category.id"
                     :id="'category' + category.id"
-                    v-model="filters.category_id"
+                    v-model="checkCategory"
                     @change="
                       appliedFilter(category.name, category.slug, 'category')
                     "
@@ -116,8 +116,8 @@
                     class="custom-control-input"
                     :value="category.id"
                     :id="'subcategory' + category.id"
-                    v-model="filters.sub_category_id"
-                    @change="appliedFilter()"
+                    v-model="checkSubCategory"
+                    @change="appliedFilter(category.name, category.slug, 'sub_category')"
                   />
                   <label
                     class="custom-control-label"
@@ -254,6 +254,9 @@ export default {
           prevEl: ".swiper-button-prev",
         },
       },
+      checkBrand:[],
+      checkCategory:[],
+      checkSubCategory:[],
       // filters: {
       //   brand_id: [],
       //   category_id: [],
@@ -300,12 +303,21 @@ export default {
     appliedFilter(name, slug, type) {
       let isFilter = false;
       let data = {};
+      var selectfilter = [];
+      if(type == 'brand'){
+        selectfilter = this.checkBrand
+      }else if(type == 'category'){
+        selectfilter = this.checkCategory
+      }else if(type == 'sub_category'){
+        selectfilter = this.checkSubCategory 
+      }
       Object.keys(this.filters).forEach((key) => {
         if (this.filters[key].length) {
           isFilter = true;
           data.name = name;
           data.slug = slug;
           data.type = type;
+          data.multipleCollection = selectfilter;
           return false;
         }
       });

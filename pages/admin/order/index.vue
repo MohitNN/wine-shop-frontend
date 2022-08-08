@@ -140,7 +140,7 @@ export default {
                 },
                 {
                     key: "file",
-                    label: "Order Image",
+                    label: "Payment Slip",
                     sortable: true,
                 },
                 {

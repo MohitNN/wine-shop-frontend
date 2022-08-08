@@ -155,8 +155,9 @@ export default {
       // this.$route.query.name
       const type = this.slug;
       const name = this.name;
+      const multipleCollection  = [];
       this.clearFilter();
-      this.allProduct({ type, name, pageIndex: "page=1" });
+      this.allProduct({ type, name,multipleCollection,pageIndex: "page=1" });
     },
     alert(item) {
       this.dismissCountDown = item;
@@ -190,7 +191,8 @@ export default {
       const type = data.selected_name.type;
       const name = data.selected_name.slug;
       const slug = data.selected_name.slug;
-      this.loadProduct(type , slug)
+      const multipleCollection = data.selected_name.multipleCollection;
+      this.loadProduct(type , slug,multipleCollection)
       // this.allProduct({ ...data, type, name, pageIndex: "page=1" });
     },
   },

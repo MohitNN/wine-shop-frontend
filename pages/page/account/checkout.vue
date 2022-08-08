@@ -139,6 +139,15 @@
                           <span class="validate-error">{{ errors[0] }}</span>
                         </ValidationProvider>
                       </div>
+                      <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                        <div class="field-label" style="float:right;">
+                          <input
+                            type="checkbox"
+                            name="saveAddress"
+                          /> Save Address ?
+                        </div>
+                        
+                      </div>
                       <!-- <div>
                         <div
                           class="
