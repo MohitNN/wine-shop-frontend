@@ -24,9 +24,7 @@
                                         <div class="col-12 slider-nav-images">
                                             <div v-swiper:mySwiper1="swiperOption1">
                                                 <div class="swiper-wrapper">
-                                                    <div class="swiper-slide" v-for="(
-                                product, index
-                              ) in productDetail.product_images" :key="index">
+                                                    <div class="swiper-slide" v-for="(product, index) in productDetail.product_images" :key="index">
                                                         <img :src="getImgUrl(product.image)" :id="product.image_id" class="img-fluid bg-img" alt="product.alt" @click="slideTo(index)" />
                                                     </div>
                                                 </div>
@@ -71,7 +69,7 @@
                                                             <i class="ti-angle-left"></i>
                                                         </button>
                                                     </span>
-                                                    <input type="text" :disabled="true" name="quantity" class="form-control input-number" v-model="counter" />
+                                                    <input type="text" name="quantity" class="form-control input-number" v-model="counter" />
                                                     <span class="input-group-prepend">
                                                         <button type="button" class="btn quantity-right-plus" data-type="plus" data-field @click="increment()">
                                                             <i class="ti-angle-right"></i>
