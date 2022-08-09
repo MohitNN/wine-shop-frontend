@@ -1294,7 +1294,7 @@ $theme-deafult__toggle-spacing: floor($theme-deafult__item-height * 0.1);
       .mobile-account, .mobile-wishlist{
         position: fixed;
         bottom: 20px;
-        right: 32%;
+        right: 20%;
         font-size: 0;
         padding: 0;
         z-index: 9;
@@ -1318,7 +1318,7 @@ $theme-deafult__toggle-spacing: floor($theme-deafult__item-height * 0.1);
         }
       }
       .mobile-wishlist {
-        right: 64%;
+        right: 60%;
         i {
           font-family: $font-themify;
           color: $header-font !important;
@@ -1376,7 +1376,7 @@ $theme-deafult__toggle-spacing: floor($theme-deafult__item-height * 0.1);
           }
         }
         .mobile-cart {
-          right: 48%;
+          right: 40%;
           .close-circle {
             i {
               font-size: 14px;
