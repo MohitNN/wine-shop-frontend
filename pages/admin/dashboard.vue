@@ -12,9 +12,9 @@
               </div>
             </div>
             <div class="media-body col-8">
-              <span class="m-0">Earnings</span>
+              <span class="m-0">Products</span>
               <h3 class="mb-0">
-                RM/MYR <span class="counter">6659</span><small> This Month</small>
+                Total <span class="counter">{{getAllDataTotal.product}}</span>
               </h3>
             </div>
           </div>
@@ -31,9 +31,9 @@
               </div>
             </div>
             <div class="media-body col-8">
-              <span class="m-0">Products</span>
+              <span class="m-0">Brands</span>
               <h3 class="mb-0">
-                RM/MYR <span class="counter">9856</span><small> This Month</small>
+                Total <span class="counter">{{getAllDataTotal.brand}}</span>
               </h3>
             </div>
           </div>
@@ -50,9 +50,9 @@
               </div>
             </div>
             <div class="media-body col-8">
-              <span class="m-0">Messages</span>
+              <span class="m-0">Categorys</span>
               <h3 class="mb-0">
-                RM/MYR <span class="counter">893</span><small> This Month</small>
+                Total <span class="counter">{{getAllDataTotal.category}}</span>
               </h3>
             </div>
           </div>
@@ -69,9 +69,9 @@
               </div>
             </div>
             <div class="media-body col-8">
-              <span class="m-0">New Vendors</span>
+              <span class="m-0">Orders</span>
               <h3 class="mb-0">
-                RM/MYR <span class="counter">45631</span><small> This Month</small>
+                Total <span class="counter">{{getAllDataTotal.order}}</span>
               </h3>
             </div>
           </div>
@@ -87,6 +87,7 @@
 <script>
 
 import layout from "@/components/admin/Body.vue";
+import { mapGetters , mapActions } from "vuex";
 
 export default {
   middleware: ["auth"],
@@ -94,5 +95,16 @@ export default {
    layout
   },
   // middleware: ['admin/auth']
+   computed: {
+      ...mapGetters({
+          getAllDataTotal: "dashboard/getAllDataCount",
+      }),
+    },
+    mounted() {
+        this.getCountData();
+    },
+    methods: {
+      ...mapActions("dashboard", ["getCountData"]),
+    }
 };
 </script>

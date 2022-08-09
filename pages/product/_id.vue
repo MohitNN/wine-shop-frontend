@@ -37,12 +37,12 @@
                                         <div class="d-flex justify-content-between">
                                             <h2 class="col-8">{{ productDetail.product_name }}</h2>
                                             <div class="col-4 border-product">
-                                                <div class="product-icon" @click="addToWishlist_(productDetail)">
+                                                <!-- <div class="product-icon" @click="addToWishlist_(productDetail)">
                                                     <a href="javascript:void(0)" title="Wishlist">
                                                         <i class="ti-heart" aria-hidden="true"></i>
                                                     </a>
                                                     <span class="ml-2">Add to Wishlist</span>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                         <h4 v-if="productDetail.onsale">

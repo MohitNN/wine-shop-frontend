@@ -32,6 +32,7 @@ let store = {};
   resolveStoreModules(require('..\\store\\admin\\modules\\brand.js'), 'admin/modules/brand.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\category.js'), 'admin/modules/category.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\coupon.js'), 'admin/modules/coupon.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\dashboard.js'), 'admin/modules/dashboard.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\digital-products.js'), 'admin/modules/digital-products.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\employee.js'), 'admin/modules/employee.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\invoice.js'), 'admin/modules/invoice.js')
@@ -67,6 +68,7 @@ let store = {};
       '..\\store\\admin\\modules\\brand.js',
       '..\\store\\admin\\modules\\category.js',
       '..\\store\\admin\\modules\\coupon.js',
+      '..\\store\\admin\\modules\\dashboard.js',
       '..\\store\\admin\\modules\\digital-products.js',
       '..\\store\\admin\\modules\\employee.js',
       '..\\store\\admin\\modules\\invoice.js',

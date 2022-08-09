@@ -8,6 +8,7 @@ import cart from './modules/cart'
 import filter from './modules/filter'
 import layout from './modules/layout'
 
+import dashboard from './admin/modules/dashboard.js';
 import admin_employee from './admin/modules/employee.js'
 import admin_menu from './admin/modules/menu.js'
 import admin_order from './admin/modules/order.js'
@@ -75,7 +76,8 @@ const createStore = () => {
       brand,
       order,
       types,
-      banner
+      banner,
+      dashboard
     }
   })
 }

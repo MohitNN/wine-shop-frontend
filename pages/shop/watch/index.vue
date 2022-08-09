@@ -36,7 +36,7 @@
       @closeCompare="closeCompareModal"
     />
     <cartBottomModel :openCart="showcartmodal" @closeCart="closeCart" />
-    <newsletterModel />
+    <!-- <newsletterModel /> -->
   </div>
 </template>
 

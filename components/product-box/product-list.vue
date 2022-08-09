@@ -24,9 +24,9 @@
                 <button data-toggle="modal" data-target="#addtocart" title="Add to cart" @click="addToCart(product)">
                     <i class="ti-shopping-cart"></i>
                 </button>
-                <a href="javascript:void(0)" title="Wishlist">
+                <!-- <a href="javascript:void(0)" title="Wishlist">
                     <i class="ti-heart" aria-hidden="true" @click="addToWishlist(product)"></i>
-                </a>
+                </a> -->
                 <a href="javascript:void(0)" title="Quick View" @click="showQuickview(product)" v-b-modal.modal-lg variant="primary">
                     <i class="ti-search" aria-hidden="true"></i>
                 </a>
