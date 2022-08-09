@@ -6,9 +6,10 @@
           <div class="col">
             <div class="title4">
               <h2 class="title-inner4">{{title}}</h2>
-              <div class="line">
+              <img src="@/assets/images/Vector.png" style="width: 312px;height: 20.33px;margin-bottom: 31px;" />
+              <!-- <div class="line">
                 <span></span>
-              </div>
+              </div> -->
             </div>
             <div v-swiper:mySwiper="swiperOption">
               <div class="swiper-wrapper">

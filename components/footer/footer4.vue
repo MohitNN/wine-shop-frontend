@@ -17,7 +17,7 @@
                                 do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                                 Ut enim ad minim veniam,
                             </p>
-                            <div class="footer-social">
+                            <!-- <div class="footer-social">
                                 <ul>
                                     <li>
                                         <a href="#">
@@ -45,7 +45,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col offset-xl-1">
@@ -96,15 +96,14 @@
                             <div class="footer-contant">
                                 <ul class="contact-list">
                                     <li>
-                                        <i class="fa fa-map-marker"></i>Multikart Demo Store, Demo
-                                        store India 345-659
+                                        <i class="fa fa-map-marker"></i>Langkawi, Kedah
                                     </li>
-                                    <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
+                                    <li><i class="fa fa-phone"></i>Call Us: +6012 1111111</li>
                                     <li>
                                         <i class="fa fa-envelope-o"></i>Email Us:
-                                        <a href="#">Support@Fiot.com</a>
+                                        <a href="#">Langkawiliquor@gmail.com</a>
                                     </li>
-                                    <li><i class="fa fa-fax"></i>Fax: 123456</li>
+                                    <!-- <li><i class="fa fa-fax"></i>Fax: 123456</li> -->
                                 </ul>
                             </div>
                         </div>

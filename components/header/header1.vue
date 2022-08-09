@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header>
+    <header style="background: #FFD391;">
       <div class="mobile-fix-option"></div>
       <TopBar/>
       <div class="container">

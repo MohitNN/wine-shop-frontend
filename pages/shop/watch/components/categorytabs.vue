@@ -1,15 +1,16 @@
 <template>
   <div>
-    <section class="p-0">
+    <section class="p-0" style="background: #FFD391;">
       <div class="tab-bg">
         <div class="container-fluid">
           <div class="row">
             <div class="col">
               <div class="title4">
                 <h2 class="title-inner4">{{ title }}</h2>
-                <div class="line">
+                <img src="@/assets/images/Vector.png" style="width: 312px;height: 20.33px;margin-bottom: 31px;" />
+                <!-- <div class="line">
                   <span></span>
-                </div>
+                </div> -->
               </div>
               <div class="theme-tab">
                 <b-tabs content-class="mt-3">
@@ -55,7 +56,7 @@
                     </div>
                   </b-tab>
 
-                  <b-tab title="ON SALE">
+                  <!-- <b-tab title="ON SALE">
                     <div
                       class="row product-tab"
                       v-if="topDiscount && topDiscount.length"
@@ -101,7 +102,7 @@
                         </div>
                       </div>
                     </div>
-                  </b-tab>
+                  </b-tab> -->
                 </b-tabs>
               </div>
             </div>

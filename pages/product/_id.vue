@@ -35,7 +35,7 @@
                                 <div class="col-lg-6 rtl-text">
                                     <div class="product-right">
                                         <div class="d-flex justify-content-between">
-                                            <h2 class="col-8">{{ productDetail.product_name }}</h2>
+                                            <h2 class="col-8" style="padding-left:0px" >{{ productDetail.product_name }}</h2>
                                             <div class="col-4 border-product">
                                                 <!-- <div class="product-icon" @click="addToWishlist_(productDetail)">
                                                     <a href="javascript:void(0)" title="Wishlist">
@@ -46,12 +46,12 @@
                                             </div>
                                         </div>
                                         <h4 v-if="productDetail.onsale">
-                                            <span>{{ productDetail.discount }}% off</span>
+                                            <span v-if="productDetail.discount != 0">{{ productDetail.discount }}% off</span>
                                         </h4>
                                         <div class="d-flex align-items-center">
                                             <span class="amount mr-3">RM/MYR {{ productDetail.price }}</span>
                                             <span class="mr-2"><strike>RM/MYR {{ productDetail.fake_price }}</strike></span>
-                                            <span class="discount badge">{{ productDetail.discount }} %</span>
+                                            <span class="discount badge" v-if="productDetail.discount != 0">{{ productDetail.discount }} %</span>
                                         </div>
 
                                         <div class="product-description border-product">

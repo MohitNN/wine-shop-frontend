@@ -5,9 +5,10 @@
             <div class="">
                 <div class="title4">
                     <h2 class="title-inner4">This Item Is One The Best Wines</h2>
-                    <div class="line">
+                    <img src="@/assets/images/Vector.png" style="width: 312px;height: 20.33px;margin-bottom: 31px;" />
+                    <!-- <div class="line">
                         <span></span>
-                    </div>
+                    </div> -->
                     <div v-if="topProductList && topProductList.length">
                         <div class="col-12" v-swiper:mySwiper="swiperOption">
                             <div class="swiper-wrapper category-m">

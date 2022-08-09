@@ -49,7 +49,7 @@
                       <div class="menu-content" :class="{ opensubmegamenu: isActivesubmega('portfolio') }">
                         <ul v-if="childrenItem.subcategories">
                           <li v-for="(childrenSubItem, index) in childrenItem.subcategories" :key="index">
-                            <a @click="loadProduct('sub-category', childrenSubItem.slug)">
+                            <a @click="loadProduct('sub_category', childrenSubItem.slug)">
                               {{childrenSubItem.name}}
                             </a>
                           </li>

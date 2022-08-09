@@ -74,7 +74,7 @@
                           <span class="validate-error">{{ errors[0] }}</span>
                         </ValidationProvider>
                       </div>
-                      <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                      <!-- <div class="form-group col-md-12 col-sm-12 col-xs-12">
                         <div class="field-label">Country</div>
                         <select v-model="user.country">
                           <option>India</option>
@@ -82,8 +82,8 @@
                           <option>United State</option>
                           <option>Australia</option>
                         </select>
-                      </div>
-                      <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                      </div> -->
+                      <!-- <div class="form-group col-md-12 col-sm-12 col-xs-12">
                         <div class="field-label">Address</div>
                         <ValidationProvider
                           rules="required"
@@ -138,15 +138,64 @@
                           />
                           <span class="validate-error">{{ errors[0] }}</span>
                         </ValidationProvider>
-                      </div>
+                      </div> -->
                       <div class="form-group col-md-12 col-sm-6 col-xs-12">
                         <div class="field-label" style="float:right;">
-                          <input
-                            type="checkbox"
-                            name="saveAddress"
-                          /> Save Address ?
+                        <a href="javascript:void(0)"
+                           v-b-modal.modal-prevent-closing
+                           class="btn"
+                        >Add Address</a>
                         </div>
-                        
+                        <b-modal
+                            id="modal-prevent-closing"
+                            ref="modal"
+                            title="Address From "
+                            @show="resetModal"
+                            @hidden="resetModal"
+                            @ok="handleOk"
+                          >
+                             <ValidationObserver>
+                                <form ref="form" id="addressFrom" @submit.stop.prevent="handleSubmit">
+                                 <ValidationProvider rules="required" v-slot="{ errors }" name="address">
+                                    <b-form-group label="Address" label-for="address-input" invalid-feedback="Address is required" :state="address">
+                                        <b-form-input id="address-input" v-model="addAddress" name="address" :state="address" placeholder="Address" required></b-form-input>
+                                    </b-form-group>
+                                      <span class="validate-error">{{ errors[0] }}</span>
+                                    </ValidationProvider>
+                                    <ValidationProvider rules="required" v-slot="{ errors }" name="city">
+                                    <b-form-group label="City" label-for="city-input" invalid-feedback="City is required" :state="city">
+                                        <b-form-input id="city-input" v-model="addCity" name="city" :state="city" placeholder="City" required></b-form-input>
+                                    </b-form-group>
+                                    <span class="validate-error">{{ errors[0] }}</span>
+                                     </ValidationProvider>
+                                     <ValidationProvider rules="required" v-slot="{ errors }" name="county">
+                                    <b-form-group label="County" label-for="county-input" invalid-feedback="County is required" :state="county">
+                                        <b-form-input id="county-input" v-model="addCounty" name="county" :state="county" placeholder="County" required></b-form-input>
+                                    </b-form-group>
+                                    <span class="validate-error">{{ errors[0] }}</span>
+                                    </ValidationProvider>
+                                    <ValidationProvider rules="required" v-slot="{ errors }" name="postal_code">
+                                    <b-form-group label="Postal Code" label-for="postal_code-input" invalid-feedback="Postal Code is required" :state="county">
+                                        <b-form-input id="postal_code-input" v-model="addPostalCode" name="postal_code" :state="postal_code" placeholder="Postal Code" required></b-form-input>
+                                    </b-form-group>
+                                    <span class="validate-error">{{ errors[0] }}</span>
+                                    </ValidationProvider>
+                                </form>
+                              </ValidationObserver>
+                          </b-modal>
+                      </div>
+                      <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <div class="field-label">Select Address</div>    
+                         <ValidationProvider
+                          rules="required"
+                          v-slot="{ errors }"
+                          name="selectAddresUser"
+                        >                    
+                         <select required  v-model="selectedAddress" name="selectAddresUser"  @change="setvalAddress()">
+                          <option v-for="item in saveAddress" :value="item" :key="item">{{item.address}}, {{item.city}}, {{item.county}}, {{item.postal_code}}</option>
+                        </select>
+                        <span class="validate-error">{{ errors[0] }}</span>
+                        </ValidationProvider>
                       </div>
                       <!-- <div>
                         <div
@@ -364,6 +413,7 @@ export default {
       cart: "cart/cartItems",
       cartTotal: "cart/cartTotalAmount",
       curr: "products/changeCurrency",
+      saveAddress : "saveAddress/getSaveAddress"
     }),
     cartProducts() {
       return this.cart.map((v) => ({ ...v, amount: v.price * v.quantity }));
@@ -376,6 +426,7 @@ export default {
       btnLoading: false,
       promoData:null,
       loaderImg: Loader,
+      selectedAddress: {},
       previewimg: {
         preview: null,
       },
@@ -392,6 +443,10 @@ export default {
         products: [],
         total: "",
         total_product: "",
+        addAddress:"",
+        addCity:"",
+        addCounty:"",
+        addPostalCode:""
       },
       isPaymentBank: false,
       isLogin: false,
@@ -411,12 +466,14 @@ export default {
   },  
   mounted() {
     // this.updateCartItems();
+    this.getUserAddress()
   },
   methods: {
     ...mapMutations('cart' , ['updateCartItems']),
     ...mapActions("products", ["makeOrder"]),
     ...mapActions("gloable", ["setLoading"]),
     ...mapActions("coupon", ["checkPromoCode"]),
+    ...mapActions("saveAddress", ["userSaveAddress","getUserAddress"]),
     order() {
       this.isLogin = localStorage.getItem("userlogin");
       if (this.isLogin) {
@@ -547,6 +604,35 @@ export default {
     imageloaded(e) {
       this.image = e.target.result;
     },
+    handleOk(){
+      const saveAddress = this.addAddress;
+      const saveCity = this.addCity;
+      const saveCounty = this.addCounty;
+      const savePostalCode = this.addPostalCode;
+
+      this.userSaveAddress({
+        'address':saveAddress,
+        'city':saveCity,
+        'county':saveCounty,
+        'postal_code':savePostalCode,
+      }).then((resp) => {
+          if(resp.data.status) {
+              // $("#addressFrom").reset();
+              this.$toast.success("Added Address succesfully");
+              this.addAddress = '';
+              this.addCity = '';
+              this.addCounty = '';
+              this.addPostalCode = '';
+              
+             }
+          })
+    },
+   setvalAddress(){
+    this.user.address = this.selectedAddress.address;
+    this.user.city = this.selectedAddress.city;
+    this.user.state = this.selectedAddress.county;
+    this.user.zipcode = this.selectedAddress.postal_code;    
+   }
   },
 };
 </script>

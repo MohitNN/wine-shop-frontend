@@ -7,6 +7,7 @@ import products from './modules/products'
 import cart from './modules/cart'
 import filter from './modules/filter'
 import layout from './modules/layout'
+import saveAddress from './modules/saveAddress'
 
 import dashboard from './admin/modules/dashboard.js';
 import admin_employee from './admin/modules/employee.js'
@@ -54,6 +55,7 @@ const createStore = () => {
       filter,
       gloable,
       layout,
+      saveAddress,
       admin_menu,
       admin_product,
       admin_order,
