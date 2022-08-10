@@ -49,7 +49,7 @@
                       <div class="menu-content" :class="{ opensubmegamenu: isActivesubmega('portfolio') }">
                         <ul v-if="childrenItem.subcategories">
                           <li v-for="(childrenSubItem, index) in childrenItem.subcategories" :key="index">
-                            <a @click="loadProduct('sub_category', childrenSubItem.slug)">
+                            <a @click="loadProduct('sub_category', childrenSubItem.slug,[])">
                               {{childrenSubItem.name}}
                             </a>
                           </li>
@@ -69,7 +69,7 @@
             </a>
             <ul class="nav-submenu">
               <li v-for="(childrenItem, index) in categories.slice(4)" :key="index">
-                <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.name) , loadProduct('category', childrenItem.slug)">
+                <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.name) , loadProduct('category', childrenItem.slug,[])">
                   {{childrenItem.name}}
                 </a>
                 <!-- :to="{ path: childrenItem.path}" -->
@@ -84,7 +84,7 @@
             </a>
             <ul class="nav-submenu"  v-if="brand">
               <li v-for="(childrenItem, index) in brand" :key="index">
-                <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.name) , loadProduct('brand', childrenItem.slug)">
+                <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.name) , loadProduct('brand', childrenItem.slug,[])">
                   {{childrenItem.name}}
                 </a>
               </li>
