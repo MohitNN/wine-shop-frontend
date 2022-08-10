@@ -822,8 +822,7 @@ del {
 }
 .add-product {
   img {
-    width: 200px;
-    height: 480px;
+    max-height: 480px;
   }
   ul {
     li {
