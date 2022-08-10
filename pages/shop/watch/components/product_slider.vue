@@ -52,7 +52,7 @@ export default {
   },
   data() {
     return {
-      title: 'trending products',
+      title: 'ON SALE',
       showCart: false,
       showquickviewmodel: false,
       showcomapreModal: false,

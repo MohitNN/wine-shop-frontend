@@ -75,7 +75,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="product-buttons">
+                                        <div class="product-buttons mt-3">
                                             <button class="btn btn-solid" title="Add to cart" @click="addToCart(productDetail, counter)" :disabled="counter > productDetail.stock">
                                                 Add To Cart
                                             </button>
