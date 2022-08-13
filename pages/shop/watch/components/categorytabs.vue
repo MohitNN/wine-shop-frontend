@@ -121,7 +121,7 @@ export default {
   props: ["products", "category"],
   data() {
     return {
-      title: "trending products",
+      title: "FEATURED",
     };
   },
   computed: {

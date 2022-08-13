@@ -4,7 +4,7 @@
         <div class="container">
             <div class="">
                 <div class="title4">
-                    <h2 class="title-inner4">This Item Is One The Best Wines</h2>
+                    <h2 class="title-inner4">recommendations</h2>
                     <img src="@/assets/images/Vector.png" style="width: 312px;height: 20.33px;margin-bottom: 31px;" />
                     <!-- <div class="line">
                         <span></span>

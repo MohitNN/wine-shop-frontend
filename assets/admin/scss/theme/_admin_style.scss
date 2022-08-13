@@ -822,8 +822,7 @@ del {
 }
 .add-product {
   img {
-    width: 200px;
-    height: 480px;
+    max-height: 480px;
   }
   ul {
     li {
@@ -2319,7 +2318,7 @@ footer{
 ==========================**/
 //Custom css Start
 body {
-  background-color: $body-bg-color;
+  background-color: white;
   font-size: $body-font-size;
   overflow-x: hidden;
   font-family: $font-work-sans, $font-serif;

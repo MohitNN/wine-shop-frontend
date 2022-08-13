@@ -7,9 +7,9 @@
         <div class="col-lg-6 text-right">
           <ul class="header-dropdown">
             <li class="mobile-wishlist">
-              <nuxt-link :to="{ path: '/page/account/wishlist' }">
+              <!-- <nuxt-link :to="{ path: '/page/account/wishlist' }">
                 <i class="fa fa-heart" aria-hidden="true"></i>
-              </nuxt-link>
+              </nuxt-link> -->
             </li>
             <li class="onhover-dropdown mobile-account">
               <i class="fa fa-user" aria-hidden="true"></i> My Account
