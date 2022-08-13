@@ -59,7 +59,7 @@
                                                 <span>In Stock</span>
                                             </h5>
                                             <h6 class="product-title">quantity</h6>
-                                            <div class="qty-box">
+                                            <div class="qty-box mb-3">
                                                 <div class="input-group">
                                                     <span class="input-group-prepend">
                                                         <button type="button" class="btn quantity-left-minus" data-type="minus" data-field @click="decrement()">

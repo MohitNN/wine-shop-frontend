@@ -62,28 +62,39 @@
               <p v-if="productData.description">{{productData.description.substring(0,250)+"...."}}</p>
             </div>
             <div class="product-buttons">
-              <a href="javascript:void(0)" @click="addToCart(product)" class="btn btn-solid">add to cart</a>
-              <nuxt-link :to="{ path: '/product/sidebar/'+productData.id}" class="btn btn-solid">View details</nuxt-link>
+              <!-- <a href="javascript:void(0)" @click="addToCart(product) " class="btn btn-solid">add to cart</a> -->
+                <button class="btn btn-solid" title="Add to cart" @click="addToCart(productData)" :disabled="counter > productData.stock">
+                  Add To Cart
+                </button>
+              <nuxt-link :to="{ path: '/product/'+productData.id}" class="btn btn-solid">View details</nuxt-link>
             </div>
           </div>
         </div>
       </div>
     </b-modal>
+    <cartModel :openCart="cartval" :productData="cartProduct" @closeCart="cartval = false" />
   </div>
 </template>
 <script>
 import { mapGetters } from 'vuex'
 import config from '@/config.json'
+import cartModel from "@/components/cart-model/cart-right-model";
 export default {
   props: ['openModal', 'productData'],
+  components: {
+        cartModel,
+  },
   data() {
     return {
       imageSrc: '',
+      counter:1,
       swiperOption: {
         slidesPerView: 1,
         spaceBetween: 20,
         freeMode: true
-      }
+      },
+      cartval: false,
+      cartProduct: {},
     }
   },
   computed: {
@@ -130,6 +141,9 @@ export default {
     },
     // add to cart
     addToCart: function (product) {
+       product.quantity =  1;
+      this.cartval = true;
+      this.cartProduct = product;
       this.$store.dispatch('cart/addToCart', product)
     },
     // Get Image Url

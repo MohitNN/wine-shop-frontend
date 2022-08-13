@@ -12,7 +12,7 @@
             <div class="img-grid">
                 <div v-for="(item, index) in brand" :key="index">
                     <div style="margin: 10px !important;">
-                            <img width="160px;" class="img-hover" :src="getUrl(item.image)" alt  @click="setActiveChild(item.name) , loadProduct('brand', item.slug)"/>
+                            <img width="160px;" class="img-hover" :src="getUrl(item.image)" alt  @click="setActiveChild(item.name) , loadProduct('brand', item.slug,[])"/>
                     </div>
                 </div>
             </div>

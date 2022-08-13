@@ -304,13 +304,18 @@ export default {
       let isFilter = false;
       let data = {};
       var selectfilter = [];
-      if(type == 'brand'){
-        selectfilter = this.checkBrand
-      }else if(type == 'category'){
-        selectfilter = this.checkCategory
-      }else if(type == 'sub_category'){
-        selectfilter = this.checkSubCategory 
-      }
+      var selectfilter_ = [];
+      // if(type == 'brand'){
+      //   selectfilter = this.checkBrand
+      // }else if(type == 'category'){
+      //   selectfilter = this.checkCategory
+      // }else if(type == 'sub_category'){
+      //   selectfilter = this.checkSubCategory 
+      // }
+      selectfilter.push(this.checkBrand)
+      selectfilter.push(this.checkCategory)
+      selectfilter.push(this.checkSubCategory)
+  // alert(JSON.stringify(selectfilter))
       Object.keys(this.filters).forEach((key) => {
         if (this.filters[key].length) {
           isFilter = true;
