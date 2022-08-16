@@ -98,7 +98,7 @@
                                                 <div class="form-group row dd d-block">
                                                     <label for="exampleFormControlSelect1" class="col-xl-3 col-sm-4 mb-0">Status :</label>
                                                     <input id="validationCustom02" type="checkbox" required="" v-model="products.onsell" />
-                                                    On Sell
+                                                    On Sale
                                                 </div>
                                             </div>
                                         <div class="form-group row">

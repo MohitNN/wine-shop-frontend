@@ -111,7 +111,7 @@
                 </div>
             </div>
         </section>
-        <div class="sub-footer dark-subfooter">
+        <!-- <div class="sub-footer dark-subfooter">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6 col-md-6 col-sm-12">
@@ -155,7 +155,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </footer>
 </div>
 </template>

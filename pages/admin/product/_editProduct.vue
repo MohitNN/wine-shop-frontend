@@ -294,7 +294,7 @@
                             required=""
                             v-model="products.onsell"
                           />
-                          On Sell
+                          On Sale
                         </div>
                       </div>
                       <div class="offset-xl-3 offset-sm-4">
