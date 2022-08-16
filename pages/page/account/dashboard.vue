@@ -7,7 +7,7 @@
         </b-modal>
     </div>
     <Breadcrumbs title="Dashboard" />
-    <section class="section-b-space bg-light" v-if="user && user.user">
+    <section class="section-b-space" style="background-color:white;" v-if="user && user.user">
         <div class="container">
             <div class="row">
                 <b-card no-body v-bind:class="'dashboardtab'" style="box-shadow: none !important">
@@ -141,16 +141,17 @@
                             <b-card-text>
                                 <div class="dashboard-right">
                                     <div class="dashboard">
-                                        <div class="page-title">
-                                            <h2>Address</h2>
+                                        <div class="page-title" style="height: 41px;">
+                                            <h2 class="d-inline">Address</h2>
+                                            <buttion class="btn btn-dark float-right" v-b-modal.modal-prevent-address @click="clearAddressVal()">ADD</buttion>
                                         </div>
                                         <div v-if="saveAddress.length === 0" class="box-account box-info border-dark border p-2 mt-1 text-center">
                                           <h5>No Address Found</h5>
                                          </div>
                                         <div v-else class="box-account box-info border border-dark p-2 mt-1" v-for="item in saveAddress" :key="item">
                                             <h5 style="display: inline-block;">{{item.address}}, {{item.city}}, {{item.county}}, {{item.postal_code}}</h5>
-                                            <i class="fa fa-edit d-inline fs-4" v-b-modal.modal-prevent-address aria-hidden="true" @click="setUserAddress(item)" ></i>
-                                            <i class="fa fa-times d-inline float-right" style="color:red" aria-hidden="true" v-b-modal.modal-2 @click="getIndex(item)"></i>
+                                            <i class="fa fa-times d-inline fs-5 float-right" style="color:red" aria-hidden="true" v-b-modal.modal-2 @click="getIndex(item)"></i>
+                                            <i class="fa fa-edit d-inline fs-5 mr-2 float-right" v-b-modal.modal-prevent-address aria-hidden="true" @click="setUserAddress(item)" ></i>                                            
                                         </div>
                                          
                                     </div>
@@ -160,26 +161,26 @@
                              <ValidationObserver>
                                 <form ref="form" @submit.stop.prevent="handleSubmit">
                                  <ValidationProvider rules="required" v-slot="{ errors }" name="address">
-                                    <b-form-group label="Address" label-for="address-input" invalid-feedback="Address is required" :state="address">
-                                        <b-form-input id="address-input" v-model="addAddress" name="address" :state="address" placeholder="Address" required></b-form-input>
+                                    <b-form-group label="Address" label-for="address-input" invalid-feedback="Address is required" >
+                                        <b-form-input id="address-input" v-model="addAddress" name="address"  placeholder="Address" required></b-form-input>
                                     </b-form-group>
                                       <span class="validate-error">{{ errors[0] }}</span>
                                     </ValidationProvider>
                                     <ValidationProvider rules="required" v-slot="{ errors }" name="city">
-                                    <b-form-group label="City" label-for="city-input" invalid-feedback="City is required" :state="city">
-                                        <b-form-input id="city-input" v-model="addCity" name="city" :state="city" placeholder="City" required></b-form-input>
+                                    <b-form-group label="City" label-for="city-input" invalid-feedback="City is required" >
+                                        <b-form-input id="city-input" v-model="addCity" name="city"  placeholder="City" required></b-form-input>
                                     </b-form-group>
                                     <span class="validate-error">{{ errors[0] }}</span>
                                      </ValidationProvider>
                                      <ValidationProvider rules="required" v-slot="{ errors }" name="county">
-                                    <b-form-group label="County" label-for="county-input" invalid-feedback="County is required" :state="county">
-                                        <b-form-input id="county-input" v-model="addCounty" name="county" :state="county" placeholder="County" required></b-form-input>
+                                    <b-form-group label="County" label-for="county-input" invalid-feedback="County is required" >
+                                        <b-form-input id="county-input" v-model="addCounty" name="county"  placeholder="County" required></b-form-input>
                                     </b-form-group>
                                     <span class="validate-error">{{ errors[0] }}</span>
                                     </ValidationProvider>
                                     <ValidationProvider rules="required" v-slot="{ errors }" name="postal_code">
-                                    <b-form-group label="Postal Code" label-for="postal_code-input" invalid-feedback="Postal Code is required" :state="county">
-                                        <b-form-input id="postal_code-input" v-model="addPostalCode" name="postal_code" :state="postal_code" placeholder="Postal Code" required></b-form-input>
+                                    <b-form-group label="Postal Code" label-for="postal_code-input" invalid-feedback="Postal Code is required" >
+                                        <b-form-input id="postal_code-input" v-model="addPostalCode" name="postal_code"  placeholder="Postal Code" required></b-form-input>
                                     </b-form-group>
                                     <span class="validate-error">{{ errors[0] }}</span>
                                     </ValidationProvider>
@@ -336,6 +337,12 @@ export default {
         },
         getIndex(id) {
             this.selectedSku = id
+        },
+        clearAddressVal() {
+            this.addAddress = "";
+            this.addCity = "";
+            this.addCounty = "";
+            this.addPostalCode = "";
         },
     },
     created() {

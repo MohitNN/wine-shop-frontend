@@ -34,7 +34,7 @@
         </nuxt-link>
         <p>{{ product.description }}</p>
         <div class="d-flex justify-content-center">
-          <h4 class="pr-3">RM/MYR {{ product.price }}</h4>
+          <h4 class="pr-3">{{$store.state.products.currency.symbol}} {{ product.price }}</h4>
         <h4 class="text-danger" v-if="product.discount != 0">
             {{ product.discount }} %
         </h4>

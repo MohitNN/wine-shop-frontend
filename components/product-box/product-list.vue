@@ -35,7 +35,7 @@
         <div class="product-detail text-center">
             <nuxt-link :to="{ path: '/product/'+product.id}">
                 <h6>{{ product.product_name }}</h6>
-                <h4 class="mb-5">RM/MYR {{product.price}}</h4>
+                <h4 class="mb-5">{{$store.state.products.currency.symbol}} {{product.price}}</h4>
             </nuxt-link>
             <p>{{ product.description }}</p>
             <h4 v-if="product.sale">

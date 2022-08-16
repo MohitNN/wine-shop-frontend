@@ -151,6 +151,9 @@ export default {
       return config.baseUrl + "products/" + path;
       // return require('@/assets/images/' + path)
     },
+    productVariantChange(img){
+      this.imageSrc = img
+    },
     // Display Sale Price Discount
     discountedPrice(product) {
       return product.price - (product.price * product.discount / 100)

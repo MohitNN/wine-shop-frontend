@@ -8,13 +8,16 @@
                         <h5>Order Detail</h5>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive datatable-vue">
+                        <div class="table-responsive datatable-vue text-center">
                             <b-table show-empty stacked="md" striped hover id="my-table" head-variant="light" bordered :items="getOrdersList.data" :fields="tablefields" :filter="filter" :current-page="currentPage" :per-page="perPage" @filtered="onFiltered">
                                 <template #cell(order_id)="field">
                                     <div class="ImgUrl" href="javascript:void(0)" @click="sawData(field.item)">
                                         {{ field.item.order_id }}
                                     </div>
                                 </template>
+                                 <template #cell(order_quantity)="field">
+                                        {{ field.item.total_product }}
+                                  </template>
                                 <template #cell(order_status)="field">
                                     <div href="javascript:void(0)" @click="sawImg(field.item)">
                                         <span :class="getVariant('order', field.item.order_status)">
@@ -79,6 +82,11 @@ export default {
                     key: "order_id",
                     label: "Order id",
                     sortable: true,
+                },
+                {
+                    key: "order_quantity",
+                    label: "Order Quantity",
+                    sortable: false,
                 },
                 {
                     key: "order_status",

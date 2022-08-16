@@ -32,7 +32,7 @@
                     <ul class="qty">
                         <li class="d-flex justify-content-between">
                             <div style="font-size: 18px;font-weight: bold;">Total : </div>
-                            <span>RM/MYR {{
+                            <span>{{$store.state.products.currency.symbol}} {{
                               order.total
                             }}</span>
                         </li>

@@ -38,6 +38,9 @@
                                         {{ field.item.file }}
                                     </a>
                                 </template>
+                                  <template #cell(order_quantity)="field">
+                                        {{ field.item.total_product }}
+                                  </template>
                                 <template #cell(order_status)="field">
                                     <b-dropdown class="m-md-2" :variant="getVariant('order',field.item.order_status)">
                                         <template #button-content>
@@ -141,6 +144,11 @@ export default {
                 {
                     key: "file",
                     label: "Payment Slip",
+                    sortable: true,
+                },
+                {
+                    key: "order_quantity",
+                    label: "Order Quantity",
                     sortable: true,
                 },
                 {

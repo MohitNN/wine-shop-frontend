@@ -49,8 +49,8 @@
                                             <span v-if="productDetail.discount != 0">{{ productDetail.discount }}% off</span>
                                         </h4>
                                         <div class="d-flex align-items-center">
-                                            <span class="amount mr-3">RM/MYR {{ productDetail.price }}</span>
-                                            <span class="mr-2"><strike>RM/MYR {{ productDetail.fake_price }}</strike></span>
+                                            <span class="amount mr-3">{{$store.state.products.currency.symbol}} {{ productDetail.price }}</span>
+                                            <span class="mr-2" v-if="productDetail.discount != 0"><strike>{{$store.state.products.currency.symbol}} {{ productDetail.fake_price }}</strike></span>
                                             <span class="discount badge" v-if="productDetail.discount != 0">{{ productDetail.discount }} %</span>
                                         </div>
 
