@@ -264,6 +264,8 @@ export default {
                         if (resp.data.status) {
                             this.$toast.success("Change Password Succesfully.........");
                             this.$router.push("/page/account/login");
+                        }else{
+                            this.$toast.error(resp.data.message);
                         }
                     })
                     .catch((error) => {});

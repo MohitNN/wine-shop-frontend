@@ -83,9 +83,9 @@
                           product.price
                         }}
                       </h4>
-                      <div class="badge-danger"> 
+                      <!-- <div class="badge-danger"> 
                         {{product.discount}}
-                      </div>
+                      </div> -->
                     </div> 
                   </div>
                 </div>
