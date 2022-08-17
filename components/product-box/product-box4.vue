@@ -87,6 +87,7 @@ export default {
             this.cartProduct.quantity = 1;
             this.$emit('opencartmodel', this.cartval)
             this.$store.dispatch('cart/addToCart', this.cartProduct)
+            this.$toast.success("Item has been added to cart");
         },
         addToWishlist: function (product) {
             this.dismissCountDown = this.dismissSecs

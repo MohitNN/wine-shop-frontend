@@ -49,10 +49,10 @@
                                                     </div>
                                                 </div>
                                             </ValidationProvider>
-                                            <div class="form-group mb-0 row">
+                                            <!-- <div class="form-group mb-0 row">
                                                 <label class="col-xl-3 col-md-4">Description :</label>
                                                 <textarea v-model="subcategory.description" placeholder="Description" rows="4" class="col-xl-8 col-md-7"></textarea>
-                                            </div>
+                                            </div> -->
                                             <div class="form-group mb-3 row">
                                                 <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
                                             </div>
@@ -99,7 +99,7 @@ export default {
             image: "",
             subcategory: {
                 name: "",
-                description: "",
+                // description: "",
                 category_id: "",
                 type_id: "",
             },

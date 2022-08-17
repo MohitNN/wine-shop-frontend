@@ -35,20 +35,12 @@
                                 <div class="col-lg-6 rtl-text">
                                     <div class="product-right">
                                         <div class="d-flex justify-content-between">
-                                            <h2 class="col-8" style="padding-left:0px" >{{ productDetail.product_name }}</h2>
-                                            <div class="col-4 border-product">
-                                                <!-- <div class="product-icon" @click="addToWishlist_(productDetail)">
-                                                    <a href="javascript:void(0)" title="Wishlist">
-                                                        <i class="ti-heart" aria-hidden="true"></i>
-                                                    </a>
-                                                    <span class="ml-2">Add to Wishlist</span>
-                                                </div> -->
-                                            </div>
+                                            <h2 class="col-lg-8 col-md-8 col-xl-8 col-12" style="padding-left:0px" >{{ productDetail.product_name }}</h2>
                                         </div>
                                         <h4 v-if="productDetail.onsale">
                                             <span v-if="productDetail.discount != 0">{{ productDetail.discount }}% off</span>
                                         </h4>
-                                        <div class="d-flex align-items-center">
+                                        <div class="d-flex align-items-center justify-content-lg-start justify-content-center ">
                                             <span class="amount mr-3">{{$store.state.products.currency.symbol}} {{ productDetail.price }}</span>
                                             <span class="mr-2" v-if="productDetail.discount != 0"><strike>{{$store.state.products.currency.symbol}} {{ productDetail.fake_price }}</strike></span>
                                             <span class="discount badge" v-if="productDetail.discount != 0">{{ productDetail.discount }} %</span>
@@ -211,6 +203,7 @@ export default {
             this.cartval = true;
             this.cartProduct = product;
             this.$store.dispatch("cart/addToCart", product);
+            this.$toast.success("Item has been added to cart");
         },
         buyNow: function (product, qty) {
             product.quantity = qty || 1;

@@ -35,9 +35,9 @@
                                 <template #cell(image)="field">
                                     <img height="50px" style="object-fit: contain !important;" :src="getImgUrl(field.item.image)" width="50px" />
                                 </template>
-                                <template #cell(detail)="field">
+                                <!-- <template #cell(detail)="field">
                                     <div v-html="field.item.detail"></div>
-                                </template>
+                                </template> -->
                                 <template #cell(actions)="field">
                                     <div v-show="false">{{field.item.id}}</div>
                                     <feather style="cursor:pointer;" @click="goToEdit(field.item)" type="edit-2" stroke="#3758FD" stroke-width="1" size="18px" fill="#3758FD" stroke-linejoin="round"></feather>
@@ -84,11 +84,11 @@ export default {
           label: "Title",
           sortable: true,
         },
-        {
-          key: "description",
-          label: "Description",
-          sortable: true,
-        },
+        // {
+        //   key: "description",
+        //   label: "Description",
+        //   sortable: true,
+        // },
         {
           key: "actions",
           label: "actions",

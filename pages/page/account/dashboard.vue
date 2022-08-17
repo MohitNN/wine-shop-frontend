@@ -42,9 +42,7 @@
                                                         <div class="box-content">
                                                             <h6>{{ user.user.name }}</h6>
                                                             <h6>{{ user.user.email }}</h6>
-                                                            <!-- <h6>
-                                  <a role="button" @click="openChangePassword()">Change Password</a>
-                                </h6> -->
+                                                            <!-- <h6><a role="button" @click="openChangePassword()">Change Password</a></h6> -->
                                                         </div>
                                                         <b-modal id="modal-prevent-closing" ref="modal" title="Submit Your Name" @show="resetModal" @hidden="resetModal" @ok="handleOk">
                                                             <form ref="form" @submit.stop.prevent="handleSubmit">

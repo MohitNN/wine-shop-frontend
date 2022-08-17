@@ -41,7 +41,7 @@
                                                 <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0"></label>
                                                 <img v-if="image" :src="image" width="100px" height="100px" />
                                             </div>
-                                                <div class="form-group mb-0 d-lg-flex d-md-flex d-xl-flex">
+                                                <!-- <div class="form-group mb-0 d-lg-flex d-md-flex d-xl-flex">
                                                     <label class="col-xl-3 col-sm-4">Detail :</label>
                                                     <div class=" col-xl-8 col-sm-7 editor-vue">
                                                         <vue-editor name="detail" v-model="brand.brandDescription"></vue-editor>
@@ -49,7 +49,7 @@
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
-                                                </div>
+                                                </div> -->
                                             <div class="form-group row">
                                                 <label class="col-xl-3 col-md-4"></label>
                                                 <button type="button" @click="submit()" :class="!invalid ? 'btn-solid' : 'btn-solid-disabled'" :disabled="invalid" class="btn btn-primary">Add</button>
@@ -92,7 +92,7 @@ export default {
             image: '',
             brand: {
                 brandName: '',
-                brandDescription: '',
+                // brandDescription: '',
                 logo: null
             }
         }

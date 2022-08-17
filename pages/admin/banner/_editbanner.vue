@@ -41,13 +41,13 @@
                                                 <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0"></label>
                                                 <img  v-if="image" :src="image" width="100px" height="100px" />
                                             </div>
-                                                <div class="form-group mb-0 row">
-                                                    <label class="col-xl-3 col-md-4">Description :</label>
-                                                    <textarea name="description" class="form-control col-xl-8 col-sm-7" v-model="banner.description" required=""></textarea>
-                                                </div>
-                                                <div class="form-group mb-3 row">
-                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
-                                                </div>
+                                            <!-- <div class="form-group mb-0 row">
+                                                <label class="col-xl-3 col-md-4">Description :</label>
+                                                <textarea name="description" class="form-control col-xl-8 col-sm-7" v-model="banner.description" required=""></textarea>
+                                            </div>
+                                            <div class="form-group mb-3 row">
+                                                <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
+                                            </div> -->
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-md-4"></label>
@@ -89,7 +89,7 @@ export default {
         return {
             banner: {
                 title: '',
-                description: '',
+                // description: '',
                 logo: '',
                 id: this.$route.params.editbanner,
             },
@@ -107,7 +107,7 @@ export default {
     },
     mounted() {
         this.banner.title = this.getBannerDetail.title
-        this.banner.description = this.getBannerDetail.description
+        // this.banner.description = this.getBannerDetail.description
         this.banner.logo = this.getBannerDetail.logo
         this.image = `${config.baseUrl}banner/${this.getBannerDetail.image}`
     },

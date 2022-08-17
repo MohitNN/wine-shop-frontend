@@ -3,7 +3,7 @@
     <div class="img-wrapper" style="position: relative;">
         <div class="lable-block">
             <!-- <span class="lable3" v-if="product.new">new</span> -->
-            <span class="lable4" v-if="product.onsell">on sale</span>
+            <span class="lable4 badge-primary" v-if="product.onsell">on sale</span>
         </div>
         <div class="front">
             <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
@@ -88,6 +88,7 @@ export default {
             this.cartProduct.quantity = 1
             this.$emit('opencartmodel', this.cartval, this.cartProduct)
             this.$store.dispatch('cart/addToCart', product)
+            this.$toast.success("Item has been added to cart");
         },
         addToWishlist: function (product) {
             this.dismissCountDown = this.dismissSecs

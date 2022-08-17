@@ -165,7 +165,7 @@ export default {
         getStatus(type, status) {
             if (type == "order") {
                 if (status == 1) {
-                    return "Pendding";
+                    return "Pending";
                 } else if (status == 2) {
                     return "Confirm";
                 } else {
@@ -182,7 +182,7 @@ export default {
         getVariant(type, status) {
             if (type == "order") {
                 if (status == 1) {
-                    return "pandding-Ticket-dropdown";
+                    return "Pending-Ticket-dropdown";
                 } else if (status == 2) {
                     return "open-Ticket-dropdown";
                 } else {
@@ -210,7 +210,7 @@ export default {
     text-decoration: underline !important;
 }
 
-.pandding-Ticket-dropdown {
+.Pending-Ticket-dropdown {
     border-radius: 4px;
     display: flex;
     justify-content: center;

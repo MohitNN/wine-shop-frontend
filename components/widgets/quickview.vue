@@ -21,12 +21,14 @@
                   />
                 <!-- </div> -->
               </div>
-               <ul class="product-thumb-list mt-3">
+               <ul class="product-thumb-list mt-3" v-if="productData.product_images.length !== 1">
                   <li class="grid_thumb_img mr-2" :class="{active: imageSrc === image.image}" v-for="(image,index) in productData.product_images" :key="index" @click="productVariantChange(image.image)">
                       <a href="javascript:void(0);">
                           <img :src="getImgUrl(image.image)" width="50px" />
                       </a>
                   </li>
+              </ul>
+              <ul v-else>
               </ul>
             </div>
           </div>
@@ -145,6 +147,7 @@ export default {
       this.cartval = true;
       this.cartProduct = product;
       this.$store.dispatch('cart/addToCart', product)
+      this.$toast.success("Item has been added to cart");
     },
     // Get Image Url
     getImgUrl(path) {

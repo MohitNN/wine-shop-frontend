@@ -20,13 +20,13 @@
                     <ul class="qty">
                         <li class="d-flex justify-content-between">
                             <div style="font-size: 18px;font-weight: bold;">Order Status : </div>
-                            <span :class="getVariant('order',order.order_status)">{{getStatus('order',order.order_status)}}</span>
+                            <span :class="getVariant('order',order.order_status)" href="javascript:void(0)">{{getStatus('order',order.order_status)}}</span>
                         </li>
                     </ul>
                     <ul class="qty">
                         <li class="d-flex justify-content-between">
                             <div style="font-size: 18px;font-weight: bold;">Payment Status : </div>
-                            <span :class="getVariant('payment',order.payment_status)">{{getStatus('payment',order.payment_status)}}</span>
+                            <span :class="getVariant('payment',order.payment_status)" href="javascript:void(0)">{{getStatus('payment',order.payment_status)}}</span>
                         </li>
                     </ul>
                     <ul class="qty">
@@ -112,7 +112,7 @@ export default {
       getStatus(type,status) {
       if(type == 'order') {
         if(status == 1) {
-           return 'Pendding'
+           return 'Pending'
         } else if (status == 2) {
            return 'Confirm'
         } else {
@@ -129,7 +129,7 @@ export default {
     getVariant(type,status) {
       if(type == 'order') {
         if(status == 1) {
-           return 'pandding-Ticket-dropdown'
+           return 'Pending-Ticket-dropdown'
         } else if (status == 2) {
            return 'open-Ticket-dropdown'
         } else {
@@ -150,7 +150,7 @@ export default {
 <style lang="scss" scoped>
 
 
-.pandding-Ticket-dropdown {
+.Pending-Ticket-dropdown {
   border-radius: 4px;
   font-size: 10px;
   padding: 5px 10px;

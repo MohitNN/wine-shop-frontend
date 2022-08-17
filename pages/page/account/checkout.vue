@@ -227,16 +227,20 @@
                         <div class="title-box">
                           <div>
                             Product
-                            <span>Total</span>
+                            <span class="ml-2 text-center text-sm-left">Total</span>
+                            <span class="text-center pl-5 ">Quantity</span>
                           </div>
                         </div>
                         <ul class="qty" v-if="cartProducts.length">
                           <li
                             v-for="(item, index) in cartProducts"
                             :key="index"
+                            class="col-12 d-flex p-0"
                           >
-                            {{ item.title | uppercase }} X {{ item.quantity }}
-                            <span>{{
+                            <div class="col-4 p-0">{{ item.product_name | uppercase }}</div>
+                            <div class="col-1 text-center">X</div>
+                            <div class="col-2 text-center">{{ item.quantity }}</div>
+                            <span class="col-3 text-center ml-1">{{
                               (item.price * curr.curr * item.quantity)
                                 | currency(curr.symbol)
                             }}</span>

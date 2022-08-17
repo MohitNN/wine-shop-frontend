@@ -73,11 +73,12 @@ export default {
                     label: "Name",
                     sortable: true
                 },
+                // {
+                //     key: "description",
+                //     label: "Description",
+                //     class: "text-center"
+                // },
                 {
-                    key: "description",
-                    label: "Description",
-                    class: "text-center"
-                },{
                     key: "category_id",
                     label: "Category Id",
                     class: "text-center"

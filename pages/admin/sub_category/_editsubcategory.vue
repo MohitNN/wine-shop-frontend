@@ -48,10 +48,10 @@
                                                 </div>
                                             </div>
                                         </ValidationProvider>
-                                        <div class="form-group row">
+                                        <!-- <div class="form-group row">
                                             <label class="col-xl-3 col-md-4">Description :</label>
                                             <textarea rows="4" class="col-xl-8 col-md-7" v-model="SubCategoryData.description"></textarea>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-xl-3 col-md-4"></label>
@@ -86,7 +86,7 @@ export default {
             image: '',
             SubCategoryData: {
                 name: '',
-                description: '',
+                // description: '',
                 category_id: '',
                 type_id: "",
                 id: this.$route.params.editsubcategory,
@@ -126,7 +126,7 @@ export default {
     },
     mounted() {
         this.SubCategoryData.name = this.getdatasub.name
-        this.SubCategoryData.description = this.getdatasub.description
+        // this.SubCategoryData.description = this.getdatasub.description
         this.SubCategoryData.category_id = this.getdatasub.category_id
         this.SubCategoryData.type_id = this.getdatasub.type_id
     },

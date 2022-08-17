@@ -48,7 +48,7 @@
                                         </template>
                                         <b-dropdown-item-btn href="#" @click="updateStatus('order',1 , field.item.id)">
                                             <template #default>
-                                                <div class="pandding-Ticket-dropdown">
+                                                <div class="Pending-Ticket-dropdown">
                                                     Pending <span> </span>
                                                 </div>
                                             </template>
@@ -309,7 +309,7 @@ export default {
 </script>
 
 <style>
-.pandding-Ticket-dropdown {
+.Pending-Ticket-dropdown {
     border-radius: 4px;
     font-size: 10px;
     padding: 5px 10px;

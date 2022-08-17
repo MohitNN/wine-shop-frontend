@@ -25,13 +25,13 @@
                                                     </div>
                                                 </div>
                                             </ValidationProvider>
-                                                <div class="form-group mb-0 row">
+                                                <!-- <div class="form-group mb-0 row">
                                                     <label class="col-xl-3 col-md-4">Description :</label>
                                                     <textarea name="description" class="form-control col-xl-8 col-sm-7" v-model="banner.description" required=""></textarea>
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
-                                                </div>
+                                                </div> -->
                                             <ValidationProvider rules="required" v-slot="{ errors }" name="logo">
                                                 <div class="form-group mb-0 row">
                                                     <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Logo :</label>
@@ -90,7 +90,7 @@ export default {
             image: '',
             banner: {
                 title: '',
-                description: '',
+                // description: '',
                 logo: null
             }
         }

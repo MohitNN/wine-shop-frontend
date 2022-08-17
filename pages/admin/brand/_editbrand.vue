@@ -41,7 +41,7 @@
                                                 <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0"></label>
                                                 <img v-if="image" :src="image" width="100px" height="100px" />
                                             </div>
-                                            <div class="form-group mb-0 d-lg-flex d-md-flex d-xl-flex">
+                                            <!-- <div class="form-group mb-0 d-lg-flex d-md-flex d-xl-flex">
                                                 <label class="col-xl-3 col-sm-4">Detail :</label>
                                                 <div class=" col-xl-8 col-sm-7 editor-vue">
                                                     <vue-editor name="detail" v-model="brand.detail"></vue-editor>
@@ -49,7 +49,7 @@
                                             </div>
                                             <div class="form-group mb-3 row">
                                                 <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <div class="form-group row">
                                             <label class="col-xl-3 col-md-4"></label>
@@ -90,7 +90,7 @@ export default {
         return {
             brand: {
                 name: '',
-                detail: '',
+                // detail: '',
                 logo: '',
                 id: this.$route.params.editbrand,
             },
@@ -103,7 +103,7 @@ export default {
             if (response.data.status) {
                 const data = response.data.data
                 this.brand.name = data.name
-                this.brand.detail = data.detail
+                // this.brand.detail = data.detail
                 this.brand.logo = data.logo
                 this.image = `${config.baseUrl}brand/${data.image}`
             }

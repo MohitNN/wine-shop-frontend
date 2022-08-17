@@ -1294,7 +1294,7 @@ $theme-deafult__toggle-spacing: floor($theme-deafult__item-height * 0.1);
       .mobile-account, .mobile-wishlist{
         position: fixed;
         bottom: 20px;
-        right: 12%;
+        right: 80%;
         font-size: 0;
         padding: 0;
         z-index: 9;
@@ -1394,7 +1394,7 @@ $theme-deafult__toggle-spacing: floor($theme-deafult__item-height * 0.1);
           }
         }
         .mobile-search {
-          right: 80%;
+          right: 12%;
           z-index: 1;
           i {
             display: inline-block;

@@ -25,13 +25,13 @@
                                                     </div>
                                                 </div>
                                             </ValidationProvider>
-                                                <div class="form-group mb-0 row">
+                                                <!-- <div class="form-group mb-0 row">
                                                     <label class="col-xl-3 col-md-4">Description :</label>
                                                     <textarea name="description" class="form-control col-xl-8 col-sm-7" v-model="category.description" required=""></textarea>
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
-                                                </div>
+                                                </div> -->
                                         </div>
                                         <div class="offset-xl-3 offset-sm-4">
                                             <button type="button" @click="update" :class="!invalid ? 'btn-solid' : 'btn-solid-disabled'" :disabled="invalid" class="btn btn-primary">Update</button>
@@ -70,7 +70,7 @@ export default {
         return {
             category: {
                 name: '',
-                description: '',
+                // description: '',
                 id: this.$route.params.editcategory,
             },
         }
@@ -80,7 +80,7 @@ export default {
             if (response.data.status) {
                 const data = response.data.data
                 this.category.name = data.name
-                this.category.description = data.description
+                // this.category.description = data.description
             }
         })
     },
