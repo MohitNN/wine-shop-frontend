@@ -56,7 +56,7 @@
                             <div class="footer-contant" v-for="(item , index) in categories.slice( 0, 5)" :key="index">
                                 <ul>
                                     <li>
-                                        <a href="#">{{item.name}}</a>
+                                        <a @click="loadProduct('category', item.slug,[])" >{{item.name}}</a>
                                     </li>
                                 </ul>
                             </div>

@@ -18,7 +18,7 @@
               {{menuItem.name}}
               <span class="sub-arrow" v-if="menuItem.types"></span>
             </a>
-            <!-- <ul class="nav-submenu" :class="{ opensubmenu: isActive(menuItem.name) }" v-if="menuItem.types">
+            <ul class="nav-submenu" :class="{ opensubmenu: isActive(menuItem.name) }" v-if="menuItem.types" v-show="openmobilenav" >
               <li v-for="(childrenItem, index) in menuItem.types" :key="index">
                 <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.type_name)" v-if="childrenItem.subcategories">
                   {{childrenItem.type_name}}
@@ -35,7 +35,7 @@
                   </li>
                 </ul>
               </li>
-            </ul> -->
+            </ul>
             <div class="mega-menu-container" :class="{ opensubmenu: isActive('portfolio') }" v-if="menuItem.types">
               <div class="container">
                 <div class="row">
@@ -69,7 +69,7 @@
             </a>
             <ul class="nav-submenu">
               <li v-for="(childrenItem, index) in categories.slice(4)" :key="index">
-                <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.name) , loadProduct('category', childrenItem.slug,[])">
+                <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.name) , loadProduct('brand', childrenItem.slug,[])">
                   {{childrenItem.name}}
                 </a>
                 <!-- :to="{ path: childrenItem.path}" -->
@@ -77,7 +77,25 @@
             </ul>
           </li>
 
-          <li class="dropdown">
+          <li v-for="(menuItem, index) in categories.slice(0, 4)" :key="index" :class="categories.length ? 'mega-menu' : 'dropdown'" v-show="openmobilenav">
+            <a  style="cursor: pointer;" href="javascript:void(0)" class="nav-link" @click="setActive('Brands') ">
+             Brands
+              <span class="sub-arrow" v-if="menuItem.types"></span>
+            </a>
+            <ul class="nav-submenu" :class="{ opensubmenu: isActive('Brands') }" v-if="menuItem.types"  >
+              <li v-for="(childrenItem, index) in brand" :key="index">
+                <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.type_name)" v-if="childrenItem.subcategories">
+                  {{childrenItem.name}}
+                  <span class="sub-arrow" v-if="childrenItem.subcategories"></span>
+                </a>
+                <a v-else @click="setActiveChild(childrenItem.name),loadProduct('type', childrenItem.name)" style="cursor: pointer;">
+                  {{childrenItem.name}}
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="dropdown" v-if="!openmobilenav">
             <a  style="cursor: pointer;" href="javascript:void(0)" class="nav-link" >
               Brands
               <span class="sub-arrow" v-if="brand && brand.length"></span>

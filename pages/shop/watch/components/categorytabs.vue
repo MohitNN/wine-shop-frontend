@@ -48,7 +48,7 @@
                               >
                                 <h6>{{ product.product_name }}</h6>
                               </nuxt-link>
-                              <h4>RM/MYR {{ product.price }}</h4>
+                              <h4>{{$store.state.products.currency.symbol}} {{ product.price }}</h4>
                             </div>
                           </div>
                         </div>
