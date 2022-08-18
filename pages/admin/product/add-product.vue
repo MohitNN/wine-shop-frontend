@@ -83,6 +83,13 @@
                                                         </div>
                                                     </fieldset>
                                                 </div>
+                                                <div class="form-group mb-0 row">
+                                                    <label class="col-xl-3 col-md-4">Description :</label>
+                                                    <textarea name="description" class="form-control col-xl-8 col-sm-7" v-model="products.detail" required=""></textarea>
+                                                </div>
+                                                <div class="form-group mb-3 row">
+                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
+                                                </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom02" class="col-xl-3 col-sm-4 mb-0">Price :</label>
                                                     <input class="form-control col-xl-8 col-sm-7" placeholder="Price" v-model="products.price" id="validationCustom02" type="text" required="" />
@@ -158,6 +165,7 @@ export default {
                 fake_price: "",
                 discount: "",
                 onsell: true,
+                detail:""
             },
         };
     },
@@ -178,6 +186,7 @@ export default {
             formData.append("type_id", this.products.type_id);
             formData.append("sub_category_id", this.products.sub_category_id ? this.products.sub_category_id : null);
             formData.append("brand_id", this.products.brand_id);
+            formData.append("detail", this.products.detail);
             formData.append("quantity", this.products.quantity);
             formData.append("price", this.products.price);
             formData.append("fake_price", this.products.fake_price);

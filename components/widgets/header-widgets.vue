@@ -19,7 +19,6 @@
                 <div class="container">
                   <div class="row">
                     <div class="col-xl-12">
-                      <!-- <form> -->
                         <div class="form-group mb-0">
                           <input
                             type="text"
@@ -29,29 +28,10 @@
                             @keypress.enter="ProductSerachList()"
                             placeholder="Search a Product"
                           >
-                            <!-- @keyup="searchProduct" -->
                         </div>
                         <button type="button" class="btn btn-primary" @click="ProductSerachList()">
                            <i class="d-block ti-search " style="color:white;font-weight:1000"></i>
                         </button>
-                      <!-- </form> -->
-                      <!-- <ul class="search-results" v-if="searchItems.length">
-                        <li v-for="(product,index) in searchItems" :key="index" class="product-box">
-                          <div class="img-wrapper">
-                            <img
-                              :src='getImgUrl(product.images[0].src)'
-                              class="img-fluid bg-img"
-                              :key="index"
-                            />
-                          </div>
-                          <div class="product-detail">
-                            <nuxt-link :to="{ path: '/product/sidebar/'+product.id}">
-                              <h6>{{ product.title }}</h6>
-                            </nuxt-link>
-                            <h4>{{ product.price * curr.curr | currency(curr.symbol) }}</h4>
-                          </div>
-                        </li>
-                      </ul> -->
                     </div>
                   </div>
                 </div>
@@ -72,11 +52,11 @@
             <li v-for="(item,index) in cart" :key="index">
               <div class="media">
                 <nuxt-link :to="{ path: '/product/sidebar/'+item.id}">
-                  <!-- <img alt class="mr-3" :src='getImgUrl(item.images[0].src)'> -->
+                  <img alt class="mr-3" v-if='item.product_images' :src='getImgUrl(item.product_images[0].image)'>
                 </nuxt-link>
                 <div class="media-body">
                   <nuxt-link :to="{ path: '/product/sidebar/'+item.id}">
-                    <h4>{{item.title}}</h4>
+                    <h4>{{item.product_name}}</h4>
                   </nuxt-link>
                   <h4>
                     <span>{{item.quantity}} x {{ item.price | currency }}</span>
@@ -115,6 +95,8 @@
 </template>
 <script>
 import { mapState, mapGetters ,mapActions } from 'vuex'
+import config from '@/config.json'
+
 export default {
   data() {
     return {
@@ -134,9 +116,9 @@ export default {
     })
   },
   methods: {
-    ...mapActions('products',['getSerchData']),
-    getImgUrl(path) {
-      return require('@/assets/images/' + path)
+    ...mapActions('products',['serchProductList']),
+     getImgUrl(path) {
+      return config.baseUrl + "products/" + path;
     },
     openSearch() {
       this.search = true
@@ -144,27 +126,12 @@ export default {
     closeSearch() {
       this.search = false
     },
-    searchProduct() {
-      this.$store.dispatch('products/searchProduct', this.searchString)
-    },
+    // searchProduct() {
+    //   this.$store.dispatch('products/searchProduct', this.searchString)
+    // },
     ProductSerachList() {
-      if(this.searchString) {
-        //  this.getSerchData({search:this.searchString}).then((resp) => {
-        //   if(resp.data.status) {
-
-        //   }
-        //  }) 
         this.loadProduct('search', this.searchString)
-        this.search = false    
-      } else {
-        this.$swal({
-          icon: "error",
-          title: "Oops...",
-          text: "Please Enter Text",
-        });
-        this.$refs.serachBox.focus();
-        return
-      }
+        this.search = false;  
     },
     removeCartItem: function (product) {
       this.$store.dispatch('cart/removeCartItem', product)

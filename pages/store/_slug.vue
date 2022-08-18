@@ -29,7 +29,7 @@
                 </div>
               </div>
               <div v-else class="row justify-content-center">
-                  <h2>No Products Avaliable</h2>
+                  <h2>No Products Available</h2>
               </div>
 
               <b-col
@@ -140,8 +140,6 @@ export default {
     ...mapState("products", ["productData"]),
   },
   mounted() {
-    // alert(this.name)
-    // alert(this.slug)
     // this.getAllProduct({pageIndex: "page=" + 1});
     this.getBrand();
     this.getCategory();

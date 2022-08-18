@@ -20,7 +20,7 @@
             </a>
             <ul class="nav-submenu" :class="{ opensubmenu: isActive(menuItem.name) }" v-if="menuItem.types" v-show="openmobilenav" >
               <li v-for="(childrenItem, index) in menuItem.types" :key="index">
-                <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChild(childrenItem.type_name)" v-if="childrenItem.subcategories">
+                <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChilds(childrenItem.type_name)" v-if="childrenItem.subcategories">
                   {{childrenItem.type_name}}
                   <span class="sub-arrow" v-if="childrenItem.subcategories"></span>
                 </a>
@@ -29,7 +29,7 @@
                 </a>
                 <ul class="nav-sub-childmenu" :class="{ opensubchild: isActiveChild(childrenItem.type_name) }" v-if="childrenItem.subcategories">
                   <li v-for="(childrenSubItem, index) in childrenItem.subcategories" :key="index">
-                    <a @click="loadProduct('sub-category', childrenSubItem.slug)" style="cursor: pointer;">
+                    <a @click="setActiveChild(childrenItem.name) , loadProduct('sub_category', childrenSubItem.slug,[])" style="cursor: pointer;">
                       {{childrenSubItem.name}}
                     </a>
                   </li>
@@ -88,7 +88,7 @@
                   {{childrenItem.name}}
                   <span class="sub-arrow" v-if="childrenItem.subcategories"></span>
                 </a>
-                <a v-else @click="setActiveChild(childrenItem.name),loadProduct('type', childrenItem.name)" style="cursor: pointer;">
+                <a v-else @click="setActiveChild(childrenItem.name),loadProduct('brand', childrenItem.slug,[])" style="cursor: pointer;">
                   {{childrenItem.name}}
                 </a>
               </li>
@@ -154,12 +154,21 @@ export default {
     isActiveChild: function (menuChildItem) {
       return this.activeChildItem === menuChildItem;
     },
+    setActiveChilds: function (menuChildItem) {
+      console.log(menuChildItem);
+      if (this.activeChildItem === menuChildItem) {
+        this.activeChildItem = "";
+      } else {
+        this.activeChildItem = menuChildItem;
+      }
+    },
     setActiveChild: function (menuChildItem) {
       console.log(menuChildItem);
       if (this.activeChildItem === menuChildItem) {
         this.activeChildItem = "";
       } else {
         this.activeChildItem = menuChildItem;
+        this.openmobilenav = false;
       }
     },
     isActivesubmega: function (megaChildItem) {

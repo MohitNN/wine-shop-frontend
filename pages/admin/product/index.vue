@@ -122,6 +122,11 @@ export default {
                     sortable: true
                 },
                 {
+                    key: "detail",
+                    label: "detail",
+                    sortable: true
+                },
+                {
                     key: "price",
                     label: "Price",
                     sortable: true

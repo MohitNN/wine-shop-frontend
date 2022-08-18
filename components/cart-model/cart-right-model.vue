@@ -14,13 +14,14 @@
         <div class="cart_media" v-if="cart.length">
           <ul class="cart_product">
             <li v-for="(item,index) in cart" :key="index">
+            
               <div class="media">
                 <nuxt-link :to="{ path: '/product/'+item.id}" v-if="item.product_images">
                   <img alt class="mr-3" :src='getImgUrl(item.product_images[0].image)'>
                 </nuxt-link>
                 <div class="media-body">
                   <nuxt-link :to="{ path: '/product/'+item.id}">
-                    <h4>{{item.product_name}}</h4>
+                    <h4>{{item.title}}</h4>
                   </nuxt-link>
                   <h4>
                     <span>{{item.quantity}} x {{ item.price }}</span>
