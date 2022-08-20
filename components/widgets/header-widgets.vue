@@ -59,7 +59,7 @@
                     <h4>{{item.product_name}}</h4>
                   </nuxt-link>
                   <h4>
-                    <span>{{item.quantity}} x {{ item.price | currency }}</span>
+                    <span>{{item.quantity}} x RM{{ item.price }}</span>
                   </h4>
                 </div>
               </div>
@@ -73,7 +73,7 @@
               <div class="total">
                 <h5>
                   subtotal :
-                  <span>{{ cartTotal | currency }}</span>
+                  <span>RM {{ cartTotal }}</span>
                 </h5>
               </div>
             </li>
@@ -116,7 +116,7 @@ export default {
     })
   },
   methods: {
-    ...mapActions('products',['serchProductList']),
+    ...mapActions('products',['getSerchData']),
      getImgUrl(path) {
       return config.baseUrl + "products/" + path;
     },
@@ -126,12 +126,15 @@ export default {
     closeSearch() {
       this.search = false
     },
-    // searchProduct() {
-    //   this.$store.dispatch('products/searchProduct', this.searchString)
+    // ProductSerachList() {
+    //   this.$store.dispatch('products/getSerchData', this.searchString)
+    //   this.search = false;
     // },
     ProductSerachList() {
-        this.loadProduct('search', this.searchString)
+        const search = this.searchString;
+        this.loadProduct('search', search,[])
         this.search = false;  
+        this.searchString = ""
     },
     removeCartItem: function (product) {
       this.$store.dispatch('cart/removeCartItem', product)

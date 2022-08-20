@@ -3,684 +3,798 @@
     "name": "admin",
     "path": "/admin",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\index.vue",
-    "chunkName": "pages/admin/index"
+    "chunkName": "pages/admin/index",
+    "_name": "_33cbf982"
   },
   {
     "name": "admin-addpage",
     "path": "/admin/addpage",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\addpage.vue",
-    "chunkName": "pages/admin/addpage"
+    "chunkName": "pages/admin/addpage",
+    "_name": "_54e1ee60"
   },
   {
     "name": "admin-banner",
     "path": "/admin/banner",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\banner\\\\index.vue",
-    "chunkName": "pages/admin/banner/index"
+    "chunkName": "pages/admin/banner/index",
+    "_name": "_e89c5954"
   },
   {
     "name": "admin-brand",
     "path": "/admin/brand",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\brand\\\\index.vue",
-    "chunkName": "pages/admin/brand/index"
+    "chunkName": "pages/admin/brand/index",
+    "_name": "_28b68eeb"
   },
   {
     "name": "admin-category",
     "path": "/admin/category",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\category\\\\index.vue",
-    "chunkName": "pages/admin/category/index"
+    "chunkName": "pages/admin/category/index",
+    "_name": "_bc3a8f78"
   },
   {
     "name": "admin-changePassword",
     "path": "/admin/changePassword",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\changePassword\\\\index.vue",
-    "chunkName": "pages/admin/changePassword/index"
+    "chunkName": "pages/admin/changePassword/index",
+    "_name": "_18f60ab7"
   },
   {
     "name": "admin-coupon",
     "path": "/admin/coupon",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupon\\\\index.vue",
-    "chunkName": "pages/admin/coupon/index"
+    "chunkName": "pages/admin/coupon/index",
+    "_name": "_c52e0bc8"
   },
   {
     "name": "admin-dashboard",
     "path": "/admin/dashboard",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\dashboard.vue",
-    "chunkName": "pages/admin/dashboard"
+    "chunkName": "pages/admin/dashboard",
+    "_name": "_3b608378"
   },
   {
     "name": "admin-editProfile",
     "path": "/admin/editProfile",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\editProfile\\\\index.vue",
-    "chunkName": "pages/admin/editProfile/index"
+    "chunkName": "pages/admin/editProfile/index",
+    "_name": "_eed2159a"
   },
   {
     "name": "admin-login",
     "path": "/admin/login",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\login\\\\index.vue",
-    "chunkName": "pages/admin/login/index"
+    "chunkName": "pages/admin/login/index",
+    "_name": "_4b29ec6e"
   },
   {
     "name": "admin-order",
     "path": "/admin/order",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\order\\\\index.vue",
-    "chunkName": "pages/admin/order/index"
+    "chunkName": "pages/admin/order/index",
+    "_name": "_4bd400c4"
   },
   {
     "name": "admin-product",
     "path": "/admin/product",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\product\\\\index.vue",
-    "chunkName": "pages/admin/product/index"
+    "chunkName": "pages/admin/product/index",
+    "_name": "_9c087afa"
   },
   {
     "name": "admin-sub_category",
     "path": "/admin/sub_category",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\sub_category\\\\index.vue",
-    "chunkName": "pages/admin/sub_category/index"
+    "chunkName": "pages/admin/sub_category/index",
+    "_name": "_752317c5"
   },
   {
     "name": "admin-translation",
     "path": "/admin/translation",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\translation.vue",
-    "chunkName": "pages/admin/translation"
+    "chunkName": "pages/admin/translation",
+    "_name": "_3ea5ec3e"
   },
   {
     "name": "admin-type",
     "path": "/admin/type",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\type\\\\index.vue",
-    "chunkName": "pages/admin/type/index"
+    "chunkName": "pages/admin/type/index",
+    "_name": "_36e2b488"
   },
   {
     "name": "admin-user",
     "path": "/admin/user",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\user\\\\index.vue",
-    "chunkName": "pages/admin/user/index"
+    "chunkName": "pages/admin/user/index",
+    "_name": "_69ef8357"
   },
   {
     "name": "blog-blog-leftsidebar",
     "path": "/blog/blog-leftsidebar",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\blog\\\\blog-leftsidebar.vue",
-    "chunkName": "pages/blog/blog-leftsidebar"
+    "chunkName": "pages/blog/blog-leftsidebar",
+    "_name": "_10c5978b"
   },
   {
     "name": "blog-blog-nosidebar",
     "path": "/blog/blog-nosidebar",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\blog\\\\blog-nosidebar.vue",
-    "chunkName": "pages/blog/blog-nosidebar"
+    "chunkName": "pages/blog/blog-nosidebar",
+    "_name": "_37eecdde"
   },
   {
     "name": "blog-blog-rightsidebar",
     "path": "/blog/blog-rightsidebar",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\blog\\\\blog-rightsidebar.vue",
-    "chunkName": "pages/blog/blog-rightsidebar"
+    "chunkName": "pages/blog/blog-rightsidebar",
+    "_name": "_6d1ffbcc"
   },
   {
     "name": "collection-full-width",
     "path": "/collection/full-width",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\collection\\\\full-width.vue",
-    "chunkName": "pages/collection/full-width"
+    "chunkName": "pages/collection/full-width",
+    "_name": "_f22eab76"
   },
   {
     "name": "collection-list-view",
     "path": "/collection/list-view",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\collection\\\\list-view.vue",
-    "chunkName": "pages/collection/list-view"
+    "chunkName": "pages/collection/list-view",
+    "_name": "_60cbe072"
   },
   {
     "name": "collection-metro",
     "path": "/collection/metro",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\collection\\\\metro.vue",
-    "chunkName": "pages/collection/metro"
+    "chunkName": "pages/collection/metro",
+    "_name": "_4c25196c"
   },
   {
     "name": "collection-no-sidebar",
     "path": "/collection/no-sidebar",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\collection\\\\no-sidebar.vue",
-    "chunkName": "pages/collection/no-sidebar"
+    "chunkName": "pages/collection/no-sidebar",
+    "_name": "_433ff48d"
   },
   {
     "name": "collection-right-sidebar",
     "path": "/collection/right-sidebar",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\collection\\\\right-sidebar.vue",
-    "chunkName": "pages/collection/right-sidebar"
+    "chunkName": "pages/collection/right-sidebar",
+    "_name": "_0bfbbcfe"
   },
   {
     "name": "collection-sidebar-popup",
     "path": "/collection/sidebar-popup",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\collection\\\\sidebar-popup.vue",
-    "chunkName": "pages/collection/sidebar-popup"
+    "chunkName": "pages/collection/sidebar-popup",
+    "_name": "_b24a4964"
   },
   {
     "name": "collection-six-grid",
     "path": "/collection/six-grid",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\collection\\\\six-grid.vue",
-    "chunkName": "pages/collection/six-grid"
+    "chunkName": "pages/collection/six-grid",
+    "_name": "_24a2734e"
   },
   {
     "name": "collection-three-grid",
     "path": "/collection/three-grid",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\collection\\\\three-grid.vue",
-    "chunkName": "pages/collection/three-grid"
+    "chunkName": "pages/collection/three-grid",
+    "_name": "_766b38d2"
   },
   {
     "name": "page-404",
     "path": "/page/404",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\404.vue",
-    "chunkName": "pages/page/404"
+    "chunkName": "pages/page/404",
+    "_name": "_b3107a8c"
   },
   {
     "name": "page-about-us",
     "path": "/page/about-us",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\about-us.vue",
-    "chunkName": "pages/page/about-us"
+    "chunkName": "pages/page/about-us",
+    "_name": "_61797fcc"
   },
   {
     "name": "page-collection",
     "path": "/page/collection",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\collection.vue",
-    "chunkName": "pages/page/collection"
+    "chunkName": "pages/page/collection",
+    "_name": "_61f9040c"
   },
   {
     "name": "page-coming-soon",
     "path": "/page/coming-soon",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\coming-soon.vue",
-    "chunkName": "pages/page/coming-soon"
+    "chunkName": "pages/page/coming-soon",
+    "_name": "_929ec66e"
   },
   {
     "name": "page-contact-us",
     "path": "/page/contact-us",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\contact-us.vue",
-    "chunkName": "pages/page/contact-us"
+    "chunkName": "pages/page/contact-us",
+    "_name": "_282c734e"
   },
   {
     "name": "page-faq",
     "path": "/page/faq",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\faq.vue",
-    "chunkName": "pages/page/faq"
+    "chunkName": "pages/page/faq",
+    "_name": "_52686598"
   },
   {
     "name": "page-location",
     "path": "/page/location",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\location.vue",
-    "chunkName": "pages/page/location"
+    "chunkName": "pages/page/location",
+    "_name": "_cf3de1ba"
   },
   {
     "name": "page-lookbook",
     "path": "/page/lookbook",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\lookbook.vue",
-    "chunkName": "pages/page/lookbook"
+    "chunkName": "pages/page/lookbook",
+    "_name": "_7436b014"
   },
   {
     "name": "page-review",
     "path": "/page/review",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\review.vue",
-    "chunkName": "pages/page/review"
+    "chunkName": "pages/page/review",
+    "_name": "_7a7c8a74"
   },
   {
     "name": "page-search",
     "path": "/page/search",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\search.vue",
-    "chunkName": "pages/page/search"
+    "chunkName": "pages/page/search",
+    "_name": "_096d8116"
   },
   {
     "name": "page-typography",
     "path": "/page/typography",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\typography.vue",
-    "chunkName": "pages/page/typography"
+    "chunkName": "pages/page/typography",
+    "_name": "_4bcbcbc6"
   },
   {
     "name": "product-bundle-product",
     "path": "/product/bundle-product",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\bundle-product.vue",
-    "chunkName": "pages/product/bundle-product"
+    "chunkName": "pages/product/bundle-product",
+    "_name": "_3e31caf8"
   },
   {
     "name": "product-four-image",
     "path": "/product/four-image",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\four-image.vue",
-    "chunkName": "pages/product/four-image"
+    "chunkName": "pages/product/four-image",
+    "_name": "_74452458"
   },
   {
     "name": "shop-watch",
     "path": "/shop/watch",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\shop\\\\watch\\\\index.vue",
-    "chunkName": "pages/shop/watch/index"
+    "chunkName": "pages/shop/watch/index",
+    "_name": "_2b8a4bb8"
   },
   {
     "name": "admin-banner-add-banner",
     "path": "/admin/banner/add-banner",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\banner\\\\add-banner.vue",
-    "chunkName": "pages/admin/banner/add-banner"
+    "chunkName": "pages/admin/banner/add-banner",
+    "_name": "_aafc99f8"
   },
   {
     "name": "admin-brand-add-brand",
     "path": "/admin/brand/add-brand",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\brand\\\\add-brand.vue",
-    "chunkName": "pages/admin/brand/add-brand"
+    "chunkName": "pages/admin/brand/add-brand",
+    "_name": "_01b7ec74"
   },
   {
     "name": "admin-category-add-category",
     "path": "/admin/category/add-category",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\category\\\\add-category.vue",
-    "chunkName": "pages/admin/category/add-category"
+    "chunkName": "pages/admin/category/add-category",
+    "_name": "_17b589b0"
   },
   {
     "name": "admin-coupon-create-coupon",
     "path": "/admin/coupon/create-coupon",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupon\\\\create-coupon.vue",
-    "chunkName": "pages/admin/coupon/create-coupon"
+    "chunkName": "pages/admin/coupon/create-coupon",
+    "_name": "_a4d0ba3e"
   },
   {
     "name": "admin-product-add-product",
     "path": "/admin/product/add-product",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\product\\\\add-product.vue",
-    "chunkName": "pages/admin/product/add-product"
+    "chunkName": "pages/admin/product/add-product",
+    "_name": "_eb310b98"
   },
   {
     "name": "admin-sub_category-add-sub-category",
     "path": "/admin/sub_category/add-sub-category",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\sub_category\\\\add-sub-category.vue",
-    "chunkName": "pages/admin/sub_category/add-sub-category"
+    "chunkName": "pages/admin/sub_category/add-sub-category",
+    "_name": "_507c7318"
   },
   {
     "name": "admin-type-addType",
     "path": "/admin/type/addType",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\type\\\\addType.vue",
-    "chunkName": "pages/admin/type/addType"
+    "chunkName": "pages/admin/type/addType",
+    "_name": "_d4f3799e"
   },
   {
     "name": "blog-widgets-blog-list",
     "path": "/blog/widgets/blog-list",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\blog\\\\widgets\\\\blog-list.vue",
-    "chunkName": "pages/blog/widgets/blog-list"
+    "chunkName": "pages/blog/widgets/blog-list",
+    "_name": "_04fe804a"
   },
   {
     "name": "blog-widgets-blog-sidebar",
     "path": "/blog/widgets/blog-sidebar",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\blog\\\\widgets\\\\blog-sidebar.vue",
-    "chunkName": "pages/blog/widgets/blog-sidebar"
+    "chunkName": "pages/blog/widgets/blog-sidebar",
+    "_name": "_506ff62f"
   },
   {
     "name": "page-account-cart",
     "path": "/page/account/cart",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\account\\\\cart.vue",
-    "chunkName": "pages/page/account/cart"
+    "chunkName": "pages/page/account/cart",
+    "_name": "_5a32258f"
   },
   {
     "name": "page-account-checkout",
     "path": "/page/account/checkout",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\account\\\\checkout.vue",
-    "chunkName": "pages/page/account/checkout"
+    "chunkName": "pages/page/account/checkout",
+    "_name": "_23b7b135"
   },
   {
     "name": "page-account-contact",
     "path": "/page/account/contact",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\account\\\\contact.vue",
-    "chunkName": "pages/page/account/contact"
+    "chunkName": "pages/page/account/contact",
+    "_name": "_b440c8fe"
   },
   {
     "name": "page-account-dashboard",
     "path": "/page/account/dashboard",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\account\\\\dashboard.vue",
-    "chunkName": "pages/page/account/dashboard"
+    "chunkName": "pages/page/account/dashboard",
+    "_name": "_c63e0c96"
   },
   {
     "name": "page-account-forget-password",
     "path": "/page/account/forget-password",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\account\\\\forget-password.vue",
-    "chunkName": "pages/page/account/forget-password"
+    "chunkName": "pages/page/account/forget-password",
+    "_name": "_2315a148"
   },
   {
     "name": "page-account-login",
     "path": "/page/account/login",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\account\\\\login.vue",
-    "chunkName": "pages/page/account/login"
+    "chunkName": "pages/page/account/login",
+    "_name": "_7b86388a"
   },
   {
     "name": "page-account-login-firebase",
     "path": "/page/account/login-firebase",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\account\\\\login-firebase.vue",
-    "chunkName": "pages/page/account/login-firebase"
+    "chunkName": "pages/page/account/login-firebase",
+    "_name": "_11710fcc"
   },
   {
     "name": "page-account-order-success",
     "path": "/page/account/order-success",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\account\\\\order-success.vue",
-    "chunkName": "pages/page/account/order-success"
+    "chunkName": "pages/page/account/order-success",
+    "_name": "_1d11a725"
   },
   {
     "name": "page-account-profile",
     "path": "/page/account/profile",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\account\\\\profile.vue",
-    "chunkName": "pages/page/account/profile"
+    "chunkName": "pages/page/account/profile",
+    "_name": "_a3f1d6ec"
   },
   {
     "name": "page-account-register",
     "path": "/page/account/register",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\account\\\\register.vue",
-    "chunkName": "pages/page/account/register"
+    "chunkName": "pages/page/account/register",
+    "_name": "_66be9c12"
   },
   {
     "name": "page-account-wishlist",
     "path": "/page/account/wishlist",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\account\\\\wishlist.vue",
-    "chunkName": "pages/page/account/wishlist"
+    "chunkName": "pages/page/account/wishlist",
+    "_name": "_8a2c7b98"
   },
   {
     "name": "page-compare-compare-1",
     "path": "/page/compare/compare-1",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\compare\\\\compare-1.vue",
-    "chunkName": "pages/page/compare/compare-1"
+    "chunkName": "pages/page/compare/compare-1",
+    "_name": "_6b58d032"
   },
   {
     "name": "page-compare-compare-2",
     "path": "/page/compare/compare-2",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\compare\\\\compare-2.vue",
-    "chunkName": "pages/page/compare/compare-2"
+    "chunkName": "pages/page/compare/compare-2",
+    "_name": "_6b66e7b3"
   },
   {
     "name": "page-element-banner",
     "path": "/page/element/banner",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\element\\\\banner.vue",
-    "chunkName": "pages/page/element/banner"
+    "chunkName": "pages/page/element/banner",
+    "_name": "_fa5cffac"
   },
   {
     "name": "page-element-category",
     "path": "/page/element/category",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\element\\\\category.vue",
-    "chunkName": "pages/page/element/category"
+    "chunkName": "pages/page/element/category",
+    "_name": "_4498037c"
   },
   {
     "name": "page-element-collection-banner",
     "path": "/page/element/collection-banner",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\element\\\\collection-banner.vue",
-    "chunkName": "pages/page/element/collection-banner"
+    "chunkName": "pages/page/element/collection-banner",
+    "_name": "_685e6a2d"
   },
   {
     "name": "page-element-home-slider",
     "path": "/page/element/home-slider",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\element\\\\home-slider.vue",
-    "chunkName": "pages/page/element/home-slider"
+    "chunkName": "pages/page/element/home-slider",
+    "_name": "_14c6e401"
   },
   {
     "name": "page-element-logo-slider",
     "path": "/page/element/logo-slider",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\element\\\\logo-slider.vue",
-    "chunkName": "pages/page/element/logo-slider"
+    "chunkName": "pages/page/element/logo-slider",
+    "_name": "_3212dbb5"
   },
   {
     "name": "page-element-multi-slider",
     "path": "/page/element/multi-slider",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\element\\\\multi-slider.vue",
-    "chunkName": "pages/page/element/multi-slider"
+    "chunkName": "pages/page/element/multi-slider",
+    "_name": "_60ba7bf3"
   },
   {
     "name": "page-element-product-slider",
     "path": "/page/element/product-slider",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\element\\\\product-slider.vue",
-    "chunkName": "pages/page/element/product-slider"
+    "chunkName": "pages/page/element/product-slider",
+    "_name": "_0da654fd"
   },
   {
     "name": "page-element-product-tabs",
     "path": "/page/element/product-tabs",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\element\\\\product-tabs.vue",
-    "chunkName": "pages/page/element/product-tabs"
+    "chunkName": "pages/page/element/product-tabs",
+    "_name": "_7797abcc"
   },
   {
     "name": "page-element-service",
     "path": "/page/element/service",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\element\\\\service.vue",
-    "chunkName": "pages/page/element/service"
+    "chunkName": "pages/page/element/service",
+    "_name": "_4e9441b2"
   },
   {
     "name": "page-portfolio-masonary-fullwidth",
     "path": "/page/portfolio/masonary-fullwidth",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\portfolio\\\\masonary-fullwidth.vue",
-    "chunkName": "pages/page/portfolio/masonary-fullwidth"
+    "chunkName": "pages/page/portfolio/masonary-fullwidth",
+    "_name": "_4105507e"
   },
   {
     "name": "page-portfolio-mesonary-grid-2",
     "path": "/page/portfolio/mesonary-grid-2",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\portfolio\\\\mesonary-grid-2.vue",
-    "chunkName": "pages/page/portfolio/mesonary-grid-2"
+    "chunkName": "pages/page/portfolio/mesonary-grid-2",
+    "_name": "_1732ba90"
   },
   {
     "name": "page-portfolio-mesonary-grid-3",
     "path": "/page/portfolio/mesonary-grid-3",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\portfolio\\\\mesonary-grid-3.vue",
-    "chunkName": "pages/page/portfolio/mesonary-grid-3"
+    "chunkName": "pages/page/portfolio/mesonary-grid-3",
+    "_name": "_1740d211"
   },
   {
     "name": "page-portfolio-mesonary-grid-4",
     "path": "/page/portfolio/mesonary-grid-4",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\portfolio\\\\mesonary-grid-4.vue",
-    "chunkName": "pages/page/portfolio/mesonary-grid-4"
+    "chunkName": "pages/page/portfolio/mesonary-grid-4",
+    "_name": "_174ee992"
   },
   {
     "name": "page-portfolio-portfolio-2-col",
     "path": "/page/portfolio/portfolio-2-col",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\portfolio\\\\portfolio-2-col.vue",
-    "chunkName": "pages/page/portfolio/portfolio-2-col"
+    "chunkName": "pages/page/portfolio/portfolio-2-col",
+    "_name": "_c4eef574"
   },
   {
     "name": "page-portfolio-portfolio-3-col",
     "path": "/page/portfolio/portfolio-3-col",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\portfolio\\\\portfolio-3-col.vue",
-    "chunkName": "pages/page/portfolio/portfolio-3-col"
+    "chunkName": "pages/page/portfolio/portfolio-3-col",
+    "_name": "_31ccf447"
   },
   {
     "name": "page-portfolio-portfolio-4-col",
     "path": "/page/portfolio/portfolio-4-col",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\portfolio\\\\portfolio-4-col.vue",
-    "chunkName": "pages/page/portfolio/portfolio-4-col"
+    "chunkName": "pages/page/portfolio/portfolio-4-col",
+    "_name": "_73dd3970"
   },
   {
     "name": "product-sidebar-no-sidebar",
     "path": "/product/sidebar/no-sidebar",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\sidebar\\\\no-sidebar.vue",
-    "chunkName": "pages/product/sidebar/no-sidebar"
+    "chunkName": "pages/product/sidebar/no-sidebar",
+    "_name": "_c040b308"
   },
   {
     "name": "product-sidebar-right-sidebar",
     "path": "/product/sidebar/right-sidebar",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\sidebar\\\\right-sidebar.vue",
-    "chunkName": "pages/product/sidebar/right-sidebar"
+    "chunkName": "pages/product/sidebar/right-sidebar",
+    "_name": "_7041dea2"
   },
   {
     "name": "product-three-column-thumbnail-bottom",
     "path": "/product/three-column/thumbnail-bottom",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\three-column\\\\thumbnail-bottom.vue",
-    "chunkName": "pages/product/three-column/thumbnail-bottom"
+    "chunkName": "pages/product/three-column/thumbnail-bottom",
+    "_name": "_938b739e"
   },
   {
     "name": "product-three-column-thumbnail-left",
     "path": "/product/three-column/thumbnail-left",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\three-column\\\\thumbnail-left.vue",
-    "chunkName": "pages/product/three-column/thumbnail-left"
+    "chunkName": "pages/product/three-column/thumbnail-left",
+    "_name": "_02c1e18d"
   },
   {
     "name": "product-three-column-thumbnail-right",
     "path": "/product/three-column/thumbnail-right",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\three-column\\\\thumbnail-right.vue",
-    "chunkName": "pages/product/three-column/thumbnail-right"
+    "chunkName": "pages/product/three-column/thumbnail-right",
+    "_name": "_da812bf4"
   },
   {
     "name": "product-thumbnail-image-image-outside",
     "path": "/product/thumbnail-image/image-outside",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\thumbnail-image\\\\image-outside.vue",
-    "chunkName": "pages/product/thumbnail-image/image-outside"
+    "chunkName": "pages/product/thumbnail-image/image-outside",
+    "_name": "_73bc66ce"
   },
   {
     "name": "product-thumbnail-image-left-image",
     "path": "/product/thumbnail-image/left-image",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\thumbnail-image\\\\left-image.vue",
-    "chunkName": "pages/product/thumbnail-image/left-image"
+    "chunkName": "pages/product/thumbnail-image/left-image",
+    "_name": "_0d27fa9f"
   },
   {
     "name": "product-thumbnail-image-right-image",
     "path": "/product/thumbnail-image/right-image",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\thumbnail-image\\\\right-image.vue",
-    "chunkName": "pages/product/thumbnail-image/right-image"
+    "chunkName": "pages/product/thumbnail-image/right-image",
+    "_name": "_2d4057d0"
   },
   {
     "name": "shop-watch-parent",
     "path": "/shop/watch/parent",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\shop\\\\watch\\\\parent\\\\index.vue",
-    "chunkName": "pages/shop/watch/parent/index"
+    "chunkName": "pages/shop/watch/parent/index",
+    "_name": "_6957cb4e"
   },
   {
     "name": "page-account-auth-auth",
     "path": "/page/account/auth/auth",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\account\\\\auth\\\\auth.js",
-    "chunkName": "pages/page/account/auth/auth"
+    "chunkName": "pages/page/account/auth/auth",
+    "_name": "_523434a0"
   },
   {
     "name": "shop-watch-components-blog",
     "path": "/shop/watch/components/blog",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\shop\\\\watch\\\\components\\\\blog.vue",
-    "chunkName": "pages/shop/watch/components/blog"
+    "chunkName": "pages/shop/watch/components/blog",
+    "_name": "_9a9ef37c"
   },
   {
     "name": "shop-watch-components-category",
     "path": "/shop/watch/components/category",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\shop\\\\watch\\\\components\\\\category.vue",
-    "chunkName": "pages/shop/watch/components/category"
+    "chunkName": "pages/shop/watch/components/category",
+    "_name": "_284d419e"
   },
   {
     "name": "shop-watch-components-categorytabs",
     "path": "/shop/watch/components/categorytabs",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\shop\\\\watch\\\\components\\\\categorytabs.vue",
-    "chunkName": "pages/shop/watch/components/categorytabs"
+    "chunkName": "pages/shop/watch/components/categorytabs",
+    "_name": "_70d2d9c8"
   },
   {
     "name": "shop-watch-components-collectionbanners",
     "path": "/shop/watch/components/collectionbanners",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\shop\\\\watch\\\\components\\\\collectionbanners.vue",
-    "chunkName": "pages/shop/watch/components/collectionbanners"
+    "chunkName": "pages/shop/watch/components/collectionbanners",
+    "_name": "_87c3af0e"
   },
   {
     "name": "shop-watch-components-instagram",
     "path": "/shop/watch/components/instagram",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\shop\\\\watch\\\\components\\\\instagram.vue",
-    "chunkName": "pages/shop/watch/components/instagram"
+    "chunkName": "pages/shop/watch/components/instagram",
+    "_name": "_8ccb9d7c"
   },
   {
     "name": "shop-watch-components-logo_slider",
     "path": "/shop/watch/components/logo_slider",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\shop\\\\watch\\\\components\\\\logo_slider.vue",
-    "chunkName": "pages/shop/watch/components/logo_slider"
+    "chunkName": "pages/shop/watch/components/logo_slider",
+    "_name": "_31b187f6"
   },
   {
     "name": "shop-watch-components-product_slider",
     "path": "/shop/watch/components/product_slider",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\shop\\\\watch\\\\components\\\\product_slider.vue",
-    "chunkName": "pages/shop/watch/components/product_slider"
+    "chunkName": "pages/shop/watch/components/product_slider",
+    "_name": "_7333db51"
   },
   {
     "name": "shop-watch-components-services",
     "path": "/shop/watch/components/services",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\shop\\\\watch\\\\components\\\\services.vue",
-    "chunkName": "pages/shop/watch/components/services"
+    "chunkName": "pages/shop/watch/components/services",
+    "_name": "_2566e4fe"
   },
   {
     "name": "shop-watch-components-slider",
     "path": "/shop/watch/components/slider",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\shop\\\\watch\\\\components\\\\slider.vue",
-    "chunkName": "pages/shop/watch/components/slider"
+    "chunkName": "pages/shop/watch/components/slider",
+    "_name": "_5110f601"
   },
   {
     "name": "shop-watch-components-timer_banner",
     "path": "/shop/watch/components/timer_banner",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\shop\\\\watch\\\\components\\\\timer_banner.vue",
-    "chunkName": "pages/shop/watch/components/timer_banner"
+    "chunkName": "pages/shop/watch/components/timer_banner",
+    "_name": "_f63e0bf4"
   },
   {
     "name": "shop-watch-components-top_products",
     "path": "/shop/watch/components/top_products",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\shop\\\\watch\\\\components\\\\top_products.vue",
-    "chunkName": "pages/shop/watch/components/top_products"
+    "chunkName": "pages/shop/watch/components/top_products",
+    "_name": "_7b9529ae"
   },
   {
     "name": "page-account-forgotpassword-token",
     "path": "/page/account/forgotpassword/:token?",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\page\\\\account\\\\forgotpassword\\\\_token.vue",
-    "chunkName": "pages/page/account/forgotpassword/_token"
+    "chunkName": "pages/page/account/forgotpassword/_token",
+    "_name": "_51fbebe7"
   },
   {
     "name": "admin-banner-editbanner",
     "path": "/admin/banner/:editbanner",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\banner\\\\_editbanner.vue",
-    "chunkName": "pages/admin/banner/_editbanner"
+    "chunkName": "pages/admin/banner/_editbanner",
+    "_name": "_4fe96359"
   },
   {
     "name": "admin-brand-editbrand",
     "path": "/admin/brand/:editbrand",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\brand\\\\_editbrand.vue",
-    "chunkName": "pages/admin/brand/_editbrand"
+    "chunkName": "pages/admin/brand/_editbrand",
+    "_name": "_78b5adf5"
   },
   {
     "name": "admin-category-editcategory",
     "path": "/admin/category/:editcategory",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\category\\\\_editcategory.vue",
-    "chunkName": "pages/admin/category/_editcategory"
+    "chunkName": "pages/admin/category/_editcategory",
+    "_name": "_4820244e"
   },
   {
     "name": "admin-coupon-editCoupon",
     "path": "/admin/coupon/:editCoupon",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\coupon\\\\_editCoupon.vue",
-    "chunkName": "pages/admin/coupon/_editCoupon"
+    "chunkName": "pages/admin/coupon/_editCoupon",
+    "_name": "_2837f48e"
   },
   {
     "name": "admin-order-editOrder",
     "path": "/admin/order/:editOrder",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\order\\\\_editOrder.vue",
-    "chunkName": "pages/admin/order/_editOrder"
+    "chunkName": "pages/admin/order/_editOrder",
+    "_name": "_d6aac83a"
   },
   {
     "name": "admin-product-editProduct",
     "path": "/admin/product/:editProduct",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\product\\\\_editProduct.vue",
-    "chunkName": "pages/admin/product/_editProduct"
+    "chunkName": "pages/admin/product/_editProduct",
+    "_name": "_e5c711b6"
   },
   {
     "name": "admin-sub_category-editsubcategory",
     "path": "/admin/sub_category/:editsubcategory",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\sub_category\\\\_editsubcategory.vue",
-    "chunkName": "pages/admin/sub_category/_editsubcategory"
+    "chunkName": "pages/admin/sub_category/_editsubcategory",
+    "_name": "_1069dc92"
   },
   {
     "name": "admin-type-edittype",
     "path": "/admin/type/:edittype",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\admin\\\\type\\\\_edittype.vue",
-    "chunkName": "pages/admin/type/_edittype"
+    "chunkName": "pages/admin/type/_edittype",
+    "_name": "_6520d44e"
   },
   {
     "name": "collection-leftsidebar-id",
     "path": "/collection/leftsidebar/:id?",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\collection\\\\leftsidebar\\\\_id.vue",
-    "chunkName": "pages/collection/leftsidebar/_id"
+    "chunkName": "pages/collection/leftsidebar/_id",
+    "_name": "_329ad8e2"
   },
   {
     "name": "product-sidebar-id",
     "path": "/product/sidebar/:id?",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\sidebar\\\\_id.vue",
-    "chunkName": "pages/product/sidebar/_id"
+    "chunkName": "pages/product/sidebar/_id",
+    "_name": "_fd57f584"
   },
   {
     "name": "product-id",
     "path": "/product/:id?",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\product\\\\_id.vue",
-    "chunkName": "pages/product/_id"
+    "chunkName": "pages/product/_id",
+    "_name": "_71224dec"
   },
   {
     "name": "store-slug",
     "path": "/store/:slug?",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\store\\\\_slug.vue",
-    "chunkName": "pages/store/_slug"
+    "chunkName": "pages/store/_slug",
+    "_name": "_e5b4d930"
   },
   {
     "name": "index",
     "path": "/",
     "component": "C:\\\\Deep\\\\wineshop\\\\wine-shop-frontend\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_6876a703"
   }
 ]

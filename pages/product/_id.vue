@@ -13,9 +13,7 @@
                                 <div class="col-lg-6">
                                     <div v-swiper:mySwiper="swiperOption" ref="mySwiper">
                                         <div class="swiper-wrapper">
-                                            <div class="swiper-slide" style="display: flex; justify-content: center" v-for="(
-                            product, index
-                          ) in productDetail.product_images" :key="index">
+                                            <div class="swiper-slide" style="display: flex; justify-content: center" v-for="(product, index ) in productDetail.product_images" :key="index">
                                                 <img :src="getImgUrl(product.image)" :id="product.image_id" class="img-fluid bg-img" :alt="product.alt" />
                                             </div>
                                         </div>
@@ -35,7 +33,7 @@
                                 <div class="col-lg-6 rtl-text">
                                     <div class="product-right">
                                         <div class="d-flex justify-content-between">
-                                            <h2 class="col-lg-8 col-md-8 col-xl-8 col-12" style="padding-left:0px" >{{ productDetail.product_name }}</h2>
+                                            <h2 class="col-lg-8 col-md-8 col-xl-8 col-12" style="padding-left:0px">{{ productDetail.product_name }}</h2>
                                         </div>
                                         <h4 v-if="productDetail.onsale">
                                             <span v-if="productDetail.discount != 0">{{ productDetail.discount }}% off</span>
@@ -74,22 +72,22 @@
                                             <button class="btn btn-solid" title="buy now" @click="buyNow(productDetail, counter)" :disabled="counter > productDetail.stock">
                                                 Buy Now
                                             </button>
+                                            <section class="tab-product m-0">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-lg-12">
+                                                        <b-tabs v-if="productDetail.description" card>
+                                                            <b-tab title="Description" style="padding: 10px 25px !important" active>
+                                                                <b-card-text v-html="productDetail.description"></b-card-text>
+                                                            </b-tab>
+                                                        </b-tabs>
+                                                    </div>
+                                                </div>
+                                            </section>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <section class="tab-product m-0">
-                            <div class="row">
-                                <div class="col-sm-12 col-lg-12">
-                                    <b-tabs v-if="productDetail.description" card>
-                                        <b-tab title="Description" style="padding: 10px 25px !important" active>
-                                            <b-card-text v-html="productDetail.description"></b-card-text>
-                                        </b-tab>
-                                    </b-tabs>
-                                </div>
-                            </div>
-                        </section>
                     </div>
                 </div>
             </div>
