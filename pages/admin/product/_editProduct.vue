@@ -236,7 +236,7 @@ export default {
             this.saveProduct(formData)
                 .then((resp) => {
                     if (resp.data.status) {
-                        this.$toast.success("Product added");
+                        this.$toast.success("Product Updated successfully...!");
                         this.$router.push("/admin/product");
                     }
                 })

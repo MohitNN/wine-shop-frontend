@@ -145,6 +145,12 @@ export default {
     this.getCategory();
     this.getSubCategory();
   },
+  created(){
+    // this.getAllProduct({pageIndex: "page=" + 1});
+    this.getBrand();
+    this.getCategory();
+    this.getSubCategory();
+  },
   methods: {
     ...mapActions("products", ["allProduct"]),
     ...mapActions("filter", ["clearFilter"]),

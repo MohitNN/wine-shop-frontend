@@ -11,7 +11,7 @@
               <div
                 class="home text-center"
                 :class="item.alignclass"
-                v-bind:style="{ 'background-image': 'url(' + item.imagepath + ')' , 'width': '100%' }"
+                v-bind:style="{ 'background-image': 'url(' + item.imagepath + ')' , 'width': '100%'}"
               >
                 <div class="container">
                   <div class="row">

@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      login:"admin_adminauth/login"
+      login:"admin_adminauth/login",
     }),
     handleSubmit() {
       this.submitted = true;

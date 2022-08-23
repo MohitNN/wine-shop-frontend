@@ -15,7 +15,7 @@
               <div class="swiper-wrapper">
                 <!-- <div class="swiper-slide" v-for="(imag,index) in productData.product_images" :key="index"> -->
                   <img
-                    :src='getImgUrl(imageSrc ? imageSrc :  "165710779030.png")'
+                    :src='getImgUrl(imageSrc)'
                     class="img-fluid bg-img"
                     alt="imag.alt"
                   />
@@ -27,8 +27,6 @@
                           <img :src="getImgUrl(image.image)" width="50px" />
                       </a>
                   </li>
-              </ul>
-              <ul v-else>
               </ul>
             </div>
           </div>

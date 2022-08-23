@@ -1,7 +1,5 @@
 import axios from "axios";
 import { baseURL } from "@/config/urls";
-
-import config from "../../../config.json";
 import { setAuthToken, resetAuthToken } from "@/config/auth";
 axios.defaults.baseURL = baseURL.API_URL;
 const state = {
@@ -9,9 +7,13 @@ const state = {
     bearerToken: null,
     isAuthenticated: false,
   },
-  userList:[],
+  userList:{},
 };
-const getters = {};
+const getters = {
+  userList: (state) => {
+    return state.user;
+},
+};
 const actions = {
   async login({ commit , dispatch}, data) {
     const resp = await axios.post("/api/login", data);
@@ -50,6 +52,7 @@ const actions = {
   },
   async  getUserList({ commit }, data) {
     const resp = await axios.get("/api/admin/user-list?page="+data);
+    console.log(resp.data)
     if(resp.data.status) {
       commit("SET_USER_LIST" , resp.data.data)
     }

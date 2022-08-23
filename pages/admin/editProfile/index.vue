@@ -21,8 +21,7 @@
                                     <label for="pic1">
                                         <img src="@/assets/images/admin.png" for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; object-fit: cov" class="img-fluid rounded-circle blur-up lazyloaded" />
                                     </label>
-                                    <h3 class="f-w-600 mb-0">John deo</h3>
-                                    <h6>johndeo@gmail.com</h6>
+                                    <h3 class="f-w-600 mb-0">{{user.user.email}}</h3>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +57,7 @@
                                                                         </tr>
                                                                         <tr>
                                                                             <td>Email:</td>
-                                                                            <td>johndeo@gmail.com</td>
+                                                                            <td>{{user.user.email}}</td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -72,7 +71,7 @@
                                 </ul>
                             </div>
                             <div>
-                                <b-button class="float-right" style="margin:25px;" @click="$router.push('/admin/brand/add-brand')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Save</b-button>
+                                <b-button class="float-right" style="margin:25px;" @click="$router.push('/admin/dashboard')" v-b-modal.modal-1 :variant="categoryType == 'digital' ? 'primary' : 'primary'">Save</b-button>
                             </div>
                         </div>
                     </div>
@@ -82,13 +81,17 @@
     </template>
 </layout>
 </template>
+
 <script>
 import layout from "@/components/admin/Body.vue";
+import {
+    mapGetters ,
+} from 'vuex';
 export default {
     components: {
         layout
     },
-    props:['categoryType'],
+    props: ['categoryType'],
     methods: {
         onFileChange(e) {
             var reader = new FileReader();
@@ -98,6 +101,11 @@ export default {
             };
             reader.readAsDataURL(e.target.files[0]);
         },
+    },
+    computed: {
+        ...mapGetters({
+            user: 'admin_adminauth/userList',
+        }),
     }
 }
 </script>
