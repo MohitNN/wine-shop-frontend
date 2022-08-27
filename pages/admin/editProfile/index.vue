@@ -11,7 +11,6 @@
                     </div>
                 </div>
             </div>
-            {{ getProfileData }}
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-xl-4">
@@ -20,10 +19,11 @@
                                 <div class="profile-details text-center">
                                     <input type="file" @change="onFileChange" name="pic1" id="pic1" ref="userFile" style="display:none;" />
                                     <label for="pic1">
-                                        <img v-if="img" :src='img'  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;" class="img-fluid rounded-circle blur-up lazyloaded" />
-                                        <img v-else src="@/assets/images/admin.png"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;: cov" class="img-fluid rounded-circle blur-up lazyloaded" />
+                                        <img v-if="img && !imgs.length" :src="getImgUrl(img)"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;" class="img-fluid rounded-circle blur-up lazyloaded" />
+                                        <img v-if="imgs" :src="imgs"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;" class="img-fluid rounded-circle blur-up lazyloaded" />
+                                        <img v-if="!imgs && !img" src="@/assets/images/admin.png"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;: cov" class="img-fluid rounded-circle blur-up lazyloaded" />
                                     </label>
-                                    <h3 class="f-w-600 mb-0">{{user.user.email}}</h3>
+                                    <h3 class="f-w-600 mb-0">{{getProfileData.email}}</h3>
                                 </div>
                             </div>
                         </div>
@@ -76,6 +76,7 @@
 
 <script>
 import layout from "@/components/admin/Body.vue";
+import config from "@/config.json";
 import {
     mapGetters,
     mapActions,
@@ -97,42 +98,47 @@ export default {
                 email:'',
                 image: '',
             },
-            img:''
+            img:'',
+            imgs:''
         }
     },
-    created(){
+    mounted(){
+        this.getProfile()
         this.profile.name = this.getProfileData.name 
         this.profile.email = this.getProfileData.email
-        this.profile.image = this.getProfileData.image
+        this.img = this.getProfileData.image
     },
     props: ['categoryType'],
     methods: {
         ...mapActions({
             updateProfile: "editProfile/updateProfile",
+            getProfile: "editProfile/getProfile",
         }),
         onFileChange: function(e) {
-            const reader = new FileReader();
             this.profile.image = this.$refs.userFile.files[0];
             const file = e.target.files.item(0);
+            const reader = new FileReader();
             reader.addEventListener('load', this.imageloaded);
             reader.readAsDataURL(file);
         },
         imageloaded(e) {
-            this.img = e.target.result;
+            this.imgs = e.target.result;
         },
         update(){
             this.updateProfile(this.profile).then(Response => {
                 if (Response.data.status) {
                     this.$toast.success("Update profile Successfully..!");
-                    this.$router.push('/admin/dashboard')
                 }
             })
-        }
+        },
+        getImgUrl(path) {
+            return config.baseUrl + "profile_picture/" + path;
+        },
     },
     computed: {
         ...mapGetters({
-            user: 'admin_adminauth/userList',
             getProfileData: 'editProfile/getProfileData',
+            user: 'admin_adminauth/userList',
         }),
     }
 }

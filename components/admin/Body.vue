@@ -4,12 +4,10 @@
       <Header />
       <body class="ltr">
       <div class="page-body-wrapper">
-        <h2>{{togglesidebar}}</h2>
-        <div class="page-sidebar" :class="!togglesidebar ? '' : ''">
+        <div class="page-sidebar" v-if="togglesidebar" :class="!togglesidebar ? '' : ''">
           <Sidebar
             class="switch"
             @clicked="sidebar_toggle"
-            v-if="togglesidebar"
           />
         </div>
         <div class="page-body">

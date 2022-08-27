@@ -2,16 +2,6 @@
   <!-- Page Header Start-->
   <div :class="!sidebar ? 'page-main-header open' : 'page-main-header '">
     <div class="main-header-right row">
-      <div class="main-header-left d-lg-none">
-        <div class="logo-wrapper">
-          <router-link to="/">
-            <img
-              class="blur-up lazyloaded"
-              src="../../../assets/admin/images/dashboard/multikart-logo.png"
-              alt=""
-          /></router-link>
-        </div>
-      </div>
       <div class="mobile-sidebar">
         <div class="media-body text-right switch-sm">
           <label class="switch"
@@ -29,12 +19,14 @@
                 class="
                   align-self-center
                   pull-right
-                  img-50
+                  img-40
                   rounded-circle
                   blur-up
                   lazyloaded
+                  border
+                  p-2
                 "
-                src="@/assets/images/admin.png"
+                src="../../../assets/admin/images/dashboard/user.svg"
                 alt="header-user"
               />
               <div class="dotted-animation">

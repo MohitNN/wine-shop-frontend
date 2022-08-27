@@ -4,19 +4,8 @@ import axios from "axios";
 const baseURL = config.baseUrl
 
 const state = {
-    getAdminProfile:[]
+    getAdminProfile:[],
 }
-const getters = {
-    getProfileData: (state) => {
-        return state.getAdminProfile;
-    },
-}
-const mutations = {
-    GET_PROFILE: (state, items) => {   
-        state.getAdminProfile = items;   
-    },
-}
-
 const actions = {
     updateProfile: (context,data) => {
         const URl = `${baseURL}api/update-profile`
@@ -27,8 +16,6 @@ const actions = {
         const resp = axios.post(URl,formData);
         resp.then(response => {
             if(response.data.status){       
-                this.$toast.success("Profile Edit Successfully..!");
-                this.$router.push('/admin/dashboard')
                 context.dispatch('getProfile');
             }
          });
@@ -36,7 +23,7 @@ const actions = {
       }, 
       getProfile: (context) => {        
         const URl = `${baseURL}api/admin/get-user`
-        const resp = axios.get(URl);
+        const resp = axios.post(URl);
         resp.then(response => {
             if(response.data.status){  
                 context.commit('GET_PROFILE', response.data.data);               
@@ -44,7 +31,16 @@ const actions = {
          });         
     },
 }
-
+const mutations = {
+    GET_PROFILE: (state, items) => { 
+        state.getAdminProfile = items;   
+    },
+}
+const getters = {
+    getProfileData: (state) => {
+       return state.getAdminProfile;
+    },
+}
 export default {
     namespaced: true,
     state,

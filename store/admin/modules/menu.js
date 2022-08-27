@@ -1,7 +1,7 @@
-import Menu from '../../../data/admin/data/menu'
+import Menu from '../../../data/menu'
 
 const state = {
-    
+    data: Menu.data,
     searchData: [],
     togglesidebar: true,
     toggleChatBar: false,
