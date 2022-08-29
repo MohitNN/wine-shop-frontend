@@ -19,17 +19,15 @@
                                         {{ field.item.total_product }}
                                   </template>
                                 <template #cell(order_status)="field">
-                                    <div href="javascript:void(0)" @click="sawImg(field.item)">
+                                    <div href="javascript:void(0)">
                                         <span :class="getVariant('order', field.item.order_status)">
                                             {{ getStatus("order", field.item.order_status) }}
                                         </span>
                                     </div>
                                 </template>
                                 <template #cell(payment_status)="field">
-                                    <div href="javascript:void(0)" @click="sawImg(field.item)">
-                                        <div :class="
-                          getVariant('payment', field.item.payment_status)
-                        ">
+                                    <div href="javascript:void(0)">
+                                        <div :class="getVariant('payment', field.item.payment_status)">
                                             {{ getStatus("payment", field.item.payment_status) }}
                                         </div>
                                     </div>
@@ -40,9 +38,7 @@
                                     </a>
                                 </template>
                                 <template #cell(created_at)="field">
-                                    {{
-                              field.item.created_at | moment('DD-MM-YYYY hh:mm a') 
-                            }}
+                                    {{field.item.created_at | moment('DD-MM-YYYY hh:mm a')}}
                                 </template>
                             </b-table>
 

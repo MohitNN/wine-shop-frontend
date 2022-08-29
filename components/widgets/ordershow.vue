@@ -154,7 +154,7 @@ export default {
   border-radius: 4px;
   font-size: 10px;
   padding: 5px 10px;
-
+  text-align: center;
   color: #ffa800;
   background: #ffe6b3;
 }
@@ -162,7 +162,7 @@ export default {
   border-radius: 4px;
   font-size: 10px;
   padding: 5px 10px;
-
+  text-align: center;
   color: #2966f0;
   background: #b7ccfa;
 }
@@ -170,7 +170,7 @@ export default {
   border-radius: 4px;
   font-size: 10px;
   padding: 5px 10px;
-
+  text-align: center;
   color: #29a329;
   background: #70db70;
 }
@@ -178,7 +178,7 @@ export default {
   border-radius: 4px;
   font-size: 10px;
   padding: 5px 10px;
-
+  text-align: center;
   color: #ff0000;
   background: #ff9999;
 }

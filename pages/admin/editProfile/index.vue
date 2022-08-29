@@ -13,17 +13,15 @@
             </div>
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xl-4">
+                    <div class="col-xl-4 mb-5">
                         <div class="card" style="height: 100% !important;">
                             <div class="card-body">
                                 <div class="profile-details text-center">
                                     <input type="file" @change="onFileChange" name="pic1" id="pic1" ref="userFile" style="display:none;" />
                                     <label for="pic1">
                                         <img v-if="img && !imgs.length" :src="getImgUrl(img)"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;" class="img-fluid rounded-circle blur-up lazyloaded" />
-                                        <img v-if="imgs" :src="imgs"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;" class="img-fluid rounded-circle blur-up lazyloaded" />
-                                        <img v-if="!imgs && !img" src="@/assets/images/admin.png"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;: cov" class="img-fluid rounded-circle blur-up lazyloaded" />
+                                        <img v-if="imgs" :src="imgs ? imgs : '@/assets/images/admin.png'"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;" class="img-fluid rounded-circle blur-up lazyloaded" />
                                     </label>
-                                    <h3 class="f-w-600 mb-0">{{getProfileData.email}}</h3>
                                 </div>
                             </div>
                         </div>
@@ -31,7 +29,7 @@
                     <div class="col-xl-8 card">
                         <ValidationObserver v-slot="{ invalid }">
                             <form class="needs-validation add-product-form" novalidate="" enctype="multipart/form-data">
-                                <div class="form">
+                                <div class="form mt-4">
                                     <ValidationProvider rules="required" v-slot="{ errors }" name="name">
                                         <div class="form-group mb-0 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
@@ -80,6 +78,7 @@ import config from "@/config.json";
 import {
     mapGetters,
     mapActions,
+    mapState,
 } from 'vuex';
 import {
     ValidationProvider,
@@ -102,17 +101,18 @@ export default {
             imgs:''
         }
     },
-    mounted(){
+    created(){
         this.getProfile()
-        this.profile.name = this.getProfileData.name 
-        this.profile.email = this.getProfileData.email
-        this.img = this.getProfileData.image
     },
-    props: ['categoryType'],
+    mounted(){
+        this.profile.name = this.getData.name 
+        this.profile.email = this.getData.email
+        this.img = this.getData.image
+    },
     methods: {
         ...mapActions({
-            updateProfile: "editProfile/updateProfile",
             getProfile: "editProfile/getProfile",
+            updateProfile: "editProfile/updateProfile",
         }),
         onFileChange: function(e) {
             this.profile.image = this.$refs.userFile.files[0];
@@ -136,10 +136,10 @@ export default {
         },
     },
     computed: {
-        ...mapGetters({
-            getProfileData: 'editProfile/getProfileData',
-            user: 'admin_adminauth/userList',
-        }),
+         ...mapState('editProfile', ['getAdminProfile']),
+        getData(){
+            return this.getAdminProfile;
+        },
     }
 }
 </script>
