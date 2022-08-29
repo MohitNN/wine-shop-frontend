@@ -100,11 +100,15 @@ export default {
           getAllDataTotal: "dashboard/getAllDataCount",
       }),
     },
-    mounted() {
+    async mounted() {
         this.getCountData();
+        await this.getProfile()
     },
     methods: {
-      ...mapActions("dashboard", ["getCountData"]),
+      ...mapActions({
+          getCountData : "dashboard/getCountData",
+          getProfile: "editProfile/getProfile"
+        }),
     }
 };
 </script>

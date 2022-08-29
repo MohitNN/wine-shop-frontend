@@ -215,6 +215,20 @@ export default {
                     "active": false,
                     "path": "/admin/user"
                 },
+                {
+                    "title": "Store Address",
+                    "type": "sub",
+                    "icon": "users",
+                    "active": false,
+                    "path": "/admin/storeAddress"
+                },
+                {
+                    "title": "Payment Details",
+                    "type": "sub",
+                    "icon": "users",
+                    "active": false,
+                    "path": "/admin/paymentDetails"
+                },
             ]
         };
     },

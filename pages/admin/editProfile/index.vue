@@ -19,8 +19,8 @@
                                 <div class="profile-details text-center">
                                     <input type="file" @change="onFileChange" name="pic1" id="pic1" ref="userFile" style="display:none;" />
                                     <label for="pic1">
-                                        <img v-if="img && !imgs.length" :src="getImgUrl(img)"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;" class="img-fluid rounded-circle blur-up lazyloaded" />
-                                        <img v-if="imgs" :src="imgs ? imgs : '@/assets/images/admin.png'"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;" class="img-fluid rounded-circle blur-up lazyloaded" />
+                                        <img v-if="img" :src="getImgUrl(img)"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;" class="img-fluid rounded-circle blur-up lazyloaded" />
+                                        <img v-if="img" :src="img ? img : '@/assets/images/admin.png'"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;" class="img-fluid rounded-circle blur-up lazyloaded" />
                                     </label>
                                 </div>
                             </div>
@@ -76,7 +76,6 @@
 import layout from "@/components/admin/Body.vue";
 import config from "@/config.json";
 import {
-    mapGetters,
     mapActions,
     mapState,
 } from 'vuex';
@@ -98,21 +97,22 @@ export default {
                 image: '',
             },
             img:'',
-            imgs:''
         }
     },
-    created(){
-        this.getProfile()
-    },
     mounted(){
-        this.profile.name = this.getData.name 
-        this.profile.email = this.getData.email
-        this.img = this.getData.image
+         this.getProfile().then((response) => {
+            if (response.data.status) {
+                const data = response.data.data
+                this.profile.name = data.name 
+                this.profile.email = data.email
+                this.img = data.image
+            }
+        })
     },
     methods: {
         ...mapActions({
-            getProfile: "editProfile/getProfile",
             updateProfile: "editProfile/updateProfile",
+            getProfile: "editProfile/getProfile"
         }),
         onFileChange: function(e) {
             this.profile.image = this.$refs.userFile.files[0];
@@ -136,10 +136,8 @@ export default {
         },
     },
     computed: {
-         ...mapState('editProfile', ['getAdminProfile']),
-        getData(){
-            return this.getAdminProfile;
-        },
+        //  ...mapState('editProfile', ['getAdminProfile']),
+         
     }
 }
 </script>

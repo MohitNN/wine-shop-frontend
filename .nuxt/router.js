@@ -15,7 +15,9 @@ const _3b608378 = () => interopDefault(import('..\\pages\\admin\\dashboard.vue' 
 const _eed2159a = () => interopDefault(import('..\\pages\\admin\\editProfile\\index.vue' /* webpackChunkName: "pages/admin/editProfile/index" */))
 const _4b29ec6e = () => interopDefault(import('..\\pages\\admin\\login\\index.vue' /* webpackChunkName: "pages/admin/login/index" */))
 const _4bd400c4 = () => interopDefault(import('..\\pages\\admin\\order\\index.vue' /* webpackChunkName: "pages/admin/order/index" */))
+const _5cfdd726 = () => interopDefault(import('..\\pages\\admin\\paymentDetails\\index.vue' /* webpackChunkName: "pages/admin/paymentDetails/index" */))
 const _9c087afa = () => interopDefault(import('..\\pages\\admin\\product\\index.vue' /* webpackChunkName: "pages/admin/product/index" */))
+const _ab2b5362 = () => interopDefault(import('..\\pages\\admin\\storeAddress\\index.vue' /* webpackChunkName: "pages/admin/storeAddress/index" */))
 const _752317c5 = () => interopDefault(import('..\\pages\\admin\\sub_category\\index.vue' /* webpackChunkName: "pages/admin/sub_category/index" */))
 const _3ea5ec3e = () => interopDefault(import('..\\pages\\admin\\translation.vue' /* webpackChunkName: "pages/admin/translation" */))
 const _36e2b488 = () => interopDefault(import('..\\pages\\admin\\type\\index.vue' /* webpackChunkName: "pages/admin/type/index" */))
@@ -49,7 +51,9 @@ const _aafc99f8 = () => interopDefault(import('..\\pages\\admin\\banner\\add-ban
 const _01b7ec74 = () => interopDefault(import('..\\pages\\admin\\brand\\add-brand.vue' /* webpackChunkName: "pages/admin/brand/add-brand" */))
 const _17b589b0 = () => interopDefault(import('..\\pages\\admin\\category\\add-category.vue' /* webpackChunkName: "pages/admin/category/add-category" */))
 const _a4d0ba3e = () => interopDefault(import('..\\pages\\admin\\coupon\\create-coupon.vue' /* webpackChunkName: "pages/admin/coupon/create-coupon" */))
+const _42d4b6fc = () => interopDefault(import('..\\pages\\admin\\paymentDetails\\index2.vue' /* webpackChunkName: "pages/admin/paymentDetails/index2" */))
 const _eb310b98 = () => interopDefault(import('..\\pages\\admin\\product\\add-product.vue' /* webpackChunkName: "pages/admin/product/add-product" */))
+const _5aa3c985 = () => interopDefault(import('..\\pages\\admin\\storeAddress\\add-address.vue' /* webpackChunkName: "pages/admin/storeAddress/add-address" */))
 const _507c7318 = () => interopDefault(import('..\\pages\\admin\\sub_category\\add-sub-category.vue' /* webpackChunkName: "pages/admin/sub_category/add-sub-category" */))
 const _d4f3799e = () => interopDefault(import('..\\pages\\admin\\type\\addType.vue' /* webpackChunkName: "pages/admin/type/addType" */))
 const _04fe804a = () => interopDefault(import('..\\pages\\blog\\widgets\\blog-list.vue' /* webpackChunkName: "pages/blog/widgets/blog-list" */))
@@ -111,6 +115,7 @@ const _4820244e = () => interopDefault(import('..\\pages\\admin\\category\\_edit
 const _2837f48e = () => interopDefault(import('..\\pages\\admin\\coupon\\_editCoupon.vue' /* webpackChunkName: "pages/admin/coupon/_editCoupon" */))
 const _d6aac83a = () => interopDefault(import('..\\pages\\admin\\order\\_editOrder.vue' /* webpackChunkName: "pages/admin/order/_editOrder" */))
 const _e5c711b6 = () => interopDefault(import('..\\pages\\admin\\product\\_editProduct.vue' /* webpackChunkName: "pages/admin/product/_editProduct" */))
+const _1019eb44 = () => interopDefault(import('..\\pages\\admin\\storeAddress\\_editAddress.vue' /* webpackChunkName: "pages/admin/storeAddress/_editAddress" */))
 const _1069dc92 = () => interopDefault(import('..\\pages\\admin\\sub_category\\_editsubcategory.vue' /* webpackChunkName: "pages/admin/sub_category/_editsubcategory" */))
 const _6520d44e = () => interopDefault(import('..\\pages\\admin\\type\\_edittype.vue' /* webpackChunkName: "pages/admin/type/_edittype" */))
 const _329ad8e2 = () => interopDefault(import('..\\pages\\collection\\leftsidebar\\_id.vue' /* webpackChunkName: "pages/collection/leftsidebar/_id" */))
@@ -175,9 +180,17 @@ export const routerOptions = {
     component: _4bd400c4,
     name: "admin-order"
   }, {
+    path: "/admin/paymentDetails",
+    component: _5cfdd726,
+    name: "admin-paymentDetails"
+  }, {
     path: "/admin/product",
     component: _9c087afa,
     name: "admin-product"
+  }, {
+    path: "/admin/storeAddress",
+    component: _ab2b5362,
+    name: "admin-storeAddress"
   }, {
     path: "/admin/sub_category",
     component: _752317c5,
@@ -311,9 +324,17 @@ export const routerOptions = {
     component: _a4d0ba3e,
     name: "admin-coupon-create-coupon"
   }, {
+    path: "/admin/paymentDetails/index2",
+    component: _42d4b6fc,
+    name: "admin-paymentDetails-index2"
+  }, {
     path: "/admin/product/add-product",
     component: _eb310b98,
     name: "admin-product-add-product"
+  }, {
+    path: "/admin/storeAddress/add-address",
+    component: _5aa3c985,
+    name: "admin-storeAddress-add-address"
   }, {
     path: "/admin/sub_category/add-sub-category",
     component: _507c7318,
@@ -558,6 +579,10 @@ export const routerOptions = {
     path: "/admin/product/:editProduct",
     component: _e5c711b6,
     name: "admin-product-editProduct"
+  }, {
+    path: "/admin/storeAddress/:editAddress",
+    component: _1019eb44,
+    name: "admin-storeAddress-editAddress"
   }, {
     path: "/admin/sub_category/:editsubcategory",
     component: _1069dc92,

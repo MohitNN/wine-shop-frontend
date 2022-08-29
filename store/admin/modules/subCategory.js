@@ -8,7 +8,7 @@ const state = {
     SubCategoryDetail:[]
 }
 const getters = {
-    getSubCategory: (state) => {
+    getSubCategorys: (state) => {
         return state.SubCategory;
     },
 }

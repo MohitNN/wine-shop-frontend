@@ -241,37 +241,37 @@
                             <div class="col-1 text-center">X</div>
                             <div class="col-2 text-center">{{ item.quantity }}</div>
                             <span class="col-3 text-center ml-1">{{
-                              (item.price * curr.curr * item.quantity)
-                                | currency(curr.symbol)
+                              (item.price * item.quantity)
+                              
                             }}</span>
                           </li>
                         </ul>
                         <ul class="sub-total">
                           <li>
                             Subtotal
-                            <span class="count">{{
-                              (cartTotal * curr.curr) | currency(curr.symbol)
+                            <span class="count pl-4">{{
+                              (cartTotal)
                             }}</span>
                           </li>
                         </ul>
                         <ul class="sub-total">
                           <li>
                             Total
-                            <span class="count">{{
-                              (cartTotal * curr.curr) | currency(curr.symbol)
+                            <span class="count pl-4">{{
+                              (cartTotal)
                             }}</span>
                           </li>
                           <li v-if="promoData && promoData.promo_value">
                             You have To save 
                             <span class="count">{{
-                              promoData.promo_value | currency(curr.symbol)
+                              promoData.promo_value
                             }}</span>
                           </li>
                           <hr/>
                           <li v-if="promoData && promoData.total">
                             Net Amount  
                             <span class="count">{{
-                              promoData.total | currency(curr.symbol)
+                              promoData.total
                             }}</span>
                           </li>
                           <li>
@@ -298,18 +298,24 @@
                         </b-input-group>
                         <ul class="sub-total">
                           <li>
+                            Account Name :-
+                            <span class="text-primary">
+                              {{getPayment.acc_name }}
+                            </span>
+                          </li>
+                          <li>
                             Bank Name :-
                             <span class="text-primary">
-                              Paytm Payment Bank
+                              {{getPayment.bank_name }}
                             </span>
                           </li>
                           <li>
                             Branch :-
-                            <span class="text-primary"> Nodia , India </span>
+                            <span class="text-primary"> {{getPayment.branch}} </span>
                           </li>
                           <li>
                             Bank Account No :-
-                            <span class="text-primary"> 918488028320 </span>
+                            <span class="text-primary"> {{getPayment.acc_no}} </span>
                           </li>
                           <li>
                             IFSC :-
@@ -398,7 +404,7 @@ import {
   ValidationProvider,
   ValidationObserver,
 } from "vee-validate/dist/vee-validate.full.esm";
-import { mapGetters, mapActions , mapMutations } from "vuex";
+import { mapState , mapGetters, mapActions , mapMutations } from "vuex";
 import Loader from "@/assets/images/LoaderProcess.gif";
 import Header from "../../../components/header/header1";
 import Footer from "../../../components/footer/footer1";
@@ -413,6 +419,7 @@ export default {
     ValidationObserver,
   },
   computed: {
+    ...mapState('payment', ['getPayment']),
     ...mapGetters({
       cart: "cart/cartItems",
       cartTotal: "cart/cartTotalAmount",
@@ -470,9 +477,13 @@ export default {
   },  
   mounted() {
     // this.updateCartItems();
-    this.getUserAddress()
+    this.getUserAddress();
+    this.getPaymentData();
   },
   methods: {
+    ...mapActions({
+            getPaymentData: "payment/getPayment",
+      }),
     ...mapMutations('cart' , ['updateCartItems']),
     ...mapActions("products", ["makeOrder"]),
     ...mapActions("gloable", ["setLoading"]),

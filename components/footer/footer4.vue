@@ -13,39 +13,8 @@
                                 <img :src="'_nuxt/assets/images/icon/LogoSIte.png'" height="75" style="height: 75px" class="img-fluid" alt />
                             </div>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                Ut enim ad minim veniam,
+                                Welcome to Langkawi Liquor, order duty free liquor online and have it delivered to your doorstep anywhere in Langkawi!
                             </p>
-                            <!-- <div class="footer-social">
-                                <ul>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-google-plus" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-instagram" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fa fa-rss" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div> -->
                         </div>
                     </div>
                     <div class="col offset-xl-1">
@@ -98,12 +67,11 @@
                                     <li>
                                         <i class="fa fa-map-marker"></i>Langkawi, Kedah
                                     </li>
-                                    <li><i class="fa fa-phone"></i>Call Us: +6012 1111111</li>
+                                    <li><i class="fa fa-phone"></i>Call Us: +60 109488352</li>
                                     <li>
                                         <i class="fa fa-envelope-o"></i>Email Us:
-                                        <a href="#">Langkawiliquor@gmail.com</a>
+                                        <a href="#">Langkawiliquor@gamil.com</a>
                                     </li>
-                                    <!-- <li><i class="fa fa-fax"></i>Fax: 123456</li> -->
                                 </ul>
                             </div>
                         </div>
@@ -111,51 +79,6 @@
                 </div>
             </div>
         </section>
-        <!-- <div class="sub-footer dark-subfooter">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-md-6 col-sm-12">
-                        <div class="footer-end">
-                            <p>
-                                <i class="fa fa-copyright" aria-hidden="true"></i> 2022-23
-                                themeforest powered by Langkawiliquor
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-6 col-sm-12">
-                        <div class="payment-card-bottom">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <img :src="'@/assets/images/icon/visa.png'" alt />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img :src="'@/assets/images/icon/mastercard.png'" alt />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img :src="'@/assets/images/icon/paypal.png'" alt />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img :src="'@/assets/images/icon/american-express.png'" alt />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <img :src="'@/assets/images/icon/discover.png'" alt />
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </footer>
 </div>
 </template>

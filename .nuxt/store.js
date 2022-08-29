@@ -43,9 +43,11 @@ let store = {};
   resolveStoreModules(require('..\\store\\admin\\modules\\menu.js'), 'admin/modules/menu.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\order.js'), 'admin/modules/order.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\pages.js'), 'admin/modules/pages.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\payment.js'), 'admin/modules/payment.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\product.js'), 'admin/modules/product.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\Products.js'), 'admin/modules/Products.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\reports.js'), 'admin/modules/reports.js')
+  resolveStoreModules(require('..\\store\\admin\\modules\\storeAddress.js'), 'admin/modules/storeAddress.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\subCategory.js'), 'admin/modules/subCategory.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\types.js'), 'admin/modules/types.js')
   resolveStoreModules(require('..\\store\\admin\\modules\\user.js'), 'admin/modules/user.js')
@@ -81,9 +83,11 @@ let store = {};
       '..\\store\\admin\\modules\\menu.js',
       '..\\store\\admin\\modules\\order.js',
       '..\\store\\admin\\modules\\pages.js',
+      '..\\store\\admin\\modules\\payment.js',
       '..\\store\\admin\\modules\\product.js',
       '..\\store\\admin\\modules\\Products.js',
       '..\\store\\admin\\modules\\reports.js',
+      '..\\store\\admin\\modules\\storeAddress.js',
       '..\\store\\admin\\modules\\subCategory.js',
       '..\\store\\admin\\modules\\types.js',
       '..\\store\\admin\\modules\\user.js',

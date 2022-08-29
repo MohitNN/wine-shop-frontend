@@ -7,16 +7,10 @@
         <div class="row">
           <div class="col-sm-12">
             <h2>Introduction</h2>
-            <p>Liquid Village by PL Soon Huat Sdn. Bhd. is a trusted and modern Wines & Spirits retail shop in Kuah, Langkawi Island. We also sell some grocery items such as pork, cheese, bakery products and many more.
-
-We currently import and carry more than 500 labels of wines, champagnes and spirits. Our aim is to provide our customers the finest wines across Europe, Australia, New Zealand and many other countries.
-
-You can now purchase your favourite wines and various pairing snacks from us, at the comfort of your home.
-
-All of our Wines & Spirits guaranteed SAFE and GENUINE.</p>
-</br>
+            <p>Langkawi liquor is owned and run by Boon Aun SDN BHD. We are Langkawi’s leading supplier and wholesaler of a variety of wine, spirits and alcoholic beverages. Our highest priority is to provide 100% authentic products at the lowest prices. We started Langkawiliquor.com to provide our customers with the easiest and most convenient way to order liquor online and have it delivered right to their doorstep!</p>
+            <br/>
           <h2>Delivery</h2>
-          <p>We offer free delivery within Langkawi Island for purchase above RM/MYR 200. For purchase below RM/MYR 200, there will be a delivery charge of RM/MYR 10.</p>
+          <p>Min order Rm500 for free delivery. Rm50/delivery around kuah and Cenang. Datai Rm100/Delivery.</p>
           </div>
           
         </div>

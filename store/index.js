@@ -34,6 +34,8 @@ import order from './admin/modules/order.js';
 import types from './admin/modules/types.js';
 import banner from './admin/modules/banner.js';
 import editProfile from './admin/modules/editProfile.js';
+import storeAddress from './admin/modules/storeAddress.js';
+import payment from './admin/modules/payment.js';
 import { setAuthToken, resetAuthToken } from "@/config/auth";
 
 
@@ -81,7 +83,9 @@ const createStore = () => {
       types,
       banner,
       dashboard,
-      editProfile
+      editProfile,
+      storeAddress,
+      payment
     }
   })
 }
