@@ -85,7 +85,7 @@
                                                 </div>
                                                 <div class="form-group mb-0 row">
                                                     <label class="col-xl-3 col-md-4">Description :</label>
-                                                    <textarea name="description" class="form-control col-xl-8 col-sm-7" v-model="products.description" required=""></textarea>
+                                                    <textarea name="description" class="form-control col-xl-8 col-sm-7" placeholder="Description " v-model="products.description" required=""></textarea>
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>

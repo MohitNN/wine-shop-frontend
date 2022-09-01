@@ -51,6 +51,7 @@ const _aafc99f8 = () => interopDefault(import('..\\pages\\admin\\banner\\add-ban
 const _01b7ec74 = () => interopDefault(import('..\\pages\\admin\\brand\\add-brand.vue' /* webpackChunkName: "pages/admin/brand/add-brand" */))
 const _17b589b0 = () => interopDefault(import('..\\pages\\admin\\category\\add-category.vue' /* webpackChunkName: "pages/admin/category/add-category" */))
 const _a4d0ba3e = () => interopDefault(import('..\\pages\\admin\\coupon\\create-coupon.vue' /* webpackChunkName: "pages/admin/coupon/create-coupon" */))
+const _c166d3f2 = () => interopDefault(import('..\\pages\\admin\\order\\ordershowData.vue' /* webpackChunkName: "pages/admin/order/ordershowData" */))
 const _42d4b6fc = () => interopDefault(import('..\\pages\\admin\\paymentDetails\\index2.vue' /* webpackChunkName: "pages/admin/paymentDetails/index2" */))
 const _eb310b98 = () => interopDefault(import('..\\pages\\admin\\product\\add-product.vue' /* webpackChunkName: "pages/admin/product/add-product" */))
 const _5aa3c985 = () => interopDefault(import('..\\pages\\admin\\storeAddress\\add-address.vue' /* webpackChunkName: "pages/admin/storeAddress/add-address" */))
@@ -323,6 +324,10 @@ export const routerOptions = {
     path: "/admin/coupon/create-coupon",
     component: _a4d0ba3e,
     name: "admin-coupon-create-coupon"
+  }, {
+    path: "/admin/order/ordershowData",
+    component: _c166d3f2,
+    name: "admin-order-ordershowData"
   }, {
     path: "/admin/paymentDetails/index2",
     component: _42d4b6fc,

@@ -22,7 +22,7 @@
                         class="form-control"
                         id="email"
                         v-model="email"
-                        placeholder="Email"
+                        placeholder="Email Id"
                         name="email"
                       />
                       <span class="validate-error">{{ errors[0] }}</span>
@@ -90,7 +90,7 @@ import {
 import Header from "../../../components/header/header1";
 import Footer from "../../../components/footer/footer1";
 import Breadcrumbs from "../../../components/widgets/breadcrumbs";
-import { mapState, mapGetters, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   middleware: ["loginCheck"],
@@ -105,8 +105,8 @@ export default {
     return {
       logintitle: "Login",
       registertitle: "New Customer",
-      email: "user@gmail.com",
-      password: "admin123",
+      email: "",
+      password: "",
     };
   },
   methods: {

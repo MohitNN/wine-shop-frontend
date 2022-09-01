@@ -11,6 +11,7 @@
         type="email"
         class="form-control"
         id="exampleInputEmail1"
+        placeholder="Email Id"
       />
     </div>
     <div class="form-group">
@@ -19,6 +20,7 @@
         v-model="password"
         name="login[password]"
         class="form-control"
+        placeholder="Password"
       />
     </div>
     <div class="form-terms">
@@ -44,14 +46,14 @@
 
 <script>
 
-import { mapState, mapGetters, mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 export default {
   components: {},
   data() {
     return {
       type: "password",
-      username: "admin@gmail.com",
-      password: "admin123",
+      username: "",
+      password: "",
       submitted: false
     };
   },

@@ -38,6 +38,11 @@
                                         {{ field.item.file }}
                                     </a>
                                 </template>
+                                 <template #cell(order_id)="field">
+                                    <a class="ImgUrl" href="javascript:void(0)" @click="sawData(field.item)">
+                                        {{ field.item.order_id }}
+                                    </a>
+                                </template>
                                   <template #cell(order_quantity)="field">
                                         {{ field.item.total_product }}
                                   </template>
@@ -96,6 +101,7 @@
                             <b-pagination v-model="getOrdersList.current_page" :total-rows="getOrdersList.total" :per-page="getOrdersList.per_page" aria-controls="my-table" class="mt-4" @input="updateData"></b-pagination>
                         </b-col>
                     </div>
+                    <ordershow :order="orderData" v-model="openModel"></ordershow>
                 </div>
             </div>
         </div>
@@ -105,6 +111,7 @@
 
 <script>
 import layout from "@/components/admin/Body.vue";
+import ordershow from "@/pages/admin/order/ordershowData.vue";
 import {
     mapGetters,
     mapActions
@@ -115,10 +122,13 @@ export default {
     middleware: ["auth"],
     components: {
         layout,
+        ordershow
     },
     props: ["categoryType"],
     data() {
         return {
+            openModel: false,
+            orderData: [],
             value: "",
             selectedSku: "",
             tablefields: [{
@@ -226,7 +236,11 @@ export default {
         this.totalRows = 12;
     },
     methods: {
-      sawImg(url) {
+        sawData(item) {
+            this.openModel = true;
+            this.orderData = item;
+        },
+        sawImg(url) {
             window.open(config.baseUrl + "orders/" + url);
         },
         updateData(page) {

@@ -9,7 +9,7 @@ const state = {
 
 const actions = {
     getPayment: (context) => {
-        const URl = `${baseURL}api/admin/get-payment-detaile`
+        const URl = `${baseURL}api/get-payment-detaile`
         const resp = axios.get(URl);
         resp.then(response => {
             if (response.data.status) {

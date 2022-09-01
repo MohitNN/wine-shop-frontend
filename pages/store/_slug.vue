@@ -100,6 +100,7 @@ export default {
     return {
       slug: this.$route.params.slug,
       name: this.$route.query.name,
+      type: this.$route.query.type,
       showquickviewmodel: false,
       showcomparemodal: false,
       showcartmodal: false,
@@ -140,13 +141,12 @@ export default {
     ...mapState("products", ["productData"]),
   },
   mounted() {
-    // this.getAllProduct({pageIndex: "page=" + 1});
     this.getBrand();
     this.getCategory();
     this.getSubCategory();
+    this. getAllProduct();
   },
   created(){
-    // this.getAllProduct({pageIndex: "page=" + 1});
     this.getBrand();
     this.getCategory();
     this.getSubCategory();
@@ -156,8 +156,8 @@ export default {
     ...mapActions("filter", ["clearFilter"]),
     ...mapActions("menu", ["getBrand", "getCategory", "getSubCategory"]),
     getAllProduct() {
-      // this.$route.query.name
-      const type = this.slug;
+      this.$route.query.name
+      const type = this.type;
       const name = this.name;
       const multipleCollection  = [];
       this.clearFilter();

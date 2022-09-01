@@ -47,7 +47,6 @@
                             <b-pagination v-model="getOrdersList.current_page" :total-rows="getOrdersList.total" :per-page="getOrdersList.per_page" @input="updateData" class="mt-4"></b-pagination>
                             <!-- <pagination v-model="currentPage" :records="500" @paginate="updateData"/> -->
                         </b-col>
-
                         <ordershow :order="orderData" v-model="openModel"></ordershow>
                     </div>
                 </div>

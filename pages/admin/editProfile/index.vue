@@ -19,8 +19,7 @@
                                 <div class="profile-details text-center">
                                     <input type="file" @change="onFileChange" name="pic1" id="pic1" ref="userFile" style="display:none;" />
                                     <label for="pic1">
-                                        <img v-if="img" :src="getImgUrl(img)"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;" class="img-fluid rounded-circle blur-up lazyloaded" />
-                                        <img v-if="img" :src="img ? img : '@/assets/images/admin.png'"  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;" class="img-fluid rounded-circle blur-up lazyloaded" />
+                                        <img :src="getImgUrl(getProfileData.image) ? getImgUrl(getProfileData.image) : '@/assets/images/admin.png' "  for="sawImg1" id="sawImg" alt="" style="cursor:pointer; width: 225px; height: 225px; object-fit: contain;" class="img-fluid rounded-circle blur-up lazyloaded" />
                                     </label>
                                 </div>
                             </div>
@@ -33,7 +32,7 @@
                                     <ValidationProvider rules="required" v-slot="{ errors }" name="name">
                                         <div class="form-group mb-0 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Name :</label>
-                                            <input v-model="profile.name" class="form-control col-xl-8 col-sm-7" name="name" placeholder="Name" id="validationCustom01" type="text" required="" />
+                                            <input v-model="getProfileData.name" class="form-control col-xl-8 col-sm-7" name="name" placeholder="Name" id="validationCustom01" type="text" required="" />
                                         </div>
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
@@ -45,7 +44,7 @@
                                     <ValidationProvider rules="required" v-slot="{ errors }" name="email">
                                         <div class="form-group mb-0 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Email :</label>
-                                            <input v-model="profile.email" class="form-control col-xl-8 col-sm-7" name="email" placeholder="Email" id="validationCustom01" type="text" required="" />
+                                            <input v-model="getProfileData.email" class="form-control col-xl-8 col-sm-7" name="email" placeholder="Email" id="validationCustom01" type="text" required="" />
                                         </div>
                                         <div class="form-group mb-3 row">
                                             <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
@@ -77,7 +76,7 @@ import layout from "@/components/admin/Body.vue";
 import config from "@/config.json";
 import {
     mapActions,
-    mapState,
+    mapGetters,
 } from 'vuex';
 import {
     ValidationProvider,
@@ -91,44 +90,39 @@ export default {
     },
     data() {
         return {
-            profile:{
-                name:'',
-                email:'',
-                image: '',
-            },
             img:'',
         }
     },
-    mounted(){
-         this.getProfile().then((response) => {
-            if (response.data.status) {
-                const data = response.data.data
-                this.profile.name = data.name 
-                this.profile.email = data.email
-                this.img = data.image
-            }
-        })
+    async created(){
+        await this.getProfile();
     },
     methods: {
         ...mapActions({
             updateProfile: "editProfile/updateProfile",
-            getProfile: "editProfile/getProfile"
+            getProfile: "editProfile/getProfile",
+            setLoading: "gloable/setLoading"
         }),
         onFileChange: function(e) {
-            this.profile.image = this.$refs.userFile.files[0];
-            const file = e.target.files.item(0);
-            const reader = new FileReader();
-            reader.addEventListener('load', this.imageloaded);
-            reader.readAsDataURL(file);
+            this.getProfileData.image = this.$refs.userFile.files[0];
+            // const file = e.target.files.item(0);
+            // const reader = new FileReader();
+            // reader.addEventListener('load', this.imageloaded);
+            // reader.readAsDataURL(file);
+            this.update()
         },
         imageloaded(e) {
-            this.imgs = e.target.result;
+            this.img = e.target.result;
         },
         update(){
-            this.updateProfile(this.profile).then(Response => {
+            this.setLoading(true)
+            this.updateProfile(this.getProfileData).then(Response => {
                 if (Response.data.status) {
                     this.$toast.success("Update profile Successfully..!");
+                    this.getProfile()
+                    this.setLoading(false)
                 }
+            }).catch((error) => {
+                this.setLoading(false);
             })
         },
         getImgUrl(path) {
@@ -136,8 +130,17 @@ export default {
         },
     },
     computed: {
-        //  ...mapState('editProfile', ['getAdminProfile']),
-         
+         ...mapGetters({
+            getProfileState : "editProfile/getProfileData"
+         }),
+         getProfileData : {
+            get() {
+                return this.getProfileState;
+            }, 
+            set(value) {
+                this.$store.commit('editProfile/GET_PROFILE' , value)
+            }
+         }
     }
 }
 </script>

@@ -18,29 +18,49 @@
                                                     <div class="form-group row">
                                                         <label for="validationCustom0" class="col-xl-3 col-md-4">Coupon Title : </label>
                                                         <input v-model="coupon.coupon_name" class="form-control col-md-7" placeholder="Coupaon name" name="name" id="validationCustom0" type="text" required="" />
+                                                    </div>
+                                                    <div class="form-group mb-3 row">
+                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
+                                                    <div class="col-xl-8 col-sm-7 p-0 ml-0 validation">
                                                         <span class="validate-error">{{ errors[0] }}</span>
                                                     </div>
+                                                </div>
                                                 </ValidationProvider>
                                                 <ValidationProvider rules="required|min:6" v-slot="{ errors }" name="Coupon Code">
                                                     <div class="form-group row">
                                                         <label for="validationCustom1" class="col-xl-3 col-md-4">Coupon Code : </label>
                                                         <input name="Coupon Code" v-model="coupon.coupon_code" class="form-control col-md-7" placeholder="Coupon Code" id="validationCustom1" type="text" required="" />
+                                                    </div>
+                                                    <div class="form-group mb-3 row">
+                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
+                                                    <div class="col-xl-8 col-sm-7 p-0 ml-0 validation">
                                                         <span class="validate-error">{{ errors[0] }}</span>
                                                     </div>
+                                                </div>
                                                 </ValidationProvider>
                                                 <ValidationProvider rules="required" v-slot="{ errors }" name="Start Date">
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-md-4">Start Date</label>
                                                         <input name="Start Date" v-model="coupon.start_date" class="datepicker-here form-control digits col-md-7" type="date" data-language="en" />
+                                                    </div>
+                                                    <div class="form-group mb-3 row">
+                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
+                                                    <div class="col-xl-8 col-sm-7 p-0 ml-0 validation">
                                                         <span class="validate-error">{{ errors[0] }}</span>
                                                     </div>
+                                                </div>
                                                 </ValidationProvider>
                                                 <ValidationProvider rules="required" v-slot="{ errors }" name="end date">
                                                     <div class="form-group row">
                                                         <label class="col-xl-3 col-md-4">End Date</label>
                                                         <input name="end date" v-model="coupon.end_date" class="datepicker-here form-control digits col-md-7" type="date" data-language="en" />
+                                                    </div>
+                                                    <div class="form-group mb-3 row">
+                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
+                                                    <div class="col-xl-8 col-sm-7 p-0 ml-0 validation">
                                                         <span class="validate-error">{{ errors[0] }}</span>
                                                     </div>
+                                                </div>
                                                 </ValidationProvider>
                                                 <div class="form-group row">
                                                     <label class="col-form-label col-xl-3 col-md-4">Status</label>
@@ -60,8 +80,13 @@
                                                         <div class="form-group row">
                                                             <label for="validationCustom1" class="col-xl-3 col-md-4">Amount : </label>
                                                             <input v-model="coupon.amount" class="form-control col-md-7" name="amount"  placeholder="Amount" id="validationCustom1" type="text" required="" />
-                                                            <span class="validate-error">{{ errors[0] }}</span>
                                                         </div>
+                                                        <div class="form-group mb-3 row">
+                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
+                                                    <div class="col-xl-8 col-sm-7 p-0 ml-0 validation">
+                                                        <span class="validate-error">{{ errors[0] }}</span>
+                                                    </div>
+                                                </div>
                                                     </ValidationProvider>
                                                 </div>
                                                 <div v-else>
@@ -69,8 +94,13 @@
                                                         <div class="form-group row">
                                                             <label for="validationCustom1" class="col-xl-3 col-md-4">Discount : </label>
                                                             <input v-model="coupon.discount" name="discount" class="form-control col-md-7" placeholder="Discount" id="validationCustom1" type="number" min="0" max="100" required="" />
-                                                            <span class="validate-error">{{ errors[0] }}</span>
                                                         </div>
+                                                        <div class="form-group mb-3 row">
+                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
+                                                    <div class="col-xl-8 col-sm-7 p-0 ml-0 validation">
+                                                        <span class="validate-error">{{ errors[0] }}</span>
+                                                    </div>
+                                                </div>
                                                     </ValidationProvider>
                                                 </div>
                                                 <div >
@@ -78,8 +108,13 @@
                                                         <div class="form-group row">
                                                             <label for="validationCustom1" class="col-xl-3 col-md-4">Min Order Value : </label>
                                                             <input v-model="coupon.minOrderValue" class="form-control col-md-7" name="minOrder"  placeholder="Minimum Order Value" id="validationCustom1" type="number"  required="" />
-                                                            <span class="validate-error">{{ errors[0] }}</span>
                                                         </div>
+                                                        <div class="form-group mb-3 row">
+                                                    <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
+                                                    <div class="col-xl-8 col-sm-7 p-0 ml-0 validation">
+                                                        <span class="validate-error">{{ errors[0] }}</span>
+                                                    </div>
+                                                </div>
                                                     </ValidationProvider>
                                                 </div>
                                                 <div class="form-group row">

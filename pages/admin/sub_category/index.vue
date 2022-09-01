@@ -99,11 +99,11 @@ export default {
         };
     },
     created() {
-        this.$store.dispatch("subCategory/getSubCategory");
+        this.$store.dispatch("subCategory/getSubCategory", 1);
     },
     computed: {
         ...mapGetters({
-            getSubCategoryDetails: "subCategory/getSubCategory"
+            getSubCategoryDetails: "subCategory/getSubCategorys"
         }),
         sortOptions() {
             return this.tablefields

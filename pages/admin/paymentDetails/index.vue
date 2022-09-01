@@ -52,7 +52,7 @@
                                             <ValidationProvider rules="required" v-slot="{ errors }" name="acc_no">
                                                 <div class="form-group mb-0 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0">Account No. :</label>
-                                                    <input v-model="Payment.acc_no" class="form-control col-xl-8 col-sm-7" name="acc_no" placeholder="Name" id="validationCustom01" type="text" required="" />
+                                                    <input v-model="Payment.acc_no" class="form-control col-xl-8 col-sm-7" name="acc_no" placeholder="Account No." id="validationCustom01" type="text" required="" />
                                                 </div>
                                                 <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>
