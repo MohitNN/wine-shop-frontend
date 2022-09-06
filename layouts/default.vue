@@ -7,7 +7,7 @@
     <nuxt id="body-content" />
     <Footer v-if="!getrouter" />
     <layoutSetting />
-    <a href="https://wa.me/qr/OKGWZQWTTA5VM1" target="_blank">
+    <a v-if="user.isAuthenticated == false || user.user.role == 'user'" href="https://wa.me/qr/OKGWZQWTTA5VM1" target="_blank">
       <img class="wp" :src="wpImage" height="75" width="75" alt="">
     </a>
   </div>
@@ -51,7 +51,8 @@ export default {
       const substring = "admin";
       return string.includes(substring);
     },
-    ...mapState('gloable',['isLoading'])
+    ...mapState('gloable',['isLoading']),
+    ...mapState('admin_adminauth',['user'])
   },
   mounted() {
     this.$nextTick(() => {
@@ -66,9 +67,19 @@ export default {
   position: relative;
 }
 .wp{
+    display: block;
     position: fixed;
-    bottom: 40px;
-    right: 40px;
+    bottom: 70px;
+    right: 5px;
     z-index: 9999999;
+}
+@media only screen and (max-width: 600px) {
+  .wp{
+    display: block;
+    position: fixed;
+    bottom: 70px;
+    right: 5px;
+    z-index: 9999999;
+  }
 }
 </style>

@@ -63,7 +63,7 @@
                         </div>
                       </div>
                       <div class="col-xs-3">
-                        <h2 class="td-color">{{ item.price * curr.curr | currency(curr.symbol) }}</h2>
+                        <h2 class="td-color">RM {{ item.price }}</h2>
                       </div>
                       <div class="col-xs-3">
                         <h2 class="td-color">
@@ -75,7 +75,7 @@
                     </div>
                   </td>
                   <td>
-                    <h2>{{ item.price * curr.curr | currency(curr.symbol) }}</h2>
+                    <h2>RM {{ item.price }}</h2>
                   </td>
                   <td>
                     <div class="qty-box">
@@ -120,7 +120,7 @@
                   <td>
                     <h2
                       class="td-color"
-                    >{{ (item.price * curr.curr) * item.quantity | currency(curr.symbol) }}</h2>
+                    >{{ item.price  * item.quantity }}</h2>
                   </td>
                 </tr>
               </tbody>
@@ -130,7 +130,7 @@
                 <tr>
                   <td>total price :</td>
                   <td>
-                    <h2>{{ cartTotal * curr.curr | currency(curr.symbol) }}</h2>
+                    <h2 class="text-center pl-4">&nbsp; {{ cartTotal }}</h2>
                   </td>
                 </tr>
               </tfoot>

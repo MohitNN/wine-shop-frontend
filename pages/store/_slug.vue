@@ -7,7 +7,7 @@
           <div class="col-lg-3">
             <sidebar @allFilters="allfilter" />
           </div>
-          <div class="col-lg-9 collection-content" style="padding:0!important;">
+          <div class="col-lg-9 collection-content" style="padding: 0 !important;">
             <div v-swiper:mySwiper="swiperOption">
               <div class="row" v-if="productData.data && productData.data.length">
                 <div

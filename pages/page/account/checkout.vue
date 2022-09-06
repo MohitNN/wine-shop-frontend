@@ -227,7 +227,7 @@
                         <div class="title-box">
                           <div>
                             Product
-                            <span class="ml-2 text-center text-sm-left">Total</span>
+                            <span class="ml-2 text-center text-sm-left">&nbsp; Price </span>
                             <span class="text-center pl-5 ">Quantity</span>
                           </div>
                         </div>
@@ -316,10 +316,6 @@
                           <li>
                             Bank Account No :-
                             <span class="text-primary"> {{getPayment.acc_no}} </span>
-                          </li>
-                          <li>
-                            IFSC :-
-                            <span class="text-primary"> PYTM0123456 </span>
                           </li>
                           <li>
                             <ValidationProvider

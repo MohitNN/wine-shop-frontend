@@ -1,7 +1,7 @@
 <template>
 <div>
     <footer>
-        <section class="section-b-space darken-layout">
+        <section class="darken-layout">
             <div class="container">
                 <div class="row footer-theme partition-f">
                     <div class="col-lg-4 col-md-6">
@@ -70,7 +70,7 @@
                                     <li><i class="fa fa-phone"></i>Call Us: +60 109488352</li>
                                     <li>
                                         <i class="fa fa-envelope-o"></i>Email Us:
-                                        <a href="#">Langkawiliquor@gamil.com</a>
+                                        <a href="#">Langkawiliquor@gmail.com</a>
                                     </li>
                                 </ul>
                             </div>

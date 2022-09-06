@@ -31,13 +31,9 @@
                                                         pulau langkawi, <br>
                                                         Kedah , Malaysia <br>
 
-                                                        <div id="business-hour-0">
-                                                            <div class="dropdown" data-toggle="0"><span class="dropdown-toggle"><span style="color: green; font-weight: bold;">Open</span></span>
-                                                                <ul class="dropdown-menu">
-                                                                    <li><a>Open for 24 hours</a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
+                                                        <b-dropdown size="sm" id="ddown1" text="Open" class="m-md-2 active" ref="dropdownRef">
+                                                            <b-dropdown-item>Open for 24 hours</b-dropdown-item>
+                                                        </b-dropdown> 
                                                     </address>
                                                 </div>
                                             </div>

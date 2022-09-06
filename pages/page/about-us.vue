@@ -2,7 +2,7 @@
   <div>
     <Breadcrumbs title="About" />
     <!-- about section start -->
-    <section class="about-page section-b-space" style="padding-top:0px">
+    <section class="about-page section-b-space">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">

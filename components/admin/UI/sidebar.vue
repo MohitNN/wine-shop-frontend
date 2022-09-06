@@ -9,7 +9,7 @@
         </div>
         <div class="sidebar custom-scrollbar">
             <ul class="sidebar-menu" id="myDIV">
-                <li @click="toggle_sidebar" v-for="(menuItem, index) in menuItem" :key="index" :class="{ active: menuItem.active }">
+                <li  v-for="(menuItem, index) in menuItem" :key="index" :class="{ active: menuItem.active }">
                     <!-- Sub -->
                     <nuxt-link :to="`${menuItem.path}`" style="cursor:pointer;" class="sidebar-header" v-if="menuItem.type == 'sub'" @click="setNavActive(menuItem, index)">
                         <feather :type="menuItem.icon"> </feather>

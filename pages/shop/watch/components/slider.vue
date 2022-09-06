@@ -8,7 +8,7 @@
               <div
                 class="home text-left"
                 :class="item.alignclass"
-                v-bind:style="{ 'background-image': 'url(' + getUrl(item.image) + ')' , 'background-size' : '100% ' }"
+                v-bind:style="{ 'background-image': 'url(' + getUrl(item.image) + ')' , 'background-size' : '100% 100%' }"
               >
                 <div class="container">
                   <div class="row">
