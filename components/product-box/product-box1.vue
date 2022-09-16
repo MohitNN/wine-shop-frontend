@@ -17,26 +17,13 @@
                 </a>
             </li>
         </ul>
-        <div class="cart-info cart-wrap" style="position: absolute; top: -9px;">
-            <a href="javascript:void(0)" title="Wishlist">
-                <i class="ti-heart" aria-hidden="true" @click="addToWishlist(product)"></i>
+       <div class="cart-box " v-if="product.quantity != 0">
+            <button data-toggle="modal" data-target="#addtocart" title="Add to cart" @click="addToCart(product)">
+                <i class="ti-shopping-cart"></i>
+            </button>
+            <a href="javascript:void(0)" title="Quick View" @click="showQuickview(product)" v-b-modal.modal-lg variant="primary">
+                <i class="ti-search" aria-hidden="true"></i>
             </a>
-            <button
-            data-toggle="modal"
-            data-target="#addtocart"
-            title="Add to cart"
-            @click="addToCart(product)"
-            v-b-modal.modal-cart
-            variant="primary"
-          >
-            <i class="ti-shopping-cart"></i>
-          </button>
-            <a href="javascript:void(0)" title="Quick View" class="d-none" @click="showQuickview(product)" v-b-modal.modal-lg variant="primary">
-          <i class="ti-search" aria-hidden="true"></i>
-        </a>
-        <a href="javascript:void(0)" title="Comapre" class="d-none" @click="addToCompare(product)" v-b-modal.modal-compare variant="primary">
-          <i class="ti-reload" aria-hidden="true"></i>
-        </a>
         </div>
     </div>
 </div>

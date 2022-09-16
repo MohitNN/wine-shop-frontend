@@ -19,7 +19,7 @@
                                                 <img :src="getImageUrl(item.product_images[0].image)" class="img-fluid bg-img img-blow" alt />
                                             </div>
                                             <h4>{{item.product_name}}</h4>
-                                            <div v-html="item.description">
+                                            <div class="p-4" v-html="item.description">
                                             </div>
                                             <a href="javascript:void(0)" @click="redirectPage(item.id)" class="btn btn-outline">view more</a>
                                         </div>

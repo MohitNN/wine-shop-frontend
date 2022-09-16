@@ -79,7 +79,6 @@ export default {
                 if (this.productData.product_images && this.productData.product_images.length) {
                     this.productData.product_images.forEach((item) => {
                         if (item.image) {
-                            console.log('item.image', item.image)
                             this.imageSrc = item.image
                             return false
                         }
@@ -111,6 +110,7 @@ export default {
         },
         // add to cart
         addToCart: function (product) {
+            product.max_quantity = product.quantity
             product.quantity = 1;
             this.cartval = true;
             this.cartProduct = product;

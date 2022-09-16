@@ -18,9 +18,8 @@
     <b-alert :show="dismissCountDown" variant="success" @dismissed="dismissCountDown=0" @dismiss-count-down="alert">
         <p>Product Is successfully added to your wishlist.</p>
     </b-alert>
-    <quickviewModel :openModal="showquickviewmodel" :productData="quickviewproduct" />
-    <!-- <compareModel :openCompare="showcomparemodal" :productData="comapreproduct" @closeCompare="closeCompareModal" /> -->
-    <cartModel :openCart="showcartmodal" :productData="cartproduct" @closeCart="closeCartModal" :products="products" />
+    <!-- <quickviewModel :openModal="showquickviewmodel" :productData="quickviewproduct" />
+    <cartModel :openCart="showcartmodal" :productData="cartproduct" @closeCart="closeCartModal" :products="products" /> -->
 </div>
 </template>
 
@@ -95,6 +94,7 @@ export default {
         },
         showCart(item, productData) {
             this.showcartmodal = item
+            // productData.max_quantity = productData.quantity
             this.cartproduct = productData
         },
         closeCartModal(item) {

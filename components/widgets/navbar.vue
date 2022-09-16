@@ -45,11 +45,11 @@
             </ul>
           </li>
           <li v-for="(menuItem, index) in categories.slice(0, 4)" :key="index" :class="categories.length ? 'mega-menu' : 'dropdown'">
-            <a  style="cursor: pointer;" href="javascript:void(0)" class="nav-link" @click="setActive(menuItem.name) ">
+            <a  style="cursor: pointer;" href="javascript:void(0)" class="nav-link" @click="setActive(menuItem.name)">
               {{menuItem.name}}
-              <span class="sub-arrow" v-if="menuItem.types"></span>
+              <span class="sub-arrow" v-if="menuItem.types && menuItem.types.length"></span>
             </a>
-            <ul class="nav-submenu" :class="{ opensubmenu: isActive(menuItem.name) }" v-if="menuItem.types" v-show="openmobilenav" >
+            <ul v-if="menuItem.types && menuItem.types.length" class="nav-submenu" :class="{ opensubmenu: isActive(menuItem.name) }" v-show="openmobilenav" >
               <li v-for="(childrenItem, index) in menuItem.types" :key="index">
                 <a href="javascript:void(0)" style="cursor: pointer;" @click="setActiveChilds(childrenItem.type_name)" v-if="childrenItem.subcategories">
                   {{childrenItem.type_name}}
@@ -67,7 +67,7 @@
                 </ul>
               </li>
             </ul>
-            <div class="mega-menu-container" :class="{ opensubmenu: isActive('portfolio') }" v-if="menuItem.types">
+            <div class="mega-menu-container" :class="{ opensubmenu: isActive('portfolio') }" v-if="menuItem.types && menuItem.types.length">
               <div class="container">
                 <div class="row">
                   <div class="col mega-box"  v-for="(childrenItem, index) in menuItem.types" :key="index">
@@ -114,7 +114,7 @@
           <li class="dropdown" v-if="!openmobilenav">
             <a  style="cursor: pointer;" href="javascript:void(0)" class="nav-link" >
               Other
-              <span class="sub-arrow" v-if="category && categories.length"></span>
+              <span class="sub-arrow" v-if="categories.length"></span>
             </a>
             <ul class="nav-submenu"  v-if="categories.length">
               <li v-for="(childrenItem, index) in categories.slice(4)" :key="index">
@@ -171,7 +171,6 @@ export default {
       return this.activeChildItem === menuChildItem;
     },
     setActiveChilds: function (menuChildItem) {
-      console.log(menuChildItem);
       if (this.activeChildItem === menuChildItem) {
         this.activeChildItem = "";
       } else {
@@ -179,7 +178,6 @@ export default {
       }
     },
     setActiveChild: function (menuChildItem) {
-      console.log(menuChildItem);
       if (this.activeChildItem === menuChildItem) {
         this.activeChildItem = "";
       } else {

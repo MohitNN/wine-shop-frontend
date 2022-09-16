@@ -148,10 +148,8 @@ export default {
 
         },
         getCategoryTotype(data) {
-            // console.log()
             this.getTypeFormCategory(data);
             this.this.SubCategoryData.type_id = null
-            // this.SubCategoryData.type_id = null;
         },
     }
 };

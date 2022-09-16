@@ -45,7 +45,6 @@ export default {
             return this.activeChildItem === menuChildItem;
         },
         setActiveChild: function (menuChildItem) {
-            console.log(menuChildItem);
             if (this.activeChildItem === menuChildItem) {
                 this.activeChildItem = "";
             } else {

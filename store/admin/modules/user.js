@@ -21,8 +21,8 @@ const actions = {
             })
             .catch(error => {
                 console.log('error', error);
-            })
-    }
+         })
+    },
 }
 const mutations = {
     getUsers(state, payload) {

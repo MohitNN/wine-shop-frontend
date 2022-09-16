@@ -10,9 +10,7 @@ const state = {
   userList:{},
 };
 const getters = {
-  userList: (state) => {
-    return state.user;
-},
+ 
 };
 const actions = {
   async login({ commit , dispatch}, data) {
@@ -57,7 +55,7 @@ const actions = {
       commit("SET_USER_LIST" , resp.data.data)
     }
     return resp;
-  } ,
+  },
   async  changePassword({ dispatch }, data) {
     const resp = await axios.post("/api/changepassword",data);
     if(resp.data.status) {

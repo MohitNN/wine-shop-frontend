@@ -1,202 +1,117 @@
 <template>
-  <div>
+<div>
+    <div>
     <Breadcrumbs title="Contact Us" />
     <!-- about section start -->
     <section class="about-page section-b-space" style="padding-top:0px">
-      <div class="container">
-         <div class="row">
-          <div class="col-sm-12">
-            <ValidationObserver v-slot="{ invalid }">
-            <form  @submit.prevent="onSubmit">
-              <div v-if="errors.length">
-                  <ul class="validation-error mb-3">
-                    <li v-for="(error, index) in errors" :key="index">{{ error }}</li>
-                  </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mt-5">
+                    <div class="d-lg-flex align-items-baseline mb-3">
+                        <h3>Email Us: </h3>
+                        <h4 class="mt-0 mb-0 ml-3"><a href="#">Langkawiliquor@Gmail.Com</a></h4>
+                    </div>
+                    <div class="d-lg-flex align-items-center">
+                        <h3>Call Us:</h3>
+                        <h4 class="mt-0 mb-0 ml-3">
+                            <li><i class="fa fa-phone"></i>+60 109488352</li>
+                        </h4>
+                    </div>
                 </div>
-              <div class="form-row">
-                <div class="col-md-6">
-                  <label>First Name</label>
-                  <ValidationProvider
-                          rules="required"
-                          v-slot="{ errors }"
-                          name="First name"
-                        >
-                          <input
-                           class="form-control"
-                            type="text"
-                            placeholder="First Name"
-                            v-model="fname"
-                            name="First name"
-                          />
-                          <span class="validate-error">{{ errors[0] }}</span>
-                        </ValidationProvider>
-                </div>
-                <div class="col-md-6">
-                  <label for="lname">Last Name</label>
-                  <ValidationProvider
-                          rules="required"
-                          v-slot="{ errors }"
-                          name="Last name"
-                        >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="lname"
-                      v-model="lname"
-                      placeholder="Last Name"
-                      name="Last name"
-                    />
-                    <span class="validate-error">{{ errors[0] }}</span>
-                  </ValidationProvider>
-                </div>
-                <div class="col-md-6">
-                  <label for="phone">Phone number</label>
-                   <ValidationProvider
-                          rules="required"
-                          v-slot="{ errors }"
-                          name="phone no"
-                        >
-                  <input
-                    type="tel"
-                    class="form-control"
-                    id="phone"
-                    v-model="phone"
-                    placeholder="Enter your number"
-                    name="phone no"
-                    
-                  />
-                  <span class="validate-error">{{ errors[0] }}</span>
-                  </ValidationProvider>
-                </div>
-                <div class="col-md-6">
-                  <label for="email">Email</label>
-                   <ValidationProvider
-                          rules="required"
-                          v-slot="{ errors }"
-                          name="email"
-                        >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="email"
-                    v-model="email"
-                    placeholder="Email"
-                    name="email"                    
-                  />
-                  <span class="validate-error">{{ errors[0] }}</span>
-                  </ValidationProvider>
-                </div>
-                <div class="col-md-12">
-                  <label for="message">Write Your Message</label>
-                  <ValidationProvider
-                          rules="required"
-                          v-slot="{ errors }"
-                          name="message"
-                        >
-                  <textarea
-                    class="form-control"
-                    placeholder="Write Your Message"
-                    id="message"
-                    v-model="message"
-                    name="message"
-                    rows="6"
-                  ></textarea>  
-                  <span class="validate-error">{{ errors[0] }}</span>
-                  </ValidationProvider>               
-                </div>
-                <div class="col-md-12 mt-2">
-                  <button
-                            type="submit"
-                            class="btn-solid btn"
-                            :disabled="invalid"
-                          >
-                            Send Your Message
-                 </button>
-                </div>
-              </div>
-            </form>
-            </ValidationObserver>
-          </div>
+            </div>
         </div>
-      </div>
+        <Location class="mt-5 mb-5" />
     </section>
+    <SocialChat icon :attendants="attendants">
+        <p slot="header">Click on one of our attendants below to chat on WhatsApp.</p>
+        <template v-if="user.isAuthenticated == false || user.user.role == 'user'" v-slot:button>
+            <img src="https://res.cloudinary.com/dgsljij3o/image/upload/v1656417854/whatsapp-icon-seeklogo.com_elquwo.svg" alt="icon whatsapp" aria-hidden="true" class="wp w-31 h-31">
+        </template>
+        <small slot="footer">Opening hours: 8am to 6pm</small>
+    </SocialChat>
+</div>
+<div>
     <Footer />
-  </div>
+</div>
+</div>
 </template>
-<script>
 
+<script>
 import {
-  ValidationProvider,
-  ValidationObserver,
-} from "vee-validate/dist/vee-validate.full.esm";
-import Header from '../../components/header/header1'
+    SocialChat
+} from 'vue-social-chat'
+import Location from '../page/location.vue'
 import Footer from '../../components/footer/footer1'
 import Breadcrumbs from '../../components/widgets/breadcrumbs'
-import {  mapActions } from "vuex";
+import {
+    mapActions,
+    mapState
+} from "vuex";
+import WP from "@/assets/images/whatsapp.png";
 export default {
-  components: {
-    Header,
-    Footer,
-    Breadcrumbs,
-    ValidationProvider,
-    ValidationObserver
-  },  
-  data() {
-    return {
-      errors: [],
-      fname: null,
-      lname: null,
-      email: null,
-      phone: null,
-      message: null
-    }
-  },
-  methods: {
-     ...mapActions("layout", ["SaveContact"]),
-    ...mapActions("gloable", ["setLoading"]),
-    checkForm: function (e) {
-      this.errors = []
-      if (!this.fname) {
-        this.errors.push('First name required.')
-      }
-      if (!this.lname) {
-        this.errors.push('Last name required.')
-      }
-      if (!this.email) {
-        this.errors.push('Email required.')
-      } else if (!this.validEmail(this.email)) {
-        this.errors.push('Valid email required.')
-      }
-      if (!this.phone) {
-        this.errors.push('Phone Number required.')
-      }
-      if (!this.message) {
-        this.errors.push('Message required.')
-      }
-      if (!this.errors.length) return true
-      e.preventDefault()
+    components: {
+        Footer,
+        Breadcrumbs,
+        SocialChat,
+        Location
     },
-    validEmail: function (email) {
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      return re.test(email)
+    data() {
+        return {
+            attendants: [{
+                    app: 'whatsapp',
+                    label: 'Support',
+                    name: 'Langkawi liquor',
+                    number: '60109488352',
+                    avatar: {
+                        src: 'https://avatars0.githubusercontent.com/u/8084606?s=460&u=20b6499a416cf7129a18e5c168cf387e159edb1a&v=4',
+                        alt: 'Alan Ktquez avatar'
+                    }
+                },
+                // ...
+            ],
+            errors: [],
+            fname: null,
+            lname: null,
+            email: null,
+            phone: null,
+            message: null,
+            wpImage: WP,
+        }
     },
-    onSubmit() {
-      this.setLoading(true);
-      var formData = new FormData();
-      formData.append("firstname", this.fname);
-      formData.append("lastname", this.lname);
-      formData.append("email", this.email);
-      formData.append("phone_no", this.phone);
-      formData.append("message", this.message);
-       this.SaveContact(formData).then((resp) => {
-            if (resp.data.status) {
-              this.setLoading(false);
-              this.$toast.success("Request Send Successfully..!");
-              this.$router.push({path:"/"});
-            }
-          })
-        .catch((error) => {});
-    }
-  }
+    computed: {
+        ...mapState('admin_adminauth', ['user'])
+    },
 }
 </script>
+
+<style>
+.wp {
+    width: 44px;
+    height: 44px;
+    display: block;
+    position: fixed;
+    bottom: 29px;
+    right: 27px;
+    z-index: 9999999;
+}
+
+section {
+    position: relative;
+}
+
+@media only screen and (max-width: 600px) {
+    .wp {
+        width: 44px;
+        height: 44px;
+        display: block;
+        position: fixed;
+        bottom: 29px;
+        right: 27px;
+        z-index: 9999999;
+    }
+    .vsc-popup{
+        bottom: 65px !important;
+
+    }
+}
+</style>

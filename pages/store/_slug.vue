@@ -178,8 +178,6 @@ export default {
       this.showcomparemodal = item;
     },
     showCart(item, productData) {
-      console.log("item", item);
-      console.log("productData", productData);
       this.showcartmodal = item;
       this.cartproduct = productData;
     },

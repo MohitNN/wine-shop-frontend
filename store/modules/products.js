@@ -191,7 +191,6 @@ const actions = {
     var url = "/api/index-product-data";
     const resp = await axios.get(url, data);
     if (resp.data.status) {
-      console.log(resp.data.data.discountProduct)
       commit("SET_PRODUCT_indexList", resp.data.data.latestProduct);
       commit("SET_TOP_DISCOUNT", resp.data.data.discountProduct);
       commit("SET_TRANDING_PRODUCT",resp.data.data.trandingProduct)

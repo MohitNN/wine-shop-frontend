@@ -67,11 +67,9 @@ const actions = {
 const mutations = {
     setCategoryValue: (state, items) => {
         state.SubCategory = items;
-        console.log(items)
     },
     setSubCategoryValue: (state, items) => {
         state.SubCategoryDetail = items;
-        console.log(items)
     },
 
 }

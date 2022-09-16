@@ -88,20 +88,20 @@ export default {
     alert(item) {
       this.dismissCountDown = item
     },
-    showCartModal(item, productData) {
-      this.showCart = item
-      this.$emit('openCart', this.showCart)
-    },
+    // showCartModal(item, productData) {
+    //   this.showCart = item
+    //   this.$emit('openCart', this.showCart)
+    // },
     showquickview(item, productData) {
       this.showquickviewmodel = item
       this.quickviewproduct = productData
       this.$emit('openQuickview', this.showquickviewmodel, this.quickviewproduct)
     },
-    showcomparemodal(item, productData) {
-      this.showcomapreModal = item
-      this.comapreproduct = productData
-      this.$emit('openCompare', this.showcomapreModal, this.comapreproduct)
-    }
+    // showcomparemodal(item, productData) {
+    //   this.showcomapreModal = item
+    //   this.comapreproduct = productData
+    //   this.$emit('openCompare', this.showcomapreModal, this.comapreproduct)
+    // }
   }
 }
 </script>

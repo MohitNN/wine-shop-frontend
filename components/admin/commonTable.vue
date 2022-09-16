@@ -189,7 +189,6 @@ export default {
     },
     addRecord() {
       this.add = true;
-      console.log("items", this.items[0]);
       this.items.unshift({
         id: "",
         invoice: "",

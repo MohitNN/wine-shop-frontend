@@ -25,7 +25,6 @@ const mutations = {
     },
     setOrderDetailsValue: (state, items) => {
         state.orderDetails = items;
-        console.log(items)
     },
 }
 
@@ -50,7 +49,8 @@ const actions = {
          });         
     },
 
-    updateOrderStatus: (context,data) => {        
+    updateOrderStatus: (context,data) => {   
+        alert(JSON.stringify(data));     
         const URl = `${baseURL}api/admin/update-status`
         const resp = axios.post(URl , data);
         resp.then(response => {

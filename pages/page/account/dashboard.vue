@@ -7,7 +7,7 @@
         </b-modal>
     </div>
     <Breadcrumbs title="Dashboard" />
-    <section class="section-b-space" style="background-color:white;" v-if="user && user.user">
+    <section class="section-b-space" style="background-color:white;" v-if="getProfileUserDatas">
         <div class="container">
             <div class="row">
                 <b-card no-body v-bind:class="'dashboardtab'" style="box-shadow: none !important">
@@ -20,7 +20,7 @@
                                             <h2>My Dashboard</h2>
                                         </div>
                                         <div class="welcome-msg">
-                                            <p>Hello, {{ user.user.name }} !</p>
+                                            <p>Hello, {{ getProfileUserDatas.name }} !</p>
                                             <p>
                                                 From your My Account Dashboard you have the ability to
                                                 view a snapshot of your recent account activity and
@@ -40,14 +40,13 @@
                                                             <a href="javascript:void(0)" v-b-modal.modal-prevent-closing>Edit</a>
                                                         </div>
                                                         <div class="box-content">
-                                                            <h6>{{ user.user.name }}</h6>
-                                                            <h6>{{ user.user.email }}</h6>
-                                                            <!-- <h6><a role="button" @click="openChangePassword()">Change Password</a></h6> -->
+                                                            <h6>{{getProfileUserDatas.name}}</h6>
+                                                            <h6>{{getProfileUserDatas.email}}</h6>
                                                         </div>
-                                                        <b-modal id="modal-prevent-closing" ref="modal" title="Submit Your Name" @show="resetModal" @hidden="resetModal" @ok="handleOk">
+                                                        <b-modal id="modal-prevent-closing" ref="modal" title="Submit Your Name" @show="resetModal" @hidden="resetModal" @ok="handleOk(userData.name)">
                                                             <form ref="form" @submit.stop.prevent="handleSubmit">
                                                                 <b-form-group label="Name" label-for="name-input" invalid-feedback="Name is required" :state="nameState">
-                                                                    <b-form-input id="name-input" v-model="name" :state="nameState" placeholder="Name" required></b-form-input>
+                                                                    <b-form-input id="name-input" v-model="userData.name" :state="name" placeholder="Name" required></b-form-input>
                                                                 </b-form-group>
                                                             </form>
                                                         </b-modal>
@@ -141,7 +140,7 @@
                                     <div class="dashboard">
                                         <div class="page-title" style="height: 41px;">
                                             <h2 class="d-inline">Address</h2>
-                                            <buttion class="btn btn-dark float-right" v-b-modal.modal-prevent-address @click="clearAddressVal()">ADD</buttion>
+                                            <button class="btn btn-dark float-right" v-b-modal.modal-prevent-address @click="clearAddressVal()">ADD</button>
                                         </div>
                                         <div v-if="saveAddress.length === 0" class="box-account box-info border-dark border p-2 mt-1 text-center">
                                           <h5>No Address Found</h5>
@@ -196,7 +195,6 @@
 </template>
 
 <script>
-import Header from "../../../components/header/header1";
 import Footer from "../../../components/footer/footer1";
 import Breadcrumbs from "../../../components/widgets/breadcrumbs";
 import orderdetails from "../../../components/widgets/orderdetails";
@@ -205,7 +203,6 @@ import {
     ValidationObserver,
 } from "vee-validate/dist/vee-validate.full.esm";
 import {
-    mapState,
     mapGetters,
     mapActions
 } from "vuex";
@@ -220,7 +217,11 @@ export default {
                 newpassword: "",
                 confirmpassword: "",
             },
-            name: "",
+            userData:{
+                name: "",
+                email:'',
+            },
+            name:'',
             nameState: null,
             submittedNames: [],
             changePasswordTab: false,
@@ -233,7 +234,6 @@ export default {
         };
     },
     components: {
-        Header,
         Footer,
         Breadcrumbs,
         orderdetails,
@@ -242,20 +242,27 @@ export default {
     },
     mounted() {
         this.getUserAddress()
+        this.getUserProfile()
+        this.userData.email = this.getProfileUserDatas.email
+        this.userData.name = this.getProfileUserDatas.name
     },
     computed: {
-        ...mapState("admin_adminauth", ["user"]),
         ...mapGetters({
-            saveAddress: "saveAddress/getSaveAddress"
+            userList: "saveAddress/userList",
+            saveAddress: "saveAddress/getSaveAddress",
+            getProfileUserDatas: "editProfile/getProfileUserData"
         })
     },
     methods: {
         ...mapActions("order", ["getOrderList"]),
+        ...mapActions("editProfile", ["getUserProfile"]),
+        ...mapActions("editProfile", ["updateUserProfile"]),
         ...mapActions("admin_adminauth", ["changePassword"]),
         ...mapActions("saveAddress", ["userSaveAddress", "getUserAddress", "deteleAddress"]),
         openChangePassword() {
             console.log(this.$refs.changePass, "-------");
         },
+
         updatePassword() {
             if (this.password.newpassword == this.password.confirmpassword) {
                 this.changePassword(this.password)
@@ -286,8 +293,10 @@ export default {
             this.nameState = null;
         },
         handleOk(bvModalEvent) {
-            bvModalEvent.preventDefault();
-            this.handleSubmit();
+            this.userData.name = bvModalEvent
+            this.updateUserProfile(this.userData).then((resp) => {{
+                this.getProfileUserDatas.name = resp.data.data.name
+            }})
         },
         handleSubmit() {
             if (!this.checkFormValidity()) {

@@ -8,10 +8,7 @@
                         <div class="footer-title footer-mobile-title">
                             <h4>about</h4>
                         </div>
-                        <div class="footer-contant">
-                            <div class="footer-logo">
-                                <img :src="'_nuxt/assets/images/icon/LogoSIte.png'" height="75" style="height: 75px" class="img-fluid" alt />
-                            </div>
+                        <div class="footer-contant col-12 d-flex p-0 ">
                             <p>
                                 Welcome to Langkawi Liquor, order duty free liquor online and have it delivered to your doorstep anywhere in Langkawi!
                             </p>
@@ -46,11 +43,6 @@
                                     <li>
                                         <NuxtLink to="/page/contact-us">
                                             Contact Us
-                                        </NuxtLink>
-                                    </li>
-                                    <li>
-                                        <NuxtLink to="/page/location">
-                                            Location
                                         </NuxtLink>
                                     </li>
                                 </ul>
@@ -91,7 +83,6 @@ export default {
   name : "footer",
   computed:{
     ...mapState('menu',['categories']),
-    
   }
 };
 </script>

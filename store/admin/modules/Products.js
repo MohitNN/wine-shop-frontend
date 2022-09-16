@@ -18,14 +18,14 @@ const actions = {
   async saveProduct({ commit, dispatch }, data) {
     const resp = await axios.post("/api/admin/save-product", data);
     if (resp.data.status) {
-      //   dispatch("setCurrentUser",resp.data)
+        dispatch("getProducts",resp.data)
     }
     return resp;
   },
   async EditProduct({ commit, dispatch }, data) {
     const resp = await axios.post("/api/admin/edit-product", data);
     if (resp.data.status) {
-      //   dispatch("setCurrentUser",resp.data)
+        dispatch("getProducts",resp.data)
     }
     return resp;
   },

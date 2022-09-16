@@ -50,7 +50,6 @@ export default {
           image: this.image
         }
       ];
-      console.log(formData);
       this.$emit("formData", formData);
     }
   }

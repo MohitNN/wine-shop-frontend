@@ -240,7 +240,7 @@
                             <div class="col-4 p-0">{{ item.product_name | uppercase }}</div>
                             <div class="col-1 text-center">X</div>
                             <div class="col-2 text-center">{{ item.quantity }}</div>
-                            <span class="col-3 text-center ml-1">{{
+                            <span class="col-3 text-center ml-1">RM {{
                               (item.price * item.quantity)
                               
                             }}</span>
@@ -249,7 +249,7 @@
                         <ul class="sub-total">
                           <li>
                             Subtotal
-                            <span class="count pl-4">{{
+                            <span class="count pl-1">RM {{
                               (cartTotal)
                             }}</span>
                           </li>
@@ -257,20 +257,20 @@
                         <ul class="sub-total">
                           <li>
                             Total
-                            <span class="count pl-4">{{
+                            <span class="count pl-1">RM {{
                               (cartTotal)
                             }}</span>
                           </li>
                           <li v-if="promoData && promoData.promo_value">
-                            You have To save 
-                            <span class="count">{{
+                            Discount
+                            <span class="count">RM {{
                               promoData.promo_value
                             }}</span>
                           </li>
                           <hr/>
                           <li v-if="promoData && promoData.total">
                             Net Amount  
-                            <span class="count">{{
+                            <span class="count">RM {{
                               promoData.total
                             }}</span>
                           </li>
@@ -594,7 +594,7 @@ export default {
            this.btnLoading = false;
           });
       } else {
-        alert("Please Enter Valid Promocode");
+        alert("Promocode applied");
       }
     },
     removePromocode() {

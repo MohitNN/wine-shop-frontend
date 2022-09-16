@@ -9,7 +9,7 @@ const state = {
 
 const actions = {
     getAddress: (context) => {
-        const URl = `${baseURL}api/admin/get-store-location`
+        const URl = `${baseURL}api/get-store-location`
         const resp = axios.get(URl);
         resp.then(response => {
             if (response.data.status) {
@@ -64,7 +64,9 @@ const mutations = {
 }
 
 const getters = {
-    
+    getAddressDatas: (state) => {
+        return state.getAddress;
+    },
 }
 
 export default {

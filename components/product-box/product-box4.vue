@@ -15,20 +15,16 @@
                 <img :src='getImgUrl(product.product_images[0].image)' :id="product.id" class="img-fluid bg-img" :alt="product.name" v-if="product.product_images && product.product_images.length" :key="index" />
             </nuxt-link>
         </div>
-        <div class="cart-box">
+        <div class="cart-box " v-if="product.quantity != 0">
             <button data-toggle="modal" data-target="#addtocart" title="Add to cart" @click="addToCart(product)">
                 <i class="ti-shopping-cart"></i>
             </button>
-            <!-- <a href="javascript:void(0)" title="Wishlist">
-                <i class="ti-heart" aria-hidden="true" @click="addToWishlist(product)"></i>
-            </a> -->
             <a href="javascript:void(0)" title="Quick View" @click="showQuickview(product)" v-b-modal.modal-lg variant="primary">
                 <i class="ti-search" aria-hidden="true"></i>
             </a>
         </div>
     </div>
     <div class="product-detail text-center">
-
         <nuxt-link :to="{ path: '/product/'+product.id}">
             <h6>{{ product.product_name }}</h6>
         </nuxt-link>
@@ -84,6 +80,7 @@ export default {
         addToCart: function (product) {
             this.cartval = true
             this.cartProduct = product
+            product.max_quantity = product.quantity
             this.cartProduct.quantity = 1;
             this.$emit('opencartmodel', this.cartval)
             this.$store.dispatch('cart/addToCart', this.cartProduct)

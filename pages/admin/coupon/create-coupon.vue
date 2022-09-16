@@ -17,7 +17,7 @@
                                                 <ValidationProvider rules="required" v-slot="{ errors }" name="name">
                                                     <div class="form-group row">
                                                         <label for="validationCustom0" class="col-xl-3 col-md-4">Coupon Title : </label>
-                                                        <input v-model="coupon.coupon_name" class="form-control col-md-7" placeholder="Coupaon name" name="name" id="validationCustom0" type="text" required="" />
+                                                        <input v-model="coupon.coupon_name" class="form-control col-md-7" placeholder="Coupon name" name="name" id="validationCustom0" type="text" required="" />
                                                     </div>
                                                     <div class="form-group mb-3 row">
                                                     <label for="validationCustom01" class="col-xl-3 col-sm-4 mb-0"></label>

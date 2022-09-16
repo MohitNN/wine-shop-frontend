@@ -79,13 +79,7 @@
                                                 <label class="col-xl-3 col-sm-4 mb-0">Total Products :</label>
                                                 <fieldset class="qty-box col-xl-9 col-xl-8 col-sm-7 pl-0 qty-responsive">
                                                     <div class="input-group flex-nowrap">
-                                                        <b-input-group-prepend>
-                                                            <b-btn variant="primary" @click="decrement">-</b-btn>
-                                                        </b-input-group-prepend>
                                                         <b-input type="text" name="quantity" class="form-control input-number" v-model="products.quantity" />
-                                                        <b-input-group-append>
-                                                            <b-btn variant="primary" @click="products.quantity++">+</b-btn>
-                                                        </b-input-group-append>
                                                     </div>
                                                 </fieldset>
                                             </div>
@@ -184,7 +178,7 @@ export default {
                 price: 0,
                 fake_price: 0,
                 discount: 0,
-                onsell: true,
+                onsell: false,
                 id: null,
                 description:""
             },
@@ -206,6 +200,8 @@ export default {
                 .then((resp) => {
                     if (resp.data.status) {
                         this.products = resp.data.data;
+                        var response = resp.data.data;
+                        this.products.onsell = response.onsell == 1 || response.onsell == '1' ? true : false;
                     }
                 })
                 .catch((error) => {});
@@ -229,7 +225,7 @@ export default {
             formData.append("price", this.products.price);
             formData.append("fake_price", this.products.fake_price);
             formData.append("discount", this.products.discount);
-            formData.append("onsell", this.products.onsell ? true : false);
+            formData.append("onsell", this.products.onsell);
             this.imageFile.forEach((element, index) => {
                 formData.append(`image[${index}]`, element);
             });

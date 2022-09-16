@@ -46,7 +46,7 @@
 
                                         <div class="product-description border-product">
                                             <h5 class="avalibility">
-                                                <span>In Stock</span>
+                                                <span>{{productDetail.quantity == 0 ? 'Out of stock' : 'In Stock'}}</span>
                                             </h5>
                                             <h6 class="product-title">quantity</h6>
                                             <div class="qty-box mb-3">
@@ -58,7 +58,7 @@
                                                     </span>
                                                     <input type="text" name="quantity" class="form-control input-number" v-model="counter" />
                                                     <span class="input-group-prepend">
-                                                        <button type="button" class="btn quantity-right-plus" data-type="plus" data-field @click="increment()">
+                                                        <button type="button" class="btn quantity-right-plus" :disabled="counter >= productDetail.quantity" data-type="plus" data-field @click="increment()">
                                                             <i class="ti-angle-right"></i>
                                                         </button>
                                                     </span>
@@ -66,10 +66,10 @@
                                             </div>
                                         </div>
                                         <div class="product-buttons mt-3">
-                                            <button class="btn btn-solid" title="Add to cart" @click="addToCart(productDetail, counter)" :disabled="counter > productDetail.stock">
+                                            <button class="btn btn-solid" title="Add to cart" @click="addToCart(productDetail, counter)" :disabled="counter > productDetail.quantity || counter == 0">
                                                 Add To Cart
                                             </button>
-                                            <button class="btn btn-solid" title="buy now" @click="buyNow(productDetail, counter)" :disabled="counter > productDetail.stock">
+                                            <button class="btn btn-solid" title="buy now" @click="buyNow(productDetail, counter)" :disabled="counter > productDetail.quantity || counter == 0">
                                                 Buy Now
                                             </button>
                                             <section class="tab-product m-0">
@@ -195,11 +195,12 @@ export default {
         },
         // add to cart
         addToCart: function (product, qty) {
-            product.quantity = qty || 1;
             // this.$store.dispatch('cart/addToCart', product)
 
             this.cartval = true;
             this.cartProduct = product;
+            product.max_quantity = product.quantity
+            product.quantity = qty || 1;
             this.$store.dispatch("cart/addToCart", product);
             this.$toast.success("Item has been added to cart");
         },
@@ -210,7 +211,7 @@ export default {
         },
         // Item Count
         increment() {
-            if (this.counter < 10) {
+            if (this.counter < 500) {
                 this.counter++;
             }
         },

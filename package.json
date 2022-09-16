@@ -44,6 +44,7 @@
     "vue-select": "^3.18.3",
     "vue-server-renderer": "^2.6.14",
     "vue-slider-component": "3.2.12",
+    "vue-social-chat": "^0.1.6",
     "vue-sweetalert2": "^5.0.5",
     "vue-template-compiler": "^2.6.11",
     "vue-toastification": "^1.7.14",

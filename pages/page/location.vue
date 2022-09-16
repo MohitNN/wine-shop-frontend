@@ -1,8 +1,7 @@
 <template>
 <div>
-    <Breadcrumbs title="Location" />
     <!-- about section start -->
-    <section class="about-page section-b-space" style="padding-top:0px">
+    <section class="about-page section-b-space" style="padding-top: 0px">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -17,23 +16,14 @@
                             <div class="col-md-12 mt-4">
                                 <div class="store-locator-section no-watermark">
                                     <div class="store-locator-grid">
-                                        <div class="store-locator-grid_item" data-province="Kedah">
+                                        <div class="store-locator-grid_item" v-for="(item, index) in getAddressDetails" :key="index" data-province="Kedah">
                                             <div class="store-selector-item">
                                                 <div class="location-detail">
-                                                    <strong>
-                                                        Liquid Village
-                                                    </strong>
-                                                    0176887858 <br>
+                                                    <strong> {{item.name}}</strong>
+                                                    {{item.phone}} <br />
                                                     <address>
-                                                        25a jalan kelibang, <br>
-
-                                                        langkawi mall 07000 <br>
-                                                        pulau langkawi, <br>
-                                                        Kedah , Malaysia <br>
-
-                                                        <b-dropdown size="sm" id="ddown1" text="Open" class="m-md-2 active" ref="dropdownRef">
-                                                            <b-dropdown-item>Open for 24 hours</b-dropdown-item>
-                                                        </b-dropdown> 
+                                                        {{item.address1}}<br />
+                                                        <b>state :</b>{{item.state}}
                                                     </address>
                                                 </div>
                                             </div>
@@ -52,16 +42,23 @@
 </template>
 
 <script>
-import Header from '../../components/header/header1'
-import Footer from '../../components/footer/footer1'
-import Breadcrumbs from '../../components/widgets/breadcrumbs'
+import Footer from "../../components/footer/footer1";
+import {
+    mapGetters,
+} from "vuex";
 export default {
     components: {
-        Header,
         Footer,
-        Breadcrumbs
     },
-}
+    created() {
+        this.$store.dispatch("storeAddress/getAddress");
+    },
+    computed: {
+        ...mapGetters({
+            getAddressDetails: "storeAddress/getAddressDatas",
+        }),
+    },
+};
 </script>
 
 <style scoped>
@@ -212,7 +209,7 @@ export default {
     text-decoration: none;
 }
 
-.location-detail .dropdown[data-toggle='1'] .dropdown-menu {
+.location-detail .dropdown[data-toggle="1"] .dropdown-menu {
     position: absolute;
     top: calc(100% + 5px);
     left: 0;

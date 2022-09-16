@@ -7,9 +7,6 @@
     <nuxt id="body-content" />
     <Footer v-if="!getrouter" />
     <layoutSetting />
-    <a v-if="user.isAuthenticated == false || user.user.role == 'user'" href="https://wa.me/qr/OKGWZQWTTA5VM1" target="_blank">
-      <img class="wp" :src="wpImage" height="75" width="75" alt="">
-    </a>
   </div>
 </template>
 
@@ -20,7 +17,6 @@ import { mapState } from "vuex";
 import config from '@/config.json'
 import Footer from "@/components/footer/footer4";
 import Loader from "@/assets/images/LoaderProcess.gif";
-import WP from "@/assets/images/whatsapp.png";
 import VueElementLoading from "vue-element-loading";
 export default {
   head() {
@@ -31,7 +27,6 @@ export default {
   data() {
     return {
       loaderImg: Loader,
-      wpImage: WP,
     };
   },
   components: {
@@ -52,7 +47,6 @@ export default {
       return string.includes(substring);
     },
     ...mapState('gloable',['isLoading']),
-    ...mapState('admin_adminauth',['user'])
   },
   mounted() {
     this.$nextTick(() => {
@@ -65,21 +59,5 @@ export default {
 <style scoped>
 .wp-img{
   position: relative;
-}
-.wp{
-    display: block;
-    position: fixed;
-    bottom: 70px;
-    right: 5px;
-    z-index: 9999999;
-}
-@media only screen and (max-width: 600px) {
-  .wp{
-    display: block;
-    position: fixed;
-    bottom: 70px;
-    right: 5px;
-    z-index: 9999999;
-  }
 }
 </style>
