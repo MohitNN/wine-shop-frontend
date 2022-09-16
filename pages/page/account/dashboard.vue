@@ -243,8 +243,6 @@ export default {
     mounted() {
         this.getUserAddress()
         this.getUserProfile()
-        this.userData.email = this.getProfileUserDatas.email
-        this.userData.name = this.getProfileUserDatas.name
     },
     computed: {
         ...mapGetters({
@@ -294,6 +292,7 @@ export default {
         },
         handleOk(bvModalEvent) {
             this.userData.name = bvModalEvent
+            this.userData.email = this.getProfileUserDatas.email 
             this.updateUserProfile(this.userData).then((resp) => {{
                 this.getProfileUserDatas.name = resp.data.data.name
             }})
